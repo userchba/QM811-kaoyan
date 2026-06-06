@@ -15,7 +15,7 @@
 		%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
 		%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
 		\item
-		对于一维谐振子 $H=\frac{p^2}{2 m}+\frac{1}{2} m \omega^2 x^2$ 有产生与湮灭算符, 分别为
+		对于一维谐振子 $H=\frac{\hat{p}^2}{2 m}+\frac{1}{2} m \omega^2 x^2$ 有产生与湮灭算符, 分别为
 		\[
 		a ^{\dagger}=\frac{-i p}{\sqrt{2 m \hbar \omega}}+\sqrt{\frac{m \omega}{2 \hbar}} x  \qquad a=\frac{i p}{\sqrt{2 m \hbar \omega}}+\sqrt{\frac{m \omega}{2 \hbar}} x 
 		\]
@@ -32,6 +32,20 @@
 	\end{enumerate}
 	
 	\banswer{
+	\begin{enumerate}
+		\item 我们有
+		\begin{align*}
+			[a, a ^{\dagger}]&=[\frac{i p}{\sqrt{2 m \hbar \omega}}+\sqrt{\frac{m \omega}{2 \hbar}} x, \frac{-i p}{\sqrt{2 m \hbar \omega}}+\sqrt{\frac{m \omega}{2 \hbar}} x]\\
+			&=[\frac{ip}{\sqrt{2m\hbar\omega}},\sqrt{\frac{m\omega}{2\hbar}}x]+[\sqrt{\frac{m\omega}{2\hbar}}x,\frac{-ip}{\sqrt{2m\hbar\omega}}]\\
+			&=\frac{1}{2}+\frac{1}{2}\\
+			&=1
+		\end{align*}
+		同理
+		\begin{align*}
+			[a^{\dagger}, a]&=-1
+		\end{align*}
+		
+	\end{enumerate}
 		
 	}
 	
@@ -56,6 +70,13 @@
 \end{enumerate}
 
 \banswer{
+	\begin{enumerate}
+		\item 坐标表示为
+		\begin{align*}
+			\hat{H}=-i\hbar\frac{\partial}{\partial x}\sigma_y+m(x)\sigma_z
+		\end{align*}
+		
+	\end{enumerate}
 	
 }
 
@@ -74,7 +95,7 @@
 	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
 	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
 	\item
-用 HF 定理证明 WN 定理$ \left\langle\frac{p^2}{2 m}\right\rangle=\frac{1}{2}\left\langle x \frac{\partial V_n}{\partial x}\right\rangle $；
+用 HF 定理证明 WN 定理$ \langle\frac{p^2}{2 m}\rangle=\frac{1}{2}\langle x \frac{\partial V}{\partial x}\rangle_n $;
 \item 
 用 WN 定理求谐振子 $\left\langle\frac{p^2}{2 m}\right\rangle$;
 \item 
@@ -86,7 +107,52 @@ H=-\frac{\hbar^2}{2 m} \frac{d^2}{d r^2}+\frac{\hbar^2}{2 m} \frac{l(l+1)}{r^2}-
 \end{enumerate}
 
 \banswer{
-	
+\begin{enumerate}
+	\item 
+我们知道哈密顿量$\hat{H}=\frac{\hat{p}^2}{2m}+V(\hat{x},t)=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+V(\hat{x},t)$,可以令$x=\lambda x$，所以得到$$\hat{H}=-\frac{1}{\lambda^2}\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+V(\lambda\hat{x},t)$$
+根据HF定理
+\begin{align*}
+\langle\frac{\partial H}{\partial\lambda}\rangle_n&=\frac{\partial E_n}{\partial\lambda}=0\\
+&=\langle-\frac{2}{\lambda^3}\frac{\hat{p}^2}{2m}+x\frac{dV(\lambda\hat{x},t)}{d(\lambda x)}\rangle_n
+\end{align*}
+所以我们可以得到
+\begin{align*}
+	\langle\frac{1}{\lambda^3}\frac{\hat{p}^2}{2m}\rangle_n=\frac{1}{2}\langle x\frac{dV(\lambda\hat{x},t)}{d(\lambda x)}\rangle_n
+\end{align*}
+将$\lambda=1$带入可得
+\begin{align*}
+	\langle\frac{p^2}{2 m}\rangle_n=\frac{1}{2}\langle x \frac{\partial V}{\partial x}\rangle_n
+\end{align*}
+	\item 
+对于谐振子，可以知道它的势能为$V(\hat{x})=\frac{1}{2}m\omega^2\hat{x}^2$，所以根据(1)中的结论可知
+\begin{align*}
+	\langle\frac{p^2}{2 m}\rangle_n&=\frac{1}{2}\langle x \frac{\partial V}{\partial x}\rangle_n\\
+									&=\frac{1}{2}\langle m\omega\hat{x}^2\rangle_n 
+\end{align*}
+而
+\begin{align*}
+	E=\langle\frac{p^2}{2 m}\rangle_n+\frac{1}{2}\langle m\omega\hat{x}^2\rangle_n=\hbar\omega(n+\frac{1}{2})
+\end{align*}
+所以我们可以得到
+\begin{align*}
+	E=\frac{1}{2}\hbar\omega(n+\frac{1}{2})
+\end{align*}
+	\item 
+根据HF定理，我们选择参数$\lambda=\epsilon_0$(这里选择$e$或者$\pi$都可以)，可以得到
+\begin{align*}
+	\frac{\partial E_n}{\partial \epsilon_0}=\frac{me^4}{16\pi^2\epsilon_0^3\hbar^2n^2}=\frac{e^2}{4\pi\epsilon_0^2}\langle nl|\frac{1}{r}|nl\rangle
+\end{align*}
+\begin{align*}
+	\langle nl|\frac{1}{r}|nl\rangle=\frac{me^2}{4\pi\epsilon_0\hbar^2n^2}
+\end{align*}
+对于$\langle\frac{1}{r^2} \rangle$,由于$n=j_0+l+1$,所以我们选取参数$\lambda=l$可以得到
+\begin{align*}
+	\frac{\partial E_n}{\partial l}=\frac{\partial E_n}{\partial n}=\frac{me^4}{16\pi^2\epsilon_0^2\hbar^2n^3}=\frac{\hbar^2(2l+1)}{2m}\langle\frac{1}{r^2} \rangle
+\end{align*}
+\begin{align*}
+	\langle\frac{1}{r^2}\rangle=\frac{m^2e^4}{8\pi^2\epsilon_0^2\hbar^4n^3(2l+1)}
+\end{align*}
+\end{enumerate}
 }
 
 

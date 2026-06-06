@@ -288,3 +288,6 @@ TSWLatexianTemp*
 *.pl
 *.perl
 *.txt
+
+# Agents memory file (local-only, not to be synced)
+AGENTS.md

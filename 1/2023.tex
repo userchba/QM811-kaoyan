@@ -45,6 +45,57 @@
 			[a^{\dagger}, a]&=-1
 		\end{align*}
 		
+		\item 由 $a u_0=0$ 且 $p=-i\hbar\frac{d}{dx}$，得
+		\begin{align*}
+			a u_0&=\left(\frac{i(-i\hbar)}{\sqrt{2m\hbar\omega}}\frac{d}{dx}+\sqrt{\frac{m\omega}{2\hbar}}x\right)u_0\\
+			&=\left(\frac{\hbar}{\sqrt{2m\hbar\omega}}\frac{d}{dx}+\sqrt{\frac{m\omega}{2\hbar}}x\right)u_0=0
+		\end{align*}
+		即
+		\begin{align*}
+			\frac{du_0}{dx}=-\frac{m\omega}{\hbar}x\,u_0
+		\end{align*}
+		解得 $u_0(x)=C\exp\!\left(-\frac{m\omega}{2\hbar}x^2\right)$。由归一化
+		\begin{align*}
+			\int_{-\infty}^{+\infty}|u_0|^2dx=C^2\sqrt{\frac{\pi\hbar}{m\omega}}=1
+		\end{align*}
+		得 $C=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}$，故
+		\begin{align*}
+			u_0(x)=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}\exp\!\left(-\frac{m\omega}{2\hbar}x^2\right)
+		\end{align*}
+		
+		\item 由 $x=\sqrt{\frac{\hbar}{2m\omega}}(a+a^{\dagger})$，$p=i\sqrt{\frac{m\hbar\omega}{2}}(a^{\dagger}-a)$，代入 $H$ 得
+		\begin{align*}
+			H&=\frac{p^2}{2m}+\frac{1}{2}m\omega^2x^2\\
+			&=\frac{\hbar\omega}{4}(a+a^{\dagger})^2-\frac{\hbar\omega}{4}(a^{\dagger}-a)^2\\
+			&=\frac{\hbar\omega}{2}(aa^{\dagger}+a^{\dagger}a)\\
+			&=\hbar\omega\left(a^{\dagger}a+\frac{1}{2}\right)
+		\end{align*}
+		令 $N=a^{\dagger}a$，则 $H=\hbar\omega(N+\frac{1}{2})$。利用 $[a,(a^{\dagger})^n]=n(a^{\dagger})^{n-1}$，有
+		\begin{align*}
+			N(a^{\dagger})^n|u_0\rangle&=a^{\dagger}a(a^{\dagger})^n|u_0\rangle=a^{\dagger}[(a^{\dagger})^na+n(a^{\dagger})^{n-1}]|u_0\rangle\\
+			&=n(a^{\dagger})^n|u_0\rangle
+		\end{align*}
+		（因为 $a|u_0\rangle=0$）。故
+		\begin{align*}
+			H(a^{\dagger})^n|u_0\rangle=\hbar\omega\left(n+\frac{1}{2}\right)(a^{\dagger})^n|u_0\rangle
+		\end{align*}
+		$(a^{\dagger})^n|u_0\rangle$ 的本征值为 $\hbar\omega(n+\frac{1}{2})$。归一化后 $|u_n\rangle=\frac{1}{\sqrt{n!}}(a^{\dagger})^n|u_0\rangle$，故 $u_n$ 的本征值为
+		\begin{align*}
+			E_n=\hbar\omega\left(n+\frac{1}{2}\right)
+		\end{align*}
+		
+		\item 由 $x=\sqrt{\frac{\hbar}{2m\omega}}(a+a^{\dagger})$，得
+		\begin{align*}
+			x^2=\frac{\hbar}{2m\omega}(a^2+aa^{\dagger}+a^{\dagger}a+a^{\dagger 2})
+		\end{align*}
+		由于 $a|u_n\rangle=\sqrt{n}|u_{n-1}\rangle$，$a^{\dagger}|u_n\rangle=\sqrt{n+1}|u_{n+1}\rangle$，交叉项矩阵元为零，且
+		\begin{align*}
+			\langle u_n|aa^{\dagger}|u_n\rangle=n+1,\quad \langle u_n|a^{\dagger}a|u_n\rangle=n
+		\end{align*}
+		故
+		\begin{align*}
+			\langle u_n|x^2|u_n\rangle=\frac{\hbar}{2m\omega}(2n+1)=\frac{\hbar}{m\omega}\left(n+\frac{1}{2}\right)
+		\end{align*}
 	\end{enumerate}
 		
 	}
@@ -76,6 +127,41 @@
 			\hat{H}=-i\hbar\frac{\partial}{\partial x}\sigma_y+m(x)\sigma_z
 		\end{align*}
 		
+		\item 当 $m(x)=m$ 时，对动量本征态 $\psi(x)=e^{ipx}\chi$，$\chi=\begin{pmatrix}\xi\\\eta\end{pmatrix}$ 满足 $(p\sigma_y+m\sigma_z)\chi=E\chi$，即
+		\begin{align*}
+			\begin{pmatrix} m & -ip \\ ip & -m \end{pmatrix}\begin{pmatrix}\xi\\\eta\end{pmatrix}=E\begin{pmatrix}\xi\\\eta\end{pmatrix}
+		\end{align*}
+		久期方程 $\det(H-EI)=E^2-(p^2+m^2)=0$，得 $E=\pm\sqrt{p^2+m^2}$。
+		
+		对 $E=+\sqrt{p^2+m^2}$，由第二行 $ip\xi=(E+m)\eta$，取 $\xi=E+m$，$\eta=ip$，归一化得
+		\begin{align*}
+			\chi_+=\frac{1}{\sqrt{2E(E+m)}}\begin{pmatrix}E+m\\ip\end{pmatrix}
+		\end{align*}
+		
+		对 $E=-\sqrt{p^2+m^2}$，由第一行 $(m-E)\xi=ip\eta$，取 $\xi=ip$，$\eta=m-E$，归一化得
+		\begin{align*}
+			\chi_-=\frac{1}{\sqrt{2|E|(|E|+m)}}\begin{pmatrix}ip\\|E|+m\end{pmatrix}
+		\end{align*}
+		其中 $|E|=\sqrt{p^2+m^2}$。
+		
+		\item 手征为 $1$ 即 $\sigma_x\psi=\psi$，而
+		\begin{align*}
+			\sigma_x\psi=\begin{pmatrix}0&1\\1&0\end{pmatrix}\begin{pmatrix}\xi\\\eta\end{pmatrix}=\begin{pmatrix}\eta\\\xi\end{pmatrix}
+		\end{align*}
+		故 $\xi=\eta$。
+		
+		\item 手征为 $1$ 时 $\xi=\eta\equiv\phi(x)$，$E=0$ 的定态方程为
+		\begin{align*}
+			H\begin{pmatrix}\phi\\\phi\end{pmatrix}=\begin{pmatrix}m(x)\phi-\phi'\\\phi'-m(x)\phi\end{pmatrix}=0
+		\end{align*}
+		即 $\frac{d\phi}{dx}=m(x)\phi=-M\tanh\!\left(\frac{x}{x_0}\right)\phi$。分离变量并积分（利用提示）：
+		\begin{align*}
+			\ln\phi=-M\int\tanh\!\left(\frac{x}{x_0}\right)dx=-Mx_0\ln\cosh\!\left(\frac{x}{x_0}\right)+C
+		\end{align*}
+		得 $\phi(x)=A\left[\cosh\!\left(\frac{x}{x_0}\right)\right]^{-Mx_0}$。故
+		\begin{align*}
+			\psi(x)=A\begin{pmatrix}\left[\cosh\left(\frac{x}{x_0}\right)\right]^{-Mx_0}\\\left[\cosh\left(\frac{x}{x_0}\right)\right]^{-Mx_0}\end{pmatrix}
+		\end{align*}
 	\end{enumerate}
 	
 }
@@ -176,7 +262,42 @@ $\mathrm{J}$ 为单电子总角动量, $l$ 为轨道角动量, $s$ 为自旋角�
 \end{enumerate}
 
 \banswer{
+\begin{enumerate}
+	\item 由 $[J_i, l^2]=0$，$[J_i, s^2]=0$，$[J_i, J^2]=0$，$[J^2, J_z]=0$ 可知一组对易力学量完全集为
+	\begin{align*}
+		\{l^2, s^2, J^2, J_z\}
+	\end{align*}
+	其中 $s^2=\frac{3}{4}\hbar^2$ 为常数，也可取 $\{H, J^2, J_z, l^2\}$。
 	
+	\item 总角动量 $J=l+s=l+\frac{1}{2}\sigma$，由角动量耦合规则
+	\begin{align*}
+		j=l+\frac{1}{2}\quad\text{或}\quad j=l-\frac{1}{2}\quad(l\neq 0)
+	\end{align*}
+	$J^2$ 的本征值为 $j(j+1)\hbar^2$。
+	
+	利用 $(\vec{\sigma}\cdot\vec{l})^2=\vec{l}^2-\vec{\sigma}\cdot\vec{l}$（因 $(\vec{A}\cdot\vec{\sigma})(\vec{B}\cdot\vec{\sigma})=\vec{A}\cdot\vec{B}+i(\vec{A}\times\vec{B})\cdot\vec{\sigma}$，令 $\vec{A}=\vec{B}=\vec{l}$），设 $\vec{\sigma}\cdot\vec{l}$ 的本征值为 $\lambda$，则
+	\begin{align*}
+		\lambda^2+\lambda-l(l+1)=0
+	\end{align*}
+	解得 $\lambda=l$ 或 $\lambda=-(l+1)$。
+	
+	对应关系：当 $j=l+\frac{1}{2}$ 时，$\vec{\sigma}\cdot\vec{l}=l$；当 $j=l-\frac{1}{2}$ 时，$\vec{\sigma}\cdot\vec{l}=-(l+1)$。
+	
+	\item 本征态即耦合表象基矢 $|j, m_j, l, s\rangle$。用 $s=\frac{1}{2}$ 的 CG 系数：
+	
+	对 $j=l+\frac{1}{2}$：
+	\begin{align*}
+		|l+\tfrac{1}{2}, m_j\rangle&=\sqrt{\frac{l+m_j+\frac{1}{2}}{2l+1}}|l, m_j-\tfrac{1}{2}\rangle|+\rangle\\
+		&\quad+\sqrt{\frac{l-m_j+\frac{1}{2}}{2l+1}}|l, m_j+\tfrac{1}{2}\rangle|-\rangle
+	\end{align*}
+	
+	对 $j=l-\frac{1}{2}$：
+	\begin{align*}
+		|l-\tfrac{1}{2}, m_j\rangle&=-\sqrt{\frac{l-m_j+\frac{1}{2}}{2l+1}}|l, m_j-\tfrac{1}{2}\rangle|+\rangle\\
+		&\quad+\sqrt{\frac{l+m_j+\frac{1}{2}}{2l+1}}|l, m_j+\tfrac{1}{2}\rangle|-\rangle
+	\end{align*}
+	其中 $|+\rangle=\begin{pmatrix}1\\0\end{pmatrix}$，$|-\rangle=\begin{pmatrix}0\\1\end{pmatrix}$。此即 $\vec{\sigma}\cdot\vec{l}$ 的本征态。
+\end{enumerate}
 }
 
 \item 
@@ -215,7 +336,64 @@ V(x)=\left\{\begin{aligned}
 
 
 \banswer{
+\begin{enumerate}
+	\item 无微扰时，势阱范围 $[-L/2, L/2]$，能量本征值为
+	\begin{align*}
+		E_n^0=\frac{n^2\pi^2\hbar^2}{2mL^2},\quad n=1,2,3,\ldots
+	\end{align*}
+	本征函数按宇称分为：
+	\begin{align*}
+		\psi_n^0(x)=\sqrt{\frac{2}{L}}\begin{cases}
+			\cos\!\left(\dfrac{n\pi x}{L}\right), & n=1,3,5,\ldots\quad(\text{偶宇称})\\[6pt]
+			\sin\!\left(\dfrac{n\pi x}{L}\right), & n=2,4,6,\ldots\quad(\text{奇宇称})
+		\end{cases}
+	\end{align*}
 	
+	\item 一级能量修正为
+	\begin{align*}
+		E_n^{(1)}=\langle\psi_n^0|H'|\psi_n^0\rangle=a\int_{-L/2}^{L/2}|\psi_n^0(x)|^2\sin\!\left(\frac{2\pi x}{L}\right)dx
+	\end{align*}
+	由于 $|\psi_n^0|^2$ 是偶函数，$\sin(2\pi x/L)$ 是奇函数，被积函数为奇函数，在对称区间积分为零，故
+	\begin{align*}
+		E_n^{(1)}=0
+	\end{align*}
+	
+	\item 非简并微扰论的波函数一级修正为
+	\begin{align*}
+		|\psi_n^1\rangle=\sum_{k\neq n}\frac{\langle\psi_k^0|H'|\psi_n^0\rangle}{E_n^0-E_k^0}|\psi_k^0\rangle
+	\end{align*}
+	因此
+	\begin{align*}
+		\langle\psi_m^0|\psi_n^1\rangle=\frac{\langle\psi_m^0|H'|\psi_n^0\rangle}{E_n^0-E_m^0}\quad(m\neq n)
+	\end{align*}
+	
+	对 $\langle\psi_{2n}^0|\psi_{2m}^1\rangle$：$\psi_{2n}^0$ 与 $\psi_{2m}^0$ 均为奇函数，$H'$ 为奇函数，被积函数奇$\times$奇$\times$奇$=$奇，积分为零，故
+	\begin{align*}
+		\langle\psi_{2n}^0|\psi_{2m}^1\rangle=0
+	\end{align*}
+	
+	对 $\langle\psi_{2n}^0|\psi_{2m+1}^1\rangle$：$\psi_{2n}^0$ 奇，$\psi_{2m+1}^0$ 偶，$H'$ 奇，被积函数为偶函数，一般非零：
+	\begin{align*}
+		&\langle\psi_{2n}^0|H'|\psi_{2m+1}^0\rangle\\
+		&\quad=a\frac{2}{L}\int_{-L/2}^{L/2}\sin\!\left(\frac{2n\pi x}{L}\right)\sin\!\left(\frac{2\pi x}{L}\right)\cos\!\left(\frac{(2m+1)\pi x}{L}\right)dx
+	\end{align*}
+	利用积化和差 $\sin A\sin B=-\frac{1}{2}[\cos(A+B)-\cos(A-B)]$，得
+	\begin{align*}
+		&\sin\!\left(\frac{2n\pi x}{L}\right)\sin\!\left(\frac{2\pi x}{L}\right)\\
+		&\quad=-\frac{1}{2}\left[\cos\!\left(\frac{2(n+1)\pi x}{L}\right)-\cos\!\left(\frac{2(n-1)\pi x}{L}\right)\right]
+	\end{align*}
+	再与 $\cos\!\left(\frac{(2m+1)\pi x}{L}\right)$ 相乘后用 $\cos A\cos B=\frac{1}{2}[\cos(A+B)+\cos(A-B)]$ 展开，各余弦积分在 $[-L/2,L/2]$ 上仅当频率为零时才非零，可逐次算出。
+	
+	故
+	\begin{align*}
+		\langle\psi_{2n}^0|\psi_{2m+1}^1\rangle=\frac{\langle\psi_{2n}^0|H'|\psi_{2m+1}^0\rangle}{E_{2m+1}^0-E_{2n}^0}
+	\end{align*}
+	
+	对 $\langle\psi_{2n+1}^0|\psi_{2m+1}^1\rangle$：$\psi_{2n+1}^0$ 与 $\psi_{2m+1}^0$ 均为偶函数，$H'$ 为奇函数，被积函数偶$\times$奇$\times$偶$=$奇，积分为零，故
+	\begin{align*}
+		\langle\psi_{2n+1}^0|\psi_{2m+1}^1\rangle=0
+	\end{align*}
+\end{enumerate}
 }
 
 

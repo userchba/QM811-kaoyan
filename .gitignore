@@ -291,3 +291,9 @@ TSWLatexianTemp*
 
 # Agents memory file (local-only, not to be synced)
 AGENTS.md
+
+# .DS_Store files created by MacOS
+.DS_Store
+
+# scripts for running tests
+test.sh

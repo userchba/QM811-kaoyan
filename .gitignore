@@ -297,3 +297,5 @@ AGENTS.md
 
 # scripts for running tests
 test.sh
+log_tex
+err_tex

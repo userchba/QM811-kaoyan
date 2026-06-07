@@ -1,0 +1,92 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[fontset=fandol]{ctex}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{braket}
+
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\title{表象变换}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{离散态的表象变换}
+
+设力学量 $\hat{A}$ 与 $\hat{B}$ 的本征方程分别为
+\[
+\hat{A}\ket{a_i}=a_i\ket{a_i},\qquad \hat{B}\ket{b_i}=b_i\ket{b_i},
+\]
+对应的本征矢各自满足完备性与正交归一条件：
+\[
+\sum_i\ket{a_i}\bra{a_i}=1,\qquad \sum_i\ket{b_i}\bra{b_i}=1,
+\]
+\[
+\braket{a_i|a_j}=\delta_{ij},\qquad \braket{b_i|b_j}=\delta_{ij}.
+\]
+
+\subsection{变换算符}
+
+定义表象变换算符
+\[
+\hat{S}=\sum_k\ket{a_k}\bra{b_k},
+\]
+则
+\begin{align*}
+\hat{S}\ket{b_j}&=\sum_k\ket{a_k}\braket{b_k|b_j}=\sum_k\ket{a_k}\delta_{kj}=\ket{a_j},\\[4pt]
+\bra{a_j}\hat{S}&=\sum_k\braket{a_j|a_k}\bra{b_k}=\sum_k\delta_{jk}\bra{b_k}=\bra{b_j}.
+\end{align*}
+
+\subsection{态矢在不同表象中的表示}
+
+任意态矢 $\ket{\psi}$ 在 $A$、$B$ 两表象中的列向量分别为
+\[
+\vec{\psi}_A=\begin{pmatrix}\braket{a_1|\psi}\\ \braket{a_2|\psi}\\ \vdots\end{pmatrix},
+\qquad
+\vec{\psi}_B=\begin{pmatrix}\braket{b_1|\psi}\\ \braket{b_2|\psi}\\ \vdots\end{pmatrix}.
+\]
+
+\subsection{变换矩阵的矩阵元}
+
+在 $A$ 表象中，$\hat{S}$ 的矩阵元为
+\begin{align*}
+S_{ij}^{(A)}&=\bra{a_i}\hat{S}\ket{a_j}
+=\sum_k\braket{a_i|a_k}\braket{b_k|a_j}
+=\braket{b_i|a_j}.
+\end{align*}
+
+在 $B$ 表象中，$\hat{S}$ 的矩阵元为
+\begin{align*}
+S_{ij}^{(B)}&=\bra{b_i}\hat{S}\ket{b_j}
+=\sum_k\braket{b_i|a_k}\braket{b_k|b_j}
+=\braket{b_i|a_j}.
+\end{align*}
+
+\subsection{态矢的变换关系}
+
+利用完备性条件，
+\[
+\braket{b_i|\psi}=\sum_k\braket{b_i|a_k}\braket{a_k|\psi}
+=\sum_k S_{ik}\braket{a_k|\psi},
+\]
+即
+\[
+\boxed{\;\vec{\psi}_B=S\,\vec{\psi}_A\;}
+\]
+
+\subsection{力学量算符的变换关系}
+
+算符 $\hat{H}$ 在 $B$ 表象中的矩阵元为
+\begin{align*}
+H_{ij}^{(B)}&=\bra{b_i}\hat{H}\ket{b_j}\\
+&=\sum_{k,l}\braket{b_i|a_k}\bra{a_k}\hat{H}\ket{a_l}\braket{a_l|b_j}\\
+&=\sum_{k,l}S_{ik}\,H_{kl}^{(A)}\,S_{lj}^{\dagger}.
+\end{align*}
+写成矩阵形式即
+\[
+\boxed{\;H^{(B)}=S\,H^{(A)}\,S^{\dagger}\;}
+\]
+
+\end{document}

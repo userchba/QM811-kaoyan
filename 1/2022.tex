@@ -44,7 +44,58 @@
 
 
 \banswer{
-	
+	\begin{enumerate}
+		\item 将 $e^{\hat{B}}$ 展开为幂级数
+		\[
+			e^{\hat{B}}=\sum_{n=0}^{\infty}\frac{\hat{B}^n}{n!}
+		\]
+		利用 $[\hat{A},\hat{B}^n]=nC\hat{B}^{n-1}$（可用数学归纳法证明），得
+		\begin{align*}
+			[\hat{A},e^{\hat{B}}]&=\sum_{n=0}^{\infty}\frac{1}{n!}[\hat{A},\hat{B}^n]
+			=\sum_{n=1}^{\infty}\frac{nC\hat{B}^{n-1}}{n!}\\
+			&=C\sum_{n=1}^{\infty}\frac{\hat{B}^{n-1}}{(n-1)!}
+			=Ce^{\hat{B}}
+		\end{align*}
+		
+		由于 $\hat{B}$ 为厄米算符，$(e^{\hat{B}})^\dagger=e^{\hat{B}}$，故
+		\[
+			([\hat{A},e^{\hat{B}}])^\dagger=(Ce^{\hat{B}})^\dagger=C^*e^{\hat{B}}
+		\]
+		要使 $[\hat{A},e^{\hat{B}}]$ 为厄米算符，需 $([\hat{A},e^{\hat{B}}])^\dagger=[\hat{A},e^{\hat{B}}]$，即 $C^*=C$，所以 \textbf{$C$ 必须为实数}。
+		
+		\item 
+		\begin{enumerate}
+			\item $\hat{A}+i\hat{B}$：
+			\[
+				(\hat{A}+i\hat{B})^\dagger=\hat{A}^\dagger-i\hat{B}^\dagger=\hat{A}-i\hat{B}\neq\hat{A}+i\hat{B}
+			\]
+			一般不是厄米算符。
+			
+			\item $(\hat{A}+i\hat{B})(\hat{A}-i\hat{B})$：
+			\[
+				[(\hat{A}+i\hat{B})(\hat{A}-i\hat{B})]^\dagger=(\hat{A}-i\hat{B})^\dagger(\hat{A}+i\hat{B})^\dagger=(\hat{A}+i\hat{B})(\hat{A}-i\hat{B})
+			\]
+			是厄米算符。
+			
+			\item $(\hat{A}+\hat{B})^n$：
+			因为 $(\hat{A}+\hat{B})^\dagger=\hat{A}+\hat{B}$，且对任意正整数 $n$ 有 $(\hat{H}^n)^\dagger=(\hat{H}^\dagger)^n$，故
+			\[
+				[(\hat{A}+\hat{B})^n]^\dagger=(\hat{A}+\hat{B})^n
+			\]
+			是厄米算符。
+			
+			\item $(\hat{A}+\hat{B})(\hat{A}-\hat{B})$：
+			\[
+				[(\hat{A}+\hat{B})(\hat{A}-\hat{B})]^\dagger=(\hat{A}-\hat{B})^\dagger(\hat{A}+\hat{B})^\dagger=(\hat{A}-\hat{B})(\hat{A}+\hat{B})
+			\]
+			而
+			\[
+				(\hat{A}+\hat{B})(\hat{A}-\hat{B})=\hat{A}^2-\hat{B}^2+[\hat{B},\hat{A}],\qquad
+				(\hat{A}-\hat{B})(\hat{A}+\hat{B})=\hat{A}^2-\hat{B}^2+[\hat{A},\hat{B}]
+			\]
+			两者相等当且仅当 $[\hat{A},\hat{B}]=0$。故 \textbf{当且仅当 $[\hat{A},\hat{B}]=0$ 时为厄米算符}，一般情况下不是。
+		\end{enumerate}
+	\end{enumerate}
 }
 
 
@@ -64,7 +115,50 @@
 \end{enumerate}
 
 \banswer{
-	参见陈鄂生 1.19, 1.20。
+	设 $\omega_1=\sqrt{k/m}$，$\omega_2=\sqrt{2k/m}=\sqrt{2}\,\omega_1$。$V_1$ 与 $V_2$ 的基态分别为
+	\[
+	\psi_1(x)=\left(\frac{m\omega_1}{\pi\hbar}\right)^{1/4}\exp\!\left(-\frac{m\omega_1}{2\hbar}x^2\right),\qquad
+	\phi_0(x)=\left(\frac{m\omega_2}{\pi\hbar}\right)^{1/4}\exp\!\left(-\frac{m\omega_2}{2\hbar}x^2\right).
+	\]
+	
+	\begin{enumerate}
+		\item 势场突变瞬间波函数不变。粒子处于 $V_2$ 基态的概率为重叠积分模方
+		\[
+		P=|\langle\phi_0|\psi_1\rangle|^2.
+		\]
+		计算
+		\begin{align*}
+		\langle\phi_0|\psi_1\rangle
+		&=\left(\frac{m\omega_1}{\pi\hbar}\right)^{1/4}\left(\frac{m\omega_2}{\pi\hbar}\right)^{1/4}
+		\int_{-\infty}^{+\infty}\exp\!\left[-\frac{m(\omega_1+\omega_2)}{2\hbar}x^2\right]dx\\\\
+		&=\left(\frac{\omega_1\omega_2}{\pi^2}\right)^{1/4}\sqrt{\frac{2\pi\hbar}{m(\omega_1+\omega_2)}}
+		=\sqrt{2}\,\frac{(\omega_1\omega_2)^{1/4}}{\sqrt{\omega_1+\omega_2}}.
+		\end{align*}
+		代入 $\omega_2=\sqrt{2}\,\omega_1$，得
+		\[
+		\langle\phi_0|\psi_1\rangle=\frac{2^{5/8}}{\sqrt{1+\sqrt{2}}},
+		\qquad
+		P=\frac{2^{5/4}}{1+\sqrt{2}}=2^{5/4}(\sqrt{2}-1).
+		\]
+		
+		\item 在 $V_2$ 中，$|\psi_1\rangle$ 可按 $V_2$ 本征态 $|n\rangle_2$ 展开。由于 $\psi_1$ 为偶函数，仅偶宇称态 $|2m\rangle_2$ 有贡献：
+		\[
+		|\psi_1\rangle=\sum_{m=0}^{\infty}c_{2m}\,|2m\rangle_2.
+		\]
+		在 $V_2$ 中演化时间 $\tau$ 后
+		\[
+		|\psi(\tau)\rangle=\sum_{m=0}^{\infty}c_{2m}\,e^{-i\omega_2(2m+1/2)\tau}\,|2m\rangle_2.
+		\]
+		要使 $|\psi(\tau)\rangle$ 与初始态 $|\psi_1\rangle$ 仅差一个整体相位，要求相邻偶数能级的相对相位为 $2\pi$ 的整数倍，即
+		\[
+		e^{-i2\omega_2\tau}=1\quad\Longrightarrow\quad 2\omega_2\tau=2\pi n\;(n=1,2,3,\dots).
+		\]
+		故
+		\[
+		\tau=\frac{n\pi}{\omega_2}=n\pi\sqrt{\frac{m}{2k}}\qquad(n=1,2,3,\dots).
+		\]
+		此时 $|\psi(\tau)\rangle=e^{i\theta}|\psi_1\rangle$，势场突然回到 $V_1$ 后粒子恰处于 $V_1$ 基态。
+	\end{enumerate}
 }
 
 
@@ -87,7 +181,50 @@
 \end{enumerate}
 
 \banswer{
-	
+	\begin{enumerate}
+		\item 圆环上自由粒子的定态 Schr\"odinger 方程为
+		\[
+			-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}=E\psi,\qquad 0<x<L
+		\]
+		周期边界条件 $\psi(x+L)=\psi(x)$ 要求 $kL=2\pi n$（$n=0,\pm1,\pm2,\dots$），故
+		\[
+			\psi_n(x)=\frac{1}{\sqrt{L}}\exp\!\left(\frac{i2\pi n x}{L}\right),\qquad
+			E_n=\frac{2\pi^2\hbar^2 n^2}{mL^2}.
+		\]
+		$n=0$ 非简并，$n\neq0$ 为二重简并（$\pm n$）。
+		
+		\item 一级微扰修正。因 $a\ll L$，$e^{-x^2/a^2}$ 在 $x=0$ 处尖锐成峰，积分可延拓至全实轴。
+		
+		\textbf{基态 $n=0$}（非简并）：
+		\begin{align*}
+			E_0^{(1)}&=\langle0|H'|0\rangle=-\frac{V_0}{L}\int_0^L\exp\!\left(-\frac{x^2}{a^2}\right)dx\\
+			&\approx-\frac{V_0}{L}\int_{-\infty}^{+\infty}\exp\!\left(-\frac{x^2}{a^2}\right)dx
+			=-\frac{V_0 a\sqrt{\pi}}{L}.
+		\end{align*}
+		
+		\textbf{激发态 $n\neq0$}（简并，子空间 $\{|n\rangle,|-n\rangle\}$）：微扰矩阵元
+		\[
+			H'_{nn}=H'_{-n,-n}=-\frac{V_0}{L}\int_0^L\exp\!\left(-\frac{x^2}{a^2}\right)dx
+			\approx-\frac{V_0 a\sqrt{\pi}}{L}\equiv\alpha,
+		\]
+		\[
+			H'_{n,-n}=-\frac{V_0}{L}\int_0^L e^{-i4\pi nx/L}\exp\!\left(-\frac{x^2}{a^2}\right)dx
+			\approx-\frac{V_0 a\sqrt{\pi}}{L}e^{-(2\pi na/L)^2}\equiv\beta.
+		\]
+		在 $a\ll L$ 极限下，$\beta\approx\alpha$，微扰矩阵近似为
+		\[
+			\begin{pmatrix}\alpha&\alpha\\\alpha&\alpha\end{pmatrix}.
+		\]
+		本征值为 $2\alpha$ 与 $0$，对应的零级近似波函数分别为
+		\[
+			\psi_+=\frac{1}{\sqrt{L}}\cos\!\left(\frac{2\pi n x}{L}\right),\qquad
+			\psi_-=\frac{1}{\sqrt{L}}\sin\!\left(\frac{2\pi n x}{L}\right).
+		\]
+		因此一级能量修正为
+		\[
+			E_{n,+}^{(1)}=-\frac{2V_0 a\sqrt{\pi}}{L},\qquad E_{n,-}^{(1)}\approx0\quad(a\ll L).
+		\]
+	\end{enumerate}
 }
 
 
@@ -115,7 +252,53 @@
 
 
 \banswer{
+	令 $\omega=\gamma B$，则 $H=-\omega S_x$。
 	
+	\begin{enumerate}
+		\item $S_x$ 的本征值为 $\pm\hbar/2$，对应归一化本征态
+		\[
+		\left|+\right\rangle_x=\frac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix},\qquad
+		\left|-\right\rangle_x=\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\end{pmatrix}.
+		\]
+		故 $H$ 的本征值为
+		\[
+		E_\pm=\mp\frac{\hbar\omega}{2},
+		\]
+		对应本征函数即 $\left|\pm\right\rangle_x$。
+		
+		\item 初始态 $\psi(0)\rangle=|+\rangle_z=\frac{1}{\sqrt{2}}(|+\rangle_x+|-\rangle_x)$，时间演化得
+		\[
+		|\psi(t)\rangle=\frac{1}{\sqrt{2}}\left(e^{i\omega t/2}|+\rangle_x+e^{-i\omega t/2}|-\rangle_x\right)
+		=\cos\!\left(\frac{\omega t}{2}\right)|+\rangle_z+i\sin\!\left(\frac{\omega t}{2}\right)|-\rangle_z.
+		\]
+		因此
+		\[
+		P\left(S_z=+\frac{\hbar}{2},t\right)=\left|\cos\!\left(\frac{\omega t}{2}\right)\right|^2=\cos^2\!\left(\frac{\omega t}{2}\right).
+		\]
+		
+		\item 第一次测量（$t/2$ 时刻）得到 $S_z=+\hbar/2$ 的概率为 $\cos^2(\omega t/4)$。测量后态塌缩为 $|+\rangle_z$，继续演化到 $t$ 时刻，再次测得 $S_z=+\hbar/2$ 的概率仍为 $\cos^2(\omega t/4)$。故两次均得 $+\hbar/2$ 的概率为
+		\[
+		P_2=\cos^4\!\left(\frac{\omega t}{4}\right).
+		\]
+		
+		\item 每次测量间隔 $\Delta t=t/N$。若前一次测得 $S_z=+\hbar/2$，则态为 $|+\rangle_z$，下一次测得 $S_z=+\hbar/2$ 的概率为 $\cos^2(\omega t/(2N))$。$N$ 次均得 $+\hbar/2$ 的概率为
+		\[
+		P_N=\cos^{2N}\!\left(\frac{\omega t}{2N}\right).
+		\]
+		令 $x=\omega t/(2N)$，则
+		\[
+		P_N=[\cos x]^{\omega t/x}.
+		\]
+		当 $N\to+\infty$ 时 $x\to0$，利用 $\ln\cos x=-x^2/2+O(x^4)$，得
+		\[
+		\ln P_N=2N\ln\cos x=\omega t\cdot\frac{\ln\cos x}{x}\to0,
+		\]
+		故
+		\[
+		\lim_{N\to+\infty}P_N=1.
+		\]
+		此即量子 Zeno 效应：无限频繁测量使系统始终停留在初态。
+	\end{enumerate}
 }
 
 
@@ -140,7 +323,56 @@
 \end{enumerate}
 
 \banswer{
-参见量子力学曾书课本电磁场一章 或者 参见格里菲斯第二版 4.59
+	\begin{enumerate}
+		\item 由 Ehrenfest 定理
+		\[
+		\frac{d\langle\vv{r}\rangle}{dt}=\frac{i}{\hbar}\langle[H,\vv{r}]\rangle.
+		\]
+		对 $H=\frac{1}{2m}(\vv{p}-q\vv{A})^2+q\varphi$，有
+		\[
+		\left[\frac{1}{2m}(\vv{p}-q\vv{A})^2,r_i\right]=\frac{1}{2m}\sum_j\left[(p_j-qA_j)^2,r_i\right].
+		\]
+		利用 $[p_j,r_i]=-i\hbar\delta_{ji}$ 与 $[A_j,r_i]=0$，得
+		\[
+		\left[(p_j-qA_j)^2,r_i\right]=(p_j-qA_j)(-i\hbar\delta_{ji})+(-i\hbar\delta_{ji})(p_j-qA_j)=-2i\hbar(p_i-qA_i).
+		\]
+		因此
+		\[
+		\left[H,r_i\right]=\frac{1}{2m}(-2i\hbar)(p_i-qA_i)=-\frac{i\hbar}{m}(p_i-qA_i),
+		\qquad
+		\frac{d\langle r_i\rangle}{dt}=\frac{i}{\hbar}\left\langle-\frac{i\hbar}{m}(p_i-qA_i)\right\rangle=\frac{\langle p_i-qA_i\rangle}{m}.
+		\]
+		向量形式为
+		\[
+		\boxed{\frac{d\langle\vv{r}\rangle}{dt}=\frac{\langle\vv{p}-q\vv{A}\rangle}{m}}.
+		\]
+		
+		\item 定义 $\vv{P}=\vv{p}-q\vv{A}$，则 $\langle\vv{P}\rangle=m\,d\langle\vv{r}\rangle/dt$。对 $P_i$ 用 Ehrenfest 定理
+		\[
+		\frac{d\langle P_i\rangle}{dt}=\frac{i}{\hbar}\langle[H,P_i]\rangle+\left\langle\frac{\partial P_i}{\partial t}\right\rangle.
+		\]
+		其中 $\partial P_i/\partial t=-q\,\partial A_i/\partial t$，且
+		\begin{align*}
+		[H,P_i]&=\left[\frac{1}{2m}\sum_jP_j^2+q\varphi,\;P_i\right]\\
+		&=q\left[\varphi,p_i\right]+\frac{1}{2m}\sum_j\left[P_j^2,P_i\right]\\
+		&=qi\hbar\,\frac{\partial\varphi}{\partial r_i}+\frac{1}{2m}\sum_j\bigl(P_j[P_j,P_i]+[P_j,P_i]P_j\bigr).
+		\end{align*}
+		利用 $[P_j,P_i]=qi\hbar\bigl(\frac{\partial A_i}{\partial r_j}-\frac{\partial A_j}{\partial r_i}\bigr)=qi\hbar\,\varepsilon_{kji}B_k$，得
+		\[
+		\sum_j\left[P_j^2,P_i\right]=-2qi\hbar(\vv{P}\times\vv{B})_i.
+		\]
+		于是
+		\begin{align*}
+		\frac{d\langle P_i\rangle}{dt}&=\frac{i}{\hbar}\left\langle qi\hbar\frac{\partial\varphi}{\partial r_i}-\frac{qi\hbar}{m}(\vv{P}\times\vv{B})_i\right\rangle-q\left\langle\frac{\partial A_i}{\partial t}\right\rangle\\
+		&=q\left\langle-\frac{\partial\varphi}{\partial r_i}-\frac{\partial A_i}{\partial t}\right\rangle+q\left\langle\frac{(\vv{P}\times\vv{B})_i}{m}\right\rangle\\
+		&=q\langle E_i\rangle+q\langle(\vv{v}\times\vv{B})_i\rangle,
+		\end{align*}
+		其中 $\vv{v}=(\vv{p}-q\vv{A})/m$。在均匀电磁场中 $\vv{E}$、$\vv{B}$ 为常数，$\langle\vv{v}\times\vv{B}\rangle=\langle\vv{v}\rangle\times\vv{B}=d\langle\vv{r}\rangle/dt\times\vv{B}$，故
+		\[
+		\boxed{\frac{d\langle\vv{P}\rangle}{dt}=q\vv{E}+q\,\frac{d\langle\vv{r}\rangle}{dt}\times\vv{B}}.
+		\]
+		此即量子力学的类洛伦兹力形式（Ehrenfest 定理）。
+	\end{enumerate}
 }
 
  

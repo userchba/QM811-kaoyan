@@ -15,7 +15,7 @@
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 \setcounter{tocdepth}{4}
 
-\title{高等量子力学\\第一章：量子力学基本概念、理论与数学方法}
+\title{量子力学\\第一章：量子力学基本概念、理论与数学方法}
 \author{}
 \date{}
 
@@ -32,7 +32,7 @@
     \item 《量子力学》(I, II)——曾谨言
     \item 《高等量子力学》——喀兴林
     \item \textit{Modern Quantum Mechanics} —— J. J. Sakurai
-    \item \textit{Quantum Mechanics}（共三卷）—— C. Cohen-Tannoudji, B. Diu, F. Laloe
+    \item \textit{Quantum Mechanics}（共三卷）—— C. Cohen-Tannoudji, B. Diu, F. Laloë
 \end{enumerate}
 
 \section{量子力学基本概念、理论与数学方法}
@@ -188,7 +188,7 @@ i\hbar\frac{\partial}{\partial t}\ket{\psi(t)}=\hat{H}\ket{\psi(t)}
 \end{enumerate}
 
 \par\smallskip
-\noindent\textbf{注意：}等距变换不等同于酉变换！等距变换不直接对应于物理态的变换（因为不是满射）。
+\noindent\textbf{注意：}等距变换不等同于幺正变换！等距变换不直接对应于物理态的变换（因为不是满射）。
 \par\smallskip
 
 \subsection{表象与表象变换}
@@ -275,7 +275,7 @@ F_{n1} & F_{n2} & \cdots & F_{nn}
 
 \textbf{厄米共轭的矩阵关系}：
 \[
-F_{ji}^*=F_{ij}^\dagger\quad\Rightarrow\quad F^\dagger=(F^T)^*
+F_{ji}^*=(F^\dagger)_{ij}\quad\Rightarrow\quad F^\dagger=(F^T)^*
 \]
 即厄米共轭等于转置加复共轭。
 
@@ -387,10 +387,10 @@ $|\psi(x,t)|^2$ 表示 $t$ 时刻在 $x$ 处找到粒子的概率密度。
 
 \begin{enumerate}
     \item 奇偶性：$\delta(x)=\delta(-x)$
-    \item 筛选性：$x\delta(x)=0$
+    \item 乘积性质：$x\delta(x)=0$
     \item 微分性质：$x\dfrac{d}{dx}\delta(x)=-\delta(x)$
     \item 积分定义：$\int_{-\infty}^{\infty}dx\,\delta(x)=1$（区间包含原点）
-    \item 采样性质：$\int_{-\infty}^{\infty}dx\,f(x)\delta(x)=f(0)$
+    \item 筛选性质：$\int_{-\infty}^{\infty}dx\,f(x)\delta(x)=f(0)$
     \item 复合性质：$\int_{-\infty}^{\infty}dx\,\delta(x-a)\delta(x-b)=\delta(a-b)$
     \item 缩放性质：$\delta(ax)=\dfrac{1}{|a|}\delta(x)$
 \end{enumerate}
@@ -444,7 +444,7 @@ i\hbar\,\delta(x-x')
 \bra{x}\hat{p}\ket{x'}=-i\hbar\frac{\partial}{\partial x}\delta(x-x')
 \]
 
-\paragraph{\texorpdfstring{坐标表象中 $\hat{p}^2$ 与 $\hat{p}^n$ 的矩阵元}{坐标表象中 p\textasciicircum 2 与 p\textasciicircum n 的矩阵元}}
+\paragraph{\texorpdfstring{坐标表象中 $\hat{p}^2$ 与 $\hat{p}^n$ 的矩阵元}{坐标表象中 p^2 与 p^n 的矩阵元}}
 
 \textbf{(a) $\hat{p}^2$ 的矩阵元}：
 \[

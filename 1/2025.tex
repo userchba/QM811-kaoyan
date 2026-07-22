@@ -1,0 +1,278 @@
+\bta{2025}
+
+
+\begin{enumerate}
+	\item
+	在一维空间中运动的粒子，其波函数为
+	\[
+	\psi(x)=A\exp\!\left(-\frac{x^2}{4\sigma^2}\right)
+	\]
+	其中 $\sigma$ 是常数。
+	\begin{enumerate}
+		\item 求归一化常数 $A$；
+		\item 求动量概率分布 $P(p)\,dp$；
+		\item 求 $\Delta x$ 和 $\Delta p$，并验证不确定性关系。
+	\end{enumerate}
+
+	\banswer{
+	\begin{enumerate}
+		\item 归一化条件：
+		\begin{align*}
+			1&=\int_{-\infty}^{+\infty}|\psi(x)|^2\,dx=A^2\int_{-\infty}^{+\infty}e^{-x^2/(2\sigma^2)}\,dx=A^2\sqrt{2\pi\sigma^2}
+		\end{align*}
+		故
+		\begin{align*}
+			A=\frac{1}{(2\pi\sigma^2)^{1/4}}
+		\end{align*}
+
+		\item 取 Fourier 变换约定 $\langle x|p\rangle=\dfrac{1}{\sqrt{2\pi\hbar}}e^{ipx/\hbar}$，动量空间波函数为
+		\begin{align*}
+			\phi(p)&=\langle p|\psi\rangle=\int_{-\infty}^{+\infty}\frac{1}{\sqrt{2\pi\hbar}}e^{-ipx/\hbar}\psi(x)\,dx\\
+			&=\frac{A}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\exp\!\left(-\frac{x^2}{4\sigma^2}-\frac{ipx}{\hbar}\right)dx
+		\end{align*}
+		利用 Gauss 积分 $\int_{-\infty}^{+\infty}e^{-ax^2+bx}dx=\sqrt{\pi/a}\,e^{b^2/(4a)}$，其中 $a=1/(4\sigma^2)$，$b=-ip/\hbar$：
+		\begin{align*}
+			\phi(p)&=\frac{A}{\sqrt{2\pi\hbar}}\cdot\sqrt{4\pi\sigma^2}\exp\!\left(-\frac{\sigma^2 p^2}{\hbar^2}\right)\\
+			&=\frac{A\cdot 2\sqrt{\pi}\sigma}{\sqrt{2\pi\hbar}}\exp\!\left(-\frac{\sigma^2 p^2}{\hbar^2}\right)\\
+			&=\left(\frac{2\sigma^2}{\pi\hbar^2}\right)^{1/4}\exp\!\left(-\frac{\sigma^2 p^2}{\hbar^2}\right)
+		\end{align*}
+		动量概率分布为
+		\begin{align*}
+			P(p)=|\phi(p)|^2=\sqrt{\frac{2\sigma^2}{\pi\hbar^2}}\exp\!\left(-\frac{2\sigma^2 p^2}{\hbar^2}\right)
+		\end{align*}
+
+		\item 由对称性 $\langle x\rangle=0$，$\langle p\rangle=0$。
+		\begin{align*}
+			\langle x^2\rangle&=\int_{-\infty}^{+\infty}x^2|\psi(x)|^2\,dx=A^2\int_{-\infty}^{+\infty}x^2 e^{-x^2/(2\sigma^2)}\,dx\\
+			&=\frac{1}{\sqrt{2\pi\sigma^2}}\cdot\sqrt{2\pi}\cdot\sigma^3=\sigma^2
+		\end{align*}
+		故 $\Delta x=\sqrt{\langle x^2\rangle-\langle x\rangle^2}=\sigma$。
+
+		对动量：
+		\begin{align*}
+			\langle p^2\rangle&=\int_{-\infty}^{+\infty}p^2 P(p)\,dp=\sqrt{\frac{2\sigma^2}{\pi\hbar^2}}\int_{-\infty}^{+\infty}p^2 e^{-2\sigma^2 p^2/\hbar^2}\,dp\\
+			&=\sqrt{\frac{2\sigma^2}{\pi\hbar^2}}\cdot\frac{\sqrt{\pi}}{2}\cdot\left(\frac{\hbar^2}{2\sigma^2}\right)^{3/2}=\frac{\hbar^2}{4\sigma^2}
+		\end{align*}
+		故 $\Delta p=\sqrt{\langle p^2\rangle-\langle p\rangle^2}=\dfrac{\hbar}{2\sigma}$。
+
+		不确定度之积：
+		\begin{align*}
+			\Delta x\cdot\Delta p=\sigma\cdot\frac{\hbar}{2\sigma}=\frac{\hbar}{2}
+		\end{align*}
+		恰好等于不确定性原理的下界 $\hbar/2$，即 Gauss 波包为最小不确定态。
+	\end{enumerate}
+	}
+
+	\item
+	两个独立的一维谐振子 $A,B$，其 Hamilton 量为
+	\[
+	H=H_a+H_b,\qquad H_a=\frac{\hat{p}_a^2}{2m}+\frac{1}{2}m\omega_a^2 x_a^2,\qquad H_b=\frac{\hat{p}_b^2}{2m}+\frac{1}{2}m\omega_b^2 x_b^2
+	\]
+	其中 $m$ 为振子质量，$\omega_a,\omega_b$ 为固有频率，且 $\omega_a/\omega_b$ 为无理数。
+	\begin{enumerate}
+		\item 求系统所有能级及基态波函数；
+		\item 引入两谐振子之间耦合后的总 Hamilton 量为 $H'=H+\varepsilon x_a^2 x_b^2$，其中 $\varepsilon$ 为无穷小量，求总系统各能级的一级微扰修正。
+	\end{enumerate}
+
+	\banswer{
+	\begin{enumerate}
+		\item 两独立谐振子的 Hamilton 量为 $H=H_a+H_b$，本征态为 $|n_a,n_b\rangle$，对应能量
+		\begin{align*}
+			E_{n_a,n_b}^{(0)}=\hbar\omega_a\left(n_a+\frac{1}{2}\right)+\hbar\omega_b\left(n_b+\frac{1}{2}\right)
+		\end{align*}
+		其中 $n_a,n_b=0,1,2,\ldots$。由于 $\omega_a/\omega_b$ 为无理数，不同 $(n_a,n_b)$ 给出的能量互不相同，即所有能级非简并。
+
+		基态 $(n_a,n_b)=(0,0)$ 的波函数为两谐振子基态之积：
+		\begin{align*}
+			\psi_0(x_a,x_b)&=\left(\frac{m\omega_a}{\pi\hbar}\right)^{1/4}e^{-m\omega_a x_a^2/(2\hbar)}\cdot\left(\frac{m\omega_b}{\pi\hbar}\right)^{1/4}e^{-m\omega_b x_b^2/(2\hbar)}\\
+			&=\left(\frac{m^2\omega_a\omega_b}{\pi^2\hbar^2}\right)^{1/4}\exp\!\left(-\frac{m\omega_a x_a^2+m\omega_b x_b^2}{2\hbar}\right)
+		\end{align*}
+
+		\item 能量一级修正为
+		\begin{align*}
+			E_{n_a,n_b}^{(1)}=\langle n_a,n_b|\varepsilon x_a^2 x_b^2|n_a,n_b\rangle=\varepsilon\langle n_a|x_a^2|n_a\rangle\langle n_b|x_b^2|n_b\rangle
+		\end{align*}
+		利用谐振子结果 $\langle n|x^2|n\rangle=\dfrac{\hbar}{m\omega}\left(n+\dfrac{1}{2}\right)$：
+		\begin{align*}
+			E_{n_a,n_b}^{(1)}&=\varepsilon\cdot\frac{\hbar}{m\omega_a}\left(n_a+\frac{1}{2}\right)\cdot\frac{\hbar}{m\omega_b}\left(n_b+\frac{1}{2}\right)\\
+			&=\frac{\varepsilon\hbar^2}{m^2\omega_a\omega_b}\left(n_a+\frac{1}{2}\right)\left(n_b+\frac{1}{2}\right)
+		\end{align*}
+	\end{enumerate}
+	}
+
+	\item
+	电子自旋处于磁场 $\vec{B}=B_0\cos(\omega t)\hat{z}$ 中，其中 $B_0,\omega$ 为常数，$\hat{z}$ 为 $z$ 正方向单位矢量。不考虑轨道运动。
+	\begin{enumerate}
+		\item 在 $S_z$ 表象中写出 Hamilton 量；
+		\item 初始态为 $S_x$ 本征值为 $+\hbar/2$ 的态 $|+x\rangle$，求 $t$ 时刻的态矢量；
+		\item 求 $t$ 时刻测量 $S_x$ 得到 $-\hbar/2$ 的概率，以及使该概率在某时刻达到 1 所需的最小磁场振幅 $B_0$。
+	\end{enumerate}
+
+	\banswer{
+	\begin{enumerate}
+		\item 引入带符号旋磁比 $\gamma$（对电子 $\gamma<0$），磁矩 $\vec{\mu}=\gamma\vec{S}$，Hamilton 量为
+		\begin{align*}
+			H=-\vec{\mu}\cdot\vec{B}=-\gamma B_0\cos(\omega t)S_z
+		\end{align*}
+		在 $S_z$ 表象中，$S_z=\dfrac{\hbar}{2}\begin{pmatrix}1&0\\0&-1\end{pmatrix}$，故
+		\begin{align*}
+			H=-\frac{\hbar\gamma B_0}{2}\cos(\omega t)\begin{pmatrix}1&0\\0&-1\end{pmatrix}
+		\end{align*}
+
+		\item 由于 $H(t)$ 在不同时刻对易（均为 $S_z$ 的倍数），时间演化算符可精确写出：
+		\begin{align*}
+			U(t)&=\exp\!\left(-\frac{i}{\hbar}\int_0^t H(t')\,dt'\right)\\
+			&=\exp\!\left(\frac{i\gamma B_0}{2}\cdot\frac{\sin(\omega t)}{\omega}\cdot\begin{pmatrix}1&0\\0&-1\end{pmatrix}\right)
+		\end{align*}
+		令 $\varphi(t)=\dfrac{\gamma B_0\sin(\omega t)}{\omega}$，则
+		\begin{align*}
+			U(t)=\begin{pmatrix}e^{i\varphi/2}&0\\0&e^{-i\varphi/2}\end{pmatrix}
+		\end{align*}
+		初始态 $|+x\rangle=\dfrac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix}$，故
+		\begin{align*}
+			|\psi(t)\rangle=\frac{1}{\sqrt{2}}\begin{pmatrix}e^{i\varphi/2}\\e^{-i\varphi/2}\end{pmatrix}
+		\end{align*}
+
+		\item $|-x\rangle=\dfrac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\end{pmatrix}$，测量得到 $-\hbar/2$ 的概率为
+		\begin{align*}
+			P_{-x}&=|\langle -x|\psi(t)\rangle|^2=\left|\frac{1}{2}(e^{i\varphi/2}-e^{-i\varphi/2})\right|^2\\
+			&=\left|\frac{2i\sin(\varphi/2)}{2}\right|^2=\sin^2\!\left(\frac{\varphi}{2}\right)\\
+			&=\sin^2\!\left(\frac{\gamma B_0\sin(\omega t)}{2\omega}\right)
+		\end{align*}
+		要使 $P_{-x}=1$，需 $\sin^2(\varphi/2)=1$，即 $\varphi/2=(2n+1)\pi/2$，也即
+		\begin{align*}
+			\frac{|\gamma|B_0\sin(\omega t)}{\omega}=(2n+1)\pi
+		\end{align*}
+		由于 $\sin(\omega t)$ 最大值为 1，最小 $B_0$ 对应 $n=0$：
+		\begin{align*}
+			B_{0,\min}=\frac{\pi\omega}{|\gamma|}
+		\end{align*}
+		在 Gaussian 单位制中，$|\gamma|=\dfrac{ge}{2mc}$，对电子 $g\approx 2$，故 $|\gamma|\approx\dfrac{e}{mc}$。
+	\end{enumerate}
+	}
+
+	\item
+	$N$ 维 Hilbert 空间中有一组正交归一基 $\{|n\rangle\}_{n=1}^N$，定义循环条件 $|N+1\rangle\equiv|1\rangle$。Hamilton 量为
+	\[
+	H=-\sum_{n=1}^N\left(|n+1\rangle\langle n|+|n\rangle\langle n+1|\right)
+	\]
+	平移算符 $\tau$ 定义为 $\tau|n\rangle=|n+1\rangle$。
+	\begin{enumerate}
+		\item 求 $\tau$ 的本征值和本征态；
+		\item 求 $H$ 与 $\tau$ 的共同本征态及 $H$ 的本征值；
+		\item 一系统中有两个无相互作用的全同玻色子，其单粒子 Hamilton 量为 $H$，分别写出该系统基态与第一激发态的能量和简并度。
+	\end{enumerate}
+
+	\banswer{
+	\begin{enumerate}
+		\item 由 $\tau^N=I$，$\tau$ 的本征值 $\lambda$ 满足 $\lambda^N=1$，故
+		\begin{align*}
+			\lambda_j=e^{ik_j},\quad k_j=\frac{2\pi j}{N},\quad j=0,1,\ldots,N-1
+		\end{align*}
+		对应本征态为
+		\begin{align*}
+			|k_j\rangle=\frac{1}{\sqrt{N}}\sum_{n=1}^N e^{-ik_j n}|n\rangle
+		\end{align*}
+		验证：$\tau|k_j\rangle=\dfrac{1}{\sqrt{N}}\sum_{n=1}^N e^{-ik_j n}|n+1\rangle=\dfrac{1}{\sqrt{N}}\sum_{n'=2}^{N+1}e^{-ik_j(n'-1)}|n'\rangle=e^{ik_j}|k_j\rangle$。
+
+		\item 由于 $H=-(\tau+\tau^{\dagger})$，$[H,\tau]=0$，故 $|k_j\rangle$ 也是 $H$ 的本征态：
+		\begin{align*}
+			H|k_j\rangle=-(e^{ik_j}+e^{-ik_j})|k_j\rangle=-2\cos(k_j)|k_j\rangle
+		\end{align*}
+		即 $H$ 的本征值为 $E_j=-2\cos\!\left(\dfrac{2\pi j}{N}\right)$。
+
+		简并分析：$E_j=E_{N-j}$（因 $\cos(2\pi j/N)=\cos(2\pi(N-j)/N)$）。当 $j=0$ 时非简并；当 $N$ 为偶数且 $j=N/2$ 时也非简并；其余 $j$ 与 $N-j$ 二重简并。
+
+		\item 两个无相互作用的自旋为零（即无自旋自由度）全同玻色子，总波函数须对称。单粒子能级为 $E_j=-2\cos(2\pi j/N)$。
+
+		\textbf{基态}：单粒子最低能级为 $j=0$，$E_0=-2$（非简并）。两玻色子均占据 $j=0$ 态：
+		\begin{align*}
+			|\Psi_0\rangle=|k_0\rangle\otimes|k_0\rangle,\quad E_{\text{gs}}=-2+(-2)=-4
+		\end{align*}
+		简并度为 1。
+
+		\textbf{第一激发态}：一个粒子在 $j=0$，另一个在 $j=1$ 或 $j=N-1$（二者能量相同，$E_1=E_{N-1}=-2\cos(2\pi/N)$）。对称化态为
+		\begin{align*}
+			|\Psi_{\pm}\rangle=\frac{1}{\sqrt{2}}\left(|k_0\rangle\otimes|k_{\pm 1}\rangle+|k_{\pm 1}\rangle\otimes|k_0\rangle\right)
+		\end{align*}
+		其中 $k_{\pm 1}=\pm 2\pi/N$。能量为
+		\begin{align*}
+			E_{\text{1st}}=-2-2\cos\!\left(\frac{2\pi}{N}\right)
+		\end{align*}
+		简并度为 2（对应 $j=1$ 和 $j=N-1$ 两种选择）。
+
+		注：$N=2$ 时 $j=1$ 即 $j=N-1$，第一激发态简并度为 1。
+	\end{enumerate}
+	}
+
+	\item
+	一个量子系统有三个相互线性独立的态，在适当单位制下 Hamilton 量的矩阵形式为
+	\[
+	\hat{H}=\begin{pmatrix}2-\varepsilon&0&0\\0&2&\varepsilon\\0&\varepsilon&1\end{pmatrix}
+	\]
+	其中 $\varepsilon$ 为无穷小量。
+	\begin{enumerate}
+		\item 求 $\varepsilon=0$ 时 $\hat{H}$ 的本征值和本征矢；
+		\item 用非简并微扰论求基态能量的一级和二级修正；
+		\item 用简并微扰论求激发态能量的一级修正；
+		\item 严格求解 $\hat{H}$ 的本征值，展开至 $\varepsilon^2$ 阶，与微扰论结果比较。
+	\end{enumerate}
+
+	\banswer{
+	\begin{enumerate}
+		\item $\varepsilon=0$ 时
+		\begin{align*}
+			H_0=\begin{pmatrix}2&0&0\\0&2&0\\0&0&1\end{pmatrix}
+		\end{align*}
+		本征值：$E=1$（一重），本征矢 $|3\rangle=\begin{pmatrix}0\\0\\1\end{pmatrix}$；$E=2$（二重简并），本征矢 $|1\rangle=\begin{pmatrix}1\\0\\0\end{pmatrix}$，$|2\rangle=\begin{pmatrix}0\\1\\0\end{pmatrix}$。
+
+		\item 基态 $|3\rangle$ 非简并。微扰 $V=H-H_0=\begin{pmatrix}-\varepsilon&0&0\\0&0&\varepsilon\\0&\varepsilon&0\end{pmatrix}$。
+
+		一级修正：
+		\begin{align*}
+			E_0^{(1)}=\langle 3|V|3\rangle=0
+		\end{align*}
+		二级修正：
+		\begin{align*}
+			E_0^{(2)}=\sum_{k\neq 3}\frac{|\langle k|V|3\rangle|^2}{E_3^{(0)}-E_k^{(0)}}=\frac{|\langle 2|V|3\rangle|^2}{1-2}=\frac{\varepsilon^2}{-1}=-\varepsilon^2
+		\end{align*}
+		（$\langle 1|V|3\rangle=0$，只有 $|2\rangle$ 贡献。）
+
+		故基态能量至二级为 $E_{\text{gs}}=1+0-\varepsilon^2=1-\varepsilon^2$。
+
+		\item 激发态 $E=2$ 二重简并，子空间为 $\{|1\rangle,|2\rangle\}$。微扰在此子空间中的矩阵为
+		\begin{align*}
+			V_{\text{deg}}=\begin{pmatrix}\langle 1|V|1\rangle&\langle 1|V|2\rangle\\\langle 2|V|1\rangle&\langle 2|V|2\rangle\end{pmatrix}=\begin{pmatrix}-\varepsilon&0\\0&0\end{pmatrix}
+		\end{align*}
+		已对角化，一级能量修正为 $-\varepsilon$（对应 $|1\rangle$）和 $0$（对应 $|2\rangle$）。
+
+		即激发态分裂为 $E=2-\varepsilon$ 和 $E=2$（至一级）。
+
+		\item 严格求解。$H$ 为分块结构：$|1\rangle$ 已与 $\{|2\rangle,|3\rangle\}$ 解耦。
+
+		$|1\rangle$ 方向：$E_1=2-\varepsilon$，精确。
+
+		$\{|2\rangle,|3\rangle\}$ 子空间：
+		\begin{align*}
+			H_{23}=\begin{pmatrix}2&\varepsilon\\\varepsilon&1\end{pmatrix}
+		\end{align*}
+		久期方程：$(2-E)(1-E)-\varepsilon^2=0$，即 $E^2-3E+2-\varepsilon^2=0$，解得
+		\begin{align*}
+			E_{\pm}=\frac{3\pm\sqrt{1+4\varepsilon^2}}{2}
+		\end{align*}
+		展开 $\sqrt{1+4\varepsilon^2}=1+2\varepsilon^2-2\varepsilon^4+\cdots$：
+		\begin{align*}
+			E_-&=\frac{3-1-2\varepsilon^2+\cdots}{2}=1-\varepsilon^2+O(\varepsilon^4)\\
+			E_+&=\frac{3+1+2\varepsilon^2+\cdots}{2}=2+\varepsilon^2+O(\varepsilon^4)
+		\end{align*}
+
+		\textbf{与微扰论比较}：
+		\begin{itemize}
+			\item 基态 $E_-=1-\varepsilon^2+O(\varepsilon^4)$：与 (2) 中 $E_0^{(1)}=0$，$E_0^{(2)}=-\varepsilon^2$ 一致。
+			\item 激发态 $E_1=2-\varepsilon$：与 (3) 中 $|1\rangle$ 的一级修正 $-\varepsilon$ 一致（此处无二级修正）。
+			\item 激发态 $E_+=2+\varepsilon^2+O(\varepsilon^4)$：(3) 中 $|2\rangle$ 的一级修正为 0，二级修正为 $+\varepsilon^2$（来自与 $|3\rangle$ 的耦合 $\dfrac{|\varepsilon|^2}{2-1}=\varepsilon^2$），一致。
+		\end{itemize}
+	\end{enumerate}
+	}
+
+\end{enumerate}

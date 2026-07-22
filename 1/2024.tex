@@ -1,0 +1,407 @@
+\bta{2024}
+
+
+\begin{enumerate}
+	\item
+	已知算符
+	\[
+	\hat{A}=\frac{1}{\sqrt{2}}\left(\frac{i}{mc}\hat{p}_x+\frac{mc}{\hbar}x\right),\qquad
+	\hat{B}=\frac{1}{\sqrt{2}}\left(\frac{i}{mc}\hat{p}_y+\frac{mc}{\hbar}y\right)
+	\]
+	其中 $x,y$ 为坐标算符，$\hat{p}_x,\hat{p}_y$ 为动量算符，$m$ 为质量，$c$ 为光速。令 $\hat{C}=\hat{B}+i\hat{A}$。
+	\begin{enumerate}
+		\item 求 $[\hat{A},\hat{A}^{\dagger}]$，$[\hat{B},\hat{B}^{\dagger}]$，$[\hat{C},\hat{C}^{\dagger}]$；
+		\item 求 $[\hat{C}^{\dagger}\hat{C},\hat{A}^{\dagger}\hat{A}+\hat{B}^{\dagger}\hat{B}]$；
+		\item 求 $\hat{L}_z=\hbar(\hat{C}^{\dagger}\hat{C}-\hat{A}^{\dagger}\hat{A}-\hat{B}^{\dagger}\hat{B})$ 的可能本征值。
+	\end{enumerate}
+
+	\banswer{
+	\begin{enumerate}
+		\item 利用 $[x,\hat{p}_x]=i\hbar$，$[y,\hat{p}_y]=i\hbar$，其余对易子为零。
+
+		对 $[\hat{A},\hat{A}^{\dagger}]$：
+		\begin{align*}
+			\hat{A}&=\frac{1}{\sqrt{2}}\left(\frac{i}{mc}\hat{p}_x+\frac{mc}{\hbar}x\right)\\
+			\hat{A}^{\dagger}&=\frac{1}{\sqrt{2}}\left(\frac{-i}{mc}\hat{p}_x+\frac{mc}{\hbar}x\right)
+		\end{align*}
+		\begin{align*}
+			[\hat{A},\hat{A}^{\dagger}]
+			&=\frac{1}{2}\left[\frac{i}{mc}\hat{p}_x+\frac{mc}{\hbar}x,\;\frac{-i}{mc}\hat{p}_x+\frac{mc}{\hbar}x\right]\\
+			&=\frac{1}{2}\left(\frac{i}{mc}\cdot\frac{mc}{\hbar}[\hat{p}_x,x]+\frac{mc}{\hbar}\cdot\frac{-i}{mc}[x,\hat{p}_x]\right)\\
+			&=\frac{1}{2}\left(\frac{i}{\hbar}(-i\hbar)+\frac{-i}{\hbar}(i\hbar)\right)\\
+			&=\frac{1}{2}(1+1)=1
+		\end{align*}
+		同理 $[\hat{B},\hat{B}^{\dagger}]=1$。
+
+		对 $[\hat{C},\hat{C}^{\dagger}]$：由 $\hat{C}=\hat{B}+i\hat{A}$，$\hat{C}^{\dagger}=\hat{B}^{\dagger}-i\hat{A}^{\dagger}$，
+		\begin{align*}
+			[\hat{C},\hat{C}^{\dagger}]
+			&=[\hat{B}+i\hat{A},\hat{B}^{\dagger}-i\hat{A}^{\dagger}]\\
+			&=[\hat{B},\hat{B}^{\dagger}]-i[\hat{B},\hat{A}^{\dagger}]+i[\hat{A},\hat{B}^{\dagger}]+[\hat{A},\hat{A}^{\dagger}]\\
+			&=1+0+0+1=2
+		\end{align*}
+		其中利用了 $x,y,p_x,p_y$ 之间除正则对易外均为零。
+
+		\item 引入 $c=\hat{C}/\sqrt{2}=(\hat{B}+i\hat{A})/\sqrt{2}$，$d=(\hat{B}-i\hat{A})/\sqrt{2}$，则
+		\begin{align*}
+			[c,c^{\dagger}]=\frac{1}{2}[\hat{C},\hat{C}^{\dagger}]=1,\quad [d,d^{\dagger}]=1,\quad [c,d^{\dagger}]=0
+		\end{align*}
+		且由 $c=(\hat{B}+i\hat{A})/\sqrt{2}$，$d=(\hat{B}-i\hat{A})/\sqrt{2}$ 反解得
+		\begin{align*}
+			\hat{A}=\frac{c-d}{i\sqrt{2}}=\frac{i(d-c)}{\sqrt{2}},\quad \hat{B}=\frac{c+d}{\sqrt{2}}
+		\end{align*}
+		验证：
+		\begin{align*}
+			\hat{A}^{\dagger}\hat{A}&=\frac{(c^{\dagger}-d^{\dagger})(c-d)}{(i\sqrt{2})(-i\sqrt{2})}=\frac{c^{\dagger}c-c^{\dagger}d-d^{\dagger}c+d^{\dagger}d}{2}\\
+			\hat{B}^{\dagger}\hat{B}&=\frac{(c^{\dagger}+d^{\dagger})(c+d)}{2}=\frac{c^{\dagger}c+c^{\dagger}d+d^{\dagger}c+d^{\dagger}d}{2}
+		\end{align*}
+		相加得
+		\begin{align*}
+			\hat{A}^{\dagger}\hat{A}+\hat{B}^{\dagger}\hat{B}=c^{\dagger}c+d^{\dagger}d=N_c+N_d
+		\end{align*}
+		而 $\hat{C}^{\dagger}\hat{C}=2c^{\dagger}c=2N_c$。因此
+		\begin{align*}
+			[\hat{C}^{\dagger}\hat{C},\hat{A}^{\dagger}\hat{A}+\hat{B}^{\dagger}\hat{B}]
+			=[2N_c,N_c+N_d]=2[N_c,N_c]+2[N_c,N_d]=0
+		\end{align*}
+
+		\item 由上可知
+		\begin{align*}
+			\hat{L}_z&=\hbar(\hat{C}^{\dagger}\hat{C}-\hat{A}^{\dagger}\hat{A}-\hat{B}^{\dagger}\hat{B})\\
+			&=\hbar(2N_c-N_c-N_d)=\hbar(N_c-N_d)
+		\end{align*}
+		可直接验证 $\hat{L}_z=x\hat{p}_y-y\hat{p}_x$ 即轨道角动量 $z$ 分量。
+
+		$N_c$ 和 $N_d$ 的本征值分别为非负整数 $n_c,n_d$，故 $\hat{L}_z$ 的本征值为
+		\begin{align*}
+			L_z=m\hbar,\quad m=n_c-n_d\in\mathbb{Z}
+		\end{align*}
+		在给定总量子数 $N=n_c+n_d$ 的能级上，$m=-N,-N+2,\ldots,N-2,N$。
+	\end{enumerate}
+	}
+
+	\item
+	氢原子中电子所受势能为 $V(r)=-\dfrac{k}{r}$，$k>0$。
+	\begin{enumerate}
+		\item 不考虑自旋，写出 $n=1$，$n=2$ 的本征能量；
+		\item 若 $U(r)=-\dfrac{k}{r}e^{-r/\xi}$（$\xi\gg a$），将 $\delta V(r)=U(r)-V(r)$ 视为微扰，利用氢原子本征函数求 $E_1^{(1)}$；
+		\item 在同一微扰下，求 $E_2^{(1)}$。
+	\end{enumerate}
+
+	提示：氢原子波函数（$a$ 为 Bohr 半径）
+	\begin{align*}
+		\psi_{100}&=\frac{2}{\sqrt{4\pi}\,a^{3/2}}e^{-r/a}\\
+		\psi_{200}&=\frac{2}{\sqrt{8\pi}\,a^{3/2}}\left(1-\frac{r}{2a}\right)e^{-r/(2a)}\\
+		\psi_{210}&=\frac{2}{2\sqrt{6\pi}\,a^{3/2}}\frac{r}{a}e^{-r/(2a)}\sqrt{\frac{3}{4\pi}}\cos\theta\\
+		\psi_{21\pm1}&=\frac{2}{2\sqrt{6\pi}\,a^{3/2}}\frac{r}{a}e^{-r/(2a)}\left(\mp\sqrt{\frac{3}{8\pi}}\sin\theta\,e^{\pm i\varphi}\right)
+	\end{align*}
+
+	\banswer{
+	\begin{enumerate}
+		\item 定义 $a=\dfrac{\hbar^2}{mk}$，则氢原子能级为
+		\begin{align*}
+			E_n^{(0)}=-\frac{k}{2a}\cdot\frac{1}{n^2}
+		\end{align*}
+		故
+		\begin{align*}
+			E_1^{(0)}=-\frac{k}{2a},\qquad E_2^{(0)}=-\frac{k}{8a}
+		\end{align*}
+		$n=2$ 有 4 重轨道简并（$2s,2p_0,2p_{+1},2p_{-1}$）。
+
+		\item 微扰为
+		\begin{align*}
+			\delta V(r)=U(r)-V(r)=-\frac{k}{r}e^{-r/\xi}+\frac{k}{r}=\frac{k}{r}\left(1-e^{-r/\xi}\right)
+		\end{align*}
+
+		注意：题目所给提示中 $n=2$ 波函数的归一化系数存在印刷问题，以下计算采用正确归一化的标准氢原子波函数。
+
+		基态一级修正：
+		\begin{align*}
+			E_1^{(1)}&=\langle\psi_{100}|\delta V|\psi_{100}\rangle\\
+			&=\frac{1}{\pi a^3}\int_0^{\infty}e^{-2r/a}\cdot\frac{k}{r}\left(1-e^{-r/\xi}\right)\cdot 4\pi r^2\,dr\\
+			&=\frac{4k}{a^3}\int_0^{\infty}r\,e^{-2r/a}\left(1-e^{-r/\xi}\right)dr\\
+			&=\frac{4k}{a^3}\left[\int_0^{\infty}r\,e^{-2r/a}dr-\int_0^{\infty}r\,e^{-r(2/a+1/\xi)}dr\right]
+		\end{align*}
+		利用 $\int_0^{\infty}r\,e^{-\alpha r}dr=1/\alpha^2$：
+		\begin{align*}
+			E_1^{(1)}&=\frac{4k}{a^3}\left[\frac{1}{(2/a)^2}-\frac{1}{(2/a+1/\xi)^2}\right]\\
+			&=\frac{4k}{a^3}\left[\frac{a^2}{4}-\frac{a^2\xi^2}{(2\xi+a)^2}\right]\\
+			&=\frac{k}{a}\left[1-\frac{4\xi^2}{(2\xi+a)^2}\right]\\
+			&=\frac{k}{a}\left[1-\frac{4}{(2+a/\xi)^2}\right]
+		\end{align*}
+		当 $\xi\gg a$ 时展开：
+		\begin{align*}
+			E_1^{(1)}&=\frac{k}{a}\left[1-\frac{4}{4(1+a/(2\xi))^2}\right]
+			=\frac{k}{a}\left[1-\left(1+\frac{a}{2\xi}\right)^{-2}\right]\\
+			&\approx\frac{k}{a}\left[\frac{a}{\xi}-\frac{3a^2}{4\xi^2}+\cdots\right]
+			=\frac{k}{\xi}-\frac{3ka}{4\xi^2}+O\!\left(\frac{a^2}{\xi^3}\right)
+		\end{align*}
+
+		\item 由于 $\delta V(r)$ 为中心势，在 $l,m$ 子空间中对角，故 $n=2$ 的简并微扰论退化为非简并计算，$2s$ 与 $2p$ 分别计算。
+
+		令 $s=1+a/\xi$。
+
+		\textbf{2s 态}（$\psi_{200}$）：
+		\begin{align*}
+			E_{2s}^{(1)}&=\langle\psi_{200}|\delta V|\psi_{200}\rangle\\
+			&=\frac{1}{32\pi a^3}\int\left(2-\frac{r}{a}\right)^2 e^{-r/a}\cdot\frac{k}{r}\left(1-e^{-r/\xi}\right)\cdot 4\pi r^2\,dr\\
+			&=\frac{k}{8a^3}\int_0^{\infty}r\left(2-\frac{r}{a}\right)^2 e^{-r/a}\left(1-e^{-r/\xi}\right)dr
+		\end{align*}
+		展开 $\left(2-\frac{r}{a}\right)^2=4-\frac{4r}{a}+\frac{r^2}{a^2}$，利用 $\int_0^{\infty}r^n e^{-\alpha r}dr=n!/\alpha^{n+1}$，经计算得
+		\begin{align*}
+			E_{2s}^{(1)}=\frac{k}{4a}\left[1-\frac{2s^2-4s+3}{s^4}\right]
+		\end{align*}
+		展开（$\xi\gg a$，即 $a/\xi\ll 1$）：
+		\begin{align*}
+			E_{2s}^{(1)}=\frac{k}{\xi}-\frac{3ka}{\xi^2}+O\!\left(\frac{a^2}{\xi^3}\right)
+		\end{align*}
+
+		\textbf{2p 态}（$\psi_{210},\psi_{21\pm1}$）：
+		\begin{align*}
+			E_{2p}^{(1)}&=\langle\psi_{210}|\delta V|\psi_{210}\rangle\\
+			&=\frac{1}{32\pi a^3}\int\frac{r^2}{a^2}e^{-r/a}\cos^2\theta\cdot\frac{k}{r}\left(1-e^{-r/\xi}\right)\cdot r^2\sin\theta\,dr\,d\theta\,d\varphi
+		\end{align*}
+		角向积分 $\int\cos^2\theta\sin\theta\,d\theta\,d\varphi=4\pi/3$，故
+		\begin{align*}
+			E_{2p}^{(1)}&=\frac{k}{24a^5}\int_0^{\infty}r^3 e^{-r/a}\left(1-e^{-r/\xi}\right)dr\\
+			&=\frac{k}{24a^5}\left[\frac{3!}{(1/a)^4}-\frac{3!}{(1/a+1/\xi)^4}\right]\\
+			&=\frac{k}{4a}\left[1-\frac{1}{(1+a/\xi)^4}\right]\\
+			&=\frac{k}{4a}\left[1-s^{-4}\right]
+		\end{align*}
+		展开：
+		\begin{align*}
+			E_{2p}^{(1)}=\frac{k}{\xi}-\frac{5ka}{2\xi^2}+O\!\left(\frac{a^2}{\xi^3}\right)
+		\end{align*}
+		$2p$ 的三个 $m$ 态（$m=0,\pm1$）能量修正相同，保持三重简并。
+
+		总结：微扰将 $n=2$ 的四重简并部分解除为 $2s$（一重）和 $2p$（三重）。由于
+		\begin{align*}
+			E_{2s}^{(1)}-E_{2p}^{(1)}=\frac{k}{4a}\left[\frac{1}{s^4}-\frac{2s^2-4s+3}{s^4}\right]=-\frac{k(s-1)^2}{2a\,s^4}<0\quad(s>1)
+		\end{align*}
+		故 $E_{2s}^{(1)}<E_{2p}^{(1)}$，仅当 $\xi\to\infty$（即 $s\to 1$）时取等。
+	\end{enumerate}
+	}
+
+	\item
+	质量为 $m$ 的粒子从 $x=-\infty$ 沿 $+x$ 方向入射，势能为
+	\[
+	V(x)=\begin{cases}0,&x<0\\V_0,&x>0\end{cases}
+	\]
+	\begin{enumerate}
+		\item 写出定态 Schr\"odinger 方程；
+		\item 求解定态 Schr\"odinger 方程；
+		\item 设入射波概率密度为 1，求 $x>0$ 区域的概率密度。
+	\end{enumerate}
+
+	\banswer{
+	\begin{enumerate}
+		\item 定态 Schr\"odinger 方程为
+		\begin{align*}
+			-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}+V(x)\psi=E\psi
+		\end{align*}
+		即
+		\begin{align*}
+			\begin{cases}
+				-\dfrac{\hbar^2}{2m}\dfrac{d^2\psi}{dx^2}=E\psi,&x<0\\[8pt]
+				-\dfrac{\hbar^2}{2m}\dfrac{d^2\psi}{dx^2}+V_0\psi=E\psi,&x>0
+			\end{cases}
+		\end{align*}
+
+		\item 分情况讨论：
+
+		\textbf{情形一：$E>V_0$}
+
+		令 $k_1=\sqrt{2mE}/\hbar$，$k_2=\sqrt{2m(E-V_0)}/\hbar$。
+
+		$x<0$ 区域（入射波+反射波）：
+		\begin{align*}
+			\psi_{\text{L}}(x)=e^{ik_1 x}+r\,e^{-ik_1 x}
+		\end{align*}
+		$x>0$ 区域（透射波）：
+		\begin{align*}
+			\psi_{\text{R}}(x)=t\,e^{ik_2 x}
+		\end{align*}
+		由 $x=0$ 处 $\psi$ 和 $\psi'$ 连续：
+		\begin{align*}
+			1+r=t,\qquad k_1(1-r)=k_2 t
+		\end{align*}
+		解得
+		\begin{align*}
+			r=\frac{k_1-k_2}{k_1+k_2},\qquad t=\frac{2k_1}{k_1+k_2}
+		\end{align*}
+
+		\textbf{情形二：$0<E<V_0$}
+
+		令 $\kappa=\sqrt{2m(V_0-E)}/\hbar$。$x>0$ 区域波函数衰减：
+		\begin{align*}
+			\psi_{\text{R}}(x)=t\,e^{-\kappa x}
+		\end{align*}
+		边界条件：
+		\begin{align*}
+			1+r=t,\qquad ik_1(1-r)=-\kappa t
+		\end{align*}
+		解得
+		\begin{align*}
+			r=\frac{ik_1+\kappa}{ik_1-\kappa},\qquad t=\frac{2ik_1}{ik_1-\kappa}
+		\end{align*}
+
+		\textbf{情形三：$E=V_0$}
+
+		$x>0$ 区域方程为 $\psi''=0$，有界解为常数 $\psi_{\text{R}}=t$。由边界条件 $1+r=t$，$ik_1(1-r)=0$ 得 $r=1$，$t=2$。
+
+		\item 入射波概率密度为 $|e^{ik_1 x}|^2=1$。
+
+		\textbf{$E>V_0$ 时}：$x>0$ 的概率密度为
+		\begin{align*}
+			\rho_{\text{R}}=|t|^2=\frac{4k_1^2}{(k_1+k_2)^2}
+		\end{align*}
+
+		\textbf{$0<E<V_0$ 时}：$x>0$ 的概率密度为
+		\begin{align*}
+			\rho_{\text{R}}=|t|^2 e^{-2\kappa x}=\frac{4k_1^2}{k_1^2+\kappa^2}\,e^{-2\kappa x}
+		\end{align*}
+
+		\textbf{$E=V_0$ 时}：$\rho_{\text{R}}=|t|^2=4$。
+	\end{enumerate}
+	}
+
+	\item
+	带电量为 $e$ 的粒子在二维平面运动，沿 $z$ 方向加均匀磁场 $\vec{B}=B\hat{z}$，取 Landau 规范 $\vec{A}=(-By,0,0)$。Hamilton 量为（取 $\hbar=1$）
+	\[
+	\hat{H}=\frac{1}{2m}\left(\hat{\vec{p}}-\frac{e}{c}\vec{A}\right)^2
+	\]
+	其中 $\hat{\vec{p}}=(-i\partial/\partial x,\,-i\partial/\partial y)$。
+	\begin{enumerate}
+		\item 求 $[\hat{p}_x,\hat{H}]$；
+		\item 构造 $\hat{\pi}_y=\hat{p}_y+ax$ 使得 $[\hat{\pi}_y,\hat{H}]=0$，求 $a$ 及 $[\hat{p}_x,\hat{\pi}_y]$；
+		\item 已知 $\hat{H}$ 和 $\hat{p}_x$ 的共同本征态
+		\[
+		\psi_{k_x}(x,y)=\langle x,y|k_x\rangle=e^{ik_x x}\exp\!\left[-\frac{eB}{2c}\left(y+\frac{k_x c}{eB}\right)^2\right]
+		\]
+		求态 $|k_x,\lambda\rangle=e^{i\lambda\hat{\pi}_y}|k_x\rangle$ 中 $\hat{H}$ 和 $\hat{p}_x$ 的本征值。
+	\end{enumerate}
+
+	\banswer{
+	\begin{enumerate}
+		\item 注意本题取 $\hbar=1$。将 Hamilton 量展开：
+		\begin{align*}
+			\hat{H}&=\frac{1}{2m}\left[\left(\hat{p}_x+\frac{eB}{c}y\right)^2+\hat{p}_y^2\right]
+		\end{align*}
+		由于 $\hat{p}_x=-i\partial/\partial x$ 与 $y$ 和 $\hat{p}_y$ 均对易，
+		\begin{align*}
+			[\hat{p}_x,\hat{H}]=\frac{1}{2m}\left[\hat{p}_x,\left(\hat{p}_x+\frac{eB}{c}y\right)^2\right]=0
+		\end{align*}
+
+		\item 令 $\hat{\pi}_y=\hat{p}_y+ax$，计算
+		\begin{align*}
+			[\hat{\pi}_y,\hat{H}]&=[\hat{p}_y+ax,\hat{H}]\\
+			&=[\hat{p}_y,\hat{H}]+a[x,\hat{H}]
+		\end{align*}
+		其中
+		\begin{align*}
+			[\hat{p}_y,\hat{H}]&=\frac{1}{2m}[\hat{p}_y,(\hat{p}_x+eBy/c)^2]\\
+			&=\frac{1}{2m}\cdot 2(\hat{p}_x+eBy/c)\cdot\frac{eB}{c}[\hat{p}_y,y]\\
+			&=\frac{1}{m}(\hat{p}_x+eBy/c)\cdot\frac{eB}{c}(-i)\\
+			&=-\frac{ieB}{mc}(\hat{p}_x+eBy/c)
+		\end{align*}
+		又
+		\begin{align*}
+			[x,\hat{H}]=\frac{1}{2m}[x,(\hat{p}_x+eBy/c)^2]=\frac{1}{2m}\cdot 2(\hat{p}_x+eBy/c)\cdot i=\frac{i}{m}(\hat{p}_x+eBy/c)
+		\end{align*}
+		故
+		\begin{align*}
+			[\hat{\pi}_y,\hat{H}]=\left(-\frac{ieB}{mc}+\frac{ia}{m}\right)(\hat{p}_x+eBy/c)
+		\end{align*}
+		令其为零，得
+		\begin{align*}
+			a=\frac{eB}{c}
+		\end{align*}
+		此时
+		\begin{align*}
+			[\hat{p}_x,\hat{\pi}_y]=[\hat{p}_x,\hat{p}_y]+\left[\hat{p}_x,\frac{eB}{c}x\right]=0+\frac{eB}{c}[\hat{p}_x,x]=\frac{eB}{c}(-i)=-\frac{ieB}{c}
+		\end{align*}
+
+		\item 对给定的 $\psi_{k_x}$，它是最低 Landau 能级态。令 $\omega_c=eB/(mc)$（设 $eB>0$），则
+		\begin{align*}
+			\hat{H}\psi_{k_x}=\frac{\omega_c}{2}\psi_{k_x}=\frac{eB}{2mc}\psi_{k_x}
+		\end{align*}
+		$\hat{p}_x$ 的本征值为 $k_x$。
+
+		对态 $|k_x,\lambda\rangle=e^{i\lambda\hat{\pi}_y}|k_x\rangle$：由于 $[\hat{\pi}_y,\hat{H}]=0$，$\hat{H}$ 的本征值不变，仍为
+		\begin{align*}
+			E=\frac{eB}{2mc}
+		\end{align*}
+		对 $\hat{p}_x$：利用 $[\hat{\pi}_y,\hat{p}_x]=ieB/c$，由算符恒等式 $e^{-X}Ye^{X}=Y+[-X,Y]+\cdots$（此处对易子为常数，级数截断）：
+		\begin{align*}
+			e^{-i\lambda\hat{\pi}_y}\hat{p}_x\,e^{i\lambda\hat{\pi}_y}
+			&=\hat{p}_x+[-i\lambda\hat{\pi}_y,\hat{p}_x]\\
+			&=\hat{p}_x-i\lambda[\hat{\pi}_y,\hat{p}_x]\\
+			&=\hat{p}_x-i\lambda\cdot\frac{ieB}{c}=\hat{p}_x+\frac{\lambda eB}{c}
+		\end{align*}
+		因此
+		\begin{align*}
+			\hat{p}_x\,e^{i\lambda\hat{\pi}_y}|k_x\rangle
+			&=e^{i\lambda\hat{\pi}_y}\left(e^{-i\lambda\hat{\pi}_y}\hat{p}_x\,e^{i\lambda\hat{\pi}_y}\right)|k_x\rangle\\
+			&=e^{i\lambda\hat{\pi}_y}\left(\hat{p}_x+\frac{\lambda eB}{c}\right)|k_x\rangle
+			=\left(k_x+\frac{\lambda eB}{c}\right)|k_x,\lambda\rangle
+		\end{align*}
+		即 $\hat{p}_x$ 的本征值为
+		\begin{align*}
+			p_x=k_x+\frac{\lambda eB}{c}
+		\end{align*}
+	\end{enumerate}
+	}
+
+	\item
+	中微子根据相互作用可分为 3 种味道本征态，现考虑两种：电子中微子 $|\nu_e\rangle$ 和 $\mu$ 子中微子 $|\nu_\mu\rangle$。中微子的味道本征态并不是其质量本征态，有如下关系：
+	\[
+	|\nu_e\rangle=\cos\theta\,|\nu_1\rangle-\sin\theta\,|\nu_2\rangle,\qquad
+	|\nu_\mu\rangle=\sin\theta\,|\nu_1\rangle+\cos\theta\,|\nu_2\rangle
+	\]
+	质量算符满足 $\hat{M}|\nu_i\rangle=m_i|\nu_i\rangle$（$i=1,2$）。这种关系就是中微子振荡。
+	\begin{enumerate}
+		\item 求 $\hat{M}$ 在味表象 $\{|\nu_e\rangle,|\nu_\mu\rangle\}$ 中的矩阵表示；
+		\item $t=0$ 时产生一个电子中微子 $|\nu_e\rangle$，利用 $E=pc\left(1+\dfrac{m^2 c^2}{2p^2}\right)$（中微子质量很小，速度近似为 $c$），求 $t$ 时刻仍观测到电子中微子的概率。
+	\end{enumerate}
+
+	\banswer{
+	\begin{enumerate}
+		\item 味表象与质量表象的变换矩阵为
+		\begin{align*}
+			\begin{pmatrix}|\nu_e\rangle\\|\nu_\mu\rangle\end{pmatrix}
+			=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}
+			\begin{pmatrix}|\nu_1\rangle\\|\nu_2\rangle\end{pmatrix}
+		\end{align*}
+		即 $U=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}$。在质量表象中 $\hat{M}=\text{diag}(m_1,m_2)$，故味表象中
+		\begin{align*}
+			M_{\text{flavor}}&=U\begin{pmatrix}m_1&0\\0&m_2\end{pmatrix}U^{\dagger}\\
+			&=\begin{pmatrix}m_1\cos^2\theta+m_2\sin^2\theta&(m_1-m_2)\sin\theta\cos\theta\\(m_1-m_2)\sin\theta\cos\theta&m_1\sin^2\theta+m_2\cos^2\theta\end{pmatrix}
+		\end{align*}
+
+		\item $t=0$ 时 $|\psi(0)\rangle=|\nu_e\rangle=\cos\theta|\nu_1\rangle-\sin\theta|\nu_2\rangle$。
+
+		在质量表象中，各分量独立演化：
+		\begin{align*}
+			|\psi(t)\rangle=\cos\theta\,e^{-iE_1 t/\hbar}|\nu_1\rangle-\sin\theta\,e^{-iE_2 t/\hbar}|\nu_2\rangle
+		\end{align*}
+		其中 $E_i=pc\left(1+\dfrac{m_i^2 c^2}{2p^2}\right)$。
+
+		观测到电子中微子的振幅为
+		\begin{align*}
+			\langle\nu_e|\psi(t)\rangle&=\cos^2\theta\,e^{-iE_1 t/\hbar}+\sin^2\theta\,e^{-iE_2 t/\hbar}
+		\end{align*}
+		概率为
+		\begin{align*}
+			P_{ee}&=|\langle\nu_e|\psi(t)\rangle|^2\\
+			&=\cos^4\theta+\sin^4\theta+2\sin^2\theta\cos^2\theta\cos\!\left(\frac{(E_2-E_1)t}{\hbar}\right)\\
+			&=1-2\sin^2\theta\cos^2\theta\left[1-\cos\!\left(\frac{(E_2-E_1)t}{\hbar}\right)\right]\\
+			&=1-\sin^2(2\theta)\sin^2\!\left(\frac{(E_2-E_1)t}{2\hbar}\right)
+		\end{align*}
+		由 $E_2-E_1=\dfrac{(m_2^2-m_1^2)c^3}{2p}$，代入得
+		\begin{align*}
+			P_{ee}=1-\sin^2(2\theta)\sin^2\!\left(\frac{(m_2^2-m_1^2)c^3 t}{4p\hbar}\right)
+		\end{align*}
+	\end{enumerate}
+	}
+
+\end{enumerate}

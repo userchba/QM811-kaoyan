@@ -27,9 +27,43 @@
 		
 	\end{enumerate}
 	
-	\banswer{
-		
-	}
+		\banswer{
+			\begin{enumerate}
+				\item
+				\[
+					\phi_1(x)=\sqrt{\frac2a}\sin\frac{\pi x}{a},\qquad
+					\phi_2(x)=\sqrt{\frac2a}\sin\frac{2\pi x}{a}.
+				\]
+				由正交归一性，$1=|A|^2(1+1)$，可取
+				$\boxed{A=1/\sqrt2}$。
+
+				\item 题干此处的“$t=0$ 时的 $\psi(x,t)$”应理解为求时间演化。令
+				$E_n=n^2\pi^2\hbar^2/(2ma^2)$，则
+				\[
+					\boxed{\psi(x,t)=\frac1{\sqrt2}
+					\left[\phi_1(x)e^{-iE_1t/\hbar}
+					+\phi_2(x)e^{-iE_2t/\hbar}\right]}.
+				\]
+
+				\item 利用
+				\[
+					\langle n|x|n\rangle=\frac a2,\qquad
+					\langle1|x|2\rangle=-\frac{16a}{9\pi^2},
+				\]
+				以及 $\langle1|p|2\rangle$ 为纯虚数，得到
+				\[
+					\boxed{\langle x\rangle_{t=0}
+					=\frac a2-\frac{16a}{9\pi^2}},\qquad
+					\boxed{\langle p\rangle_{t=0}=0}.
+				\]
+
+				\item 能量可取 $E_1$ 和 $E_2=4E_1$，概率均为 $1/2$，且与时间无关。因此
+				\[
+					\boxed{\langle H\rangle=\frac{E_1+E_2}{2}
+					=\frac{5\pi^2\hbar^2}{4ma^2}}.
+				\]
+			\end{enumerate}
+		}
 	
 \item 
 考虑 $\mid lm>$ 态矢量空间中 $l=1$ 的子空间。在 $\left(\hat{l}, \hat{l}_{x}\right)$ 表象中角动量分量算符的矩阵表示为：
@@ -65,7 +99,40 @@ $$
 	
 \end{enumerate}
 \banswer{
-	
+	以下先把题中列出的矩阵理解为
+	$(L^2,L_z)$ 表象中的矩阵；原题矩阵前多写的等号是排版错误。基底均按磁量子数
+	$+1,0,-1$ 排列。
+	\begin{enumerate}
+		\item $L_x$ 的本征值为 $+\hbar,0,-\hbar$，相应归一化本征矢为
+		\[
+			v_+=\begin{pmatrix}\frac12\\[2pt]\frac1{\sqrt2}\\[2pt]\frac12\end{pmatrix},
+			\quad
+			v_0=\begin{pmatrix}\frac1{\sqrt2}\\[2pt]0\\[2pt]-\frac1{\sqrt2}\end{pmatrix},
+			\quad
+			v_-=\begin{pmatrix}\frac12\\[2pt]-\frac1{\sqrt2}\\[2pt]\frac12\end{pmatrix}.
+		\]
+
+		\item 以这三个本征矢为列，得到从 $L_x$ 表象到 $L_z$ 表象的幺正矩阵
+		\[
+			\boxed{S=\begin{pmatrix}
+			\frac12&\frac1{\sqrt2}&\frac12\\
+			\frac1{\sqrt2}&0&-\frac1{\sqrt2}\\
+			\frac12&-\frac1{\sqrt2}&\frac12
+			\end{pmatrix}},\qquad S^\dagger S=I.
+		\]
+
+		\item 在 $L_x$ 表象中 $O_x=S^\dagger O_zS$，从而
+		\[
+			\boxed{L_x=\hbar\begin{pmatrix}1&0&0\\0&0&0\\0&0&-1\end{pmatrix}},
+		\]
+		\[
+			\boxed{L_y=\frac{\hbar}{\sqrt2}
+			\begin{pmatrix}0&i&0\\-i&0&i\\0&-i&0\end{pmatrix}},
+			\qquad
+			\boxed{L_z=\frac{\hbar}{\sqrt2}
+			\begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix}}.
+		\]
+	\end{enumerate}
 }
 
 \item 
@@ -88,7 +155,33 @@ $$
 	
 \end{enumerate}
 \banswer{
-	
+	令 $\omega_1=\mu_0B_1/\hbar$。在 $S_z$ 表象中
+	\[
+		H(t)=-\hbar\begin{pmatrix}
+		\omega_0&\omega_1e^{i2\omega_0t}\\
+		\omega_1e^{-i2\omega_0t}&-\omega_0
+		\end{pmatrix}.
+	\]
+	\begin{enumerate}
+		\item 因 $(\vec B_0+\vec B_1)^2=B_0^2+B_1^2$，瞬时本征值为
+		\[
+			\boxed{E_\pm=\pm\mu_0\sqrt{B_0^2+B_1^2}
+			=\pm\hbar\sqrt{\omega_0^2+\omega_1^2}}.
+		\]
+
+		\item 旋转场的角频率 $2\omega_0$ 恰等于静磁场造成的两能级劈裂频率。在随场旋转的表象中，静磁场项被抵消，演化只由
+		$-\hbar\omega_1\sigma_x$ 产生。由初态 $|\downarrow\rangle$ 出发，
+		\[
+			|\psi_{\rm rot}(t)\rangle
+			=\cos(\omega_1t)|\downarrow\rangle
+			+i\sin(\omega_1t)|\uparrow\rangle.
+		\]
+		转回实验室表象只改变两个分量的相位，故
+		\[
+			\boxed{P_{\downarrow\to\uparrow}(t)=\sin^2(\omega_1t)
+			=\sin^2\left(\frac{\mu_0B_1t}{\hbar}\right)}.
+		\]
+	\end{enumerate}
 }
 
 
@@ -111,7 +204,42 @@ $$
 \end{enumerate}
 
 \banswer{
-	
+	以圆周角坐标 $\varphi$ 描述粒子，并记
+	$\varepsilon=\hbar^2/(2mr^2)$。
+	\begin{enumerate}
+		\item
+		\[
+			H_0=-\frac{\hbar^2}{2mr^2}\frac{d^2}{d\varphi^2},
+			\qquad
+			\boxed{\psi_n(\varphi)=\frac{e^{in\varphi}}{\sqrt{2\pi}}},
+			\qquad
+			\boxed{E_n^{(0)}=\varepsilon n^2},
+		\]
+		其中 $n=0,\pm1,\pm2,\ldots$。除 $n=0$ 外，$\pm n$ 二重简并。
+
+		\item 对 $\vec{\mathscr E}=-\mathscr E\,\vec e_x$ 可取
+		$\Phi=\mathscr E r\cos\varphi$，故电荷 $-e$ 的微扰为
+		$H'=-e\mathscr E r\cos\varphi$。记 $C=e\mathscr E r$，则
+		\[
+			\langle n'|H'|n\rangle=-\frac C2
+			(\delta_{n',n+1}+\delta_{n',n-1}).
+		\]
+		第一激发子空间 $n=\pm1$ 的二级有效矩阵为
+		\[
+			\frac{C^2}{\varepsilon}
+			\begin{pmatrix}\frac16&\frac14\\[2pt]\frac14&\frac16\end{pmatrix}.
+		\]
+		所以由 $\cos\varphi$、$\sin\varphi$ 描写的两个实组合分别有
+		\[
+			\boxed{E_{1,\cos}=\varepsilon+\frac{5C^2}{12\varepsilon}},
+			\qquad
+			\boxed{E_{1,\sin}=\varepsilon-\frac{C^2}{12\varepsilon}}.
+		\]
+		第二激发态 $n=\pm2$ 到二级仍不分裂，二者均为
+		\[
+			\boxed{E_{2,\pm}=4\varepsilon+\frac{C^2}{30\varepsilon}}.
+		\]
+	\end{enumerate}
 }
 
 
@@ -136,9 +264,62 @@ $$
 \end{enumerate}
 
 \banswer{
-	
+	假定题中的方形脉冲位于势阱中央，即
+	$H'(x,t)=c$（$|x|<b/2,\,0<t<T$），其余处为零。
+	\begin{enumerate}
+		\item 令 $\epsilon=\pi^2\hbar^2/(2ma^2)$。本征值为
+		\[
+			E_n=n^2\epsilon,\qquad n=1,2,\ldots,
+		\]
+		归一化本征函数可取
+		\[
+			\phi_n(x)=\sqrt{\frac2a}
+			\begin{cases}
+			\cos(n\pi x/a),&n\ {\rm odd},\\
+			\sin(n\pi x/a),&n\ {\rm even},
+			\end{cases}
+			\qquad |x|<\frac a2.
+		\]
+
+		\item 一级含时微扰论给出，在 $t>T$ 时
+		\[
+			|\varphi(t)\rangle=e^{-iE_1t/\hbar}|1\rangle
+			+\sum_{n\ne1}c_n^{(1)}(T)e^{-iE_n(t-T)/\hbar}|n\rangle,
+		\]
+		其中
+		\[
+			c_n^{(1)}(T)=\frac{H'_{n1}}{\hbar\omega_{n1}}
+			\left(1-e^{i\omega_{n1}T}\right),\qquad
+			\omega_{n1}=\frac{E_n-E_1}{\hbar}.
+		\]
+		这与常见的整体相位选择等价。
+
+		\item 中心微扰为偶函数，故从偶宇称基态只能跃迁到偶宇称态。因此第一、第三激发态（$n=2,4$）概率为
+		\[
+			\boxed{P_2=P_4=0}.
+		\]
+		对第二激发态 $n=3$，
+		\[
+			H'_{31}=\frac c\pi\left[
+			\sin\frac{\pi b}{a}+\frac12\sin\frac{2\pi b}{a}\right],
+		\]
+		所以
+		\[
+			\boxed{P_3=
+			\frac{4|H'_{31}|^2}{\hbar^2\omega_{31}^2}
+			\sin^2\frac{\omega_{31}T}{2}},
+			\qquad
+			\omega_{31}=\frac{4\pi^2\hbar}{ma^2}.
+		\]
+		令 $u=\pi b/a$，空间因子为
+		$\sin u(1+\cos u)$；其在 $0<u<\pi$ 的最大值满足
+		$\cos u=1/2$，故
+		\[
+			\boxed{b=\frac a3}
+		\]
+		时第二激发态跃迁概率最大。两个恒为零的奇宇称跃迁不存在唯一的最优 $b$。
+	\end{enumerate}
 }
 
 
 \end{enumerate}
-

@@ -12,7 +12,32 @@
 
 
 \banswer{
-	
+	令
+	\[
+		x=\sqrt{\frac{\hbar}{2m\omega}}(a+a^\dagger),
+		\qquad
+		p=i\sqrt{\frac{m\hbar\omega}{2}}(a^\dagger-a).
+	\]
+	在第 $n$ 个定态中，$\langle a\rangle=\langle a^\dagger\rangle=0$，并利用
+	$\langle a^\dagger a\rangle=n$、$\langle aa^\dagger\rangle=n+1$，得
+	\[
+		\langle x\rangle=\langle p\rangle=0,
+	\]
+	\[
+		\langle x^2\rangle=\frac{\hbar}{m\omega}\left(n+\frac12\right),
+		\qquad
+		\langle p^2\rangle=m\hbar\omega\left(n+\frac12\right).
+	\]
+	因此
+	\[
+		\boxed{\Delta x=\sqrt{\frac{\hbar}{m\omega}\left(n+\frac12\right)}},
+		\qquad
+		\boxed{\Delta p=\sqrt{m\hbar\omega\left(n+\frac12\right)}},
+	\]
+	以及
+	\[
+		\boxed{\Delta x\,\Delta p=\hbar\left(n+\frac12\right)}.
+	\]
 }
 
 
@@ -33,7 +58,27 @@ $\hat{\mu}=\hat{A}+i\hat{B}$。试证：
 \end{enumerate}
 
 \banswer{
-	
+	\begin{enumerate}
+		\item 因 $\mu$ 幺正，$\mu^\dagger\mu=\mu\mu^\dagger=1$。又 $\mu^\dagger=A-iB$，所以
+		\[
+			A^2+B^2+i[A,B]=1,\qquad
+			A^2+B^2-i[A,B]=1.
+		\]
+		两式相加、相减即得
+		\[
+			\boxed{A^2+B^2=1,\qquad[A,B]=0}.
+		\]
+
+		\item 对易的厄米算符 $A,B$ 可同时对角化。在任一共同本征态上，其实本征值 $a,b$ 满足 $a^2+b^2=1$，故可选实数 $h$ 使 $a=\cos h$、$b=\sin h$。用谱分解把这些 $h$ 作为本征值定义厄米算符 $H$，便有
+		\[
+			A=\cos H,\qquad B=\sin H.
+		\]
+		于是
+		\[
+			\boxed{\mu=A+iB=\cos H+i\sin H=e^{iH}},
+		\]
+		其中 $H$ 的本征值可按模 $2\pi$ 选取，故 $H$ 一般不唯一。
+	\end{enumerate}
 }
 
 
@@ -54,7 +99,31 @@ $t>0$时粒子的状态波函数；
 
 
 \banswer{
-	
+	令 $\phi_n(x)=\sqrt{2/a}\sin(n\pi x/a)$，$E_n=n^2\pi^2\hbar^2/(2ma^2)$。由
+	\[
+		(1+\cos\frac{\pi x}{a})\sin\frac{\pi x}{a}
+		=\sin\frac{\pi x}{a}+\frac12\sin\frac{2\pi x}{a},
+	\]
+	题给初态为
+	\[
+		\psi(x,0)=\frac2{\sqrt5}\phi_1(x)+\frac1{\sqrt5}\phi_2(x).
+	\]
+	\begin{enumerate}
+		\item
+		\[
+			\boxed{\psi(x,t)=\frac2{\sqrt5}e^{-iE_1t/\hbar}\phi_1(x)
+			+\frac1{\sqrt5}e^{-iE_2t/\hbar}\phi_2(x)}.
+		\]
+
+		\item 利用
+		$\int_0^{a/2}|\phi_n|^2dx=1/2$ 以及
+		$\int_0^{a/2}\phi_1\phi_2dx=4/(3\pi)$，得
+		\[
+			\boxed{P_L(t)=\frac12+\frac{16}{15\pi}
+			\cos\frac{(E_2-E_1)t}{\hbar}}.
+		\]
+		特别地，$P_L(0)=1/2+16/(15\pi)$。
+	\end{enumerate}
 }
 
 
@@ -63,7 +132,24 @@ $t>0$时粒子的状态波函数；
 （$30'$）粒子在一维无限深方势阱中运动，受到微扰$H'=\frac{V_0}{a}(a-|2x-a|)$的作用。求第$n$个能级的一级近似，并分析所的结果的适用条件。
 
 \banswer{
-	
+	取无扰本征函数 $\phi_n=\sqrt{2/a}\sin(n\pi x/a)$。微扰关于 $x=a/2$ 对称，故
+	\begin{align*}
+		E_n^{(1)}
+		&=\frac{8V_0}{a^2}\int_0^{a/2}x\sin^2\frac{n\pi x}{a}\,dx\\
+		&=\frac{V_0}{2}+\frac{V_0[1-(-1)^n]}{n^2\pi^2}.
+	\end{align*}
+	所以第 $n$ 个能级的一级近似为
+	\[
+		\boxed{E_n\simeq\frac{n^2\pi^2\hbar^2}{2ma^2}
+		+\frac{V_0}{2}+\frac{V_0[1-(-1)^n]}{n^2\pi^2}}.
+	\]
+	即偶数 $n$ 的修正为 $V_0/2$，奇数 $n$ 的修正为 $V_0/2+2V_0/(n^2\pi^2)$。
+
+	微扰展开要求不同无扰能级间的混合很小：对所有重要的 $m\ne n$，
+	\[
+		|\langle m|H'|n\rangle|\ll|E_m^{(0)}-E_n^{(0)}|.
+	\]
+	一个充分的低能级尺度条件是 $|V_0|\ll\pi^2\hbar^2/(2ma^2)$；对高 $n$，可与相邻能级间隔比较而适当放宽。
 }
 
 
@@ -71,9 +157,23 @@ $t>0$时粒子的状态波函数；
 一个质量为$m$ 的粒子被限制在 $r = a $和 $r = b$ 的两个不可穿透的同心球面之间运动,不存在其它势。求粒子的基态能量和归一化的波函数。
 
 \banswer{
-	
+	基态必有 $l=0$。写 $\psi(r,\theta,\varphi)=R(r)Y_{00}(\theta,\varphi)$，并令 $u(r)=rR(r)$，则
+	\[
+		u''+k^2u=0,\qquad u(a)=u(b)=0.
+	\]
+	因此 $k_n=n\pi/(b-a)$，基态取 $n=1$，能量为
+	\[
+		\boxed{E_0=\frac{\pi^2\hbar^2}{2m(b-a)^2}}.
+	\]
+	用 $\int_a^b|u|^2dr=1$ 归一化并取 $Y_{00}=1/\sqrt{4\pi}$，得
+	\[
+		\boxed{\psi_0(r,\theta,\varphi)=
+		\begin{cases}
+		\dfrac{1}{\sqrt{2\pi(b-a)}}\dfrac{\sin[\pi(r-a)/(b-a)]}{r},&a<r<b,\\[7pt]
+		0,&\text{其他区域}.
+		\end{cases}}
+	\]
 }
 
 	
 \end{enumerate}
-

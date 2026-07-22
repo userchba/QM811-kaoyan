@@ -25,7 +25,31 @@
 		
 	\end{enumerate}
 \banswer{
-	
+	\begin{enumerate}
+		\item 由薛定谔方程及其伴随式，
+		\begin{align*}
+			\frac{d}{dt}\langle\psi|\psi\rangle
+			&=\langle\dot\psi|\psi\rangle+\langle\psi|\dot\psi\rangle\\
+			&=\frac{i}{\hbar}\langle\psi|H|\psi\rangle
+			-\frac{i}{\hbar}\langle\psi|H|\psi\rangle=0,
+		\end{align*}
+		其中用了 $H^\dagger=H$。故任意态的范数均守恒。
+
+		\item 一维实势的束缚能级非简并，定态空间波函数可取为实函数。于是
+		\[
+			\langle p\rangle=-i\hbar\int_{-\infty}^{\infty}
+			\psi(x)\psi'(x)dx
+			=-\frac{i\hbar}{2}\left[\psi^2(x)\right]_{-\infty}^{\infty}=0.
+		\]
+		束缚态在无穷远处消失，故边界项为零。
+
+		\item 若 $H|\phi_n\rangle=E_n|\phi_n\rangle$ 且
+		$|\psi(0)\rangle=|\phi_n\rangle$，则
+		\[
+			\boxed{|\psi(t)\rangle=e^{-iE_nt/\hbar}|\phi_n\rangle}.
+		\]
+		它只多一个整体相位，仍是同一本征值 $E_n$ 的定态。
+	\end{enumerate}
 }
 	
 \item 
@@ -49,7 +73,45 @@
 \end{enumerate}
 
 \banswer{
-	
+	题中指数应按通常动量本征函数理解为
+	$\exp[ip(x+\beta)/\hbar]$；$\beta$ 只产生整体相位。
+	\begin{enumerate}
+		\item
+		\[
+			-i\hbar\frac{d}{dx}\psi(x)=p\psi(x),
+		\]
+		所以它是动量本征值 $p$ 的广义本征态。但平面波在整条实轴上不可平方归一：
+		$\int|\psi|^2dx=\infty$；它只能按 Dirac $\delta$ 函数归一化。严格的标准系数应随采用
+		$\delta(p-p')$ 还是 $\delta(k-k')$ 归一化而取
+		$1/\sqrt{2\pi\hbar}$ 或 $1/\sqrt{2\pi}$。
+
+		\item 记 $T(\alpha)=e^{i\alpha p/\hbar}$。由下一问的共轭关系或直接在坐标表象作用可得
+		\[
+			\langle x'|T(\alpha)|\psi\rangle=\psi(x'+\alpha)
+			=\langle x'+\alpha|\psi\rangle,
+		\]
+		故
+		\[
+			\boxed{\langle x'|T(\alpha)=\langle x'+\alpha|}.
+		\]
+		取伴随或投影到任意坐标态，得到
+		\[
+			\boxed{T(\alpha)|x'\rangle=|x'-\alpha\rangle}.
+		\]
+
+		\item 用 Baker--Campbell--Hausdorff 公式及 $[p,x]=-i\hbar$：
+		\[
+			\boxed{e^{i\alpha p/\hbar}x e^{-i\alpha p/\hbar}
+			=x+\alpha}.
+		\]
+		更高重对易子为零。
+
+		\item 幺正共轭保持乘积，故
+		\[
+			\boxed{e^{i\alpha p/\hbar}x^2e^{-i\alpha p/\hbar}
+			=(x+\alpha)^2}.
+		\]
+	\end{enumerate}
 }
 
 
@@ -76,7 +138,37 @@ $Y_{1}^{\pm 1}=\mp \sqrt{\frac{3}{8 \pi}} \sin \theta e^{\pm i \phi} $）
 \end{enumerate}
 
 \banswer{
-	
+	写成球坐标后，角向因子为
+	\[
+		x+iy+2z=r\left(\sin\theta e^{i\varphi}+2\cos\theta\right)
+		=r\left[-\sqrt{\frac{8\pi}{3}}Y_1^1
+		+2\sqrt{\frac{4\pi}{3}}Y_1^0\right].
+	\]
+	\begin{enumerate}
+		\item 波函数完全位于 $l=1$ 子空间，故
+		\[
+			\boxed{L^2=2\hbar^2},\qquad |\vec L|=\sqrt2\,\hbar.
+		\]
+
+		\item $m=1$ 与 $m=0$ 分量的权重之比为 $1:2$，所以
+		\[
+			\boxed{\langle L_z\rangle=\frac13\hbar},\qquad
+			\boxed{P(L_z=\hbar)=\frac13}.
+		\]
+
+		\item 归一化角分布为
+		\[
+			w(\theta,\varphi)=\frac1{8\pi}
+			\left|\sin\theta e^{i\varphi}+2\cos\theta\right|^2.
+		\]
+		因此在指定方向的 $d\Omega$ 内发现粒子的概率为
+		\[
+			\boxed{dP=\frac{\sin^2\theta+4\cos^2\theta
+			+4\sin\theta\cos\theta\cos\varphi}{8\pi}\,d\Omega}.
+		\]
+		径向部分已积分掉；若需要全波函数归一化，则
+		$K=\sqrt{\alpha^5/(6\pi)}$。
+	\end{enumerate}
 }
 
 
@@ -101,7 +193,46 @@ $Y_{1}^{\pm 1}=\mp \sqrt{\frac{3}{8 \pi}} \sin \theta e^{\pm i \phi} $）
 
 
 \banswer{
-	
+	\begin{enumerate}
+		\item 令 $\vec n=(\sin\theta,0,\cos\theta)$，并把题给哈密顿量写为
+		\[
+			H=-\Gamma\,\vec n\cdot\vec\sigma,\qquad
+			\Gamma=\mu_B\hbar B_0
+		\]
+		（若题中 $S$ 已取为无量纲 $\sigma/2$，则改取
+		$\Gamma=\mu_BB_0$）。于是
+		\[
+			U(t)=\cos\frac{\Gamma t}{\hbar}\,I
+			+i\sin\frac{\Gamma t}{\hbar}\,\vec n\cdot\vec\sigma.
+		\]
+		记 $c=\cos(\Gamma t/\hbar)$、$s=\sin(\Gamma t/\hbar)$，作用于题给归一化初态得
+		\[
+			\boxed{\chi(t)=\frac13\begin{pmatrix}
+			c(1-2i)+is[\cos\theta(1-2i)+2\sin\theta]\\[3pt]
+			2c+is[\sin\theta(1-2i)-2\cos\theta]
+			\end{pmatrix}}.
+		\]
+
+		\item 在基底
+		$|\uparrow\uparrow\rangle,|\uparrow\downarrow\rangle,
+		|\downarrow\uparrow\rangle,|\downarrow\downarrow\rangle$
+		中，平行自旋态已经是本征态：
+		\[
+			\boxed{E_{\uparrow\uparrow}=a+b+c_0,\qquad
+			E_{\downarrow\downarrow}=-a-b+c_0}.
+		\]
+		$m_z=0$ 子空间的矩阵为
+		\[
+			\begin{pmatrix}
+			a-b-c_0&2c_0\\
+			2c_0&-a+b-c_0
+			\end{pmatrix},
+		\]
+		故另外两个能级为
+		\[
+			\boxed{E_\pm=-c_0\pm\sqrt{(a-b)^2+4c_0^2}}.
+		\]
+	\end{enumerate}
 }
 
 
@@ -132,10 +263,56 @@ $Y_{1}^{\pm 1}=\mp \sqrt{\frac{3}{8 \pi}} \sin \theta e^{\pm i \phi} $）
 
 
 \banswer{
-	
+	令 $\omega=\sqrt{k/m}$。
+	\begin{enumerate}
+		\item 记 $d=\Delta x$，基态可取 $\langle x\rangle=\langle p\rangle=0$。由
+		$\Delta p\ge\hbar/(2d)$，
+		\[
+			E\ge\frac{\hbar^2}{8md^2}+\frac12m\omega^2d^2.
+		\]
+		对 $d$ 极小化得到 $d^2=\hbar/(2m\omega)$ 及
+		\[
+			\boxed{E_{\min}=\frac12\hbar\omega},
+		\]
+		恰为谐振子精确基态能量。
+
+		\item 对 $\psi=N e^{-\beta x^2}$，
+		\[
+			\langle x^2\rangle=\frac1{4\beta},\qquad
+			\langle p^2\rangle=\hbar^2\beta.
+		\]
+		故
+		\[
+			E(\beta)=\frac{\hbar^2\beta}{2m}+\frac{k}{8\beta}.
+		\]
+		由 $dE/d\beta=0$ 得
+		\[
+			\boxed{\beta=\frac{m\omega}{2\hbar}
+			=\frac{\sqrt{mk}}{2\hbar}}.
+		\]
+
+		\item
+		\[
+			\psi_1(x)\propto a^\dagger\psi_0(x)
+			\propto\boxed{x\exp\left(-\frac{m\omega x^2}{2\hbar}\right)}.
+		\]
+
+		\item 在无扰第一激发态基
+		$|100\rangle,|010\rangle,|001\rangle$ 中，题给微扰矩阵的本征值为
+		\[
+			\frac{\hbar b}{2m\omega},\qquad
+			-\frac{\hbar b}{2m\omega},\qquad0.
+		\]
+		因此原来的 $5\hbar\omega/2$ 三重能级分裂为
+		\[
+			\boxed{\frac52\hbar\omega+\frac{\hbar b}{2m\omega},\quad
+			\frac52\hbar\omega-\frac{\hbar b}{2m\omega},\quad
+			\frac52\hbar\omega}.
+		\]
+		相应零级态为 $(|100\rangle\pm|010\rangle)/\sqrt2$ 与 $|001\rangle$。
+	\end{enumerate}
 }
 
 
 \end{enumerate}
-
 

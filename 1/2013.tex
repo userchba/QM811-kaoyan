@@ -65,7 +65,7 @@ E_{n}=\frac{n^{2}\pi^{2}\hbar^{2}}{2\mu a^{2}}
  	
 \item 
 （共30分）考虑一质量为 $m$ 的自由粒子的一维运动。设初始 $(t=0)$ 时刻波函
-数为 $\psi(x, 0)=\left(\frac{\alpha}{\pi}\right)^{1 / 4} e^{i k_{0} x-\alpha x^{2} / 2} $（$k_{0} 、 \alpha$ 为实常数； $\int_{-\infty}^{\infty} d x e^{-a x^{2}}=\sqrt{\frac{\pi}{a}}, \quad a>0$）。
+数为 $\psi(x, 0)=\left(\frac{\alpha}{\pi}\right)^{1 / 4} e^{i k_{0} x-\alpha x^{2} / 2} $（$k_{0},\alpha$ 为实常数； $\int_{-\infty}^{\infty} d x e^{-a x^{2}}=\sqrt{\frac{\pi}{a}}, \quad a>0$）。
 \begin{enumerate}
 	%\renewcommand{\labelenumi}{\arabic{enumi}.}
 	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
@@ -101,24 +101,27 @@ E_{n}=\frac{n^{2}\pi^{2}\hbar^{2}}{2\mu a^{2}}
 \begin{note}
 	这里求波函数，也可以直接在动量表象中用时间演化算符来做。
 \end{note}	
-\item 
-%对应的傅里叶变换，计算复杂，略
-波函数为
-\[ 
-\psi(x,t)=\left(\frac{1}{\alpha \pi}\right)^{1 / 4} \sqrt{\frac{1}{2 \pi}} e^{-k_{0}^{2} / 2 \alpha} \sqrt{\frac{2 \pi \alpha \mu}{\mu+i \alpha \hbar t}} \exp \left[\alpha \mu \frac{k_{0}^{2} / \alpha^{2}+2 i x k_{0} / \alpha-x^{2}}{2(\mu+i \alpha \hbar t)}\right]
- \]
- 粒子位置几率分布 $\mathrm{P}(x, t)$为
-\[
-%  
-\hspace*{-1cm} %公式太长
-%
-\mathrm{P}(x, t) =\left(\frac{\alpha}{\pi}\right)^{1 / 2} \frac{\mu}{\sqrt{\mu^{2}+(\alpha \hbar t)^{2}}} e^{-k_{0}^{2} / \alpha} \exp \left[\alpha \mu \frac{-\mu\left(x-k_{0} \hbar t / \mu\right)^{2}+\left(k_{0} \hbar t\right)^{2} / \mu+\mu k_{0}^{2} / \alpha^{2}}{\mu^{2}+(\alpha \hbar t)^{2}}\right]
-  \]
+	\item
+	%对应的傅里叶变换，计算复杂，略
+	令 $\tau=\alpha\hbar t/m$、$v_0=\hbar k_0/m$。完成 Gaussian 积分后，
+	\[
+		\boxed{\psi(x,t)=
+		\left(\frac{\alpha}{\pi}\right)^{1/4}
+		\frac{e^{ik_0x-i\hbar k_0^2t/(2m)}}{\sqrt{1+i\tau}}
+		\exp\left[-\frac{\alpha(x-v_0t)^2}{2(1+i\tau)}\right]}.
+	\]
+	相应的位置概率密度为
+	\[
+		\boxed{P(x,t)=\sqrt{\frac{\alpha}{\pi}}\,
+		\frac{1}{\sqrt{1+\tau^2}}
+		\exp\left[-\frac{\alpha(x-v_0t)^2}{1+\tau^2}\right]}.
+	\]
 \item 
 %动量是守恒量，概率分布不随时间变化。随着时间的增加，波包中心的强度逐渐减弱，逐渐扩散至整个位置空间
 动量分布几率不随时间变化，即波包所包含的各动量成分不发生变化，自由粒子动量守恒；
 但是坐标空间的几率分布随时间变化，波包峰值位置向前移动的同时，波峰随时间衰减，
-波峰坐标 $x_{m}(t)=\frac{k_{0} \hbar}{\mu} t$， 波包速度 $v=\frac{k_{0} \hbar}{\mu}=\frac{p_{0}}{\mu}$。
+	波峰坐标 $x_{m}(t)=\frac{k_{0} \hbar}{m} t$， 波包速度 $v=\frac{k_{0} \hbar}{m}=\frac{p_{0}}{m}$；
+	波包宽度则按 $\sqrt{1+(\alpha\hbar t/m)^2}$ 增大。
 \end{enumerate}
 
 
@@ -308,5 +311,5 @@ E^{(1)}=V\left(\frac{2}{a}\right)^{2} \int_{0}^{a} \sin ^{2} \frac{\pi x_{1}}{a}
 
 	
  \end{enumerate}
- 
+
  

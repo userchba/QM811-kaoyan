@@ -21,7 +21,36 @@ $t=t_0$时粒子能量的平均值。
 \end{enumerate}
 
 \banswer{
-	
+	旧势阱基态与新势阱基态分别为
+	\[
+		\psi_0(x)=\begin{cases}
+		\dfrac1{\sqrt a}\cos\dfrac{\pi x}{2a},&|x|<a,\\[3pt]0,&a<|x|<2a,
+		\end{cases}
+		\qquad
+		\Phi_1(x)=\frac1{\sqrt{2a}}\cos\frac{\pi x}{4a}.
+	\]
+	势阱突变后各新能量本征态的展开系数只积累相位，所以以下两量均与 $t_0$ 无关。
+	\begin{enumerate}
+		\item
+		\begin{align*}
+			c_1&=\langle\Phi_1|\psi_0\rangle
+			=\frac1{a\sqrt2}\int_{-a}^{a}
+			\cos\frac{\pi x}{4a}\cos\frac{\pi x}{2a}\,dx
+			=\frac8{3\pi},
+		\end{align*}
+		故
+		\[
+			\boxed{P_1=|c_1|^2=\frac{64}{9\pi^2}}.
+		\]
+
+		\item 新势阱内仍有 $H=-\hbar^2d^2/(2\mu dx^2)$。用突变瞬间的波函数计算，
+		\[
+			\langle H\rangle
+			=\frac{\hbar^2}{2\mu}\int_{-2a}^{2a}|\psi_0'(x)|^2dx
+			=\boxed{\frac{\pi^2\hbar^2}{8\mu a^2}}.
+		\]
+		它等于新势阱基态能量 $\pi^2\hbar^2/(32\mu a^2)$ 的 $4$ 倍。
+	\end{enumerate}
 }
 
 
@@ -31,7 +60,26 @@ $$\psi_n(x)=N_ne^{\frac{-a^2x^2}{2}}H_n(ax)\qquad a=\sqrt{\frac{\mu\omega}{\hbar
 试在动量表象中求出它的能量本征值和相应的本征函数。
 
 \banswer{
-	
+	采用 Fourier 变换约定
+	\[
+		\widetilde\psi_n(p)=\frac1{\sqrt{2\pi\hbar}}
+		\int_{-\infty}^{\infty}e^{-ipx/\hbar}\psi_n(x)\,dx.
+	\]
+	Hermite--Gaussian 函数是 Fourier 变换的本征函数。令
+	\[
+		b=\frac1{a\hbar}=\frac1{\sqrt{\mu\hbar\omega}},
+	\]
+	则归一化的动量表象本征函数为
+	\[
+		\boxed{\widetilde\psi_n(p)=
+		\frac{(-i)^n\sqrt b}{\pi^{1/4}\sqrt{2^n n!}}
+		e^{-b^2p^2/2}H_n(bp)}.
+	\]
+	把 $x\mapsto i\hbar\,d/dp$、$\hat p\mapsto p$ 代入本征方程也可直接验证它，并得到能量本征值
+	\[
+		\boxed{E_n=\hbar\omega\left(n+\frac12\right)},
+		\qquad n=0,1,2,\ldots.
+	\]
 }
 
 
@@ -52,7 +100,30 @@ $$\psi_n(x)=N_ne^{\frac{-a^2x^2}{2}}H_n(ax)\qquad a=\sqrt{\frac{\mu\omega}{\hbar
 
 
 \banswer{
-	
+	\begin{enumerate}
+		\item 在 $S_z$ 表象中，$\vec S\cdot\vec n=(\hbar/2)\vec\sigma\cdot\vec n$。本征值 $+\hbar/2$ 的归一化本征函数可取
+		\[
+			\boxed{\chi_{n+}=
+			\begin{pmatrix}\cos(\theta/2)\\e^{i\varphi}\sin(\theta/2)\end{pmatrix}}.
+		\]
+
+		\item 在该态中
+		\[
+			\langle S_x\rangle=\frac\hbar2\sin\theta\cos\varphi,
+			\qquad
+			\langle S_y\rangle=\frac\hbar2\sin\theta\sin\varphi,
+		\]
+		而 $S_x^2=S_y^2=\hbar^2/4$，故
+		\[
+			(\Delta S_x)^2-(\Delta S_y)^2
+			=-\frac{\hbar^2}{4}\sin^2\theta\cos2\varphi.
+		\]
+		两均方差相等的全部条件为
+		\[
+			\boxed{\sin\theta=0\quad\text{或}\quad\cos2\varphi=0}.
+		\]
+		即 $\theta=0,\pi$（此时 $\varphi$ 任意），或 $\varphi=\pi/4+k\pi/2$（$k\in\mathbb Z$，此时 $\theta$ 任意）。
+	\end{enumerate}
 }
 
 \newpage
@@ -60,7 +131,19 @@ $$\psi_n(x)=N_ne^{\frac{-a^2x^2}{2}}H_n(ax)\qquad a=\sqrt{\frac{\mu\omega}{\hbar
 自旋$\frac{1}{2}$的粒子处于磁场$\vec{B}$中，该粒子绕磁场进动的角频率记为$\omega=-r\vec{B}$。设$t=0$时粒子处于自旋朝下态$|\psi(0)\rangle=|-\rangle$，求$t$时刻粒子仍处于该态的几率。
 
 \banswer{
-	
+	取初始“朝下”为 $S_z=-\hbar/2$ 的态，并令 $\vec n=\vec B/B$、$\Omega=|\omega|$。自旋绕 $\vec n$ 转动时，时间演化算符可写为
+	\[
+		U(t)=\cos\frac{\Omega t}{2},I
+		-i(\vec n\cdot\vec\sigma)\sin\frac{\Omega t}{2},
+	\]
+	其中整体转动方向不影响所求概率。因此
+	\begin{align*}
+		P_{-\to-}(t)
+		&=|\langle-z|U(t)|-z\rangle|^2\\
+		&=\cos^2\frac{\Omega t}{2}+n_z^2\sin^2\frac{\Omega t}{2}\\
+		&=\boxed{1-(1-n_z^2)\sin^2\frac{\Omega t}{2}}.
+	\end{align*}
+	若磁场与初始量子化轴垂直，则 $n_z=0$，结果退化为 $P_{-\to-}=\cos^2(\Omega t/2)$；若磁场沿 $z$ 轴，则概率恒为 $1$。
 }
 
 
@@ -68,7 +151,23 @@ $$\psi_n(x)=N_ne^{\frac{-a^2x^2}{2}}H_n(ax)\qquad a=\sqrt{\frac{\mu\omega}{\hbar
 在谐振子的哈密顿量$\hat{H}_0=\frac{1}{2\mu}\hat{p}^2+\frac{1}{2}\mu\omega^2x^2$上加上$x^3$的微扰项$H'=\lambda x^3$，求能量的二级修正。
 
 \banswer{
-	
+	令 $x=x_0(a+a^\dagger)$，其中 $x_0=\sqrt{\hbar/(2\mu\omega)}$。因 $x^3$ 为奇算符，一级修正为零。作用在 $|n\rangle$ 上时，
+	\begin{align*}
+		(a+a^\dagger)^3|n\rangle
+		={}&\sqrt{n(n-1)(n-2)}|n-3\rangle
+		+3n\sqrt n|n-1\rangle\\
+		&+3(n+1)\sqrt{n+1}|n+1\rangle
+		+\sqrt{(n+1)(n+2)(n+3)}|n+3\rangle.
+	\end{align*}
+	代入非简并微扰论
+	\[
+		E_n^{(2)}=\sum_{m\ne n}\frac{|\langle m|\lambda x^3|n\rangle|^2}{E_n^{(0)}-E_m^{(0)}},
+	\]
+	并用 $E_n^{(0)}-E_m^{(0)}=(n-m)\hbar\omega$，化简得
+	\[
+		\boxed{E_n^{(2)}=-\frac{\lambda^2\hbar^2}{8\mu^3\omega^4}
+		\left(30n^2+30n+11\right)}.
+	\]
 }
 
 
@@ -78,9 +177,21 @@ $\hat{H}|n\rangle =E_n|n\rangle $。设$\hat{F}$为任一算符$\hat{F}=\hat{F}(
 $$\langle  k|[F^+,[H,F]]|k\rangle =\sum_n(E_n-E_k)(|\langle  n|\hat{F}|k\rangle |^2+|\langle  k|\hat{F}|n\rangle |^2)$$
 
 \banswer{
-	
+	展开二重对易子并在各项中插入完备关系 $\sum_n|n\rangle\langle n|=1$：
+	\begin{align*}
+	&\langle k|[F^\dagger,[H,F]]|k\rangle\\
+	&=\langle k|F^\dagger HF|k\rangle
+	-\langle k|F^\dagger FH|k\rangle
+	-\langle k|HFF^\dagger|k\rangle
+	+\langle k|FHF^\dagger|k\rangle\\
+	&=\sum_nE_n|\langle n|F|k\rangle|^2
+	-E_k\sum_n|\langle n|F|k\rangle|^2\\
+	&\quad-E_k\sum_n|\langle k|F|n\rangle|^2
+	+\sum_nE_n|\langle k|F|n\rangle|^2\\
+	&=\boxed{\sum_n(E_n-E_k)
+	\left(|\langle n|F|k\rangle|^2+|\langle k|F|n\rangle|^2\right)}.
+	\end{align*}
 }
 
 	
 \end{enumerate}
-

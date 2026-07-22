@@ -31,12 +31,30 @@ $(\vec{\sigma}\cdot\vec{A})(\vec{\sigma}\cdot\vec{B})=\vec{A}\cdot\vec{B}+i\vec{
 	%设定全局标号series=example	%引用全局变量resume=example
 	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
 	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-	\item
-	证明略
-	\item 
-	$\sqrt{I+\sigma_{x}+i \sigma_{y}}=I+\frac{1}{2}\left(\sigma_{x}+i \sigma_{y}\right)$
-	或者
-	$\sqrt{I+\sigma_{x}+i \sigma_{y}}=-I-\frac{1}{2}\left(\sigma_{x}+i \sigma_{y}\right)$
+		\item
+		Pauli 矩阵满足
+		\[
+			\sigma_i\sigma_j=\delta_{ij}I+i\sum_k\varepsilon_{ijk}\sigma_k.
+		\]
+		又因 $\vec A,\vec B$ 的各分量与 Pauli 矩阵对易，
+		\begin{align*}
+			(\vec\sigma\cdot\vec A)(\vec\sigma\cdot\vec B)
+			&=\sum_{ij}A_iB_j\sigma_i\sigma_j\\
+			&=\sum_iA_iB_i
+			+i\sum_{ijk}\varepsilon_{ijk}A_iB_j\sigma_k\\
+			&=\boxed{\vec A\cdot\vec B
+			+i\vec\sigma\cdot(\vec A\times\vec B)}.
+		\end{align*}
+		\item
+		令 $N=\sigma_x+i\sigma_y$。由 Pauli 代数可得
+		$N^2=0$，所以
+		\[
+			\left(I+\frac12N\right)^2=I+N.
+		\]
+		因此一个平方根为
+		$\sqrt{I+\sigma_{x}+i \sigma_{y}}=I+\frac{1}{2}\left(\sigma_{x}+i \sigma_{y}\right)$
+		或者
+		$\sqrt{I+\sigma_{x}+i \sigma_{y}}=-I-\frac{1}{2}\left(\sigma_{x}+i \sigma_{y}\right)$
 	
 \end{enumerate}
 \begin{note}
@@ -175,7 +193,7 @@ a_{m n}=\frac{1}{i \hbar} \int_{0}^{t} H_{m n}^{\prime} e^{i \omega_{m n} t^{\pr
 \banswer{
 一个粒子处于长盒子中的波函数及相应能量为
 $$
-\phi(x, y, z)=\frac{2 \sqrt{2}}{\sqrt{a b c}} \sin \frac{n_{1} \pi x}{a} \sin \frac{n_{2} \pi x}{b} \sin \frac{n_{3} \pi z}{c} \quad e_{n}=\frac{\pi^{2} \hbar^{2}}{2 m}\left(\frac{n_{1}^{2}}{a^{2}}+\frac{n_{2}^{2}}{b^{2}}+\frac{n_{3}^{2}}{c^{2}}\right)
+\phi(x, y, z)=\frac{2 \sqrt{2}}{\sqrt{a b c}} \sin \frac{n_{1} \pi x}{a} \sin \frac{n_{2} \pi y}{b} \sin \frac{n_{3} \pi z}{c} \quad e_{n}=\frac{\pi^{2} \hbar^{2}}{2 m}\left(\frac{n_{1}^{2}}{a^{2}}+\frac{n_{2}^{2}}{b^{2}}+\frac{n_{3}^{2}}{c^{2}}\right)
 $$
 \begin{enumerate}
 	%\renewcommand{\labelenumi}{\arabic{enumi}.}
@@ -195,14 +213,26 @@ $$
 	\psi_{1}\left(r_{1}, r_{2}\right)=\frac{1}{2}\left[\phi_{1}\left(r_{1}\right) \phi_{1}\left(r_{2}\right)+\phi_{1}\left(r_{2}\right) \phi_{1}\left(r_{1}\right)\right]=\phi_{1}\left(r_{1}\right) \phi_{1}\left(r_{2}\right)
 	$$
 	\item 
-	自旋为 $\frac{1}{2}$ 的全同粒子需满足泡利不相容原理, 由于 $a>b>c$，故第一激发态为
-	$$
-	\phi_{2}(r)=\frac{2 \sqrt{2}}{\sqrt{a b c}} \sin \frac{2 \pi x}{a} \sin \frac{\pi y}{b} \sin \frac{\pi z}{c}
-	$$
-	$$
-	\psi_{1}\left(r_{1}, r_{2}\right)=\frac{1}{\sqrt{2}}\left[\phi_{1}\left(r_{1}\right) \phi_{2}\left(r_{2}\right)-\phi_{2}\left(r_{1}\right) \phi_{1}\left(r_{2}\right)\right]
- \quad 
-E=\frac{\pi^{2} \hbar^{2}}{m}\left(\frac{5}{2} \cdot \frac{1}{a^{2}}+\frac{1}{b^{2}}+\frac{1}{c^{2}}\right)
+		自旋为 $\frac{1}{2}$ 的全同费米子若取自旋单态，则自旋部分反对称，空间部分可取对称基态。因此体系的真正基态仍为
+		$$
+		\psi_{\mathrm{space}}(r_1,r_2)=\phi_1(r_1)\phi_1(r_2),
+		\qquad
+		E=2e_1=\frac{\pi^{2} \hbar^{2}}{m}
+		\left(\frac{1}{a^{2}}+\frac{1}{b^{2}}+\frac{1}{c^{2}}\right).
+		$$
+		若另行限定两电子处于自旋三重态，则空间部分必须反对称。此时由于 $a>b>c$，最低的第二个单粒子轨道为
+		$$
+		\phi_{2}(r)=\frac{2 \sqrt{2}}{\sqrt{a b c}}
+		\sin \frac{2 \pi x}{a}\sin \frac{\pi y}{b}\sin \frac{\pi z}{c},
+		$$
+		并有
+		$$
+		\psi_{\mathrm{space}}=\frac{1}{\sqrt{2}}
+		\left[\phi_{1}(r_{1}) \phi_{2}(r_{2})
+		-\phi_{2}(r_{1}) \phi_{1}(r_{2})\right],
+		\quad
+		E=\frac{\pi^{2} \hbar^{2}}{m}
+		\left(\frac{5}{2a^{2}}+\frac{1}{b^{2}}+\frac{1}{c^{2}}\right).
 $$
 \end{enumerate}
 \begin{note}
@@ -253,7 +283,7 @@ V(x)=
 	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
 	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
 	\item
-第$n$能级精确到二级的近似表达式为：
+ 第$n$能级精确到二级的近似表达式为：
 \[ 
 	\begin{aligned}
 	E_{n}&=E_{n}^{(0)}+E_{n}^{(1)}+E_{n}^{(2)}\\
@@ -264,12 +294,20 @@ V(x)=
  \[ 
  E_{n}=\frac{n^{2} \pi^{2} \hbar^{2}}{8 m a^{2}} + 0+0
   \]
-  当$ n $为奇数的时候
+  当 $n$ 为奇数时，只有奇数 $k$ 对二级修正有贡献，并且
+  \[
+  \sum_{\substack{k=1,3,5,\ldots\\k\ne n}}\frac{1}{n^2-k^2}
+  =-\frac{1}{4n^2}.
+  \]
+  因而
  \[ 
- E_{n}=\frac{n^{2} \pi^{2} \hbar^{2}}{8 m a^{2}} + \frac{\lambda}{a}+\frac{8 m \lambda^{2}}{\pi^{2} \hbar^{2}}\left[\frac{1}{n^{2}-1}+\frac{1}{n^{2}-n^{3}}+\frac{1}{n^{2}-5^{2}}+\cdots\right]
+ E_{n}=\boxed{\frac{n^{2} \pi^{2} \hbar^{2}}{8 m a^{2}}
+ + \frac{\lambda}{a}
+ -\frac{2m\lambda^{2}}{\pi^{2}\hbar^{2}n^{2}}}
+ +O(\lambda^3),\qquad n\ {\rm odd}.
   \]
   	其中：
-  \begin{equation*}\label{key}
+  \begin{equation*}
   	\begin{aligned}
   		H_{k n}^{\prime}&=\left\langle\phi_{k}^{0}\left|H^{\prime}\right| \phi_{n}^{0}\right\rangle=\frac{\lambda}{a} \int_{0}^{2 a} \delta(x-a) \sin \frac{k \pi x}{2 a} \sin \frac{n \pi x}{2 a} d x
   		\\
@@ -290,5 +328,3 @@ V(x)=
 
 
 \end{enumerate}
-
-

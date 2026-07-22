@@ -12,7 +12,17 @@
 （$30'$）粒子以能量$E$入射方势垒，$V(x)=\begin{cases}V_0>0,&0\le x\le a\\0,&x<0,x>0\end{cases}$。设能量$E>V_0$，求透射系数$T$。
 
 \banswer{
-	
+	令
+	\[
+		k=\frac{\sqrt{2mE}}{\hbar},\qquad
+		q=\frac{\sqrt{2m(E-V_0)}}{\hbar}.
+	\]
+	三区波函数可分别写为 $e^{ikx}+r e^{-ikx}$、$Ae^{iqx}+Be^{-iqx}$、$t e^{ikx}$。在 $x=0,a$ 连续匹配波函数及其一阶导数，消去 $A,B,r$ 后得到
+	\[
+		\boxed{T=|t|^2=
+		\left[1+\frac{V_0^2}{4E(E-V_0)}\sin^2(qa)\right]^{-1}}.
+	\]
+	当 $qa=n\pi$ 时出现共振透射，$T=1$。
 }
 
 
@@ -21,14 +31,40 @@
 
 
 \banswer{
-	
+	空间能级为
+	\[
+		E_n=\frac{n^2\pi^2\hbar^2}{2ma^2}.
+	\]
+	两项的空间波函数正交，且两个自旋量的模平方均为
+	$|(1,\mp i)^T|^2=2$。因此
+	\[
+		P(E_3)=\frac{5}{18}\times2=\frac59,
+		\qquad
+		P(E_5)=\frac29\times2=\frac49.
+	\]
+	故能量可测值及概率为
+	\[
+		\boxed{E_3=\frac{9\pi^2\hbar^2}{2ma^2},\ P_3=\frac59;\qquad
+		E_5=\frac{25\pi^2\hbar^2}{2ma^2},\ P_5=\frac49}.
+	\]
 }
 
 
 \item 
 用不确定度关系估算一维谐振子的基态能量。
 \banswer{
-	
+	设基态中 $\langle x\rangle=\langle p\rangle=0$，记 $d=\Delta x$。由 $\Delta p\geq\hbar/(2d)$，
+	\[
+		E\simeq\frac{(\Delta p)^2}{2m}+\frac12m\omega^2(\Delta x)^2
+		\geq\frac{\hbar^2}{8md^2}+\frac12m\omega^2d^2.
+	\]
+	右端对 $d$ 取极小，得到
+	\[
+		d^2=\frac{\hbar}{2m\omega},
+		\qquad
+		\boxed{E_0\simeq\frac12\hbar\omega}.
+	\]
+	本题中 Gaussian 基态恰好饱和不确定关系，因此该估计等于精确基态能量。
 }
 
 
@@ -37,7 +73,20 @@
 （$30'$）各向同性的三维谐振子哈密顿算符为$\hat{H}^0=-\frac{\hbar^2}{2m}\nabla^2+\frac{m\omega^2}{2}r^2$。加上微扰$\hat{H}'=\lambda(xy+yz+zx)$后，求第一激发态的一级能量修正。
 
 \banswer{
-	
+	第一激发态的简并基可取
+	$|100\rangle,|010\rangle,|001\rangle$。由
+	$\langle1|x|0\rangle=\sqrt{\hbar/(2m\omega)}$，在此子空间中
+	\[
+		W=\frac{\lambda\hbar}{2m\omega}
+		\begin{pmatrix}0&1&1\\1&0&1\\1&1&0\end{pmatrix}.
+	\]
+	该矩阵的本征值为 $2,-1,-1$。因此一级能量修正为
+	\[
+		\boxed{E_s^{(1)}=\frac{\lambda\hbar}{m\omega}},
+		\qquad
+		\boxed{E_d^{(1)}=-\frac{\lambda\hbar}{2m\omega}\quad(\text{二重简并})}.
+	\]
+	非简并组合为 $(|100\rangle+|010\rangle+|001\rangle)/\sqrt3$；与它正交的任意两个归一化组合张成二重简并子空间。无扰第一激发能量为 $5\hbar\omega/2$。
 }
 
 
@@ -45,7 +94,31 @@
 （$30'$）自旋为$\frac{1}{2}$，磁矩为$\mu$，电荷为零的粒子置于磁场中。$t=0$是磁场为$\vec{B}_0=(0,0,B_0)$，粒子处于$\hat{\sigma}_z$的本征值为$-1$的本征态$\begin{pmatrix}0\\1\end{pmatrix}$。设在$t>0$时，再加上弱磁场$\vec{B}_1=(B_1,0,0)$，求$t>0$时的波函数，以及测到自旋反转的概率。
 
 \banswer{
-	
+	取磁矩算符为 $\vec\mu=\mu\vec\sigma$，则
+	\[
+		H=-\mu(B_0\sigma_z+B_1\sigma_x),
+		\qquad B=\sqrt{B_0^2+B_1^2}.
+	\]
+	时间演化算符为
+	\[
+		U(t)=\cos\frac{\mu Bt}{\hbar},I
+		+i\frac{B_0\sigma_z+B_1\sigma_x}{B}
+		\sin\frac{\mu Bt}{\hbar}.
+	\]
+	作用于初态 $(0,1)^T$ 得
+	\[
+		\boxed{\psi(t)=
+		\begin{pmatrix}
+		i\dfrac{B_1}{B}\sin(\mu Bt/\hbar)\\[5pt]
+		\cos(\mu Bt/\hbar)-i\dfrac{B_0}{B}\sin(\mu Bt/\hbar)
+		\end{pmatrix}}.
+	\]
+	测得自旋反转为 $\sigma_z=+1$ 的概率为
+	\[
+		\boxed{P_{-\to+}(t)=\frac{B_1^2}{B_0^2+B_1^2}
+		\sin^2\!\left(\frac{\mu t}{\hbar}\sqrt{B_0^2+B_1^2}\right)}.
+	\]
+	在 $B_1\ll B_0$ 时，$P_{-\to+}\simeq(B_1/B_0)^2\sin^2(\mu B_0t/\hbar)$。
 }
 
 

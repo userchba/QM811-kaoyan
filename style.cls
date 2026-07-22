@@ -102,8 +102,9 @@ openright,zihao=5]{ctexbook}
 
 	%\fancyhead[O]{\protect\Headerodd}% Author on Odd page, Centred
 	%\fancyhead[E]{\protect\Headereven}% Title on Even page, Centred
-	\fancyfoot[OR]{第~\thepage~页，共~\pageref{LastPage}~页}%
-	\fancyfoot[EL]{第~\thepage~页，共~\pageref{LastPage}~页}%
+		% 各年份试卷会在 \bta 中重新从第 1 页计数，不能使用全书的 LastPage 作为单卷总页数。
+		\fancyfoot[OR]{第~\thepage~页}%
+		\fancyfoot[EL]{第~\thepage~页}%
 	\fancyfoot[OL]{科目名称：量子力学}%
 	\fancyfoot[ER]{科目名称：量子力学}%
 	%\renewcommand{\headrulewidth}{0pt}% Header rule of .4pt
@@ -433,4 +434,3 @@ openright,zihao=5]{ctexbook}
 		}
 	}
 }
-

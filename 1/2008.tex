@@ -12,7 +12,23 @@
 
 
 \banswer{
-	
+	忽略精细结构时，氢原子的束缚态能量为
+	\[
+		\boxed{E_n=-\frac{\mu e^4}{2(4\pi\varepsilon_0)^2\hbar^2n^2}},
+		\qquad n=1,2,3,\ldots,
+	\]
+	其中 $\mu$ 为约化质量。空间波函数的量子数范围为
+	\[
+		l=0,1,\ldots,n-1,\qquad m=-l,-l+1,\ldots,l.
+	\]
+	对固定 $n$，空间简并度为
+	\[
+		g_n^{(\mathrm{space})}=\sum_{l=0}^{n-1}(2l+1)=n^2.
+	\]
+	若同时计入电子自旋量子数 $s=1/2$、$m_s=\pm1/2$，而忽略自旋相关相互作用，则总简并度为
+	\[
+		\boxed{g_n=2n^2}.
+	\]
 }
 
 
@@ -23,7 +39,25 @@ $$V=\begin{cases}0,&0<\varphi<\varphi_0\\ \infty,&other\end{cases}$$
 
 
 \banswer{
-	
+	设圆环半径为 $R$，转动惯量为 $I=\mu R^2$。在允许的角区间内，定态方程为
+	\[
+		-\frac{\hbar^2}{2I}\frac{d^2\psi}{d\varphi^2}=E\psi,
+		\qquad \psi(0)=\psi(\varphi_0)=0.
+	\]
+	因此
+	\[
+		\boxed{E_n=\frac{\hbar^2\pi^2n^2}{2I\varphi_0^2}},
+		\qquad n=1,2,3,\ldots,
+	\]
+	相对于角度测度 $d\varphi$ 归一化的本征函数为
+	\[
+		\boxed{\psi_n(\varphi)=
+		\begin{cases}
+		\sqrt{\dfrac{2}{\varphi_0}}\sin\dfrac{n\pi\varphi}{\varphi_0},&0<\varphi<\varphi_0,\\[6pt]
+		0,&\text{其他角区间}.
+		\end{cases}}
+	\]
+	题干未给出圆环半径，故能量只能用 $I=\mu R^2$ 表示。
 }
 
 
@@ -32,7 +66,20 @@ $$V=\begin{cases}0,&0<\varphi<\varphi_0\\ \infty,&other\end{cases}$$
 
 
 \banswer{
-	
+	矩阵的精确本征值为
+	\[
+		E_1=2-\sqrt{1+\lambda^2},\qquad
+		E_2=2+\sqrt{1+\lambda^2},\qquad
+		E_3=\lambda-2.
+	\]
+	当 $|\lambda|\ll1$ 时展开到二级，
+	\[
+		\boxed{E_1=1-\frac{\lambda^2}{2}+O(\lambda^4),\qquad
+		E_2=3+\frac{\lambda^2}{2}+O(\lambda^4),\qquad
+		E_3=-2+\lambda}.
+	\]
+	用微扰论也得到同样结果：$\lambda=0$ 时三个能级为 $1,3,-2$；微扰只以矩阵元 $\lambda$ 耦合前两个态，故它们的一级修正为零、二级修正分别为
+	$\lambda^2/(1-3)=-\lambda^2/2$ 与 $\lambda^2/(3-1)=\lambda^2/2$；第三态仅有对角一级修正 $\lambda$。
 }
 
 
@@ -43,7 +90,21 @@ $$V=\begin{cases}0,&0<\varphi<\varphi_0\\ \infty,&other\end{cases}$$
 （$30'$）两个自旋为$\frac{1}{2}\hbar$的粒子，两个粒子分别为$\chi_1=\begin{pmatrix}1\\0\end{pmatrix}$，$\chi_1=\begin{pmatrix}\cos\theta e^{-i\omega t}\\ \sin\theta e^{-i\omega t}\end{pmatrix}$，求系统处于单态和三态的概率。
 
 \banswer{
-	
+	把第二个粒子的状态记为
+	\[
+		|\chi_2\rangle=e^{-i\omega t}
+		(\cos\theta|\uparrow\rangle+\sin\theta|\downarrow\rangle).
+	\]
+	总态为 $|\uparrow\rangle_1|\chi_2\rangle$。投影到单态
+	$|0,0\rangle=(|\uparrow\downarrow\rangle-|\downarrow\uparrow\rangle)/\sqrt2$，得
+	\[
+		\boxed{P_{S=0}=\frac12\sin^2\theta}.
+	\]
+	三重态总概率为
+	\[
+		\boxed{P_{S=1}=1-P_{S=0}=1-\frac12\sin^2\theta}.
+	\]
+	更具体地，$P_{1,1}=\cos^2\theta$、$P_{1,0}=\sin^2\theta/2$、$P_{1,-1}=0$。题给的共同相位 $e^{-i\omega t}$ 不影响这些概率。
 }
 
 
@@ -52,10 +113,28 @@ $$V=\begin{cases}0,&0<\varphi<\varphi_0\\ \infty,&other\end{cases}$$
 $xH_n=\frac{1}{\sqrt a}\left[\sqrt{\frac{n}{2}}H_{n-1}+\sqrt{\frac{n+1}{2}}H_{n+1}\right]$。
 
 \banswer{
-	
+	跨过 $t=t_0$ 的瞬时微扰时，波函数受到冲量演化算符
+	\[
+		U_{\mathrm{kick}}=\exp\!\left(-\frac{i\lambda x}{\hbar}\right)
+	\]
+	作用。写 $x=\sqrt{\hbar/(2m\omega)}(a+a^\dagger)$，可知作用后的态是相干态，参数为
+	\[
+		\alpha=-\frac{i\lambda}{\sqrt{2m\hbar\omega}},
+		\qquad |\alpha|^2=\frac{\lambda^2}{2m\hbar\omega}.
+	\]
+	故跃迁到第 $n$ 个能级的概率为 Poisson 分布
+	\[
+		P_n=e^{-|\alpha|^2}\frac{|\alpha|^{2n}}{n!}.
+	\]
+	特别地，仍处于基态和跃迁到所有激发态的总概率分别为
+	\[
+		\boxed{P_0=\exp\!\left(-\frac{\lambda^2}{2m\hbar\omega}\right)},
+		\qquad
+		\boxed{P_{\mathrm{exc}}=1-P_0}.
+	\]
+	在弱冲量近似下，$P_{\mathrm{exc}}\simeq\lambda^2/(2m\hbar\omega)$，且最低阶只有第一激发态有贡献。
 }
 
 
 
 \end{enumerate}
-

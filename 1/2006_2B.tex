@@ -13,7 +13,18 @@
 
 
 \banswer{
-	
+	令
+	\[
+		k=\frac{\sqrt{2mE}}{\hbar},\qquad
+		\kappa=\frac{\sqrt{2m(V_0-E)}}{\hbar}.
+	\]
+	在势垒内使用 $Ae^{\kappa x}+Be^{-\kappa x}$，并在 $x=0,a$ 匹配波函数及其导数，得到
+	\[
+		\boxed{T=
+		\left[1+\frac{V_0^2}{4E(V_0-E)}\sinh^2(\kappa a)\right]^{-1}}.
+	\]
+	当 $\kappa a\gg1$ 时，
+	$T\simeq16E(V_0-E)V_0^{-2}e^{-2\kappa a}$，显示隧穿概率随势垒宽度指数衰减。
 }
 
 
@@ -35,7 +46,27 @@
 
 
 \banswer{
-	
+	取
+	\[
+		\phi_1(x)=\sqrt{\frac2a}\cos\frac{\pi x}{a},
+		\qquad
+		\phi_2(x)=\sqrt{\frac2a}\sin\frac{2\pi x}{a},
+		\qquad
+		E_n=\frac{n^2\pi^2\hbar^2}{2ma^2}.
+	\]
+	则
+	\[
+		\psi(x,t)=\frac1{\sqrt2}
+		\left[e^{-iE_1t/\hbar}\phi_1(x)+e^{-iE_2t/\hbar}\phi_2(x)\right].
+	\]
+	\begin{enumerate}
+		\item 概率密度为
+		\[
+			\boxed{|\psi(x,t)|^2=\frac12\left[\phi_1^2(x)+\phi_2^2(x)
+			+2\phi_1(x)\phi_2(x)\cos\frac{(E_2-E_1)t}{\hbar}\right]}.
+		\]
+		\item 能量可取 $E_1=\pi^2\hbar^2/(2ma^2)$ 和 $E_2=4E_1$，相应概率均为 $1/2$，且不随时间改变。
+	\end{enumerate}
 }
 
 
@@ -56,7 +87,26 @@
 \end{enumerate}
 
 \banswer{
-	
+	把题给两分量分别理解为 $S_z=+\hbar/2$ 与 $S_z=-\hbar/2$ 的振幅。两分量概率为 $1/4$ 与 $3/4$。
+	\begin{enumerate}
+		\item 因 $Y_{11}$、$Y_{10}$ 的 $L_z$ 本征值分别为 $\hbar$、$0$，
+		\[
+			\boxed{\langle L_z\rangle=\frac14\hbar}.
+		\]
+		同时
+		\[
+			\boxed{\langle S_z\rangle=\frac14\frac\hbar2
+			+\frac34\left(-\frac\hbar2\right)=-\frac\hbar4}.
+		\]
+
+		\item
+		\begin{align*}
+			\langle M_z\rangle
+			&=-\frac{e}{2\mu}\langle L_z\rangle
+			-\frac{e}{\mu}\langle S_z\rangle
+			=\boxed{\frac{e\hbar}{8\mu}}.
+		\end{align*}
+	\end{enumerate}
 }
 
 \newpage
@@ -64,7 +114,18 @@
 对于一维谐振子的基态，求坐标和动量的不确定度的乘积$\Delta x\cdot\Delta p$。
 
 \banswer{
-	
+	谐振子基态满足
+	\[
+		\langle x\rangle=\langle p\rangle=0,\qquad
+		\langle x^2\rangle=\frac{\hbar}{2m\omega},\qquad
+		\langle p^2\rangle=\frac{m\hbar\omega}{2}.
+	\]
+	因此
+	\[
+		\boxed{\Delta x=\sqrt{\frac{\hbar}{2m\omega}},
+		\qquad\Delta p=\sqrt{\frac{m\hbar\omega}{2}},
+		\qquad\Delta x\,\Delta p=\frac\hbar2}.
+	\]
 }
 
 
@@ -73,7 +134,28 @@
 
 
 \banswer{
-	
+	初态可按总自旋单态、三重态展开：
+	\[
+		|\uparrow\downarrow\rangle
+		=\frac1{\sqrt2}\left(|1,0\rangle+|0,0\rangle\right).
+	\]
+	由
+	\[
+		\vec s_1\cdot\vec s_2
+		=\frac12(S^2-s_1^2-s_2^2),
+	\]
+	三重态与单态能量分别为 $E_T=J\hbar^2/4$、$E_S=-3J\hbar^2/4$。所以
+	\[
+		|\psi(t)\rangle=\frac1{\sqrt2}
+		\left(e^{-iE_Tt/\hbar}|1,0\rangle
+		+e^{-iE_St/\hbar}|0,0\rangle\right).
+	\]
+	投影回 $|\uparrow\downarrow\rangle$，即粒子 $2$ 自旋仍向下的概率为
+	\[
+		\boxed{P_{2\downarrow}(t)=
+		\frac14\left|e^{-iE_Tt/\hbar}+e^{-iE_St/\hbar}\right|^2
+		=\cos^2\left(\frac{J\hbar t}{2}\right)}.
+	\]
 }
 
 

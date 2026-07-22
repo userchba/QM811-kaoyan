@@ -24,7 +24,24 @@
 
 
 \banswer{
-	
+	\begin{enumerate}
+		\item 由 $A^2=0$ 可知 $(A^\dagger)^2=0$。于是
+		\begin{align*}
+			B^2&=A^\dagger A A^\dagger A
+			=A^\dagger(1-A^\dagger A)A\\
+			&=A^\dagger A-(A^\dagger)^2A^2=A^\dagger A=B.
+		\end{align*}
+
+		\item 因 $B$ 为厄米投影算符，其本征值为 $0,1$。在按 $B$ 本征值 $0,1$ 排列的归一化基中，可选择基矢相位使
+		\[
+			\boxed{B=\begin{pmatrix}0&0\\0&1\end{pmatrix},
+			\qquad
+			A=\begin{pmatrix}0&1\\0&0\end{pmatrix},
+			\qquad
+			A^\dagger=\begin{pmatrix}0&0\\1&0\end{pmatrix}}.
+		\]
+		这些矩阵直接满足题给的全部代数关系；若交换基矢顺序，只需同时交换矩阵的行列。
+	\end{enumerate}
 }
 
 
@@ -32,7 +49,22 @@
 （$30'$）粒子在势场$V(x)=A|x|^n\quad(-\infty <x<\infty,A>0)$中运动，试用不确定度关系估算基态能量。
 
 \banswer{
-	
+	以 $d=\Delta x$ 表示基态的典型尺度，并取 $\langle x\rangle=\langle p\rangle=0$。由 $\Delta p\,d\geq\hbar/2$，估算能量为
+	\[
+		E(d)\simeq\frac{\hbar^2}{8m d^2}+A d^n.
+	\]
+	令 $dE/dd=0$，得到
+	\[
+		d_0=\left(\frac{\hbar^2}{4mnA}\right)^{1/(n+2)},
+		\qquad
+		\frac{\hbar^2}{8md_0^2}=\frac n2Ad_0^n.
+	\]
+	所以基态能量的量级估计为
+	\[
+		\boxed{E_0\simeq\frac{n+2}{2}A
+		\left(\frac{\hbar^2}{4mnA}\right)^{n/(n+2)}}.
+	\]
+	测不准估算法只能确定这一尺度及相应的数值近似；精确系数一般需解 Schr\"odinger 方程。
 }
 
 
@@ -56,7 +88,38 @@ $$\frac{\partial E_n}{\partial \lambda}=\int \psi^*_n(\vec{r})\frac{\partial \ha
 
 
 \banswer{
-	
+	\begin{enumerate}
+		\item 对归一化本征方程 $H(\lambda)|n\rangle=E_n|n\rangle$ 关于 $\lambda$ 求导，
+		\[
+			\frac{\partial H}{\partial\lambda}|n\rangle
+			+H\frac{\partial|n\rangle}{\partial\lambda}
+			=\frac{\partial E_n}{\partial\lambda}|n\rangle
+			+E_n\frac{\partial|n\rangle}{\partial\lambda}.
+		\]
+		左乘 $\langle n|$，利用 $\langle n|H=E_n\langle n|$，含 $\partial|n\rangle/\partial\lambda$ 的两项抵消，故
+		\[
+			\boxed{\frac{\partial E_n}{\partial\lambda}
+			=\left\langle n\left|\frac{\partial H}{\partial\lambda}\right|n\right\rangle}
+			=\int\psi_n^*\frac{\partial H}{\partial\lambda}\psi_n\,d^3r.
+		\]
+
+		\item 取参数 $\lambda=\mu$。氢原子哈密顿量与能量为
+		\[
+			H=\frac{p^2}{2\mu}-\frac{e^2}{r},\qquad
+			E_n=-\frac{\mu e^4}{2\hbar^2n^2}.
+		\]
+		于是
+		\[
+			\frac{\partial H}{\partial\mu}=-\frac{p^2}{2\mu^2}=-\frac{T}{\mu},
+			\qquad
+			\frac{\partial E_n}{\partial\mu}=\frac{E_n}{\mu}.
+		\]
+		由费曼--海尔曼定理，$-\langle T\rangle/\mu=E_n/\mu$，所以
+		\[
+			\boxed{\langle T\rangle_n=-E_n
+			=\frac{\mu e^4}{2\hbar^2n^2}}.
+		\]
+	\end{enumerate}
 }
 
 \newpage
@@ -64,7 +127,32 @@ $$\frac{\partial E_n}{\partial \lambda}=\int \psi^*_n(\vec{r})\frac{\partial \ha
 （$30'$）粒子在二维无限深方势阱中运动，$V=\begin{cases}0,&0<x<a,0<y<a\\ \infty,&\text{其他}\end{cases}$。加上微扰$H'=\lambda xy$后，求基态和第一激发态能级的一级微扰修正。
 
 \banswer{
-	
+	无扰本征态记为 $|n_x,n_y\rangle$，能量
+	\[
+		E_{n_xn_y}^{(0)}=\frac{\pi^2\hbar^2}{2ma^2}(n_x^2+n_y^2).
+	\]
+	基态 $|1,1\rangle$ 非简并，且任一一维箱中 $\langle n|x|n\rangle=a/2$，故
+	\[
+		\boxed{E_{11}=\frac{\pi^2\hbar^2}{ma^2}+\frac{\lambda a^2}{4}+O(\lambda^2)}.
+	\]
+
+	第一激发态由 $|1,2\rangle$、$|2,1\rangle$ 构成二重简并子空间。利用
+	\[
+		\langle1|x|2\rangle=-\frac{16a}{9\pi^2},
+	\]
+	微扰矩阵为
+	\[
+		W=\lambda a^2\begin{pmatrix}
+		\frac14&\frac{256}{81\pi^4}\\[2pt]
+		\frac{256}{81\pi^4}&\frac14
+		\end{pmatrix}.
+	\]
+	故归一化零级态 $(|1,2\rangle\pm|2,1\rangle)/\sqrt2$ 的一级能量修正为
+	\[
+		\boxed{E_\pm^{(1)}=\lambda a^2
+		\left(\frac14\pm\frac{256}{81\pi^4}\right)},
+	\]
+	相应总能量为 $5\pi^2\hbar^2/(2ma^2)+E_\pm^{(1)}$。
 }
 
 
@@ -72,12 +160,32 @@ $$\frac{\partial E_n}{\partial \lambda}=\int \psi^*_n(\vec{r})\frac{\partial \ha
 （$30'$）设粒子所处的外场均匀但与时间有关。即$V=V(t)$，与坐标$\vec{r}$无关。试将体系的含时薛定鄂方程分离变量，求方程解$\psi(\vec{r},t)$的一般形式，并取$V(t)=V_0\cos(\omega t)$，以一维情况为例说明$V(t)$的影响是什么。
 
 \banswer{
-	
+	取分离形式 $\psi(\vec r,t)=\phi(\vec r)T(t)$，代入
+	\[
+		i\hbar\frac{\partial\psi}{\partial t}
+		=\left[-\frac{\hbar^2}{2m}\nabla^2+V(t)\right]\psi
+	\]
+	可令自由粒子空间部分满足
+	\[
+		-\frac{\hbar^2}{2m}\nabla^2\phi=E\phi,
+	\]
+	而时间部分满足
+	\[
+		T(t)=T(0)\exp\!\left[-\frac{i}{\hbar}
+		\left(Et+\int_0^tV(t')dt'\right)\right].
+	\]
+	故一般解是自由粒子各本征态的叠加，每一项均多出相同因子
+	$\exp[-(i/\hbar)\int_0^tV(t')dt']$。
+
+	当 $V(t)=V_0\cos\omega t$ 时，一维平面波解为
+	\[
+		\psi_k(x,t)=C e^{ikx-i\hbar k^2t/(2m)}
+		\exp\!\left[-i\frac{V_0}{\hbar\omega}\sin\omega t\right].
+	\]
+	因此空间均匀的 $V(t)$ 只给所有态附加共同的含时相位，不改变概率密度、动量分布或任何可观测跃迁概率。
 }
 
 
 
 \end{enumerate}
-
-
 

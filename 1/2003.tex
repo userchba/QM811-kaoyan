@@ -17,21 +17,72 @@
 	\item
 	如果厄密算符 $\hat{A}$ 对任何矢量 $|u\rangle$, 有 $\langle u|\hat{A}| u\rangle \geq 0$, 则称 $\hat{A}$ 为正定算符, 求证：算符 $\hat{A}=|a\rangle\langle a|$ 是厄密正定算符。
 	\banswer{
-		
+		由 $\hat A=|a\rangle\langle a|$ 可得
+		\[
+			\hat A^\dagger=(|a\rangle\langle a|)^\dagger
+			=|a\rangle\langle a|=\hat A,
+		\]
+		故 $\hat A$ 是厄米算符。对任意 $|u\rangle$，
+		\[
+			\langle u|\hat A|u\rangle
+			=\langle u|a\rangle\langle a|u\rangle
+			=|\langle a|u\rangle|^2\geq 0.
+		\]
+		因此，按题目给出的定义，$|a\rangle\langle a|$ 是正定算符（更严格地说是半正定算符；与 $|a\rangle$ 正交的非零态使平均值为零）。
 	}
 	
 	\item 
 	如果 $\hat{A}$ 是任 一线性算符, 求证 $A^{+} A$ 是正定的厄密算符, 它的迹等于 $\hat{A}$ 在任意表象中的矩阵元的模平方之和。试推导, 当且仅当 $\hat{A}=0$ 时, $\operatorname{Tr}\left(A^{+} A\right)=0$ 才成立。
 	
 	\banswer{
-		
+		首先
+		\[
+			(\hat A^\dagger\hat A)^\dagger
+			=\hat A^\dagger\hat A,
+		\]
+		所以 $\hat A^\dagger\hat A$ 是厄米算符；并且对任意 $|u\rangle$，
+		\[
+			\langle u|\hat A^\dagger\hat A|u\rangle
+			=\langle \hat A u|\hat A u\rangle
+			=\|\hat A|u\rangle\|^2\geq0,
+		\]
+		故其为正定（半正定）算符。
+
+		在任意一组完备正交基 $\{|i\rangle\}$ 中插入恒等算符，得
+		\begin{align*}
+			\operatorname{Tr}(\hat A^\dagger\hat A)
+			&=\sum_i\langle i|\hat A^\dagger\hat A|i\rangle
+			=\sum_{i,j}\langle i|\hat A^\dagger|j\rangle
+			\langle j|\hat A|i\rangle\\
+			&=\sum_{i,j}|\langle j|\hat A|i\rangle|^2.
+		\end{align*}
+		右端是非负数之和。因此 $\operatorname{Tr}(\hat A^\dagger\hat A)=0$ 当且仅当所有矩阵元 $\langle j|\hat A|i\rangle$ 均为零，也即当且仅当 $\hat A=0$。
 	}
 	
 	
 	\item 
 	求证：如果 $[[\hat{A}, \hat{B}], \hat{A}]=[[\hat{A}, \hat{B}], \hat{B}]=0$, 则 $e^{\hat{A}} e^{\hat{B}}=e^{\hat{A}+\hat{B}} e^{\frac{1}{2}[\hat{A}, \hat{B}]}$。
 	\banswer{
-		
+		记 $\hat C=[\hat A,\hat B]$。题设给出 $[\hat C,\hat A]=[\hat C,\hat B]=0$。令
+		\[
+			F(t)=e^{t\hat A}e^{t\hat B}.
+		\]
+		由于 $e^{t\hat A}\hat B e^{-t\hat A}=\hat B+t[\hat A,\hat B]=\hat B+t\hat C$，有
+		\begin{align*}
+			\frac{dF}{dt}
+			&=\hat A F+e^{t\hat A}\hat B e^{t\hat B}
+			=(\hat A+\hat B+t\hat C)F.
+		\end{align*}
+		$\hat A+\hat B$ 与 $\hat C$ 对易，且 $F(0)=1$，故
+		\[
+			F(t)=\exp\!\left[t(\hat A+\hat B)+\frac{t^2}{2}\hat C\right].
+		\]
+		取 $t=1$，即得
+		\[
+			e^{\hat A}e^{\hat B}
+			=e^{\hat A+\hat B+\frac12[\hat A,\hat B]}
+			=e^{\hat A+\hat B}e^{\frac12[\hat A,\hat B]}.
+		\]
 	}
 	
 	\item 
@@ -40,7 +91,21 @@
 	i \hbar \frac{d\langle\hat{A}\rangle}{d t}=\langle[\hat{A}, \hat{H}]\rangle+i \hbar\left\langle\frac{\partial \hat{A}}{\partial t}\right\rangle
 	\]
 	\banswer{
-		
+		设 $|\psi(t)\rangle$ 满足薛定谔方程
+		$i\hbar|\dot\psi\rangle=\hat H|\psi\rangle$，则
+		$\langle\dot\psi|=(i/\hbar)\langle\psi|\hat H$。于是
+		\begin{align*}
+			\frac{d\langle\hat A\rangle}{dt}
+			&=\langle\dot\psi|\hat A|\psi\rangle
+			+\left\langle\psi\left|\frac{\partial\hat A}{\partial t}\right|\psi\right\rangle
+			+\langle\psi|\hat A|\dot\psi\rangle\\
+			&=\frac{i}{\hbar}\langle\hat H\hat A\rangle
+			-\frac{i}{\hbar}\langle\hat A\hat H\rangle
+			+\left\langle\frac{\partial\hat A}{\partial t}\right\rangle\\
+			&=\frac{1}{i\hbar}\langle[\hat A,\hat H]\rangle
+			+\left\langle\frac{\partial\hat A}{\partial t}\right\rangle.
+		\end{align*}
+		两边乘以 $i\hbar$，便得到题中公式。
 	}
 
 
@@ -75,7 +140,37 @@
 两种情况计算接近金属表面的传导电子的反射和透射几率。
 
 \banswer{
+	设电子从金属内部 $x<0$ 向表面入射。其总能量为 $E$，在两侧的定态波函数取为
+	\[
+		\psi_{<}=e^{ik_1x}+r e^{-ik_1x},\qquad
+		\psi_{>}=t e^{ik_2x},\qquad
+		k_1=\frac{\sqrt{2m(E+V_0)}}{\hbar}.
+	\]
 	
+	\begin{enumerate}
+		\item 当 $E>0$ 时，$k_2=\sqrt{2mE}/\hbar$。由 $x=0$ 处 $\psi$ 与 $d\psi/dx$ 连续，
+		\[
+			r=\frac{k_1-k_2}{k_1+k_2},\qquad
+			t=\frac{2k_1}{k_1+k_2}.
+		\]
+		按概率流之比计算，
+		\[
+			R=|r|^2=\left(\frac{k_1-k_2}{k_1+k_2}\right)^2,\qquad
+			T=\frac{k_2}{k_1}|t|^2
+			=\frac{4k_1k_2}{(k_1+k_2)^2},\qquad R+T=1.
+		\]
+
+		\item 当 $-V_0<E<0$ 时，令 $\kappa=\sqrt{-2mE}/\hbar$，则真空一侧只有衰减解 $\psi_{>}=t e^{-\kappa x}$。连续条件给出
+		\[
+			r=\frac{k_1-i\kappa}{k_1+i\kappa},\qquad
+			t=\frac{2k_1}{k_1+i\kappa}.
+		\]
+		因 $|r|=1$ 且衰减波不携带向 $+x$ 的概率流，故
+		\[
+			R=1,\qquad T=0.
+		\]
+		电子只能在真空侧穿透约 $1/\kappa$ 的距离，不能形成透射流。
+	\end{enumerate}
 }
 
 
@@ -85,7 +180,26 @@
 对于一维谐振子, 求消灭算符 $a$ 的本征态, 将其表示成各能量本征态 $|n\rangle$ 的线性叠加。
 
 \banswer{
-	
+	设消灭算符的本征值为复数 $\alpha$，本征态为
+	\[
+		|\alpha\rangle=\sum_{n=0}^{\infty}c_n|n\rangle,\qquad
+		a|\alpha\rangle=\alpha|\alpha\rangle.
+	\]
+	利用 $a|n\rangle=\sqrt n|n-1\rangle$，比较 $|n\rangle$ 的系数可得
+	\[
+		c_{n+1}\sqrt{n+1}=\alpha c_n,\qquad
+		c_n=\frac{\alpha^n}{\sqrt{n!}}c_0.
+	\]
+	归一化条件给出
+	\[
+		1=|c_0|^2\sum_{n=0}^{\infty}\frac{|\alpha|^{2n}}{n!}
+		=|c_0|^2e^{|\alpha|^2}.
+	\]
+	略去任意整体相位后 $c_0=e^{-|\alpha|^2/2}$，故消灭算符的归一化本征态（相干态）为
+	\[
+		\boxed{|\alpha\rangle=e^{-|\alpha|^2/2}
+		\sum_{n=0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}|n\rangle}.
+	\]
 }
 
 \item 
@@ -93,7 +207,23 @@
 
 
 \banswer{
-	
+	在 $\sigma_z$ 表象中
+	\[
+		\sigma_n=\vec\sigma\cdot\vec n
+		=\begin{pmatrix}
+		\cos\theta&e^{-i\varphi}\sin\theta\\
+		e^{i\varphi}\sin\theta&-\cos\theta
+		\end{pmatrix}.
+	\]
+	由 $\det(\sigma_n-\lambda I)=\lambda^2-1=0$，本征值为 $\lambda_\pm=\pm1$。一组归一化本征函数可取
+	\[
+		\chi_+(\theta,\varphi)=
+		\begin{pmatrix}\cos(\theta/2)\\e^{i\varphi}\sin(\theta/2)\end{pmatrix},
+		\qquad
+		\chi_-(\theta,\varphi)=
+		\begin{pmatrix}-e^{-i\varphi}\sin(\theta/2)\\\cos(\theta/2)\end{pmatrix}.
+	\]
+	它们分别满足 $\sigma_n\chi_\pm=\pm\chi_\pm$；相应的自旋投影本征值为 $\pm\hbar/2$。
 }
 
 \item 
@@ -104,10 +234,20 @@
 设 $t=0$ 时电子的自旋 “向上”, 即 $S_{x}=\hbar / 2$, 求 $t>0$ 时 $\vec{S}$ 的平均值。
 
 \banswer{
-	
+	令 $\Omega=eB/(\mu c)$，则
+	\[
+		\hat H=\frac{\hbar\Omega}{2}\sigma_x.
+	\]
+	题设初态是 $S_x$ 的正本征态 $|+x\rangle$，也是 $\hat H$ 的本征态。因此
+	\[
+		|\psi(t)\rangle=e^{-i\Omega t/2}|+x\rangle,
+	\]
+	时间演化只产生整体相位。于是
+	\[
+		\boxed{\langle\vec S\rangle_t
+		=\left(\frac{\hbar}{2},0,0\right)}.
+	\]
 }
 
 
 \end{enumerate}
-
-

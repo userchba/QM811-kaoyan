@@ -73,18 +73,52 @@
 	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
 	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
 	\item
-	两粒子的波函数和能量为
-	\[ 
-	\psi(x_{1},x_{2})=\frac{2}{L} \sin \frac{n_{1}\pi}{L} x_{1} \sin \frac{n_{2}\pi}{L} x_{2}  \quad E=\frac{\pi^{2}\hbar^{2}}{2mL^{2}}(n_{1}^{2}+n_{2}^{2})
-	 \]
-	基态波函数无简并，第一激发态二重简并，第二激发态无简并。
+	记
+	\[
+		\phi_n(x)=\sqrt{\frac2L}\sin\frac{n\pi x}{L},\qquad
+		\epsilon=\frac{\pi^2\hbar^2}{2\mu L^2}.
+	\]
+	无扰直积态
+	$\psi_{n_1n_2}(x_1,x_2)=\phi_{n_1}(x_1)\phi_{n_2}(x_2)$，
+	能量为 $(n_1^2+n_2^2)\epsilon$。三个最低能量及态为
+	\[
+		\boxed{2\epsilon:\ |11\rangle},\qquad
+		\boxed{5\epsilon:\ |12\rangle,\ |21\rangle},\qquad
+		\boxed{8\epsilon:\ |22\rangle}.
+	\]
 	\item 
-	基态：$ E_{0}=\frac{\pi^{2}\hbar^{2}}{mL^{2}}+\frac{3}{2}\cdot \frac{\lambda}{L} $，波函数存疑。\\
-	第一激发态：分裂成两条。\\
-	第一条$ E_{11}= \frac{5}{2} \frac{\pi^{2}\hbar^{2}}{mL^{2}} $，$ \psi ^{\prime} _{11}=\frac{1}{\sqrt{2}}( \psi_{11} - \psi_{12})  $\\
-	 	第一条$ E_{11}= \frac{5}{2} \frac{\pi^{2}\hbar^{2}}{mL^{2}} + 2\cdot \frac{ \lambda}{L} $，$ \psi ^{\prime} _{12}=\frac{1}{\sqrt{2}}( \psi_{11} + \psi_{12})  $
-	
-	
+	基态和第二激发态非简并，并利用
+	$\int_0^L|\phi_n|^4dx=3/(2L)$，得
+	\[
+		\boxed{E_{\rm g}=2\epsilon+\frac{3\lambda}{2L},
+		\qquad \Psi_{\rm g}^{(0)}=|11\rangle},
+	\]
+	\[
+		\boxed{E_{\rm 2nd}=8\epsilon+\frac{3\lambda}{2L},
+		\qquad \Psi_{\rm 2nd}^{(0)}=|22\rangle}.
+	\]
+	在 $|12\rangle,|21\rangle$ 子空间，微扰矩阵为
+	\[
+		W=\frac{\lambda}{L}\begin{pmatrix}1&1\\1&1\end{pmatrix}.
+	\]
+	所以第一激发二重态分裂为
+	\[
+		\boxed{E_-=5\epsilon,\qquad
+		\Psi_-^{(0)}=\frac{|12\rangle-|21\rangle}{\sqrt2}},
+	\]
+	\[
+		\boxed{E_+=5\epsilon+\frac{2\lambda}{L},\qquad
+		\Psi_+^{(0)}=\frac{|12\rangle+|21\rangle}{\sqrt2}}.
+	\]
+	这里列出的波函数是决定一级能量所需的零级归一化态。若还要求波函数本身准确到
+	$O(\lambda)$，对每个已经对角化的态 $|\alpha\rangle$ 再加
+	\[
+		|\alpha^{(1)}\rangle
+		=\sum_{\beta\notin{\cal D}_\alpha}
+		\frac{\langle\beta|V|\alpha\rangle}
+		{E_\alpha^{(0)}-E_\beta^{(0)}}|\beta\rangle
+	\]
+	即可；该修正与零级态正交，故一级精度下仍已归一化。
 \end{enumerate}
 
 	
@@ -136,7 +170,13 @@
 \[ 
 E_{m}=\frac{1}{2 \mu}\left[\frac{(m \hbar)^{2}}{a^{2}}+\left(\frac{q}{c}\right)^{2} \frac{a^{2} B^{2}}{4}-\frac{q}{c} B m \hbar\right]
  \]	
-简并解除
+	也可写成
+	\[
+		E_m=\frac{\hbar^2}{2\mu a^2}
+		\left(m-\frac{qBa^2}{2\hbar c}\right)^2.
+	\]
+	一般磁场会解除原来 $m$ 与 $-m$ 的简并；但当
+	$qBa^2/(\hbar c)$ 为整数时，仍可能有关于移位中心成对的偶然简并。
 \end{enumerate}
 
 	
@@ -169,14 +209,21 @@ E_{m}=\frac{1}{2 \mu}\left[\frac{(m \hbar)^{2}}{a^{2}}+\left(\frac{q}{c}\right)^
 	\item
 	$ \hat{H}=\frac{\hat{p}^{2}}{2 \mu}+\frac{1}{2} \mu \omega^{2}\left(\hat{x}-x_{0}\right)^{2}-\frac{q^{2} \varepsilon^{2}}{2 \mu \omega^{2}} $，其中 $x_{0}=\frac{q \varepsilon}{\mu \omega^{2}}$
 	\[ 
-	\widetilde{\mathrm{E}}_{\mathrm{n}}=\mathrm{E}_{\mathrm{n}}--\frac{q^{2} \varepsilon^{2}}{2 \mu \omega^{2}}  \qquad 
+	\widetilde{\mathrm{E}}_{\mathrm{n}}=\mathrm{E}_{\mathrm{n}}-\frac{q^{2} \varepsilon^{2}}{2 \mu \omega^{2}}  \qquad
 	\ket{\tilde{n}}=e^{-i\frac{x_{0}}{\hbar} \hat{p} } \ket{n}
 	 \]
 	\item 
-	先将$ \ket{0} $用$ \ket{\tilde{n}} $表示出来，得到在$ t $时刻的波函数$ \ket{\tilde{\psi}(t)} $，再将$ \ket{\tilde{\psi}(t)} $用$ \ket{n} $表示出来，得到波函数$ \ket{\psi(t)} $，最后得到相应的概率
-	\[ 
-	P_{0}=e^{2 \cdot \frac{\omega}{\hbar} \cdot mx^{2}_{0} \cdot \sin \frac{\omega}{2} t}
-	 \]
+	令 $x_0=q\varepsilon/(\mu\omega^2)$。初始旧势阱基态在新哈密顿量下演化为相干态；相对于旧势阱真空的相干参数模平方为
+	\[
+		|\alpha(t)|^2=\frac{2\mu\omega x_0^2}{\hbar}
+		\sin^2\frac{\omega t}{2}.
+	\]
+	真空与相干态的重叠模方为 $e^{-|\alpha|^2}$，故
+	\[
+		\boxed{P_0(t)=
+		\exp\left[-\frac{2\mu\omega x_0^2}{\hbar}
+		\sin^2\left(\frac{\omega t}{2}\right)\right]}.
+	\]
 	
 \end{enumerate}
 
@@ -234,4 +281,3 @@ $\left\langle\varphi_{1}\left|S_{z}\right| \varphi_{1}\right\rangle=\frac{\hbar}
 
 
 \end{enumerate}
-

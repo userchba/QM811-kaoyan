@@ -28,7 +28,21 @@
 \end{enumerate}
 
 \banswer{
-	
+	原状态未归一化，其模方为 $1+1+4=6$，故归一化状态为
+	\[
+		|\psi\rangle=\frac{1}{\sqrt6}
+		\left(|\phi_1\rangle+|\phi_3\rangle+2|\phi_4\rangle\right).
+	\]
+	\begin{enumerate}
+		\item 测得基态能量 $E_1$ 的概率为 $P_1=1/6$。
+		\item 对宽度为 $2a$ 的无限深势阱，$E_n=n^2E_1$，所以
+		\[
+			\langle H\rangle=\frac{E_1+E_3+4E_4}{6}
+			=\frac{1+9+4\times16}{6}E_1=\frac{37}{3}E_1.
+		\]
+		\item $\phi_n$ 在势阱内部有 $n-1$ 个节点，故 $\phi_4$ 有 $3$ 个内部节点（不计两端边界）。
+		\item 对称势阱的本征态宇称交替，$\phi_1$ 为偶态，故 $\phi_3$ 也为偶态。
+	\end{enumerate}
 }
 
 
@@ -50,7 +64,26 @@
 \end{enumerate}
 
 \banswer{
-	
+	\begin{enumerate}
+		\item 束缚定态只差一个随时间变化的整体相位，故 $\langle x\rangle$ 不随时间变化。由 Ehrenfest 定理
+		\[
+			\frac{d\langle x\rangle}{dt}=\frac{\langle p\rangle}{\mu}=0,
+		\]
+		所以 $\langle p\rangle=0$。等价地，因势能为偶函数，本征态可取确定宇称，$\psi_n^*(-i\hbar\partial_x)\psi_n$ 为奇函数，其全空间积分为零。
+
+		\item 对 $V(x)=V_0x^\lambda$，有 $xV'(x)=\lambda V(x)$。维里定理给出
+		\[
+			2\langle T\rangle=\langle xV'(x)\rangle
+			=\lambda\langle V\rangle,
+		\]
+		故
+		\[
+			\boxed{\langle T\rangle=\frac{\lambda}{2}\langle V\rangle},
+			\qquad
+			\langle T\rangle=\frac{\lambda}{\lambda+2}E_n,
+			\quad \langle V\rangle=\frac{2}{\lambda+2}E_n.
+		\]
+	\end{enumerate}
 }
 
 
@@ -74,7 +107,30 @@
 \end{enumerate}
 
 \banswer{
-	
+	\begin{enumerate}
+		\item 在任意完备正交基 $\{|i\rangle\}$ 中，
+		\begin{align*}
+			\operatorname{Tr}(\rho F)
+			&=\sum_i\langle i|\psi\rangle\langle\psi|F|i\rangle
+			=\langle\psi|F\left(\sum_i|i\rangle\langle i|\right)|\psi\rangle\\
+			&=\langle\psi|F|\psi\rangle=\langle F\rangle.
+		\end{align*}
+
+		\item 由归一化条件 $\langle\psi|\psi\rangle=1$，
+		\[
+			\rho|\psi\rangle=|\psi\rangle,
+		\]
+		故沿 $|\psi\rangle$ 的本征值为 $1$。任意与 $|\psi\rangle$ 正交的态 $|u_\perp\rangle$ 满足 $\rho|u_\perp\rangle=0$，故其余本征值全为 $0$。
+
+		\item 由薛定谔方程及其伴随式，
+		\begin{align*}
+			i\hbar\frac{\partial\rho}{\partial t}
+			&=i\hbar\left(|\dot\psi\rangle\langle\psi|+|\psi\rangle\langle\dot\psi|\right)\\
+			&=H|\psi\rangle\langle\psi|-|\psi\rangle\langle\psi|H
+			=[H,\rho].
+		\end{align*}
+		这就是纯态密度算符的 von Neumann 方程。
+	\end{enumerate}
 }
 
 
@@ -98,12 +154,38 @@
 
 
 \banswer{
-	
+	令 $\omega=\sqrt{k/\mu}$。三维各向同性谐振子的能量为
+	\[
+		E_N=\hbar\omega\left(N+\frac32\right),
+		\qquad N=n_x+n_y+n_z=0,1,2,\ldots,
+	\]
+	其空间简并度为 $g_N=(N+1)(N+2)/2$。
+	\begin{enumerate}
+		\item 第二激发态对应 $N=2$，故 $E_2=\frac72\hbar\omega$。
+		\item 第一激发态对应 $N=1$，故简并度 $g_1=3$。
+		\item 基态中 $\langle\vec r\rangle=\langle\vec p\rangle=0$，且三个方向相互独立：
+		\[
+			\langle r^2\rangle=3\frac{\hbar}{2\mu\omega},
+			\qquad
+			\langle p^2\rangle=3\frac{\mu\hbar\omega}{2}.
+		\]
+		因此
+		\[
+			\Delta r=\sqrt{\frac{3\hbar}{2\mu\omega}},
+			\qquad
+			\Delta p=\sqrt{\frac{3\mu\hbar\omega}{2}},
+			\qquad
+			\boxed{\Delta r\,\Delta p=\frac{3\hbar}{2}}.
+		\]
+	\end{enumerate}
 }
 
 
 \item 
-两个自旋都是 $1 / 2$ 的粒子 $\mathbf{1}$ 和 $\mathbf{2}$ 组成的系统, 处于由波函数 $|\psi\rangle=a|0\rangle_{1}|1\rangle_{2}+b|1\rangle_{1}|0\rangle_{2}$ 描写的状态, 其中 $|0\rangle$ 表示自旋朝下（沿 $-z$ 方向 $),|1\rangle$ 表示自旋朝上。当数 $\mathbf{a}$ 和 $\mathbf{b}$ 都不 为 $\mathbf{0}$ 时, 此态不能表示成两个单个粒子状态的直接乘积形式$ |\rangle_{1}|\rangle_{2}$ 时称为纠湹态。试 求在上面的纠缠态。试求在上面的纠湹态中
+两个自旋均为 $1/2$ 的粒子 $1$ 和粒子 $2$ 组成的系统处于
+$|\psi\rangle=a|0\rangle_1|1\rangle_2+b|1\rangle_1|0\rangle_2$，
+其中 $|0\rangle$ 表示自旋朝下（沿 $-z$ 方向），$|1\rangle$ 表示自旋朝上。
+当 $a$ 和 $b$ 均不为零时，此态不能写成两个单粒子态的直积，称为纠缠态。求上述纠缠态中：
 \begin{enumerate}
 	%\renewcommand{\labelenumi}{\arabic{enumi}.}
 	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
@@ -127,7 +209,21 @@
 
 
 \banswer{
-	
+	设状态已归一化，即 $|a|^2+|b|^2=1$。记 $|1\rangle=|\uparrow\rangle$、$|0\rangle=|\downarrow\rangle$。
+	\begin{enumerate}
+		\item 两个展开项中两粒子沿 $z$ 方向均反平行，故平行概率为 $0$。
+		\item 反平行概率为 $|a|^2+|b|^2=1$。
+		\item 总自旋单态为
+		\[
+			|0,0\rangle=\frac{|\uparrow\downarrow\rangle-|\downarrow\uparrow\rangle}{\sqrt2}.
+		\]
+		于是
+		\[
+			P_{S=0}=|\langle0,0|\psi\rangle|^2
+			=\frac{|b-a|^2}{2}.
+		\]
+		\item 测得粒子 $1$ 自旋朝上的概率为 $|b|^2$；在得到该结果后，归一化的塌缩态为 $|\uparrow\rangle_1|\downarrow\rangle_2$，所以粒子 $2$ 必处于自旋朝下态 $|0\rangle_2$。
+	\end{enumerate}
 }
 
 \item 
@@ -149,7 +245,29 @@
 \end{enumerate}
 
 \banswer{
-	
+	把哈密顿量写成 $H=H_0+\xi(r)\vec L\cdot\vec S$，其中球对称的 $H_0$ 与 $\vec L$、$\vec S$ 均对易。自旋--轨道项给出
+	\[
+		[\vec L\cdot\vec S,L_i]\neq0,
+		\qquad
+		[\vec L\cdot\vec S,S_i]\neq0,
+	\]
+	故 $\vec L$ 和 $\vec S$ 分别不守恒。另一方面
+	\begin{align*}
+		[\vec L\cdot\vec S,J_i]
+		&=[\vec L\cdot\vec S,L_i]+[\vec L\cdot\vec S,S_i]=0,
+	\end{align*}
+	且 $[H_0,J_i]=0$，所以 $[H,\vec J]=0$，总角动量 $\vec J=\vec L+\vec S$ 守恒。
+
+	氢原子基态为 $n=1,l=0$，因而
+	\[
+		\vec L\cdot\vec S
+		=\frac12(J^2-L^2-S^2)=0.
+	\]
+	所以自旋--轨道微扰对基态的一级能量修正为
+	\[
+		\boxed{E_{100s}^{(1)}
+		=\langle100s|\xi(r)\vec L\cdot\vec S|100s\rangle=0}.
+	\]
 }
 
 
@@ -158,4 +276,3 @@
 
 
 \end{enumerate}
-

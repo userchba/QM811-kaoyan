@@ -12,7 +12,23 @@
 
 
 \banswer{
-	
+	从右侧存在传播入射波要求总能量 $E>V_0$。令
+	\[
+		q=\frac{\sqrt{2m(E-V_0)}}{\hbar}\quad(x>0),
+		\qquad
+		k=\frac{\sqrt{2mE}}{\hbar}\quad(x<0).
+	\]
+	取
+	$\psi_{>}=e^{-iqx}+r e^{iqx}$、$\psi_{<}=t e^{-ikx}$。在 $x=0$ 匹配 $\psi$ 与 $\psi'$，得到
+	\[
+		r=\frac{q-k}{q+k},\qquad t=\frac{2q}{q+k}.
+	\]
+	按概率流之比，
+	\[
+		\boxed{R=\left(\frac{q-k}{q+k}\right)^2,\qquad
+		T=\frac{k}{q}|t|^2=\frac{4qk}{(q+k)^2}},
+		\qquad R+T=1.
+	\]
 }
 
 
@@ -33,7 +49,23 @@
 \end{enumerate}
 
 \banswer{
-	
+	在 $S_z$ 表象中，$t=0$ 时沿 $+y$ 的自旋态为
+	\[
+		\boxed{\chi(0)=|+y\rangle=\frac1{\sqrt2}
+		\begin{pmatrix}1\\i\end{pmatrix}}.
+	\]
+	把 Zeeman 哈密顿量写成 $H=(\hbar\Omega/2)\sigma_z$；$\Omega$ 的符号包含电子磁矩的符号。于是
+	\[
+		\chi(t)=\frac1{\sqrt2}
+		\begin{pmatrix}e^{-i\Omega t/2}\\i e^{i\Omega t/2}\end{pmatrix}.
+	\]
+	分别投影到 $|+x\rangle$、$|+y\rangle$、$|+z\rangle$，得
+	\[
+		\boxed{P_{+x}(t)=\frac{1-\sin\Omega t}{2},\qquad
+		P_{+y}(t)=\frac{1+\cos\Omega t}{2},\qquad
+		P_{+z}(t)=\frac12}.
+	\]
+	若采用相反号的 Zeeman 哈密顿量，只需令 $\Omega\to-\Omega$；物理上即进动方向反转。
 }
 
 
@@ -43,7 +75,26 @@
 
 
 \banswer{
-	
+	势阱关于原点对称，故本征态可分为奇、偶宇称。
+	\begin{itemize}
+		\item 奇态在 $x=0$ 处为零，不受 $\delta$ 势影响：
+		\[
+			\psi_n^{(-)}(x)\propto\sin\frac{n\pi x}{a},\qquad
+			k_n=\frac{n\pi}{a},\qquad
+			E_n^{(-)}=\frac{\hbar^2n^2\pi^2}{2ma^2},\quad n=1,2,\ldots.
+		\]
+		\item 偶态在 $0<x<a$ 可写为 $\psi(x)=C\sin[k(a-x)]$，并作偶延拓。$\delta$ 势导致导数跃变
+		\[
+			\psi'(0^+)-\psi'(0^-)=\frac{2mV_0}{\hbar^2}\psi(0).
+		\]
+		代入偶态后得到能级方程
+		\[
+			\boxed{k\cot(ka)=-\frac{mV_0}{\hbar^2}},
+			\qquad
+			\boxed{E^{(+)}=\frac{\hbar^2k^2}{2m}}.
+		\]
+	\end{itemize}
+	这两组能级合起来构成系统的全部能谱；$V_0>0$ 只把偶宇称能级向上推移。
 }
 
 
@@ -53,7 +104,29 @@
 $$\langle \psi_n|\frac{\hat{p}^2}{2m}|\psi_n\rangle=\frac{1}{2}\langle\psi_n |\vec{r}\cdot\nabla V(\vec{r})|\psi_n\rangle$$
 
 \banswer{
-	
+	定义厄米的位力算符
+	\[
+		G=\frac12(\vec r\cdot\vec p+\vec p\cdot\vec r).
+	\]
+	利用正则对易关系可得
+	\[
+		[H,G]=i\hbar\left[-2\frac{p^2}{2m}+\vec r\cdot\nabla V(\vec r)\right].
+	\]
+	在归一化束缚定态中，$\langle G\rangle$ 不随时间改变；由 Heisenberg 方程，
+	\[
+		0=\frac{d\langle G\rangle}{dt}
+		=\frac{i}{\hbar}\langle[H,G]\rangle.
+	\]
+	因此
+	\[
+		2\left\langle\frac{p^2}{2m}\right\rangle
+		=\langle\vec r\cdot\nabla V\rangle,
+	\]
+	即
+	\[
+		\boxed{\left\langle\frac{p^2}{2m}\right\rangle
+		=\frac12\langle\vec r\cdot\nabla V(\vec r)\rangle}.
+	\]
 }
 
 
@@ -62,9 +135,24 @@ $$\langle \psi_n|\frac{\hat{p}^2}{2m}|\psi_n\rangle=\frac{1}{2}\langle\psi_n |\v
 （已知矩阵元$\langle n'|\hat{x}|n\rangle=\sqrt{\frac{\hbar}{2m\omega}}(\sqrt{n+1}\delta_{n',n+1}+\sqrt{n}\delta_{n',n-1})$）
 
 \banswer{
-	
+	动量可写为
+	\[
+		p=i\sqrt{\frac{m\hbar\omega}{2}}(a^\dagger-a).
+	\]
+	用升降算符展开，或利用谐振子坐标与动量分布的对称性，可得
+	\[
+		\langle n|p^4|n\rangle
+		=\left(\frac{m\hbar\omega}{2}\right)^2
+		(6n^2+6n+3)
+		=\frac34m^2\hbar^2\omega^2(2n^2+2n+1).
+	\]
+	故一级能量修正为
+	\[
+		\boxed{E_n^{(1)}=\langle n|H'|n\rangle
+		=-\frac{3\lambda}{4}m^2\hbar^2\omega^2
+		(2n^2+2n+1)}.
+	\]
 }
 
 
 \end{enumerate}
-

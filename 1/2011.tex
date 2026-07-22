@@ -61,7 +61,17 @@ $ A $、$ B $为厄米算符，那么下列各选项为厄米算符的是 \xzans
 
 
 \banswer{
-	成立，写成分量形式可证
+		成立。第 $i$ 个分量为
+		\[
+			(\vec p\times\vec r)_i
+			=\sum_{jk}\varepsilon_{ijk}p_jr_k
+			=\sum_{jk}\varepsilon_{ijk}(r_kp_j-i\hbar\delta_{jk}).
+		\]
+		第二项因 $\varepsilon_{ijj}=0$ 而消失；第一项交换哑指标
+		$j,k$ 后变为 $-(\vec r\times\vec p)_i$。故
+		\[
+			\boxed{\vec L=\vec r\times\vec p=-\vec p\times\vec r}.
+		\]
 }
 
 
@@ -89,22 +99,23 @@ $ A $、$ B $为厄米算符，那么下列各选项为厄米算符的是 \xzans
 \end{aligned}
 \] 
 \fi
-可用升降算符写出矩阵元，再写出矩阵。或者直接套用泡利矩阵的形式
-\[ 
-S_{x}=\hbar\left(\begin{array}{ll}
-	0 & 1 \\
-	1 & 0
-\end{array}\right) \quad 
-S_{y}=\hbar\left(\begin{array}{cc}
-	0 & -i \\
-	i & 0
-\end{array}\right)  \quad 
-S_{z}=\hbar\left(\begin{array}{cc}
-	1 & 0 \\
-	0 & -1
-\end{array}\right)
+	题干给出 $Y_{10}$，故这里应理解为 $l=1$ 子空间，而不是自旋 $1/2$。在按
+	$m=1,0,-1$ 排列的 $(L^2,L_z)$ 表象中，
+	\[
+L_{x}=\frac{\hbar}{\sqrt2}\left(\begin{array}{ccc}
+		0 & 1 & 0\\
+		1 & 0 & 1\\
+		0 & 1 & 0
+\end{array}\right),\qquad
+L_{y}=\frac{\hbar}{\sqrt2}\left(\begin{array}{ccc}
+		0 & -i & 0\\
+		i & 0 & -i\\
+		0 & i & 0
+\end{array}\right).
  \]
- 不存在，因为实矩阵不可能使得对易关系$ [S_{x}, S_{y}]=i\hbar S_{z} $成立
+ 不存在一个表象使三个非零角动量分量矩阵同时为实矩阵。若三者均为实矩阵，则
+ $[L_x,L_y]$ 为实矩阵，而 $i\hbar L_z$ 为纯虚矩阵；这与
+ $[L_x,L_y]=i\hbar L_z$ 矛盾。
 }
 
 
@@ -112,8 +123,19 @@ S_{z}=\hbar\left(\begin{array}{cc}
 写出氢原子、一维简谐振子、一维无限深势阱的能级，并用示意图表示。
 
 \banswer{
-	氢原子: $E_{n}=-\frac{e^{2}}{2 a} \frac{1}{n^{2}}\left(a=\frac{\hbar^{2}}{m e^{2}}\right)$\\一维简谐振子： $E_{n}=\left(n+\frac{1}{2}\right) \hbar \omega$\\ 一维无限深势阱： $E_{n}=\frac{n^{2} \pi^{2} \hbar^{2}}{2 m a^{2}}$\\
-	图略
+		氢原子: $E_{n}=-\frac{e^{2}}{2 a} \frac{1}{n^{2}}\left(a=\frac{\hbar^{2}}{m e^{2}}\right)$\\一维简谐振子： $E_{n}=\left(n+\frac{1}{2}\right) \hbar \omega$\\ 一维无限深势阱： $E_{n}=\frac{n^{2} \pi^{2} \hbar^{2}}{2 m a^{2}}$\\
+		三者的能级分布可概括为：
+		\[
+		\begin{array}{c|c|c}
+		\text{体系}&\text{能级间隔}&\text{能级示意}\\ \hline
+		\text{氢原子}&E_{n+1}-E_n\to0&
+		E_1<E_2<E_3<\cdots<0\\
+		\text{谐振子}&E_{n+1}-E_n=\hbar\omega&
+		\text{等间距}\\
+		\text{无限深势阱}&E_{n+1}-E_n=(2n+1)E_1&
+		\text{间距随 }n\text{ 增大}
+		\end{array}
+		\]
 }
 
 
@@ -177,12 +199,28 @@ $$
 其中$\alpha<\pi$，求对最低两能级的一级修正。
 
 \banswer{
-	哈密顿算符$ \hat{H}_{0}=\frac{l_{z}^{2}}{2I} $，$ \Psi_{n}^{(0)}=\frac{1}{\sqrt{2\pi}}  e^{im\phi} $，$ E_{0}^{(0)}=\frac{m^{2}\hbar^{2}}{2I} $\\
-	$ n=0 $时无简并，$ E_{0}=(v_{1}+v_{2}) \alpha  $\\
-	$ n=1 $时二重简并，分裂成两条，\\
-	$ E_{11}=\frac{\hbar^{2}}{2I}+ (v_{1}+v_{2}) \alpha + 2\sin  \alpha \sqrt{v_{1}^{2} +v_{2}^{2}+2v_{1}v_{2}\cos 2 \alpha  }$\\
-	$ E_{12}=\frac{\hbar^{2}}{2I}+ (v_{1}+v_{2}) \alpha - 2\sin  \alpha \sqrt{v_{1}^{2} +v_{2}^{2}+2v_{1}v_{2}\cos 2 \alpha  }$\\
-	其中$ I=mR^{2} $
+	哈密顿算符为 $\hat H_0=L_z^2/(2I)$，其中 $I=mR^2$；归一化本征态和能量为
+	\[
+		\psi_n^{(0)}=\frac{e^{in\varphi}}{\sqrt{2\pi}},\qquad
+		E_n^{(0)}=\frac{n^2\hbar^2}{2I}.
+	\]
+	基态 $n=0$ 无简并，其一级能量为
+	\[
+		\boxed{E_0^{(1)}=\frac{\alpha(V_1+V_2)}{2\pi}}.
+	\]
+	第一激发能级由 $n=\pm1$ 构成二重简并子空间。微扰矩阵的对角元均为
+	$w_0=\alpha(V_1+V_2)/(2\pi)$，非对角元的模为
+	\[
+		|w|=\frac{\sin\alpha}{2\pi}
+		\sqrt{V_1^2+V_2^2+2V_1V_2\cos2\alpha}.
+	\]
+	故分裂后的两个能级为
+	\[
+		\boxed{E_{1,\pm}=\frac{\hbar^2}{2I}
+		+\frac{\alpha(V_1+V_2)}{2\pi}
+		\pm\frac{\sin\alpha}{2\pi}
+		\sqrt{V_1^2+V_2^2+2V_1V_2\cos2\alpha}}.
+	\]
 }
 
 
@@ -191,7 +229,7 @@ $$
 
 
 \banswer{
-\begin{equation*}\label{key}
+\begin{equation*}
 	\begin{aligned}
 		<m|H ^{\prime} |1>&=\frac{2}{a} \cdot V_{0} \cdot \int_{\frac{a-b}{2}}^{\frac{a+b}{2}} \sin \frac{m\pi}{a} x \sin \frac{\pi}{a} x dx \\
 		&=\frac{2}{\pi} \cdot V_{0} \cdot \int_{\frac{\pi}{2} -\frac{\pi}{2} \frac{b}{a} }^{\frac{\pi}{2} +\frac{\pi}{2} \frac{b}{a} } \sin m\theta \sin \theta d\theta \\
@@ -204,7 +242,14 @@ $$
  \]
 得到的结果除$ \braket{3|H ^{\prime} |1}=-\frac{V_{0}}{\pi} \left(\sin \pi\frac{b}{a} +\frac{1}{2} \sin 2\pi \frac{b}{a} \right)\approx -2\frac{b}{a} V_{0} $外其余一样，不过也可以看到取近似后两者的结果是一致的。
 	
-$ P_{1\rightarrow 2}=0 $，$ P_{1\rightarrow 3}=\left|  \frac{H ^{\prime} _{31}}{\hbar \omega_{31}}\right| ^ 2 \cdot \left( 1- \cos \omega_{31} t_{0} \right) $，$ P_{1\rightarrow 4}=0 $
+$ P_{1\rightarrow 2}=0 $，$ P_{1\rightarrow 4}=0 $，而
+\[
+	P_{1\rightarrow 3}
+	=\frac{4|H'_{31}|^2}{\hbar^2\omega_{31}^2}
+	\sin^2\frac{\omega_{31}t_0}{2}
+	=\frac{2|H'_{31}|^2}{\hbar^2\omega_{31}^2}
+	(1-\cos\omega_{31}t_0).
+\]
 }
 
 
@@ -222,16 +267,13 @@ $ P $ &$\frac{3}{8}$ & $0$ &$\frac{1}{4}$  & $0$ & $ \frac{3}{8}$  \\
  \hline 
  \end{tabular}
 \end{center}
-解法有几种。共五个概率值，五个未知数，找五个独立方程即可，找方程的过程中，可充分利用$ l_{z}\ket{10}=0 $的性质，用$ l_{x} $本征态的升降算符来表示$ l_{z} $。
+解法有几种。共五个概率值，五个未知数，找五个独立方程即可，找方程的过程中，可充分利用$ l_{z}\ket{20}=0 $的性质，用$ l_{x} $本征态的升降算符来表示$ l_{z} $。
 $ l_{x} $本征值为$ m $的本征态是$ e^{-i\frac{\pi}{2}l_{y}}\ket{ lm} $，也可以推导相应矩阵元$\bra{lm ^{\prime} } e^{-i\frac{\pi}{2}l_{y}}\ket{ lm} $的关系式。
 }
 
 
 
 \end{enumerate}
-
-
-
 
 
 

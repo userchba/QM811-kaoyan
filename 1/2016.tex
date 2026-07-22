@@ -185,27 +185,30 @@ $t<0$ 时粒子处于基态。 设系统再受到 $x$ 方向的微小脉冲磁�
 	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
 	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
 	\item
-	$ \sigma_{z} $表象：基态$ \ket{\psi_1}=\commamatrix[b]{1; 0} $，$ E_{1}=-\mu B_{0} $；激发基态$ \ket{\psi_2}=\commamatrix[b]{0; 1} $，$ E_{2}=+\mu B_{0} $。\\
+		$ \sigma_{z} $表象：基态$ \ket{\psi_1}=\commamatrix[b]{1; 0} $，$ E_{1}=-\mu B_{0} $；激发态$ \ket{\psi_2}=\commamatrix[b]{0; 1} $，$ E_{2}=+\mu B_{0} $。\\
 	$t>0$ 时刻处在激发态的概率为 $ P_{12}(t)=\left(\frac{\mu B_{1}}{\hbar}\right)^{2}$；仍处在基态的概率$ P_{11}(t)=1-\left(\frac{\mu B_{1}}{\hbar}\right)^{2}$
 	\item 
 	波函数
 	\[ 
 	\ket{\psi(t)} = \sqrt{1-\left(\frac{\mu B_{1}}{\hbar}\right)^{2}} \cdot  e^{-i\frac{E_{1}}{\hbar} t} \ket{\psi_1} +i\frac{\mu B_{1}}{\hbar} e^{-i\frac{E_{2}}{\hbar} t} \ket{\psi_2}
 	 \]
-\item 
-$\sigma_{x}=-1$	态的概率为
-\[ 
-\begin{aligned}
-P_{-1}&= \frac{1}{2} \left| \sqrt{1-\left(\frac{\mu B_{1}}{\hbar}\right)^{2}} \cdot  e^{-i\frac{E_{1}}{\hbar} t}  +i\frac{\mu B_{1}}{\hbar} e^{-i\frac{E_{2}}{\hbar} t}   \right|^{2}\\
-&= \frac{1}{2} \left(  1+2\frac{\mu B_{1}}{\hbar} \sqrt{1-\left(\frac{\mu B_{1}}{\hbar}\right)^{2}}  \cdot \sin \frac{E_{2}-E_{1}}{\hbar}t   \right)\\
-&\approx \frac{1}{2} \left(  1+2\frac{\mu B_{1}}{\hbar}  \cdot \sin \frac{E_{2}-E_{1}}{\hbar}t   \right)\\
-&= \frac{1}{2} +\frac{\mu B_{1}}{\hbar}  \cdot \sin \frac{2\mu B_{0}}{\hbar}t	
-\end{aligned}
- \]
-其中用到了$ (1+x)^{ \alpha }=1+ \alpha x $ 近似。得到$\sigma_{x}=+1$	态的概率为
- \[ 
- P_{+1}= \frac{1}{2} -\frac{\mu B_{1}}{\hbar}  \cdot \sin \frac{2\mu B_{0}}{\hbar}t
-  \]
+\item
+	令 $\beta=\mu B_1/\hbar$。$\sigma_x$ 的两个本征态为
+	$|\pm x\rangle=(|\psi_1\rangle\pm|\psi_2\rangle)/\sqrt2$。利用上一问的波函数，得
+	\[
+	\begin{aligned}
+	P_{+x}(t)
+	&=\frac{1}{2}\left|
+	\sqrt{1-\beta^2}\,e^{-iE_1t/\hbar}
+	+i\beta e^{-iE_2t/\hbar}\right|^2\\
+	&=\frac{1}{2}\left[1+2\beta\sqrt{1-\beta^2}
+	\sin\!\left(\frac{E_2-E_1}{\hbar}t\right)\right]\\
+	&=\frac{1}{2}+\beta\sin\!\left(\frac{2\mu B_0}{\hbar}t\right)+O(\beta^3),\\
+	P_{-x}(t)
+	&=\frac{1}{2}-\beta\sin\!\left(\frac{2\mu B_0}{\hbar}t\right)+O(\beta^3).
+	\end{aligned}
+	\]
+	二阶项在归一化后的两个概率中恰好相消；上式因而已经精确到 $B_1^2$。
  
 \end{enumerate}
 
@@ -257,7 +260,14 @@ $l_{2}$、$ s_{2}$ 分别表示电子$  1 $、$ 2 $ 的轨道角动量算符和�
 \[ 
 \braket{j_{1}m_{1}j_{2}m_{2}|j_{3}m_{3}}=(-1)^{j_{1}+j_{2}-j_{3}}\braket{j_{2}m_{2}j_{1}m_{1}|j_{3}m_{3}}
  \]	
-由于$ l_{1}=l_{2}=l $，故当$ L $为偶数时，空间部分关于两个粒子交换对称；	当$ L $为奇数时，空间部分关于两个粒子交换反对称。可得$\mathrm{L}+\mathrm{S}$ 为偶数。
+	由于 $l_1=l_2=l$，轨道耦合态在交换两个电子时取得因子
+	$(-1)^{2l-L}=(-1)^L$：$L$ 为偶数时空间部分对称，$L$ 为奇数时反对称。自旋三重态 $S=1$ 对称，自旋单态 $S=0$ 反对称，其交换因子为 $(-1)^{S+1}$。电子总波函数必须反对称，因此
+	\[
+	(-1)^L(-1)^{S+1}=-1
+	\quad\Longrightarrow\quad
+	(-1)^{L+S}=1.
+	\]
+	故允许态必须满足 $L+S$ 为偶数。
 \end{enumerate}
 
 	

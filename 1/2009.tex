@@ -26,7 +26,23 @@ $l_y$的矩阵表示。
 \end{enumerate}
 
 \banswer{
-	
+	题给矩阵对应 $l=1$，基底顺序取 $|1,1\rangle,|1,0\rangle,|1,-1\rangle$。
+	\begin{enumerate}
+		\item $L_x$ 的本征值为 $+\hbar,0,-\hbar$，相应归一化列矢可取
+		\[
+			\chi_{+}=\begin{pmatrix}\frac12\\[2pt]\frac1{\sqrt2}\\[2pt]\frac12\end{pmatrix},
+			\qquad
+			\chi_{0}=\begin{pmatrix}\frac1{\sqrt2}\\[2pt]0\\[2pt]-\frac1{\sqrt2}\end{pmatrix},
+			\qquad
+			\chi_{-}=\begin{pmatrix}\frac12\\[2pt]-\frac1{\sqrt2}\\[2pt]\frac12\end{pmatrix}.
+		\]
+
+		\item 由 $L_y=(L_+-L_-)/(2i)$，
+		\[
+			\boxed{L_y=\frac{\hbar}{\sqrt2}
+			\begin{pmatrix}0&-i&0\\i&0&-i\\0&i&0\end{pmatrix}}.
+		\]
+	\end{enumerate}
 }
 
 
@@ -49,7 +65,22 @@ $l_y$的矩阵表示。
 
 
 \banswer{
-	
+	令 $\omega_1=\sqrt{k/m}$。由 $a_-\psi_0=0$，即
+	\[
+		\left(x+\frac{\hbar}{m\omega_1}\frac{d}{dx}\right)\psi_0=0,
+	\]
+	得到归一化基态
+	\[
+		\boxed{\psi_0(x)=\left(\frac{m\omega_1}{\pi\hbar}\right)^{1/4}
+		exp\!\left(-\frac{m\omega_1x^2}{2\hbar}\right)}.
+	\]
+	势能突变为 $kx^2=(1/2)m\omega_2^2x^2$ 后，$\omega_2=\sqrt2\,\omega_1$。突变瞬间波函数不变，故处于新势场基态的概率为
+	\begin{align*}
+		P_0&=|\langle0,\omega_2|0,\omega_1\rangle|^2
+		=\frac{2\sqrt{\omega_1\omega_2}}{\omega_1+\omega_2}\\
+		&=\boxed{\frac{2^{5/4}}{1+\sqrt2}}
+		\simeq0.9852.
+	\end{align*}
 }
 
 
@@ -70,7 +101,25 @@ $J^2=J_x^2+J_y^2+J_z^2$，试用$\hat{a}_1,\hat{a}^\dagger_1,\hat{a}_2,\hat{a}_2
 \end{enumerate}
 
 \banswer{
-	
+	记 $N_i=a_i^\dagger a_i$、$N=N_1+N_2$。直接用玻色对易关系可得
+	\begin{enumerate}
+		\item
+		\[
+			\boxed{[J_x,J_y]=iJ_z,\qquad[J_y,J_z]=iJ_x,\qquad[J_z,J_x]=iJ_y}.
+		\]
+		因此 $J_x,J_y,J_z$ 构成角动量代数；题中定义没有乘 $\hbar$，故右端也没有额外 $\hbar$。
+
+		\item 化简平方和得 Schwinger 玻色子表示
+		\[
+			\boxed{J^2=\frac{N}{2}\left(\frac{N}{2}+1\right)
+			=\frac14(N_1+N_2)(N_1+N_2+2)}.
+		\]
+		即完全用升降算符写为
+		\[
+			J^2=\frac14(a_1^\dagger a_1+a_2^\dagger a_2)
+			(a_1^\dagger a_1+a_2^\dagger a_2+2).
+		\]
+	\end{enumerate}
 }
 
 
@@ -93,7 +142,25 @@ $t$时刻电子中微子处于基态的概率。
 
 
 \banswer{
-	
+	\begin{enumerate}
+		\item 质量本征态只积累各自的动力学相位，因此
+		\[
+			\boxed{|\psi(t)\rangle=\cos\theta\,e^{-iE_1t/\hbar}|V_1\rangle
+			+\sin\theta\,e^{-iE_2t/\hbar}|V_2\rangle}.
+		\]
+
+		\item 再投影到电子中微子态，
+		\[
+			\mathcal A_{e\to e}(t)=\cos^2\theta\,e^{-iE_1t/\hbar}
+			+\sin^2\theta\,e^{-iE_2t/\hbar}.
+		\]
+		故电子中微子的存活概率为
+		\[
+			\boxed{P_{e\to e}(t)=1-\sin^2(2\theta)
+			\sin^2\!\left(\frac{(E_2-E_1)t}{2\hbar}\right)}.
+		\]
+		按题给能量公式，$E_2-E_1=(m_2^2-m_1^2)c^3/p$。
+	\end{enumerate}
 }
 
 
@@ -114,10 +181,39 @@ $t$时刻电子中微子处于基态的概率。
 \end{enumerate}
 
 \banswer{
-	
+	令 $\beta=\lambda/(2a)$，归一化试探波函数为
+	\[
+		\psi_\lambda(r)=\left(\frac{\beta^3}{\pi}\right)^{1/2}e^{-\beta r}.
+	\]
+	直接积分得到
+	\[
+		\langle T\rangle=\frac{\hbar^2\beta^2}{2\mu}
+		=\frac{\hbar^2\lambda^2}{8\mu a^2},
+		\qquad
+		\left\langle e^{-r/a}\right\rangle
+		=\frac{\lambda^3}{(\lambda+1)^3},
+	\]
+	其中 $\mu$ 是质子--中子体系的约化质量。因此变分能量为
+	\[
+		\boxed{E(\lambda)=\frac{\hbar^2\lambda^2}{8\mu a^2}
+		-V_0\frac{\lambda^3}{(\lambda+1)^3}}.
+	\]
+	非零驻点满足
+	\[
+		\boxed{\frac{(\lambda+1)^4}{\lambda}
+		=\frac{12\mu a^2V_0}{\hbar^2}}.
+	\]
+	取 $\mu\simeq m_N/2=469.5\,\mathrm{MeV}/c^2$、$\hbar c=197.327\,\mathrm{MeV\,fm}$，题给参数使右端约为 $22.07$。方程有两个正根；给出能量极小值的是
+	\[
+		\boxed{\lambda\simeq1.326},
+	\]
+	相应变分基态能量为
+	\[
+		\boxed{E_0^{(\mathrm{var})}\simeq-2.15\,\mathrm{MeV}}.
+	\]
+	另一个小根约 $0.0564$ 对应局部极大值，不是基态变分解。
 }
 
 
 
 \end{enumerate}
-

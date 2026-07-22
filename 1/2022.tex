@@ -131,7 +131,7 @@
 		\langle\phi_0|\psi_1\rangle
 		&=\left(\frac{m\omega_1}{\pi\hbar}\right)^{1/4}\left(\frac{m\omega_2}{\pi\hbar}\right)^{1/4}
 		\int_{-\infty}^{+\infty}\exp\!\left[-\frac{m(\omega_1+\omega_2)}{2\hbar}x^2\right]dx\\\\
-		&=\left(\frac{\omega_1\omega_2}{\pi^2}\right)^{1/4}\sqrt{\frac{2\pi\hbar}{m(\omega_1+\omega_2)}}
+			&=\left(\frac{m^2\omega_1\omega_2}{\pi^2\hbar^2}\right)^{1/4}\sqrt{\frac{2\pi\hbar}{m(\omega_1+\omega_2)}}
 		=\sqrt{2}\,\frac{(\omega_1\omega_2)^{1/4}}{\sqrt{\omega_1+\omega_2}}.
 		\end{align*}
 		代入 $\omega_2=\sqrt{2}\,\omega_1$，得
@@ -181,50 +181,64 @@
 \end{enumerate}
 
 \banswer{
-	\begin{enumerate}
-		\item 圆环上自由粒子的定态 Schr\"odinger 方程为
-		\[
-			-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}=E\psi,\qquad 0<x<L
-		\]
-		周期边界条件 $\psi(x+L)=\psi(x)$ 要求 $kL=2\pi n$（$n=0,\pm1,\pm2,\dots$），故
-		\[
-			\psi_n(x)=\frac{1}{\sqrt{L}}\exp\!\left(\frac{i2\pi n x}{L}\right),\qquad
-			E_n=\frac{2\pi^2\hbar^2 n^2}{mL^2}.
-		\]
-		$n=0$ 非简并，$n\neq0$ 为二重简并（$\pm n$）。
-		
-		\item 一级微扰修正。因 $a\ll L$，$e^{-x^2/a^2}$ 在 $x=0$ 处尖锐成峰，积分可延拓至全实轴。
-		
-		\textbf{基态 $n=0$}（非简并）：
-		\begin{align*}
-			E_0^{(1)}&=\langle0|H'|0\rangle=-\frac{V_0}{L}\int_0^L\exp\!\left(-\frac{x^2}{a^2}\right)dx\\
-			&\approx-\frac{V_0}{L}\int_{-\infty}^{+\infty}\exp\!\left(-\frac{x^2}{a^2}\right)dx
-			=-\frac{V_0 a\sqrt{\pi}}{L}.
-		\end{align*}
-		
-		\textbf{激发态 $n\neq0$}（简并，子空间 $\{|n\rangle,|-n\rangle\}$）：微扰矩阵元
-		\[
-			H'_{nn}=H'_{-n,-n}=-\frac{V_0}{L}\int_0^L\exp\!\left(-\frac{x^2}{a^2}\right)dx
-			\approx-\frac{V_0 a\sqrt{\pi}}{L}\equiv\alpha,
-		\]
-		\[
-			H'_{n,-n}=-\frac{V_0}{L}\int_0^L e^{-i4\pi nx/L}\exp\!\left(-\frac{x^2}{a^2}\right)dx
-			\approx-\frac{V_0 a\sqrt{\pi}}{L}e^{-(2\pi na/L)^2}\equiv\beta.
-		\]
-		在 $a\ll L$ 极限下，$\beta\approx\alpha$，微扰矩阵近似为
-		\[
-			\begin{pmatrix}\alpha&\alpha\\\alpha&\alpha\end{pmatrix}.
-		\]
-		本征值为 $2\alpha$ 与 $0$，对应的零级近似波函数分别为
-		\[
-			\psi_+=\frac{1}{\sqrt{L}}\cos\!\left(\frac{2\pi n x}{L}\right),\qquad
-			\psi_-=\frac{1}{\sqrt{L}}\sin\!\left(\frac{2\pi n x}{L}\right).
-		\]
-		因此一级能量修正为
-		\[
-			E_{n,+}^{(1)}=-\frac{2V_0 a\sqrt{\pi}}{L},\qquad E_{n,-}^{(1)}\approx0\quad(a\ll L).
-		\]
-	\end{enumerate}
+		\begin{enumerate}
+			\item 圆环上自由粒子的定态 Schr\"odinger 方程为
+			\[
+				-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}=E\psi,
+				\qquad \psi(x+L)=\psi(x).
+			\]
+			周期边界条件给出
+			\[
+				\psi_n(x)=\frac{1}{\sqrt{L}}e^{i2\pi nx/L},\qquad
+				E_n^{(0)}=\frac{2\pi^2\hbar^2n^2}{mL^2},qquad
+				n=0,\pm1,\pm2,\ldots
+			\]
+			$n=0$ 非简并，$n\neq0$ 的 $|n\rangle$ 与 $|-n\rangle$ 二重简并。
+
+			\item 题面把圆环坐标写成 $0<x<L$，而高斯峰又放在边界点 $x=0$，因此是否把高斯势按圆环周期延拓会产生一个二倍因子的歧义。先严格按题面所写的单边函数计算。令
+			\[
+				\alpha=-\frac{V_0}{L}\int_0^L e^{-x^2/a^2}\,dx
+				\simeq-\frac{V_0a\sqrt\pi}{2L}.
+			\]
+			基态的一级修正就是 $E_0^{(1)}=\alpha$。对 $n\neq0$，须在
+			$\{|n\rangle,|-n\rangle\}$ 中使用简并微扰论：
+			\[
+				W_n=\begin{pmatrix}\alpha&\beta_n\\\beta_n^*&\alpha\end{pmatrix},
+				\qquad
+				\beta_n=-\frac{V_0}{L}\int_0^L
+				e^{-x^2/a^2}e^{-i4\pi nx/L}\,dx.
+			\]
+			在 $a\ll L$ 时可把上限延到 $+\infty$。记 $u=2\pi na/L$，则
+			\[
+				\beta_n\simeq-\frac{V_0a\sqrt\pi}{2L}
+				e^{-u^2}\bigl[1-i\operatorname{erfi}(u)\bigr],
+			\]
+			所以两条分裂能级的一级修正为
+			\[
+				\boxed{E_{n,\pm}^{(1)}=\alpha\pm|\beta_n|}.
+			\]
+			若还取固定 $n$ 下的最低阶 $a/L\to0$，则 $\beta_n\simeq\alpha$，两条修正趋于
+			$2\alpha=-V_0a\sqrt\pi/L$ 与 $0$；相应归一化组合趋于
+			\[
+				\sqrt{\frac{2}{L}}\cos\!\left(\frac{2\pi nx}{L}\right),
+				\qquad
+				\sqrt{\frac{2}{L}}\sin\!\left(\frac{2\pi nx}{L}\right).
+			\]
+
+			若命题本意是以圆环上的点 $x=0$ 为中心、按最短弧长定义的周期高斯势，则峰的两侧都应计入。此时应改用
+			\[
+				\alpha_{\rm per}=-\frac{V_0a\sqrt\pi}{L},
+				\qquad
+				\beta_{n,{\rm per}}=\alpha_{\rm per}e^{-(2\pi na/L)^2},
+			\]
+			并得到
+			\[
+				E_{n,\cos}^{(1)}=\alpha_{\rm per}
+				\bigl[1+e^{-(2\pi na/L)^2}\bigr],\qquad
+				E_{n,\sin}^{(1)}=\alpha_{\rm per}
+				\bigl[1-e^{-(2\pi na/L)^2}\bigr].
+			\]
+		\end{enumerate}
 }
 
 
@@ -266,7 +280,7 @@
 		\]
 		对应本征函数即 $\left|\pm\right\rangle_x$。
 		
-		\item 初始态 $\psi(0)\rangle=|+\rangle_z=\frac{1}{\sqrt{2}}(|+\rangle_x+|-\rangle_x)$，时间演化得
+			\item 初始态 $|\psi(0)\rangle=|+\rangle_z=\frac{1}{\sqrt{2}}(|+\rangle_x+|-\rangle_x)$，时间演化得
 		\[
 		|\psi(t)\rangle=\frac{1}{\sqrt{2}}\left(e^{i\omega t/2}|+\rangle_x+e^{-i\omega t/2}|-\rangle_x\right)
 		=\cos\!\left(\frac{\omega t}{2}\right)|+\rangle_z+i\sin\!\left(\frac{\omega t}{2}\right)|-\rangle_z.
@@ -378,4 +392,3 @@
  
  
 \end{enumerate}
-

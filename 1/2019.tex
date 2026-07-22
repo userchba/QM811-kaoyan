@@ -26,7 +26,32 @@
 		\end{enumerate}
 
 \banswer{
-	
+	\begin{enumerate}
+		\item 由 $|A|^2(3^2+4^2)=1$，可取
+		\[
+			\boxed{A=\frac15}.
+		\]
+
+		\item 令 $E_0=\hbar\omega/2$、$E_1=3\hbar\omega/2$，则
+		\[
+			\boxed{\psi(x,t)=\frac15\left[
+			3\psi_0(x)e^{-iE_0t/\hbar}
+			+4\psi_1(x)e^{-iE_1t/\hbar}\right]}.
+		\]
+		取实的定态波函数后，
+		\[
+			\boxed{|\psi(x,t)|^2=\frac1{25}\left[
+			9\psi_0^2(x)+16\psi_1^2(x)
+			+24\psi_0(x)\psi_1(x)\cos(\omega t)\right]}.
+		\]
+
+		\item 能量 $E_0$、$E_1$ 的概率分别为 $9/25$、$16/25$，故
+		\[
+			\boxed{\langle H\rangle=\frac9{25}\frac{\hbar\omega}{2}
+			+\frac{16}{25}\frac{3\hbar\omega}{2}
+			=\frac{57}{50}\hbar\omega}.
+		\]
+	\end{enumerate}
 }
 
 
@@ -50,7 +75,31 @@
 
 
 \banswer{
-	
+	以下用 $\psi_\alpha(j)$ 表示粒子 $j$ 处于单粒子态 $\psi_\alpha$。
+	\begin{enumerate}
+		\item 对可区分的三个粒子，若已指定粒子 $1,2,3$ 分别处于 $a,b,c$，则
+		\[
+			\boxed{\Psi_{\rm d}(1,2,3)=\psi_a(1)\psi_b(2)\psi_c(3)}.
+		\]
+
+		\item 对全同自旋零玻色子，波函数必须完全对称。因三个轨道互异且正交，
+		\[
+			\boxed{\Psi_B=\frac1{\sqrt{3!}}\sum_{P\in S_3}
+			\psi_{P(a)}(1)\psi_{P(b)}(2)\psi_{P(c)}(3)}.
+		\]
+
+		\item 三个费米子的自旋均为 $|\uparrow\rangle$，自旋部分
+		$|\uparrow\uparrow\uparrow\rangle$ 完全对称，故空间部分必须完全反对称：
+		\[
+			\boxed{\Psi_F=\frac1{\sqrt{3!}}
+			\begin{vmatrix}
+			\psi_a(1)&\psi_b(1)&\psi_c(1)\\
+			\psi_a(2)&\psi_b(2)&\psi_c(2)\\
+			\psi_a(3)&\psi_b(3)&\psi_c(3)
+			\end{vmatrix}
+			|\uparrow\uparrow\uparrow\rangle}.
+		\]
+	\end{enumerate}
 }
 
 
@@ -75,7 +124,42 @@
 	求出\(e^{-i\lambda\hat{L}_{y}}\)在\((\hat{L}^{2},\hat{L}_y)\)表象中的矩阵表示。
 	\end{enumerate}
 \banswer{
-	
+	在按 $m_z=1,0,-1$ 排列的基底中（$\hbar=1$）：
+	\begin{enumerate}
+		\item
+		\[
+			\boxed{L_y=\frac1{\sqrt2}
+			\begin{pmatrix}0&-i&0\\ i&0&-i\\0&i&0\end{pmatrix}}.
+		\]
+
+		\item $L_y$ 的本征值为 $1,0,-1$，故多项式
+		$x^3-x$ 在其每个本征值上均为零。由谱定理
+		\[
+			\boxed{L_y^3=L_y}.
+		\]
+		也可直接将上一矩阵相乘验证。
+
+		\item 利用 $L_y^{2k+1}=L_y$（$k\ge0$）及
+		$L_y^{2k}=L_y^2$（$k\ge1$），指数级数化为
+		\begin{align*}
+			e^{-i\lambda L_y}
+			&=I+\left(\sum_{k=0}^{\infty}
+			\frac{(-i\lambda)^{2k+1}}{(2k+1)!}\right)L_y
+			+\left(\sum_{k=1}^{\infty}
+			\frac{(-i\lambda)^{2k}}{(2k)!}\right)L_y^2\\
+			&=\boxed{I-iL_y\sin\lambda-(1-\cos\lambda)L_y^2}.
+		\end{align*}
+
+		\item 在 $(L^2,L_y)$ 表象中 $L_y=\operatorname{diag}(1,0,-1)$，所以
+		\[
+			\boxed{e^{-i\lambda L_y}
+			=\begin{pmatrix}
+			e^{-i\lambda}&0&0\\
+			0&1&0\\
+			0&0&e^{i\lambda}
+			\end{pmatrix}}.
+		\]
+	\end{enumerate}
 }
 
 
@@ -99,7 +183,52 @@
 \end{enumerate}	
 
 \banswer{
-	
+	\begin{enumerate}
+		\item 令 $\epsilon=\pi^2\hbar^2/(2mL^2)$。可取
+		\[
+			E_n^{(0)}=n^2\epsilon,\qquad
+			\phi_n(x)=\sqrt{\frac2L}
+			\begin{cases}
+			\cos(n\pi x/L),&n\ {\rm odd},\\
+			\sin(n\pi x/L),&n\ {\rm even},
+			\end{cases}
+		\]
+		其中 $n=1,2,\ldots$ 且 $|x|<L/2$。
+
+		\item 基态能量的一级修正为
+		\[
+			\boxed{E_1^{(1)}=\lambda|\phi_1(0)|^2=\frac{2\lambda}{L}}.
+		\]
+		只有偶宇称态在原点非零，故基态波函数的一级修正为
+		\[
+			\boxed{|\phi_1^{(1)}\rangle
+			=-\frac{m\lambda L}{\pi^2\hbar^2}
+			\sum_{j=1}^{\infty}\frac{|\,2j+1\,\rangle}{j(j+1)}}.
+		\]
+		因此 $|\psi_{\rm g}\rangle=|1\rangle+|\phi_1^{(1)}\rangle+O(\lambda^2)$；
+		一级精度下不需要额外归一化修正。
+
+		\item 奇宇称能级在 $x=0$ 有节点，完全不受 $\delta$ 势影响。偶宇称态在
+		$0<x<L/2$ 可写为 $\psi=C\sin[k(L/2-x)]$。由导数跃变条件
+		\[
+			\psi'(0^+)-\psi'(0^-)=\frac{2m\lambda}{\hbar^2}\psi(0)
+		\]
+		得到严格能级方程
+		\[
+			\boxed{k\cot\frac{kL}{2}=-\frac{m\lambda}{\hbar^2}},
+			\qquad E=\frac{\hbar^2k^2}{2m}.
+		\]
+		在弱耦合极限令基态 $k=\pi/L+\delta k$，则
+		\[
+			\delta k=\frac{2m\lambda}{\pi\hbar^2}+O(\lambda^2),
+		\]
+		从而
+		\[
+			E_{\rm g}=\frac{\pi^2\hbar^2}{2mL^2}
+			\boxed{\frac{2\lambda}{L}}+O(\lambda^2),
+		\]
+		与一级微扰结果一致。
+	\end{enumerate}
 }
 
 
@@ -125,12 +254,51 @@ $ \hat{H}=a(\hat{S_1^x}\hat{S_2^x}+\hat{S_1^y}\hat{S_2^y}+\hat{S_2^y}\hat{S_3^y}
 \end{enumerate}
 
 	
-	\banswer{
-		
-	}
+		\banswer{
+			把相互作用项写成总自旋算符：
+			\[
+				\sum_{i<j}(S_i^xS_j^x+S_i^yS_j^y)
+				=\frac12\left(S_T^2-(S_T^z)^2-\frac32\right).
+			\]
+			因此
+			\[
+				\boxed{H=\frac a2\left(S_T^2-(S_T^z)^2-\frac32\right)
+				-bS_T^z}.
+			\]
+			\begin{enumerate}
+				\item 三个自旋 $1/2$ 的总自旋可为 $S=3/2$ 或 $S=1/2$，所以
+				\[
+					\boxed{(S_T^2)_{\max}=\frac{15}{4},\qquad
+					(S_T^2)_{\min}=\frac34}.
+				\]
+
+				\item 从上面的 $H(S_T^2,S_T^z)$ 形式立即得到
+				\[
+					\boxed{[S_T^2,H]=0,\qquad[S_T^z,H]=0}.
+				\]
+
+				\item 一般能量为
+				\[
+					E_{S,M}=\frac a2\left[S(S+1)-M^2-\frac32\right]-bM.
+				\]
+				对 $S=3/2$ 四重态：
+				\[
+					\boxed{
+					E_{\frac32,\frac32}=-\frac{3b}{2},\quad
+					E_{\frac32,\frac12}=a-\frac b2,\quad
+					E_{\frac32,-\frac12}=a+\frac b2,\quad
+					E_{\frac32,-\frac32}=\frac{3b}{2}}.
+				\]
+				对 $S=1/2$：
+				\[
+					\boxed{E_{\frac12,\frac12}=-\frac a2-\frac b2,\qquad
+					E_{\frac12,-\frac12}=-\frac a2+\frac b2}.
+				\]
+				$S=1/2$ 表示在三个自旋的直积空间中出现两次，因此这两个能量各有二重简并；连同四重态共得到全部八个态。
+			\end{enumerate}
+		}
 	
 	
 	
 \end{enumerate}
-
 

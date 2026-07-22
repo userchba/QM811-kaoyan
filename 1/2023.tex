@@ -124,7 +124,7 @@
 	\begin{enumerate}
 		\item 坐标表示为
 		\begin{align*}
-			\hat{H}=-i\hbar\frac{\partial}{\partial x}\sigma_y+m(x)\sigma_z
+				\hat{H}=-i\frac{\partial}{\partial x}\sigma_y+m(x)\sigma_z
 		\end{align*}
 		
 		\item 当 $m(x)=m$ 时，对动量本征态 $\psi(x)=e^{ipx}\chi$，$\chi=\begin{pmatrix}\xi\\\eta\end{pmatrix}$ 满足 $(p\sigma_y+m\sigma_z)\chi=E\chi$，即
@@ -158,7 +158,15 @@
 		\begin{align*}
 			\ln\phi=-M\int\tanh\!\left(\frac{x}{x_0}\right)dx=-Mx_0\ln\cosh\!\left(\frac{x}{x_0}\right)+C
 		\end{align*}
-		得 $\phi(x)=A\left[\cosh\!\left(\frac{x}{x_0}\right)\right]^{-Mx_0}$。故
+			得 $\phi(x)=A\left[\cosh\!\left(\frac{x}{x_0}\right)\right]^{-Mx_0}$。令 $\kappa=Mx_0>0$，由
+			\[
+			2|A|^2\int_{-\infty}^{+\infty}\!\left[\cosh\!\left(\frac{x}{x_0}\right)\right]^{-2\kappa}dx=1
+			\]
+			可取
+			\[
+			A=\left[\frac{\Gamma(\kappa+\tfrac12)}{2x_0\sqrt\pi\,\Gamma(\kappa)}\right]^{1/2}.
+			\]
+			故归一化零能态为
 		\begin{align*}
 			\psi(x)=A\begin{pmatrix}\left[\cosh\left(\frac{x}{x_0}\right)\right]^{-Mx_0}\\\left[\cosh\left(\frac{x}{x_0}\right)\right]^{-Mx_0}\end{pmatrix}
 		\end{align*}
@@ -213,15 +221,16 @@ H=-\frac{\hbar^2}{2 m} \frac{d^2}{d r^2}+\frac{\hbar^2}{2 m} \frac{l(l+1)}{r^2}-
 对于谐振子，可以知道它的势能为$V(\hat{x})=\frac{1}{2}m\omega^2\hat{x}^2$，所以根据(1)中的结论可知
 \begin{align*}
 	\langle\frac{p^2}{2 m}\rangle_n&=\frac{1}{2}\langle x \frac{\partial V}{\partial x}\rangle_n\\
-									&=\frac{1}{2}\langle m\omega\hat{x}^2\rangle_n 
+					&=\frac{1}{2}\langle m\omega^2\hat{x}^2\rangle_n
 \end{align*}
 而
 \begin{align*}
-	E=\langle\frac{p^2}{2 m}\rangle_n+\frac{1}{2}\langle m\omega\hat{x}^2\rangle_n=\hbar\omega(n+\frac{1}{2})
+	E_n=\left\langle\frac{p^2}{2 m}\right\rangle_n+\frac{1}{2}\langle m\omega^2\hat{x}^2\rangle_n=\hbar\omega\left(n+\frac{1}{2}\right)
 \end{align*}
 所以我们可以得到
 \begin{align*}
-	E=\frac{1}{2}\hbar\omega(n+\frac{1}{2})
+	\left\langle\frac{p^2}{2m}\right\rangle_n
+	=\frac{1}{2}\hbar\omega\left(n+\frac{1}{2}\right)
 \end{align*}
 	\item 
 根据HF定理，我们选择参数$\lambda=\epsilon_0$(这里选择$e$或者$\pi$都可以)，可以得到
@@ -372,22 +381,37 @@ V(x)=\left\{\begin{aligned}
 		\langle\psi_{2n}^0|\psi_{2m}^1\rangle=0
 	\end{align*}
 	
-	对 $\langle\psi_{2n}^0|\psi_{2m+1}^1\rangle$：$\psi_{2n}^0$ 奇，$\psi_{2m+1}^0$ 偶，$H'$ 奇，被积函数为偶函数，一般非零：
+		对 $\langle\psi_{2n}^0|\psi_{2m+1}^1\rangle$：$\psi_{2n}^0$ 奇，$\psi_{2m+1}^0$ 偶，$H'$ 奇，被积函数为偶函数。其矩阵元为
 	\begin{align*}
 		&\langle\psi_{2n}^0|H'|\psi_{2m+1}^0\rangle\\
 		&\quad=a\frac{2}{L}\int_{-L/2}^{L/2}\sin\!\left(\frac{2n\pi x}{L}\right)\sin\!\left(\frac{2\pi x}{L}\right)\cos\!\left(\frac{(2m+1)\pi x}{L}\right)dx
 	\end{align*}
-	利用积化和差 $\sin A\sin B=-\frac{1}{2}[\cos(A+B)-\cos(A-B)]$，得
-	\begin{align*}
-		&\sin\!\left(\frac{2n\pi x}{L}\right)\sin\!\left(\frac{2\pi x}{L}\right)\\
-		&\quad=-\frac{1}{2}\left[\cos\!\left(\frac{2(n+1)\pi x}{L}\right)-\cos\!\left(\frac{2(n-1)\pi x}{L}\right)\right]
-	\end{align*}
-	再与 $\cos\!\left(\frac{(2m+1)\pi x}{L}\right)$ 相乘后用 $\cos A\cos B=\frac{1}{2}[\cos(A+B)+\cos(A-B)]$ 展开，各余弦积分在 $[-L/2,L/2]$ 上仅当频率为零时才非零，可逐次算出。
-	
-	故
-	\begin{align*}
-		\langle\psi_{2n}^0|\psi_{2m+1}^1\rangle=\frac{\langle\psi_{2n}^0|H'|\psi_{2m+1}^0\rangle}{E_{2m+1}^0-E_{2n}^0}
-	\end{align*}
+		令 $y=\pi x/L$，并使用
+		\[
+		\int_{-\pi/2}^{\pi/2}\cos(qy)\cos(ry)\,dy
+		=\frac{\sin[(q-r)\pi/2]}{q-r}
+		 +\frac{\sin[(q+r)\pi/2]}{q+r},
+		\]
+		可得完整结果
+		\begin{align*}
+		&\langle\psi_{2n}^0|H'|\psi_{2m+1}^0\rangle\\
+		&\quad=\frac{a(-1)^{n+m}}{\pi}
+		\left[
+		\frac{1}{2n-2m-3}-\frac{1}{2n+2m-1}
+		-\frac{1}{2n-2m+1}+\frac{1}{2n+2m+3}
+		\right].
+		\end{align*}
+		因此，在把 $|\psi_j^1\rangle$ 记作波函数的一级修正时，
+		\[
+		\boxed{\begin{aligned}
+		\langle\psi_{2n}^0|\psi_{2m+1}^1\rangle
+		&=\frac{a(-1)^{n+m}}{\pi\bigl(E_{2m+1}^0-E_{2n}^0\bigr)}\\
+		&\quad\times\left[
+		\frac{1}{2n-2m-3}-\frac{1}{2n+2m-1}
+		-\frac{1}{2n-2m+1}+\frac{1}{2n+2m+3}
+		\right]
+		\end{aligned}}
+		\]
 	
 	对 $\langle\psi_{2n+1}^0|\psi_{2m+1}^1\rangle$：$\psi_{2n+1}^0$ 与 $\psi_{2m+1}^0$ 均为偶函数，$H'$ 为奇函数，被积函数偶$\times$奇$\times$偶$=$奇，积分为零，故
 	\begin{align*}
@@ -399,4 +423,3 @@ V(x)=\left\{\begin{aligned}
 
 
 \end{enumerate}
-

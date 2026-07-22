@@ -23,9 +23,9 @@
 		%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
 		\item
 		求粒子的能级和归一化波函数。
-		\item 
+		\item
 		画出处于第二、第三激发态的粒子的概率密度的示意图。
-		\item 
+		\item
 		求坐标算符在能量表象下的矩阵元。
 		
 		
@@ -40,8 +40,14 @@
 	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
 	\item
 	在$ 0\leq x \leq a $区域$ \psi_{n}(x)=\sqrt{\frac{2}{a}} \sin \frac{n\pi}{a}x $，其它区域为零。能量$ E_{n}=\frac{n^{2} \pi^{2} \hbar^{2}}{2 m a^{2}} $
-	\item 
-	第二激发态，$ \rho_{2}=\frac{2}{a} \sin ^{2} \frac{3 \pi}{a} x $，第三激发态，$ \rho_{3}=\frac{2}{a} \sin ^{2} \frac{4 \pi}{a} x $，图略。
+		\item
+		第二激发态（$n=3$）和第三激发态（$n=4$）的概率密度分别为
+		\[
+			\rho_{n=3}(x)=\frac2a\sin^2\frac{3\pi x}{a},\qquad
+			\rho_{n=4}(x)=\frac2a\sin^2\frac{4\pi x}{a}.
+		\]
+		$\rho_{n=3}$ 在 $x=0,a/3,2a/3,a$ 为零，形成三个等高波瓣；
+		$\rho_{n=4}$ 在 $x=0,a/4,a/2,3a/4,a$ 为零，形成四个等高波瓣。这些零点和波瓣位置即确定了所要求的示意图。
 	\item 
 	$ n\neq m $：
 	$ \braket{n|\hat{x}| m}=\frac{a}{\pi^{2}}\left[\frac{(-1)^{m-n}-1}{(m-n)^{2}}-\frac{(-1)^{m+n}-1}{(m+n)^{2}}\right] $；$ n=m $：$ \braket{n|\hat{x}| n}=\frac{a}{2} $
@@ -137,10 +143,36 @@ P_{0}&=1-a^{*}a=1-\frac{q^{2}E^{2}\tau^{2}}{\mu\omega_{10} \hbar} \cdot \frac{\p
 	%设定全局标号series=example	%引用全局变量resume=example
 	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
 	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-	\item
-	对易关系略
-	\item 
-	证明略
+		\item
+		三个非平凡对易关系及其反序形式为
+		\[
+			\boxed{[J_x,J_y]=i\hbar J_z,\qquad
+			[J_y,J_z]=i\hbar J_x,\qquad
+			[J_z,J_x]=i\hbar J_y},
+		\]
+		\[
+			[J_y,J_x]=-i\hbar J_z,\quad
+			[J_z,J_y]=-i\hbar J_x,\quad
+			[J_x,J_z]=-i\hbar J_y,
+		\]
+		且 $[J_i,J_i]=0$。
+		\item
+		由 $[J_z,J_x]=i\hbar J_y$ 和
+		$[J_z,J_y]=-i\hbar J_x$，
+		\[
+			(m-n)\langle m|J_x|n\rangle
+			=i\langle m|J_y|n\rangle,
+		\]
+		\[
+			(m-n)\langle m|J_y|n\rangle
+			=-i\langle m|J_x|n\rangle.
+		\]
+		消去 $J_y$ 的矩阵元可得
+		\[
+			\left[(m-n)^2-1\right]\langle m|J_x|n\rangle=0.
+		\]
+		故 $\langle m|J_x|n\rangle$ 仅在
+		$\boxed{m=n\pm1}$ 时可能不为零。
 	\item 
 	$ P_{-1}=\frac{1}{4} $
 \end{enumerate}
@@ -189,10 +221,41 @@ $\varepsilon^{2}$量级）。
 		 \]
 	\end{note}
 	\item 
-	$ \braket{0|H ^{\prime} |0}=0 $，$  \braket{0|{H ^{\prime}}^{2} |0}=e^{2}\varepsilon^{2}a_{0}^{2} $
-	\item 
-	%算力消耗殆尽，后面再算
-	$E=E_{0}+2 \varepsilon^{2} a_{0}^{3}$
+		$ \braket{0|H ^{\prime} |0}=0 $，$  \braket{0|{H ^{\prime}}^{2} |0}=e^{2}\varepsilon^{2}a_{0}^{2} $
+			\item
+		记 $A=H'=e\varepsilon z$，并令
+		$s=\langle0|A^2|0\rangle=e^2\varepsilon^2a_0^2$。
+		归一化常数满足
+		\[
+			N^{-2}=1+\lambda^2s.
+		\]
+		保留到 $\varepsilon^2$，变分能量为
+		\[
+			E(\lambda)=E_0+2\lambda s+\lambda^2D,
+			\qquad
+			D=\langle0|A(H_0-E_0)A|0\rangle.
+		\]
+		利用第一问的二重对易子，
+		\[
+			2D=\langle0|[A,[H_0,A]]|0\rangle
+			=\frac{e^2\varepsilon^2\hbar^2}{\mu},
+		\]
+		故 $D=e^2\varepsilon^2\hbar^2/(2\mu)$。极小化得到
+		\[
+			\lambda_{\rm opt}=-\frac{s}{D}
+			=-\frac{2\mu a_0^2}{\hbar^2},
+		\]
+		以及
+		\[
+			E_{\rm var}=E_0-\frac{s^2}{D}
+			=E_0-\frac{2\mu e^2\varepsilon^2a_0^4}{\hbar^2}.
+		\]
+		再用 $a_0=\hbar^2/(\mu e^2)$，最终
+		\[
+			\boxed{E_{\rm var}=E_0-2\varepsilon^2a_0^3
+			+O(\varepsilon^4)}.
+		\]
+		负号表示基态在静电场中的二阶 Stark 位移向下。
 \end{enumerate}
 
 	
@@ -202,4 +265,3 @@ $\varepsilon^{2}$量级）。
 
 
 \end{enumerate}
-

@@ -26,13 +26,13 @@
 		%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
 		\item
 		求归一化常数$ A $。
-		
+
 		\item 
 		求$ t>0 $时刻粒子的波函数$ \Psi(x,t) $。
-		
+
 		\item 
 		求$ t>0 $时刻粒子处于系统基态及第一激发态的概率。
-		
+
 		\item 
 		计算$ t>0 $时刻粒子位置的平均值。（提示：$\sum\limits_{\mathstrut m=1}^{\mathstrut \infty} \dfrac{1}{(2 m-1)^{6}}=\dfrac{\pi^{6}}{960}$）
 	
@@ -42,10 +42,57 @@
 		
 		
 		
-	\end{enumerate}
-	
-	
-\item 
+			\end{enumerate}
+
+	\banswer{
+		\begin{enumerate}
+			\item 归一化条件给出
+			\[
+				1=A^2\int_0^a x^2(a-x)^2dx=A^2\frac{a^5}{30},
+			\]
+			故可取
+			\[
+				\boxed{A=\frac{\sqrt{30}}{a^{5/2}}}.
+			\]
+
+			\item 展开系数为
+			\begin{align*}
+				c_n&=\int_0^a\psi_n^*(x)\Psi(x,0)dx\\
+				&=\begin{cases}
+				\dfrac{8\sqrt{15}}{n^3\pi^3},&n=1,3,5,\ldots,\\[5pt]
+				0,&n=2,4,6,\ldots.
+				\end{cases}
+			\end{align*}
+			因此
+			\[
+				\boxed{\Psi(x,t)=\sum_{\substack{n=1\\ n\ {\rm odd}}}^{\infty}
+				\frac{8\sqrt{15}}{n^3\pi^3}
+				\sqrt{\frac2a}\sin\frac{n\pi x}{a}\,
+				e^{-iE_nt/\hbar}},
+				\qquad E_n=\frac{n^2\pi^2\hbar^2}{2ma^2}.
+			\]
+			提示中的级数恰好验证
+			$\sum_{n\ {\rm odd}}|c_n|^2
+			=(960/\pi^6)\sum_{n\ {\rm odd}}n^{-6}=1$。
+
+			\item 基态概率和第一激发态概率为
+			\[
+				\boxed{P_1=|c_1|^2=\frac{960}{\pi^6}},
+				\qquad
+				\boxed{P_2=|c_2|^2=0}.
+			\]
+			它们均不随时间变化。
+
+			\item 初态关于势阱中心 $x=a/2$ 对称；展开中只有关于该中心为偶宇称的奇数编号本征态，时间演化不破坏此宇称。因此任意时刻的概率密度均满足
+			$|\Psi(a-x,t)|^2=|\Psi(x,t)|^2$，从而
+			\[
+				\boxed{\langle x\rangle_t=\frac a2}.
+			\]
+		\end{enumerate}
+	}
+
+
+	\item
 (共$ 30 $分)一个能量为$ E $的粒子,沿$ x $轴从左侧入射。阶梯势垒为
 $$
 V(x)=\left\{\begin{array}{ll}
@@ -106,6 +153,38 @@ $$
 	
 \end{enumerate}
 
+	\banswer{
+		\begin{enumerate}
+			\item 一维概率流密度为
+			\[
+				j=\frac{\hbar}{2mi}\left(\psi^*\frac{d\psi}{dx}
+				-\psi\frac{d\psi^*}{dx}\right).
+			\]
+			对 $\psi_i=e^{ik_1x}$，
+			\[
+				\boxed{j_i=\frac{\hbar k_1}{m}
+				=\sqrt{\frac{2E}{m}}}.
+			\]
+
+			\item 当 $E=V_b$ 时，右侧区域的波数
+			$k_2=\sqrt{2m(E-V_b)}/\hbar=0$，透射概率流为零，故
+			\[
+				\boxed{T=0},
+			\]
+			应选第三项。
+
+			\item 在其余参数不变时，把 $V_b$ 从 $E$ 降到 $V_b<E$，可使右侧出现传播波并使 $T$ 从零变为非零。因此应选第二项。
+
+			\item
+			\[
+				T=\frac{j_t}{j_i}
+				=\frac{k_2}{k_1}|C|^2.
+			\]
+			它一般不等于 $|C|^2$；对实势场又由概率流守恒得到
+			$T=1-|B|^2$。故应选第二项。
+		\end{enumerate}
+	}
+
 
 \item 
 (共30分)
@@ -138,7 +217,46 @@ Hellmann-Feynman 定理计算存在电场情形下体系的束缚态能级。
 \end{enumerate}
 
 \banswer{
-	
+	\begin{enumerate}
+		\item 对任意不显含时间的算符 $F$，
+		\[
+			\frac{d\langle F\rangle}{dt}
+			=\frac{i}{\hbar}\langle[H,F]\rangle.
+		\]
+		取 $H=p^2/(2m)+V(x)$。由
+		$[H,x]=-(i\hbar/m)p$ 与 $[H,p]=i\hbar\,\partial V/\partial x$，立即得到
+		\[
+			\boxed{\frac{d\langle x\rangle}{dt}=\frac{\langle p\rangle}{m}},
+			\qquad
+			\boxed{\frac{d\langle p\rangle}{dt}
+			=-\left\langle\frac{\partial V}{\partial x}\right\rangle}.
+		\]
+
+		\item 无电场时能级为
+		\[
+			E_{n_xn_y}(0)=\hbar\omega_x\left(n_x+\frac12\right)
+			+\hbar\omega_y\left(n_y+\frac12\right).
+		\]
+		把 $q$ 当作连续参数。定态的 Ehrenfest 方程给出
+		\[
+			m\omega_x^2\langle x\rangle=q\mathcal E_x,\qquad
+			m\omega_y^2\langle y\rangle=q\mathcal E_y.
+		\]
+		Hellmann--Feynman 定理于是给出
+		\begin{align*}
+			\frac{\partial E}{\partial q}
+			&=\left\langle\frac{\partial H}{\partial q}\right\rangle
+			=-\mathcal E_x\langle x\rangle-\mathcal E_y\langle y\rangle\\
+			&=-\frac{q}{m}\left(\frac{\mathcal E_x^2}{\omega_x^2}
+			+\frac{\mathcal E_y^2}{\omega_y^2}\right).
+		\end{align*}
+		从 $0$ 积分到物理电荷 $q$，得
+		\[
+			\boxed{E_{n_xn_y}(q)=E_{n_xn_y}(0)
+			-\frac{q^2}{2m}\left(\frac{\mathcal E_x^2}{\omega_x^2}
+			+\frac{\mathcal E_y^2}{\omega_y^2}\right)}.
+		\]
+	\end{enumerate}
 }
 
 	
@@ -168,7 +286,40 @@ $H_{0}=\left(\begin{array}{cc}E_{1} & 0 \\ 0 & E_{2}\end{array}\right)$， $H^{\
 
 
 \banswer{
-	
+	令 $\Delta=E_2-E_1>0$、$\epsilon=\lambda a/\Delta$，并以
+	$|1\rangle=(1,0)^T$、$|2\rangle=(0,1)^T$ 为无扰基。
+	\begin{enumerate}
+		\item 一级能量修正均为零，二级修正为
+		\[
+			E_1^{(2)}=-\frac{\lambda^2a^2}{\Delta},\qquad
+			E_2^{(2)}=\frac{\lambda^2a^2}{\Delta}.
+		\]
+		所以
+		\[
+			\boxed{\mathcal E_1=E_1-\frac{\lambda^2a^2}{\Delta}
+			+O(\lambda^4)},\qquad
+			\boxed{\mathcal E_2=E_2+\frac{\lambda^2a^2}{\Delta}
+			+O(\lambda^4)}.
+		\]
+		准确到一级、并用一个不影响该精度的因子归一化，本征矢可写为
+		\[
+			\boxed{|\mathcal E_1\rangle=
+			\frac{1}{\sqrt{1+\epsilon^2}}
+			\begin{pmatrix}1\\i\epsilon\end{pmatrix}},\qquad
+			\boxed{|\mathcal E_2\rangle=
+			\frac{1}{\sqrt{1+\epsilon^2}}
+			\begin{pmatrix}i\epsilon\\1\end{pmatrix}}.
+		\]
+
+		\item 精确本征值为
+		\[
+			\boxed{\mathcal E_\pm=\frac{E_1+E_2}{2}
+			\pm\sqrt{\frac{\Delta^2}{4}+\lambda^2a^2}}.
+		\]
+		把平方根按 $|\lambda a/\Delta|\ll1$ 展开，负号支与正号支分别给出上一问的
+		$E_1-\lambda^2a^2/\Delta$ 和
+		$E_2+\lambda^2a^2/\Delta$。
+	\end{enumerate}
 }
 
 
@@ -203,9 +354,48 @@ $$
 
 
 \banswer{
-	
+	这里 $\hbar=1$，每个电子满足
+	$(\vec s^{(i)})^2=3/4$。
+	\begin{enumerate}
+		\item 两个自旋 $1/2$ 可耦合成
+		\[
+			s=1,\quad s^2=s(s+1)=2,\quad m=s_z=1,0,-1,
+		\]
+		或
+		\[
+			s=0,\quad s^2=0,\quad m=0.
+		\]
+
+		\item 利用
+		$s_{1z}s_{2z}=[s_z^2-s_{1z}^2-s_{2z}^2]/2$，可得
+		\[
+			s_{1x}s_{2x}+s_{1y}s_{2y}
+			=\frac12(s^2-s_z^2-1).
+		\]
+		故
+		\[
+			\boxed{H=C(1+s_z^2-s^2)}.
+		\]
+
+		\item 所有能级为
+		\[
+			\boxed{E_{1,\pm1}=0\quad(\text{二重})},\qquad
+			\boxed{E_{1,0}=-C},\qquad
+			\boxed{E_{0,0}=C}.
+		\]
+
+		\item 若 Zeeman 项写成 $H_B=-\gamma B s_z$，总能量为
+		\[
+			E_{s,m}=C[1+m^2-s(s+1)]-\gamma Bm.
+		\]
+		即
+		\[
+			\boxed{E_{1,1}=-\gamma B,\quad E_{1,0}=-C,\quad
+			E_{1,-1}=\gamma B,\quad E_{0,0}=C}.
+		\]
+		若题目采用相反的磁矩符号，只需令 $\gamma\to-\gamma$。
+	\end{enumerate}
 }
 
 	
 \end{enumerate}
-

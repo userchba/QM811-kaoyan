@@ -16,13 +16,33 @@
 
 
 \banswer{
-	
+	令
+	\[
+		k=\frac{\sqrt{2mE}}{\hbar},\qquad
+		q=\frac{\sqrt{2m(E-V_0)}}{\hbar}.
+	\]
+	在 $x>a$ 处有无限高势垒，故波函数为零；在 $0<x<a$ 内选择自动满足
+	$\psi(a)=0$ 的形式。取入射振幅为 $1$，全空间波函数可写为
+	\[
+		\boxed{\psi(x)=
+		\begin{cases}
+		e^{ikx}+r e^{-ikx},&x<0,\\[3pt]
+		C\sin[q(a-x)],&0<x<a,\\[3pt]
+		0,&x>a,
+		\end{cases}}
+	\]
+	其中在 $x=0$ 连续匹配 $\psi,\psi'$ 后
+	\[
+		\boxed{r=\frac{ik+q\cot(qa)}{ik-q\cot(qa)}},\qquad
+		\boxed{C=\frac{2ik}{ik\sin(qa)-q\cos(qa)}}.
+	\]
+	对实数 $k,q$ 有 $|r|=1$，符合右侧硬墙使总反射率为 $1$。
 }
 
 	
 \item 
-（30分）已知 $H$ 的两个本征态为 $\left|u_{1}\right\rangle,\left|u_{2}\right\rangle$ 分别对应于能昰 $E_{1}, E_{2}$。 力学量 $A$ 的本征态为	
-$\left|\phi_{1}\right\rangle=\frac{\left|u_{1}\right\rangle+\left|u_{2}\right|}{\sqrt{2}}$ 和 $\left|\phi_{2}\right\rangle=\frac{\left|u_{1}\right\rangle-\left|u_{2}\right\rangle}{\sqrt{2}}$, 分别对应本征值 $a_{1}, a_{2}, t=0$ 时, 粒子处于 $\left|\phi_{1}\right\rangle$ 态。求：
+（30分）已知 $H$ 的两个本征态 $\left|u_{1}\right\rangle,\left|u_{2}\right\rangle$ 分别对应能量 $E_{1}, E_{2}$。力学量 $A$ 的本征态为
+$\left|\phi_{1}\right\rangle=\frac{\left|u_{1}\right\rangle+\left|u_{2}\right\rangle}{\sqrt{2}}$ 和 $\left|\phi_{2}\right\rangle=\frac{\left|u_{1}\right\rangle-\left|u_{2}\right\rangle}{\sqrt{2}}$，分别对应本征值 $a_{1}, a_{2}$。$t=0$ 时粒子处于 $\left|\phi_{1}\right\rangle$ 态。求：
 \begin{enumerate}
 	%\renewcommand{\labelenumi}{\arabic{enumi}.}
 	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
@@ -39,7 +59,37 @@ $\left|\phi_{1}\right\rangle=\frac{\left|u_{1}\right\rangle+\left|u_{2}\right|}{
 \end{enumerate}
 
 \banswer{
-	
+	\begin{enumerate}
+		\item
+		\[
+			\boxed{|\psi(t)\rangle=\frac1{\sqrt2}
+			\left(e^{-iE_1t/\hbar}|u_1\rangle
+			+e^{-iE_2t/\hbar}|u_2\rangle\right)}.
+		\]
+		把它改写到 $A$ 的本征基中：
+		\[
+			|\psi(t)\rangle=\frac12\left[
+			(e^{-iE_1t/\hbar}+e^{-iE_2t/\hbar})|\phi_1\rangle
+			+(e^{-iE_1t/\hbar}-e^{-iE_2t/\hbar})|\phi_2\rangle\right].
+		\]
+
+		\item 令 $\Delta E=E_2-E_1$，则测得 $a_1,a_2$ 的概率分别为
+		\[
+			P_1(t)=\cos^2\frac{\Delta Et}{2\hbar},\qquad
+			P_2(t)=\sin^2\frac{\Delta Et}{2\hbar}.
+		\]
+		所以
+		\[
+			\boxed{\langle A\rangle(t)
+			=a_1\cos^2\frac{\Delta Et}{2\hbar}
+			+a_2\sin^2\frac{\Delta Et}{2\hbar}}
+		\]
+		或等价地
+		\[
+			\langle A\rangle(t)=\frac{a_1+a_2}{2}
+			+\frac{a_1-a_2}{2}\cos\frac{\Delta Et}{\hbar}.
+		\]
+	\end{enumerate}
 }
 
 \item 
@@ -61,7 +111,41 @@ $\left|\phi_{1}\right\rangle=\frac{\left|u_{1}\right\rangle+\left|u_{2}\right|}{
 \end{enumerate}
 
 \banswer{
-	
+	\begin{enumerate}
+		\item 在 $S_z$ 表象中
+		\[
+			H=\frac{\hbar}{2}\begin{pmatrix}0&1-i\\1+i&0\end{pmatrix}.
+		\]
+		其本征值和一组归一化本征态为
+		\[
+			\boxed{E_\pm=\pm\frac{\hbar}{\sqrt2}},\qquad
+			\boxed{|\psi_\pm\rangle=\frac1{\sqrt2}
+			\begin{pmatrix}1\\ \pm e^{i\pi/4}\end{pmatrix}}.
+		\]
+
+		\item 低能态 $|\psi_-\rangle$ 的上分量模方为 $1/2$，故
+		\[
+			\boxed{P(S_z=+\hbar/2)=\frac12}.
+		\]
+
+		\item 若磁场的 Zeeman 项为 $-\gamma B S_z$，且原哈密顿量在
+		$t>0$ 后仍然存在，则
+		\[
+			H_{\rm tot}=S_x+S_y-\gamma B S_z.
+		\]
+		记 $D=\sqrt{2+(\gamma B)^2}$。用 Pauli 矩阵指数公式演化并投影回
+		$|\psi_-\rangle$，得到
+		\[
+			\boxed{P_-(t)=1-\frac{(\gamma B)^2}{2+(\gamma B)^2}
+			\sin^2\left(\frac{Dt}{2}\right)}.
+		\]
+		这里系数 $1$ 与 $\gamma B$ 必须采用同一频率单位。若题意是
+		$t>0$ 时关闭原来的 $S_x+S_y$、只保留 Zeeman 项，则相应结果为
+		\[
+			\boxed{P_-(t)=\cos^2\left(\frac{\gamma Bt}{2}\right)}.
+		\]
+		题干没有说明原哈密顿量是否撤去，以上分别列出两种物理情形。
+	\end{enumerate}
 }
 
 
@@ -87,7 +171,50 @@ $\left|\phi_{1}\right\rangle=\frac{\left|u_{1}\right\rangle+\left|u_{2}\right|}{
 	
 \end{enumerate}
 \banswer{
-	
+	设势阱为 $-a<x<a$，单粒子归一化本征函数记为 $\phi_n(x)$，其能量为
+	\[
+		\varepsilon_n=\frac{n^2\pi^2\hbar^2}{8ma^2},\qquad n=1,2,\ldots.
+	\]
+	\begin{enumerate}
+		\item 两粒子无相互作用时
+		\[
+			\boxed{E_{n_1n_2}=\varepsilon_{n_1}+\varepsilon_{n_2}
+			=\frac{\pi^2\hbar^2}{8ma^2}(n_1^2+n_2^2)}.
+		\]
+
+		\item 对两个全同自旋 $1/2$ 费米子，基态能量为
+		\[
+			E_{\rm g}=2\varepsilon_1,
+		\]
+		唯一允许态是
+		\[
+			\boxed{\phi_1(x_1)\phi_1(x_2)\chi_{00}},
+		\]
+		其中 $\chi_{00}$ 为自旋单态，故简并度为 $1$。
+
+		第一激发能量为
+		\[
+			E_{\rm e}=\varepsilon_1+\varepsilon_2=5\varepsilon_1.
+		\]
+		其全部四个态为
+		\[
+			\boxed{\frac{\phi_1(x_1)\phi_2(x_2)+\phi_2(x_1)\phi_1(x_2)}
+			{\sqrt2}\chi_{00}},
+		\]
+		以及
+		\[
+			\boxed{\frac{\phi_1(x_1)\phi_2(x_2)-\phi_2(x_1)\phi_1(x_2)}
+			{\sqrt2}\chi_{1m}},\qquad m=1,0,-1.
+		\]
+		所以第一激发态简并度为 $4$。
+
+		\item 源文件的第 (3) 问与第 (2) 问逐字重复；按字面其答案完全相同。若原题本意是询问两个自旋为零的全同玻色子，则基态仍为
+		$\phi_1(x_1)\phi_1(x_2)$、简并度 $1$；第一激发态为
+		\[
+			\frac{\phi_1(x_1)\phi_2(x_2)+\phi_2(x_1)\phi_1(x_2)}{\sqrt2},
+		\]
+		能量 $5\varepsilon_1$、简并度 $1$。
+	\end{enumerate}
 }
 
 
@@ -125,10 +252,50 @@ $$
 
 
 \banswer{
-	
+	取脉冲沿 $z$ 方向。电子与电场的相互作用在符号上可写成
+	$H_I(t)=e\mathscr E_0z\,\delta(t)$；改变整体符号不会影响以下概率。
+	\begin{enumerate}
+		\item $z=r\sqrt{4\pi/3}\,Y_1^0$ 是秩一、$q=0$ 的球张量。从氢原子基态
+		$|100\rangle$ 出发，电偶极选择定则为
+		\[
+			\Delta l=\pm1,\qquad \Delta m=0.
+		\]
+		因此离散激发态只能是
+		\[
+			\boxed{|n,1,0\rangle,\qquad n=2,3,\ldots}
+		\]
+		（完整谱中还包括 $l=1,m=0$ 的连续态）。
+
+		\item 一级含时微扰论给出脉冲后的振幅
+		\[
+			c_{n10}^{(1)}=-\frac{i e\mathscr E_0}{\hbar}z_{n1}.
+		\]
+		故跃迁到各个允许离散激发态的概率为
+		\[
+			\boxed{P_{n10}=\frac{e^2\mathscr E_0^2}{\hbar^2}|z_{n1}|^2,
+			\qquad n\ge2}.
+		\]
+
+		\item 脉冲结束后各展开系数只积累相位，所以基态概率不再随 $t$ 改变。保留到
+		$\mathscr E_0^2$，
+		\[
+			\boxed{P_{100}(t)=1-\frac{e^2\mathscr E_0^2}{\hbar^2}
+			\sum_{\rm excited}|z_{n1}|^2}.
+		\]
+		若求和包含全部离散与连续激发态，由完备性及
+		$\langle100|z|100\rangle=0$，
+		\[
+			\sum_{\rm excited}|z_{n1}|^2
+			=\langle100|z^2|100\rangle=a_0^2,
+		\]
+		从而
+		\[
+			\boxed{P_{100}(t)=1-\left(\frac{e\mathscr E_0a_0}{\hbar}\right)^2
+			+O(\mathscr E_0^4)}.
+		\]
+	\end{enumerate}
 }
 
 
 	
 \end{enumerate}
-

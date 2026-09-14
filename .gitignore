@@ -300,3 +300,7 @@ AGENTS.md
 test.sh
 log_tex
 err_tex
+
+# build.sh 生成的临时文件（纯试题版 PDF 的中间源文件）
+811_tmp.tex
+811_noanswer_tmp.tex

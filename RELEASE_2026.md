@@ -17,8 +17,11 @@
 - 📝 更新 **2024、2025 年真题**
 - ✅ 补齐 **2003–2023 年**各年份真题答案
 - 🔧 校对并给出 **2010–2016 年**简明参考答案
+- 📑 **新增目录页**，29 份试卷可点击跳转
+- 🆕 **新增纯试题版 PDF**（`811_noanswer.pdf`）
+- 📄 **明确开源许可**为 CC BY-NC-SA 4.0
 - 🔤 更换通用字体，提升跨平台（Windows / macOS / Linux）编译兼容性
-- 🧹 清理临时文件、完善 `.gitignore`
+- 🧹 清理历史 `.bak` 备份与编译中间产物，新增 `build.sh` 构建脚本
 
 ## 内容概览
 
@@ -28,11 +31,17 @@
 | 官方卷 | 2013、2020、2021 |
 | 校对完成 | 2010–2016（含简明参考答案） |
 | 排版 | LaTeX（`xelatex`），含封面、目录、页眉页脚 |
-| 许可 | 开源，随君所想，成君所愿 |
+| 许可 | CC BY-NC-SA 4.0（署名-非商业性使用-相同方式共享） |
 
 ## 下载
 
-- 编译好的 PDF：见本 Release 附件 `811.pdf`
+本 Release 提供两个附件：
+
+| 附件 | 页数 | 说明 |
+| ---- | ---- | ---- |
+| `811.pdf` | 140 页 | **含答案版**，每道题附简明参考答案 |
+| `811_noanswer.pdf` | 63 页 | **纯试题版**，隐藏全部答案，便于先做题后对答案 |
+
 - 源码：<https://gitee.com/ylxdxx/QM811-kaoyan>
 
 ## 使用与编译
@@ -40,10 +49,19 @@
 ```bash
 git clone https://gitee.com/ylxdxx/QM811-kaoyan.git
 cd QM811-kaoyan
-xelatex 811.tex && xelatex 811.tex   # 两次编译以生成目录与交叉引用
+./build.sh          # 一键生成含答案版与纯试题版
 ```
 
-> 答案默认显示（`811.tex` 中 `\answertrue`）；如需隐藏答案改为 `\answerfalse`。
+`build.sh` 也可单独构建某一版本：
+
+```bash
+./build.sh answers    # 只生成 811.pdf（含答案）
+./build.sh noanswer   # 只生成 811_noanswer.pdf（纯试题）
+```
+
+> 答案开关由 `811.tex` 中的 `\answertrue` / `\answerfalse` 控制；`build.sh`
+> 通过临时副本切换，不会改动 `811.tex` 本身。编译必须使用 `xelatex`，
+> 且需两遍编译以正确生成目录页码与交叉引用。
 
 ## 一点说明
 

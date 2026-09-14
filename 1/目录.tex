@@ -1,0 +1,22 @@
+% 不使用 \chapter*（其在 openright 下会插入空白页），直接排版目录标题
+\clearpage
+\phantomsection
+\markboth{目\quad 录}{目\quad 录}
+\thispagestyle{empty}
+
+\begin{center}
+	\zihao{4}\heiti 目 \quad 录
+\end{center}
+
+\vspace{1em}
+\begingroup
+	\makeatletter
+	\@starttoc{toc}
+	\makeatother
+\endgroup
+
+\vfil
+\noindent
+\textcolor{red}{说明：目录中的页码为该年份试卷在整本 PDF 中的起始页码；各卷卷内的页脚页码从 1 重新计数。}
+\vfil
+\thispagestyle{empty}

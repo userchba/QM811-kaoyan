@@ -113,13 +113,30 @@ openright,zihao=5]{ctexbook}
 
 
 
-\newcommand{\bta}[1]{
+% 目录页码处理
+% 各年份试卷会在 \bta 中把 page 计数器重置为 1。若直接使用 \addcontentsline
+% 写目录，条目里的页码取自排版目录时的 \thepage，于是每一年在目录中都显示 1。
+% 这里改为自行维护一个只在 shipout 时自增的绝对页码计数器，并把绝对页码作为
+% 字面文本直接写入 .toc，从而得到该卷首页在整本 PDF 中的真实页码。
+\makeatletter
+\newcounter{absvolpage}
+\AddToHook{shipout/before}{\stepcounter{absvolpage}}
+% 当前正在排版的这一页的绝对页码（此时尚未 shipout，故需 +1）
+% 注意：\newcounter 已自动定义 \theabsvolpage，故此处用 \renewcommand
+\renewcommand{\theabsvolpage}{\the\numexpr\value{absvolpage}+1\relax}
+% 将某卷的目录条目（含绝对页码）写入 .toc
+\newcommand{\absvolcontentsline}[1]{%
+    \addtocontents{toc}{%
+        \protect\contentsline{chapter}{#1 量子力学}{\theabsvolpage}{}%
+    }%
+}
+\makeatother
+
+\newcommand{\bta}[1]{%
     \setcounter{page}{1}%设置页面计数器
-    %\pagestyle{mypagestyle}
-    %\chapter{#1}
-	%\chapter*{第\chinese{counter1}节 \qquad #1}
-	\addcontentsline{toc}{chapter}{#1 量子力学}
-	\chaptermark{#1 量子力学}
+    % 写入目录条目（使用绝对页码，避免每年重置页码后目录全为 1）
+    \absvolcontentsline{#1}%
+    \chaptermark{#1 量子力学}%
     %\renewcommand{\mypagenote}{#1}
 	%\songti
 	%\zihao{5}

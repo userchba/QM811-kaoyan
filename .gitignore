@@ -1,306 +1,79 @@
-## Core latex/pdflatex auxiliary files:
+## ============================================================
+## QM811 量子力学真题集 —— .gitignore
+##
+## 本仓库为 LaTeX 文档项目，主要产物：
+##   *.tex / *.cls / *.sty  源码
+##   *.svg                  原图（picture/svg/）
+##   *.pdf                  编译产物与发布附件（入库跟踪）
+##   svg-inkscape/          由 svg 宏包自动生成的缓存，不入库
+## ============================================================
+
+## ---- LaTeX 编译中间产物 ----
 *.aux
-*.lof
 *.log
-*.lot
-*.fls
 *.out
 *.toc
-*.fmt
-*.fot
-*.cb
-*.cb2
-.*.lb
-
-## Intermediate documents:
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex
+*.synctex.gz
+*.synctex(busy)
+*.synctex.gz(busy)
 *.dvi
 *.xdv
-*-converted-to.*
-# these rules might exclude image files for figures etc.
-# *.ps
-# *.eps
-# *.pdf
-
-## Generated if empty string is given at "Please type another file name for output:"
-# *.pdf
-
-## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
 *.bcf
 *.blg
-*-blx.aux
-*-blx.bib
 *.run.xml
-
-## Build tool auxiliary files:
-*.fdb_latexmk
-*.synctex
-*.synctex(busy)
-*.synctex.gz
-*.synctex.gz(busy)
-*.pdfsync
-
-## Build tool directories for auxiliary files
-# latexrun
-latex.out/
-svg-inkscape/
-
-## Auxiliary and intermediate files from other packages:
-# algorithms
-*.alg
-*.loa
-
-# achemso
-acs-*.bib
-
-# amsthm
-*.thm
-
-# beamer
 *.nav
-*.pre
 *.snm
 *.vrb
-
-# changes
-*.soc
-
-# comment
-*.cut
-
-# cprotect
-*.cpt
-
-# elsarticle (documentclass of Elsevier journals)
-*.spl
-
-# endnotes
-*.ent
-
-# fixme
-*.lox
-
-# feynmf/feynmp
-*.mf
-*.mp
-*.t[1-9]
-*.t[1-9][0-9]
-*.tfm
-
-#(r)(e)ledmac/(r)(e)ledpar
-*.end
-*.?end
-*.[1-9]
-*.[1-9][0-9]
-*.[1-9][0-9][0-9]
-*.[1-9]R
-*.[1-9][0-9]R
-*.[1-9][0-9][0-9]R
-*.eledsec[1-9]
-*.eledsec[1-9]R
-*.eledsec[1-9][0-9]
-*.eledsec[1-9][0-9]R
-*.eledsec[1-9][0-9][0-9]
-*.eledsec[1-9][0-9][0-9]R
-
-# glossaries
-*.acn
-*.acr
-*.glg
-*.glo
-*.gls
-*.glsdefs
-*.lzo
-*.lzs
-
-# uncomment this for glossaries-extra (will ignore makeindex's style files!)
-# *.ist
-
-# gnuplottex
-*-gnuplottex-*
-
-# gregoriotex
-*.gaux
-*.gtex
-
-# htlatex
-*.4ct
-*.4tc
-*.idv
-*.lg
-*.trc
-*.xref
-
-# hyperref
-*.brf
-
-# knitr
-*-concordance.tex
-# TODO Uncomment the next line if you use knitr and want to ignore its generated tikz files
-# *.tikz
-*-tikzDictionary
-
-# listings
-*.lol
-
-# luatexja-ruby
-*.ltjruby
-
-# makeidx
 *.idx
 *.ilg
 *.ind
-
-# minitoc
 *.maf
-*.mlf
-*.mlt
-*.mtc[0-9]*
-*.slf[0-9]*
-*.slt[0-9]*
-*.stc[0-9]*
-
-# minted
-_minted*
-*.pyg
-
-# morewrites
-*.mw
-
-# nomencl
-*.nlg
-*.nlo
-*.nls
-
-# pax
-*.pax
-
-# pdfpcnotes
-*.pdfpc
-
-# sagetex
-*.sagetex.sage
-*.sagetex.py
-*.sagetex.scmd
-
-# scrwfile
-*.wrt
-
-# sympy
-*.sout
-*.sympy
-sympy-plots-for-*.tex/
-
-# pdfcomment
-*.upa
-*.upb
-
-# pythontex
-*.pytxcode
-pythontex-files-*/
-
-# tcolorbox
-*.listing
-
-# thmtools
-*.loe
-
-# TikZ & PGF
+*.mtc*
+*.loa
+*.lol
+*.thm
+*.tdo
+*.lod
+*.xdy
 *.dpth
 *.md5
 *.auxlock
+*.synctex(busy)
 
-# todonotes
-*.tdo
+## ---- 工具目录 ----
+latex.out/
+_minted*/
+pythontex-files-*/
 
-# vhistory
-*.hst
-*.ver
+## SVG 宏包缓存（由 picture/svg/*.svg 自动生成，见 AGENTS.md）
+svg-inkscape/
 
-# easy-todo
-*.lod
-
-# xcolor
-*.xcp
-
-# xmpincl
-*.xmpi
-
-# xindy
-*.xdy
-
-# xypic precompiled matrices and outlines
-*.xyc
-*.xyd
-
-# endfloat
-*.ttt
-*.fff
-
-# Latexian
-TSWLatexianTemp*
-
-## Editors:
-# WinEdt
+## ---- 编辑器 / 系统 ----
+.DS_Store
+Thumbs.db
 *.bak
 *.sav
-
-# Texpad
-.texpadtmp
-
-# LyX
-*.lyx~
-
-# Kile
-*.backup
-
-# gummi
+*.swp
 .*.swp
+*~
+.texpadtmp
+TSWLatexianTemp*
+__MACOSX/
 
-# KBibTeX
-*~[0-9]*
-
-# TeXnicCenter
-*.tps
-
-# auto folder when using emacs and auctex
-./auto/*
-*.el
-
-# expex forward references with \gathertags
-*-tags.tex
-
-# standalone packages
-*.sta
-
-# Makeindex log files
-*.lpz
-
-# xwatermark package
-*.xwm
-
-# REVTeX puts footnotes in the bibliography by default, unless the nofootinbib
-# option is specified. Footnotes are the stored in a file with suffix Notes.bib.
-# Uncomment the next line to have this generated file ignored.
-#*Notes.bib
-
-
-#myself
-*.pl
-*.perl
-*.txt
-
-# Agents memory file (local-only, not to be synced)
-AGENTS.md
-
-# .DS_Store files created by MacOS
-.DS_Store
-
-# scripts for running tests
+## ---- 本地临时脚本 ----
 test.sh
 log_tex
 err_tex
 
-# build.sh 生成的临时文件（纯试题版 PDF 的中间源文件）
+## ---- build.sh 生成的临时源文件 ----
 811_tmp.tex
 811_noanswer_tmp.tex
+
+## ---- 本地专用文件（不同步）----
+AGENTS.md

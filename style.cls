@@ -30,6 +30,15 @@ openright,zihao=5]{ctexbook}
 \usepackage{esvect}%矢量加箭头，使用  \vec{a} 或者 \vv{a}
 \usepackage{svg}
 
+% ctex 采用 zihao=5（10.53937pt）等非标准字号，而 rsfs / esvect 的 .fd 只
+% 定义了 10、10.95 等标准尺寸，编译时会触发 "size ... substituted" 警告。
+% 这里为这两个数学字体族补上可缩放（s*）的尺寸声明，使其按实际字号缩放，
+% 既消除警告，也保证花体与向量箭头的字重与正文一致。
+\DeclareFontFamily{U}{rsfs}{\skewchar\font127 }
+\DeclareFontShape{U}{rsfs}{m}{n}{<->s*[0.96]rsfs10}{}
+\DeclareFontFamily{U}{esvect}{}
+\DeclareFontShape{U}{esvect}{m}{n}{<->s*[0.96]vect10}{}
+
 
 % 显示带圈数字符号
 \xeCJKsetcharclass{`①}{`⑩}{1}
@@ -63,21 +72,6 @@ openright,zihao=5]{ctexbook}
 \usepackage{pifont}
 
 \usepackage[normalem]{ulem}%下划线\uline{XXX}
-\newcommand{\tk}[1]{
-	\ifanswer
-	\uline{~~#1~~}%
-%\answxsim{
-%\item
-%#1
-%}{}
-	\else
-	%\settowidth{\keylength}{~#1~}
-	%\underline{\hspace{\keylength}}
-    %\uline{\hspace{\keylength}}
-%注意，此处不能使用\hspace{\keylength}进行填充(在刚好换行的时候会出问题)
-\uline{\hbox to 2cm{}}%长度的问题。暂时没找到解决办法
-    %\textcolor{red}{\ul{#1}}
-	\fi}
 
 
 
@@ -96,19 +90,37 @@ openright,zihao=5]{ctexbook}
 %页脚
 \usepackage{fancyhdr}
 
-\usepackage{lastpage}%统计总页数
+% 各年份试卷会在 \bta 中重新从第 1 页计数，因此不能使用全书的 LastPage
+% 作为单卷总页数。这里在每个页面 shipout 时记录「当前卷的最大卷内页码」，
+% 每卷结束时写入 .aux，页脚据此显示「第 N 页 / 共 M 页」。
+% 首遍编译时页数未知，显示为 "?"，第二遍起即正确。
+\makeatletter
+% 每卷总页数，形如 \volend{2026}{9}
+\newcommand{\volend}[2]{\expandafter\gdef\csname volend@#1\endcsname{#2}}
+\newcommand{\volpages}[1]{%
+    \ifcsname volend@#1\endcsname
+        \csname volend@#1\endcsname
+    \else ?\fi
+}
+% 当前卷内已排到的最大页码；每次 shipout 时更新
+\newcounter{volmaxpage}
+\newcommand{\volcurpage}{\the\value{volmaxpage}}
+\AddToHook{shipout/before}{%
+    \ifnum\value{page}>\value{volmaxpage}%
+        \setcounter{volmaxpage}{\value{page}}%
+    \fi
+}
+\makeatother
+
 \fancypagestyle{mypagestyle}{%
 	\fancyhf{}% Clear header/footer
-
-	%\fancyhead[O]{\protect\Headerodd}% Author on Odd page, Centred
-	%\fancyhead[E]{\protect\Headereven}% Title on Even page, Centred
-		% 各年份试卷会在 \bta 中重新从第 1 页计数，不能使用全书的 LastPage 作为单卷总页数。
-		\fancyfoot[OR]{第~\thepage~页}%
-		\fancyfoot[EL]{第~\thepage~页}%
-	\fancyfoot[OL]{科目名称：量子力学}%
-	\fancyfoot[ER]{科目名称：量子力学}%
-	%\renewcommand{\headrulewidth}{0pt}% Header rule of .4pt
-	\renewcommand{\footrulewidth}{0.5pt}% Header rule of .4pt
+		% 页码：单卷内从 1 计数，并给出该卷总页数
+		\fancyfoot[OR]{第~\thepage~页 / 共~\volpages{\currentvol}~页}%
+		\fancyfoot[EL]{第~\thepage~页 / 共~\volpages{\currentvol}~页}%
+		% 左侧页脚标注科目，避免每页重复同一句话的冗余感改为卷名
+		\fancyfoot[OL]{\currentvol~量子力学}%
+		\fancyfoot[ER]{\currentvol~量子力学}%
+	\renewcommand{\footrulewidth}{0.5pt}%
 }
 
 
@@ -124,16 +136,43 @@ openright,zihao=5]{ctexbook}
 % 当前正在排版的这一页的绝对页码（此时尚未 shipout，故需 +1）
 % 注意：\newcounter 已自动定义 \theabsvolpage，故此处用 \renewcommand
 \renewcommand{\theabsvolpage}{\the\numexpr\value{absvolpage}+1\relax}
-% 将某卷的目录条目（含绝对页码）写入 .toc
+% 将某卷的目录条目写入 .toc
+% 两个要点：
+%   1) 页码：不能依赖 \thepage（排版目录时才解析，且各卷页码被重置为 1），
+%      故用 \addtocontents 把绝对页码作为字面文本直接写进 .toc。
+%   2) 跳转：第 4 个参数必须是 hyperref 的有效锚点名，条目才可点击。
+%      该锚点名取自 \phantomsection 之后的 \@currentHref，须立即展开保存。
 \newcommand{\absvolcontentsline}[1]{%
+    \phantomsection
+    \xdef\absvolanchor{\@currentHref}%
     \addtocontents{toc}{%
-        \protect\contentsline{chapter}{#1 量子力学}{\theabsvolpage}{}%
+        \protect\contentsline{chapter}{#1 量子力学}{\theabsvolpage}{\absvolanchor}%
     }%
 }
+% 每卷的末页页码（卷内相对页码）
+% \bta 会在每卷开头把 page 计数器重置为 1，故卷内最大页码即该卷总页数。
+\newcommand{\volendmark}[1]{%
+    \protected@write\@auxout{}{\string\volend{#1}{\volcurpage}}%
+}
+% 结算上一卷：在 \bta 开头调用，把上一卷的总页数写入 .aux
+\newcommand{\closeprevvol}{%
+    \ifx\currentvol\@empty\else
+        \volendmark{\currentvol}%
+    \fi
+}
+\AtEndDocument{\closeprevvol}
 \makeatother
+% \currentvol 初值为空，表示尚未开始任何一卷
+\def\currentvol{}
 
 \newcommand{\bta}[1]{%
+    % 开始新卷前，先结算上一卷的末页绝对页码
+    \closeprevvol
     \setcounter{page}{1}%设置页面计数器
+    % 记录当前卷名，供页脚显示
+    \gdef\currentvol{#1}%
+    % 重置卷内最大页码
+    \setcounter{volmaxpage}{0}%
     % 写入目录条目（使用绝对页码，避免每年重置页码后目录全为 1）
     \absvolcontentsline{#1}%
     \chaptermark{#1 量子力学}%

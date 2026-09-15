@@ -1,0 +1,56 @@
+# Gitee Go 流水线：自动构建 811 量子力学真题集
+#
+# 在 Gitee 仓库页面「流水线」中启用本文件（.workflow/ 目录下的 YAML 会
+# 被 Gitee Go 自动识别）。
+#
+# 产物：811.pdf（含答案版）、811_noanswer.pdf（纯试题版）
+#
+# 说明：Gitee Go 的构建环境需自行提供 TeX Live。若官方镜像不含 xelatex，
+# 可改用自带 TeX Live 的自定义镜像，或参考下方 install 步骤通过 apt/tlmgr
+# 安装。若你的 Gitee 环境不便安装 TeX Live，也可直接在本地运行 build.sh 后
+# 把 PDF 作为 Release 附件手动上传。
+
+name: build-pdf
+displayName: '构建真题集 PDF'
+
+triggers:
+  push:
+    branches:
+      include:
+        - master
+        - main
+  tag:
+    include:
+      - '*'
+
+variables:
+  # 如需自定义镜像，改成含 texlive-full 的镜像地址
+  TEX_IMAGE: 'texlive/texlive:latest'
+
+stages:
+  - stage:
+      name: build
+      displayName: '编译 PDF'
+      steps:
+        - step: build@1
+          name: build_pdf
+          displayName: '编译含答案版与纯试题版'
+          image: 'texlive/texlive:latest'
+          commands:
+            - echo "==> 安装依赖"
+            - apt-get update -qq && apt-get install -y -qq poppler-utils
+            - tlmgr install ctex fandol svg transparent zref ascolorbox || true
+            - echo "==> 构建"
+            - chmod +x build.sh
+            - ./build.sh
+            - echo "==> 校验产物"
+            - |
+              for f in 811.pdf 811_noanswer.pdf; do
+                test -f "$f" || { echo "缺少 $f"; exit 1; }
+                echo "$f: $(pdfinfo "$f" | awk '/^Pages/{print $2}') 页"
+              done
+          artifacts:
+            - name: QM811-PDF
+              path:
+                - 811.pdf
+                - 811_noanswer.pdf

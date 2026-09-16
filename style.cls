@@ -137,14 +137,17 @@ openright,zihao=5]{ctexbook}
 % 注意：\newcounter 已自动定义 \theabsvolpage，故此处用 \renewcommand
 \renewcommand{\theabsvolpage}{\the\numexpr\value{absvolpage}+1\relax}
 % 将某卷的目录条目写入 .toc
-% 两个要点：
+% 三个要点：
 %   1) 页码：不能依赖 \thepage（排版目录时才解析，且各卷页码被重置为 1），
 %      故用 \addtocontents 把绝对页码作为字面文本直接写进 .toc。
 %   2) 跳转：第 4 个参数必须是 hyperref 的有效锚点名，条目才可点击。
 %      该锚点名取自 \phantomsection 之后的 \@currentHref，须立即展开保存。
+%   3) 书签：\addtocontents 是裸写入，绕过了 hyperref 的 \addcontentsline，
+%      因此不会生成 PDF 书签，阅读器侧边栏目录会是空的；需另用 \pdfbookmark 补上。
 \newcommand{\absvolcontentsline}[1]{%
     \phantomsection
     \xdef\absvolanchor{\@currentHref}%
+    \pdfbookmark[0]{#1 量子力学}{vol\theabsvolpage}%
     \addtocontents{toc}{%
         \protect\contentsline{chapter}{#1 量子力学}{\theabsvolpage}{\absvolanchor}%
     }%

@@ -208,26 +208,50 @@
 		因此 $|\psi_{\rm g}\rangle=|1\rangle+|\phi_1^{(1)}\rangle+O(\lambda^2)$；
 		一级精度下不需要额外归一化修正。
 
-		\item 奇宇称能级在 $x=0$ 有节点，完全不受 $\delta$ 势影响。偶宇称态在
-		$0<x<L/2$ 可写为 $\psi=C\sin[k(L/2-x)]$。由导数跃变条件
+		\item 奇宇称态（$n$ 为偶数）在 $x=0$ 有节点，$\delta$ 势对它们不起作用，
+		故 $E_n=n^2\epsilon$ 严格成立。偶宇称态在 $0<x<L/2$ 可写为
+		$\psi=C\sin[k(L/2-x)]$，它在 $x=L/2$ 处自动为零。把薛定谔方程在
+		$(-\eta,\eta)$ 上积分后令 $\eta\to0$，得导数跃变条件
 		\[
-			\psi'(0^+)-\psi'(0^-)=\frac{2m\lambda}{\hbar^2}\psi(0)
+			\psi'(0^+)-\psi'(0^-)=\frac{2m\lambda}{\hbar^2}\psi(0).
 		\]
-		得到严格能级方程
+		代入 $\psi$ 得 $-2k\cos\frac{kL}{2}=\frac{2m\lambda}{\hbar^2}\sin\frac{kL}{2}$，
+		即严格能级方程
 		\[
-			\boxed{k\cot\frac{kL}{2}=-\frac{m\lambda}{\hbar^2}},
-			\qquad E=\frac{\hbar^2k^2}{2m}.
+			\boxed{k\cot\frac{kL}{2}=-\frac{m\lambda}{\hbar^2}},\qquad
+			E=\frac{\hbar^2k^2}{2m}.
 		\]
-		在弱耦合极限令基态 $k=\pi/L+\delta k$，则
+		这正是通常的 $\delta$ 势束缚条件的对称化形式：偶宇称态等价于
+		$\tan\frac{kL}{2}=-\frac{\hbar^2k}{m\lambda}$，奇宇称态则完全不满足它。
+		在弱耦合极限（$\lambda\ll2\hbar^2/(mL)$，即无量纲小量
+		$\beta=\frac{m\lambda L}{2\hbar^2}\ll1$）令第 $j$ 个偶宇称态
+		$k=\frac{(2j-1)\pi}{L}+\delta k_j$，即 (1) 中 $n=2j-1$，基态为 $j=1$。
+		该支解位于 $\frac{(2j-1)\pi}{2}<\frac{kL}{2}<j\pi$，正是由无扰第
+		$2j-1$ 个能级连续变形而来的那一支。由
+		$\cot\left(j\pi-\frac{\pi}{2}+x\right)=-\tan x$ 得
 		\[
-			\delta k=\frac{2m\lambda}{\pi\hbar^2}+O(\lambda^2),
+			\left[\frac{(2j-1)\pi}{L}+\delta k_j\right]
+			\tan\frac{\delta k_jL}{2}=\frac{m\lambda}{\hbar^2}.
 		\]
-		从而
+		取小角近似 $\tan x\simeq x$（要求
+		$\frac{\delta k_jL}{2}=\frac{2\beta}{(2j-1)\pi}\ll1$，即
+		$\lambda\ll\frac{(2j-1)\pi\hbar^2}{mL}$，与题设条件同量级），并在系数中
+		只保留零阶项，得到
 		\[
-			E_{\rm g}=\frac{\pi^2\hbar^2}{2mL^2}
-			\boxed{\frac{2\lambda}{L}}+O(\lambda^2),
+			\delta k_j=\frac{2m\lambda}{(2j-1)\pi\hbar^2}+O(\lambda^2).
 		\]
-		与一级微扰结果一致。
+		代回 $E=\hbar^2k^2/2m$ 即得
+		\[
+			E_j=\frac{(2j-1)^2\pi^2\hbar^2}{2mL^2}+\frac{2\lambda}{L}+O(\lambda^2).
+		\]
+		一阶能量移动 $2\lambda/L$ 与 $j$ 无关，因为各偶宇称态在原点取值都是
+		$\sqrt{2/L}$。取基态 $j=1$：
+		\[
+			\boxed{E_{\rm g}=\frac{\pi^2\hbar^2}{2mL^2}+\frac{2\lambda}{L}+O(\lambda^2)},
+		\]
+		与一级微扰论结果 $E_1^{(1)}=\lambda|\phi_1(0)|^2=\frac{2\lambda}{L}$ 完全一致。
+		继续展开可得二阶项 $-\frac{2m\lambda^2}{(2j-1)^2\pi^2\hbar^2}$
+		（$j=1$ 时为 $-\frac{2m\lambda^2}{\pi^2\hbar^2}$），与二级微扰论相符。
 	\end{enumerate}
 }
 

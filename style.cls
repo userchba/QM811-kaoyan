@@ -136,18 +136,27 @@ openright,zihao=5]{ctexbook}
 % 当前正在排版的这一页的绝对页码（此时尚未 shipout，故需 +1）
 % 注意：\newcounter 已自动定义 \theabsvolpage，故此处用 \renewcommand
 \renewcommand{\theabsvolpage}{\the\numexpr\value{absvolpage}+1\relax}
+% 卷序号：只按「第几卷」自增，与页码无关——这是书签锚点名必须稳定的原因，
+% 详见 \absvolcontentsline 的说明 3)。
+\newcounter{volseq}
 % 将某卷的目录条目写入 .toc
-% 三个要点：
+% 四个要点：
 %   1) 页码：不能依赖 \thepage（排版目录时才解析，且各卷页码被重置为 1），
 %      故用 \addtocontents 把绝对页码作为字面文本直接写进 .toc。
 %   2) 跳转：第 4 个参数必须是 hyperref 的有效锚点名，条目才可点击。
 %      该锚点名取自 \phantomsection 之后的 \@currentHref，须立即展开保存。
 %   3) 书签：\addtocontents 是裸写入，绕过了 hyperref 的 \addcontentsline，
 %      因此不会生成 PDF 书签，阅读器侧边栏目录会是空的；需另用 \pdfbookmark 补上。
+%   4) 书签的锚点名绝不能含页码（曾用 vol\theabsvolpage，已废弃）：
+%      hyperref 把书签写进 .out，下一遍才读回来生成 PDF 侧边栏，而 \pdfbookmark
+%      在当遍创建同名的目标点。若名字由页码决定，一旦分页在两遍之间变化
+%      （例如目录从 1 页涨到 2 页），.out 里的名字就与当遍创建的目标点错开，
+%      29 个条目会全部指向不存在的位置——侧边栏看着有条目，点了却毫无反应，
+%      等同于「侧边栏内容消失」。用与页码无关的 volseq 才稳定。
 \newcommand{\absvolcontentsline}[1]{%
     \phantomsection
     \xdef\absvolanchor{\@currentHref}%
-    \pdfbookmark[0]{#1 量子力学}{vol\theabsvolpage}%
+    \pdfbookmark[0]{#1 量子力学}{vol\thevolseq}%
     \addtocontents{toc}{%
         \protect\contentsline{chapter}{#1 量子力学}{\theabsvolpage}{\absvolanchor}%
     }%
@@ -171,6 +180,7 @@ openright,zihao=5]{ctexbook}
 \newcommand{\bta}[1]{%
     % 开始新卷前，先结算上一卷的末页绝对页码
     \closeprevvol
+    \stepcounter{volseq}%为书签提供与页码无关的稳定锚点名
     \setcounter{page}{1}%设置页面计数器
     % 记录当前卷名，供页脚显示
     \gdef\currentvol{#1}%

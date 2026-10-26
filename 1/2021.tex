@@ -31,7 +31,12 @@
 		0,&x>a,
 		\end{cases}}
 	\]
-	其中在 $x=0$ 连续匹配 $\psi,\psi'$ 后
+	其中在 $x=0$ 的连续匹配条件为
+	\[
+	 1+r=C\sin(qa),\qquad ik(1-r)=-Cq\cos(qa).
+	\]
+	由第二式加上 $ik$ 倍第一式，得到
+	$2ik=C[ik\sin(qa)-q\cos(qa)]$，从而
 	\[
 		\boxed{r=\frac{ik+q\cot(qa)}{ik-q\cot(qa)}},\qquad
 		\boxed{C=\frac{2ik}{ik\sin(qa)-q\cos(qa)}}.
@@ -116,7 +121,9 @@ $\left|\phi_{1}\right\rangle=\frac{\left|u_{1}\right\rangle+\left|u_{2}\right\ra
 		\[
 			H=\frac{\hbar}{2}\begin{pmatrix}0&1-i\\1+i&0\end{pmatrix}.
 		\]
-		其本征值和一组归一化本征态为
+		特征方程为 $E^2-\hbar^2/2=0$。
+		若本征矢为 $(u,v)^T$，首行给出
+		$v/u=2E/[\hbar(1-i)]=\pm e^{i\pi/4}$；两分量模长相等，归一化后得
 		\[
 			\boxed{E_\pm=\pm\frac{\hbar}{\sqrt2}},\qquad
 			\boxed{|\psi_\pm\rangle=\frac1{\sqrt2}
@@ -133,8 +140,17 @@ $\left|\phi_{1}\right\rangle=\frac{\left|u_{1}\right\rangle+\left|u_{2}\right\ra
 		\[
 			H_{\rm tot}=S_x+S_y-\gamma B S_z.
 		\]
-		记 $D=\sqrt{2+(\gamma B)^2}$。用 Pauli 矩阵指数公式演化并投影回
-		$|\psi_-\rangle$，得到
+		记 $\vec d=(1,1,-\gamma B)$、$D=|\vec d|$，则
+		$H_{\rm tot}=(\hbar/2)\vec d\cdot\vec\sigma$，且
+		\[
+		 U=I\cos\frac{Dt}{2}-i\frac{\vec d\cdot\vec\sigma}{D}\sin\frac{Dt}{2}.
+		\]
+		初态的 Bloch 矢量为 $\langle\vec\sigma\rangle_-=-(1,1,0)/\sqrt2$，故
+		\[
+		 \langle\psi_-|U|\psi_-\rangle=\cos\frac{Dt}{2}
+		       +i\frac{\sqrt2}{D}\sin\frac{Dt}{2}.
+		\]
+		取模平方得到
 		\[
 			\boxed{P_-(t)=1-\frac{(\gamma B)^2}{2+(\gamma B)^2}
 			\sin^2\left(\frac{Dt}{2}\right)}.

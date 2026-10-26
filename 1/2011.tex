@@ -22,6 +22,11 @@
 {3.39 eV}
 {7.8 eV}
 {10.2 eV}
+\banswer{
+氢原子束缚态能量为 $E_n=-13.6\,\mathrm{eV}/n^2$。第一激发态是 $n=2$，
+电离对应 $E=0$，故电离能为 $0-E_2=13.6/4\simeq3.40\,\mathrm{eV}$，
+对应选项 B 的近似数值。题干 $-13.6V$ 应理解为 $-13.6\,\mathrm{eV}$。
+}
 
 
 \item 
@@ -32,6 +37,10 @@
 {$6.63\times10^{-34}  $}
 {$1.05\times10^{-34} \ J \cdot s  $}
 {$6.63\times10^{-34} \ J \cdot s $}
+\banswer{
+$h=2\pi\hbar\simeq6.63\times10^{-34}\,\mathrm{J\,s}$，故选 D。
+A、C 的数值对应 $\hbar$；B 缺少量纲。普朗克常数是有量纲的作用量。
+}
 
 \item 
 $ A $、$ B $为厄米算符，那么下列各选项为厄米算符的是 \xzanswer{B} 
@@ -41,6 +50,13 @@ $ A $、$ B $为厄米算符，那么下列各选项为厄米算符的是 \xzans
 {$\dfrac{i}{2}(BA-AB) $}
 {$AB+iBA $}
 {$\dfrac{i}{2}(BA+AB)$}
+\banswer{
+因 $A^\dagger=A$、$B^\dagger=B$，
+$(BA-AB)^\dagger=AB-BA=-(BA-AB)$，
+所以 $[i(BA-AB)/2]^\dagger=i(BA-AB)/2$，选 B。
+反对易组合 $BA+AB$ 本身是厄米的，额外乘以 $i$ 后一般反厄米；
+其余选项也不能对任意厄米 $A,B$ 保证厄米性。
+}
 
 \item 
 对于中心力场，下列各式正确的是 \xzanswer{C} 
@@ -56,6 +72,14 @@ $ A $、$ B $为厄米算符，那么下列各选项为厄米算符的是 \xzans
 
 
 其中：$\mu{(r)}=R_l(r)r$
+\banswer{
+取 $\psi=R_l(r)Y_{lm}(\theta,\varphi)$ 且球谐函数按
+$\int|Y_{lm}|^2d\Omega=1$ 归一化，则三维归一化条件为
+$\int_0^\infty|R_l(r)|^2r^2dr=1$，故选 C。
+令 $\mu(r)=rR_l(r)$ 后，等价条件为 $\int_0^\infty|\mu(r)|^2dr=1$，
+不再含 $r^2$；角积分已吸收在球谐函数中，不能再乘 $4\pi$。
+选项中未写绝对值，按实径向本征函数理解。
+}
 
 \item 经典力学中有$\vec{L}=\vec{r}\times\vec{p}=-\vec{p}\times \vec{r}$，那么在量子力学中$\vec{L}=\vec{r}\times\vec{p}=-\vec{p}\times \vec{r}$是否也成立。请说明理由。
 
@@ -79,43 +103,27 @@ $ A $、$ B $为厄米算符，那么下列各选项为厄米算符的是 \xzans
 在$(\vec{S}^2,S_z)$的共同的本征态$ Y_{10} $中，写出$S_x,S_y$的矩阵表示，并说明是否可以找到这样的一个表象，使得$S_x,S_y,S_z$在该表象中的矩阵表示均为实矩阵，并说明理由。
 
 \banswer{
-	%$S_{x}=\frac{\hbar}{2}\left(\begin{array}{ll}0 & 1 \\ 1 & 0\end{array}\right), S_{y}=\frac{\hbar}{2}\left(\begin{array}{cc}0 & -i \\ i & 0\end{array}\right)$，不存在一个表象使得 $S_{x}, S_{y}, S_{z}$ 在该表象中的矩阵表示均为实矩阵。
-\iffalse
-矩阵元为\\
-\[ 
-	\begin{aligned}
-	<l ^{\prime} m ^{\prime} |S_{x}|lm>=  \frac{1}{2}\left(
-	\sqrt{l(l+1)-m(m+1)} \cdot \delta_{l ^{\prime} l} \delta_{m ^{\prime} ,m+1} +\right.\\
- \left.\sqrt{l(l+1)-m(m-1)} \cdot \delta_{l ^{\prime} l} \delta_{m ^{\prime} ,m-1}
-	\right) 
-\end{aligned}
- \]
-\[ 
-\begin{aligned}
-<l ^{\prime} m ^{\prime} |S_{y}|lm>=\frac{1}{2i}\left(
-\sqrt{l(l+1)-m(m+1)} \cdot \delta_{l ^{\prime} l} \delta_{m ^{\prime} ,m+1} +\right.\\
-\left. \sqrt{l(l+1)-m(m-1)} \cdot \delta_{l ^{\prime} l} \delta_{m ^{\prime} ,m-1}
-\right)
-\end{aligned}
-\] 
-\fi
-	题干给出 $Y_{10}$，故这里应理解为 $l=1$ 子空间，而不是自旋 $1/2$。在按
-	$m=1,0,-1$ 排列的 $(L^2,L_z)$ 表象中，
-	\[
-L_{x}=\frac{\hbar}{\sqrt2}\left(\begin{array}{ccc}
-		0 & 1 & 0\\
-		1 & 0 & 1\\
-		0 & 1 & 0
-\end{array}\right),\qquad
-L_{y}=\frac{\hbar}{\sqrt2}\left(\begin{array}{ccc}
-		0 & -i & 0\\
-		i & 0 & -i\\
-		0 & i & 0
-\end{array}\right).
- \]
- 不存在一个表象使三个非零角动量分量矩阵同时为实矩阵。若三者均为实矩阵，则
- $[L_x,L_y]$ 为实矩阵，而 $i\hbar L_z$ 为纯虚矩阵；这与
- $[L_x,L_y]=i\hbar L_z$ 矛盾。
+题干的 $Y_{10}$ 对应角动量量子数 $l=1$，故应使用整个 $l=1$ 的三维子空间；
+单独一个 $Y_{10}$ 不能构成表象。以下以 $L_i$ 表示题中的角动量，按
+$|1,1\rangle,|1,0\rangle,|1,-1\rangle$ 排列基矢。
+升降算符满足
+\[
+ L_\pm|l,m\rangle=\hbar\sqrt{l(l+1)-m(m\pm1)}|l,m\pm1\rangle.
+\]
+对 $l=1$，两次相邻跃迁的系数均为 $\sqrt2\hbar$，因此
+\[
+ L_+=\sqrt2\hbar\begin{pmatrix}0&1&0\\0&0&1\\0&0&0\end{pmatrix},\quad
+ L_-=L_+^\dagger.
+\]
+由 $L_x=(L_++L_-)/2$、$L_y=(L_+-L_-)/(2i)$，
+\[
+ \boxed{L_x=\frac{\hbar}{\sqrt2}\begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix}},
+ \qquad
+ \boxed{L_y=\frac{\hbar}{\sqrt2}\begin{pmatrix}0&-i&0\\i&0&-i\\0&i&0\end{pmatrix}}.
+\]
+不存在使三个非零分量同时为实矩阵的表象。若三者都实，则 $[L_x,L_y]$ 为实矩阵，
+而 $i\hbar L_z$ 为纯虚矩阵；等式 $[L_x,L_y]=i\hbar L_z$ 将强迫 $L_z=0$，
+再由另外两个角动量对易关系推出 $L_x=L_y=0$，与 $l=1$ 矛盾。
 }
 
 
@@ -143,7 +151,26 @@ L_{y}=\frac{\hbar}{\sqrt2}\left(\begin{array}{ccc}
 两个非全同粒子处于态$\psi(x_1,x_2)$，求出一个粒子处于$p_{1}^{\prime}, p_{1}^{\prime \prime}$之间，另一个粒子处于$x_{2}^{\prime}, x_{2}^{\prime \prime}$之间的几率。
 
 \banswer{
-	$P=\frac{\int_{x_{2}^{\prime}}^{x_{2}^{\prime \prime}} \int_{p_{1}^{\prime}}^{p_{1}^{\prime \prime}} \left|\frac{1}{\sqrt{2 \pi \hbar}} \int_{-\infty}^{+\infty} \psi\left(x_{1}, x_{2}\right) e^{-\frac{i x_{1} p}{\hbar}} d x_{1}\right|^{2} d p_{1} d x_{2}}{\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty}\left|\psi\left(x_{1}, x_{2}\right)\right|^{2} d x_{1} d x_{2}}$
+两个粒子可区分，$p_1$ 与 $x_2$ 作用于不同的粒子，故 $[p_1,x_2]=0$，可取共同表象。
+只对第一个粒子的坐标作 Fourier 变换：
+\[
+ \widetilde\psi(p_1,x_2)=\langle p_1,x_2|\psi\rangle
+ =\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^\infty
+ e^{-ip_1x_1/\hbar}\psi(x_1,x_2)\,dx_1.
+\]
+若原态已归一化，则 $|\widetilde\psi(p_1,x_2)|^2dp_1dx_2$ 就是联合概率。
+题干未声明归一化，记
+\[
+ N=\int_{-\infty}^\infty\!\int_{-\infty}^\infty
+ |\psi(x_1,x_2)|^2dx_1dx_2.
+\]
+由 Fourier 变换的幺正性，变换后总模方仍为 $N$。因此所求为
+\[
+ \boxed{P=\frac1N\int_{x_2'}^{x_2''}dx_2
+                  \int_{p_1'}^{p_1''}dp_1\,
+                  |\widetilde\psi(p_1,x_2)|^2}.
+\]
+因为粒子可区分，这里不应额外添加交换项或乘以 $2$。
 }
 
 
@@ -167,21 +194,92 @@ $\hat{p}_r$是否为厄米算符，为什么？
 
 
 \banswer{
-\begin{enumerate}
-	%\renewcommand{\labelenumi}{\arabic{enumi}.}
-	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
-	%设定全局标号series=example	%引用全局变量resume=example
-	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
-	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-	\item
-	是厄米算符，易证
-	\item 
-	$\hat{p}_{r}=-i \hbar\left(\frac{1}{r}+\frac{\partial}{\partial r}\right)$
-	\item 
-	$\left[r, p_{r}\right]=i \hbar$
-\end{enumerate}
+记 $\vec e_r=\vec r/r$。微分算符的作用顺序不能交换，尤其不能把
+$\vec p\cdot\vec e_r$ 误写成只对 $\vec e_r$ 求导。以下先求第（2）问的位置表象，
+再验证第（1）、（3）问。
 
-	
+\textbf{（2）位置表象。} 令算符作用于任意适当光滑的波函数 $\psi(\vec r)$，由
+$\vec p=-i\hbar\nabla$ 及乘积求导法则，
+\begin{align*}
+ (\vec e_r\cdot\vec p)\psi&=-i\hbar\vec e_r\cdot\nabla\psi,\\
+ (\vec p\cdot\vec e_r)\psi&=-i\hbar\nabla\cdot(\vec e_r\psi)
+ =-i\hbar\bigl[(\nabla\cdot\vec e_r)\psi+\vec e_r\cdot\nabla\psi\bigr].
+\end{align*}
+所以
+\[
+ \hat p_r\psi=-i\hbar\left[\vec e_r\cdot\nabla\psi
+ +\frac12(\nabla\cdot\vec e_r)\psi\right].
+\]
+固定 $\theta,\varphi$，由 $x=r\sin\theta\cos\varphi$、$y=r\sin\theta\sin\varphi$、
+$z=r\cos\theta$ 的链式法则，
+\[
+ \frac{\partial\psi}{\partial r}
+ =\frac xr\frac{\partial\psi}{\partial x}
+ +\frac yr\frac{\partial\psi}{\partial y}
+ +\frac zr\frac{\partial\psi}{\partial z}
+ =\vec e_r\cdot\nabla\psi.
+\]
+这不要求 $\psi$ 与角度无关。又在 $r>0$ 处，
+\[
+ \frac{\partial}{\partial x}\frac xr=\frac1r-\frac{x^2}{r^3},\qquad
+ \nabla\cdot\vec e_r=\frac3r-\frac{x^2+y^2+z^2}{r^3}=\frac2r.
+\]
+代入得
+\[
+ \boxed{\hat p_r=-i\hbar\left(\frac{\partial}{\partial r}+\frac1r\right)},
+ \qquad \hat p_r\psi=-\frac{i\hbar}{r}\frac{\partial(r\psi)}{\partial r}.
+\]
+
+\textbf{（1）厄米性的含义与证明。} 按本题通常的用语，在使边界项消失的适当定义域上，
+它是厄米的（更准确地说是对称算符）。形式上，因 $e_{r,j}$ 为实函数，
+\[
+ (e_{r,j}p_j)^\dagger_{\rm form}=p_je_{r,j},\qquad
+ \hat p_{r,\rm form}^\dagger
+ =\frac12\sum_j(p_je_{r,j}+e_{r,j}p_j)=\hat p_r.
+\]
+要明确边界条件，需使用三维球坐标的内积，而不是测度 $dr$ 的一维内积：
+\[
+ \langle\phi|\psi\rangle=\int d\Omega\int_0^\infty r^2\phi^*\psi\,dr,
+ \qquad d\Omega=\sin\theta\,d\theta\,d\varphi.
+\]
+分部积分给出
+\begin{align*}
+ \langle\phi|\hat p_r\psi\rangle
+ &=-i\hbar\int d\Omega\int_0^\infty
+       (r^2\phi^*\partial_r\psi+r\phi^*\psi)\,dr\\
+ &=-i\hbar\int d\Omega\,[r^2\phi^*\psi]_0^\infty
+   +i\hbar\int d\Omega\int_0^\infty
+       (r^2\partial_r\phi^*+r\phi^*)\psi\,dr\\
+ &=\langle\hat p_r\phi|\psi\rangle
+   -i\hbar\int d\Omega\,[r^2\phi^*\psi]_0^\infty.
+\end{align*}
+其中用了 $\partial_r(r^2\phi^*)=2r\phi^*+r^2\partial_r\phi^*$。
+若定义域中任意 $\phi,\psi$ 均使边界项为零，便有
+\[
+ \boxed{\langle\phi|\hat p_r\psi\rangle=\langle\hat p_r\phi|\psi\rangle}.
+\]
+例如可先取在 $r>0$ 内具有紧支撑的光滑函数。只要求平方可积并不足以自动保证上述边界条件。
+在测度 $r^2dr$ 下，$(-i\hbar\partial_r)^\dagger_{\rm form}
+=-i\hbar(\partial_r+2/r)$；与原算符取平均恰好产生 $1/r$ 项，这也解释了该项为何不能省去。
+
+\textbf{（3）对易关系。} 在两个算符乘积都有定义的共同定义域上，
+\begin{align*}
+ r\hat p_r\psi&=-i\hbar(r\partial_r\psi+\psi),\\
+ \hat p_r(r\psi)&=-i\hbar[\partial_r(r\psi)+\psi]
+                =-i\hbar(r\partial_r\psi+2\psi).
+\end{align*}
+两式相减即得
+\[
+ [r,\hat p_r]\psi=i\hbar\psi,\qquad
+ \boxed{[\hat r,\hat p_r]=i\hbar I}.
+\]
+\begin{note}
+形式厄米性、对称性与严格的自伴性应加以区分。令 $u=r\psi$ 后，径向内积变为
+$\int_0^\infty |u|^2dr$，$\hat p_r$ 对应半轴上的 $-i\hbar\partial_r$。
+其标准对称实现不是自伴算符，也没有自伴扩张；不能仅凭对称化的表达式就断言严格自伴。
+参见 \href{https://arxiv.org/abs/math-ph/0009016}{Paz, math-ph/0009016}。
+本题的通常答案指上面已经证明的形式厄米性及适当边界条件下的对称性。
+\end{note}
 }
 
 
@@ -199,28 +297,39 @@ $$
 其中$\alpha<\pi$，求对最低两能级的一级修正。
 
 \banswer{
-	哈密顿算符为 $\hat H_0=L_z^2/(2I)$，其中 $I=mR^2$；归一化本征态和能量为
-	\[
-		\psi_n^{(0)}=\frac{e^{in\varphi}}{\sqrt{2\pi}},\qquad
-		E_n^{(0)}=\frac{n^2\hbar^2}{2I}.
-	\]
-	基态 $n=0$ 无简并，其一级能量为
-	\[
-		\boxed{E_0^{(1)}=\frac{\alpha(V_1+V_2)}{2\pi}}.
-	\]
-	第一激发能级由 $n=\pm1$ 构成二重简并子空间。微扰矩阵的对角元均为
-	$w_0=\alpha(V_1+V_2)/(2\pi)$，非对角元的模为
-	\[
-		|w|=\frac{\sin\alpha}{2\pi}
-		\sqrt{V_1^2+V_2^2+2V_1V_2\cos2\alpha}.
-	\]
-	故分裂后的两个能级为
-	\[
-		\boxed{E_{1,\pm}=\frac{\hbar^2}{2I}
-		+\frac{\alpha(V_1+V_2)}{2\pi}
-		\pm\frac{\sin\alpha}{2\pi}
-		\sqrt{V_1^2+V_2^2+2V_1V_2\cos2\alpha}}.
-	\]
+令 $I=mR^2$。无扰 Hamilton 量为 $H_0=-\hbar^2\partial_\varphi^2/(2I)$，
+周期边界条件 $\psi(\varphi+2\pi)=\psi(\varphi)$ 给出
+\[
+ \psi_n^{(0)}=\frac{e^{in\varphi}}{\sqrt{2\pi}},\quad
+ E_n^{(0)}=\frac{n^2\hbar^2}{2I},\quad n=0,\pm1,\ldots.
+\]
+最低能级 $n=0$ 非简并，其一级修正为
+\[
+ \boxed{E_0^{(1)}=\frac1{2\pi}\left(\int_{-\alpha}^0V_1d\varphi
+                 +\int_0^\alpha V_2d\varphi\right)
+        =\frac{\alpha(V_1+V_2)}{2\pi}\equiv w_0}.
+\]
+第一激发能级 $n=\pm1$ 二重简并，必须在 $|1\rangle,|-1\rangle$ 子空间对角化。
+两对角元均为 $w_0$，非对角元为
+\begin{align*}
+ w=\langle1|H'|-1\rangle
+ &=\frac1{2\pi}\left(V_1\int_{-\alpha}^0e^{-2i\varphi}d\varphi
+                      +V_2\int_0^\alpha e^{-2i\varphi}d\varphi\right)\\
+ &=\frac{\sin\alpha}{2\pi}(V_1e^{i\alpha}+V_2e^{-i\alpha}).
+\end{align*}
+由 $\det(W-\epsilon I)=(w_0-\epsilon)^2-|w|^2=0$，
+\[
+ E_{1,\pm}^{(1)}=w_0\pm|w|,\quad
+ |w|=\frac{\sin\alpha}{2\pi}
+       \sqrt{V_1^2+V_2^2+2V_1V_2\cos2\alpha}\quad(0<\alpha<\pi).
+\]
+故第一激发能级的一阶近似为
+\[
+ \boxed{E_{1,\pm}=\frac{\hbar^2}{2I}+\frac{\alpha(V_1+V_2)}{2\pi}
+ \pm\frac{\sin\alpha}{2\pi}\sqrt{V_1^2+V_2^2+2V_1V_2\cos2\alpha}}.
+\]
+若 $w=|w|e^{i\chi}\ne0$，相应归一化零级态为
+$(e^{i\chi}|1\rangle\pm|-1\rangle)/\sqrt2$；$w=0$ 时一级不劈裂。
 }
 
 
@@ -229,46 +338,85 @@ $$
 
 
 \banswer{
-\begin{equation*}
-	\begin{aligned}
-		<m|H ^{\prime} |1>&=\frac{2}{a} \cdot V_{0} \cdot \int_{\frac{a-b}{2}}^{\frac{a+b}{2}} \sin \frac{m\pi}{a} x \sin \frac{\pi}{a} x dx \\
-		&=\frac{2}{\pi} \cdot V_{0} \cdot \int_{\frac{\pi}{2} -\frac{\pi}{2} \frac{b}{a} }^{\frac{\pi}{2} +\frac{\pi}{2} \frac{b}{a} } \sin m\theta \sin \theta d\theta \\
-		& \approx  \frac{2}{\pi} \cdot V_{0} \cdot \frac{1}{m} \cdot \cos m\theta \Big| _{\frac{\pi}{2} -\frac{\pi}{2} \frac{b}{a} }^{\frac{\pi}{2} +\frac{\pi}{2} \frac{b}{a} }
-	\end{aligned}
-\end{equation*}
-这里，很容易得到$ \braket{2|H ^{\prime} |1}=0 $，$ \braket{3|H ^{\prime} |1}=\frac{2}{\pi} V_{0}  \frac{ -2 }{ 3 } \sin (\frac{3}{2}\pi\frac{b}{a} ) \approx -2 \frac{b}{a} V_{0} $，$ \braket{4|H ^{\prime} |1}=0 $。这里也可以采用和差化积的方式来进行精确的计算
-\[ 
-<m|H ^{\prime} |1>=\frac{V_{0}}{\pi} \left(\frac{1}{m-1} \sin(m-1)t -\frac{1}{m+1} \sin(m+1)t  \right)  \Big| _{\frac{\pi}{2} -\frac{\pi}{2} \frac{b}{a} }^{\frac{\pi}{2} +\frac{\pi}{2} \frac{b}{a} }
- \]
-得到的结果除$ \braket{3|H ^{\prime} |1}=-\frac{V_{0}}{\pi} \left(\sin \pi\frac{b}{a} +\frac{1}{2} \sin 2\pi \frac{b}{a} \right)\approx -2\frac{b}{a} V_{0} $外其余一样，不过也可以看到取近似后两者的结果是一致的。
-	
-$ P_{1\rightarrow 2}=0 $，$ P_{1\rightarrow 4}=0 $，而
+无扰本征态及能量为
 \[
-	P_{1\rightarrow 3}
-	=\frac{4|H'_{31}|^2}{\hbar^2\omega_{31}^2}
-	\sin^2\frac{\omega_{31}t_0}{2}
-	=\frac{2|H'_{31}|^2}{\hbar^2\omega_{31}^2}
-	(1-\cos\omega_{31}t_0).
+ \phi_n(x)=\sqrt{2/a}\sin(n\pi x/a),\qquad
+ E_n=\frac{n^2\pi^2\hbar^2}{2ma^2}.
 \]
+在 $0<t<t_0$ 期间，微扰为中心区间 $(a-b)/2<x<(a+b)/2$ 内的常数 $V_0$。
+一级含时微扰振幅为
+\begin{align*}
+ c_n^{(1)}(t_0)&=-\frac{i}{\hbar}\int_0^{t_0}H'_{n1}e^{i\omega_{n1}t}dt
+ =\frac{H'_{n1}}{\hbar\omega_{n1}}(1-e^{i\omega_{n1}t_0}),\\
+ P_{1\to n}&=\frac{4|H'_{n1}|^2}{\hbar^2\omega_{n1}^2}
+                  \sin^2\frac{\omega_{n1}t_0}{2},\qquad
+ \omega_{n1}=\frac{E_n-E_1}{\hbar}.
+\end{align*}
+这里 $c_n$ 是相互作用表象的系数；撤去微扰后，能量测量概率不再变化。
+对中心反射 $x\mapsto a-x$，$\phi_1$ 为偶函数，$\phi_2,\phi_4$ 为奇函数，
+微扰为偶函数，故
+\[
+ \boxed{H'_{21}=H'_{41}=0,\qquad P_{1\to2}=P_{1\to4}=0}.
+\]
+这两个禁戒由对称性严格成立。对 $n=3$ 用和差化积，
+\begin{align*}
+ H'_{31}&=\frac{2V_0}{a}\int_{(a-b)/2}^{(a+b)/2}
+             \sin\frac{3\pi x}{a}\sin\frac{\pi x}{a}\,dx\\
+ &=\frac{V_0}{\pi}\left[\frac12\sin\frac{2\pi x}{a}
+                -\frac14\sin\frac{4\pi x}{a}\right]_{(a-b)/2}^{(a+b)/2}\\
+ &=-\frac{V_0}{\pi}\left(\sin\frac{\pi b}{a}
+                  +\frac12\sin\frac{2\pi b}{a}\right)
+ =-\frac{2V_0b}{a}+O\!\left(V_0(b/a)^3\right).
+\end{align*}
+于是第二激发态的概率为
+\[
+ \boxed{P_{1\to3}=\frac{4|H'_{31}|^2}{\hbar^2\omega_{31}^2}
+             \sin^2\frac{\omega_{31}t_0}{2}},\qquad
+ \omega_{31}=\frac{4\pi^2\hbar}{ma^2}.
+\]
+在 $b\ll a$ 时进一步为
+\[
+ \boxed{P_{1\to3}\simeq
+ \frac{m^2a^2b^2V_0^2}{\pi^4\hbar^4}
+ \sin^2\!\left(\frac{2\pi^2\hbar t_0}{ma^2}\right)}.
+\]
+上述非零概率保留到微扰振幅的平方阶，要求激发概率足够小。
 }
 
 
 \item 
 在$(l^2,l_z)$的共同表象中，粒子处于$Y_{20}$态，求$l_x$的可能值及相应的几率。
 
-\banswer{ 
-$ l_{x} $的可能测值及相应的概率为:
-\begin{center}
- \begin{tabular}{|c|c|c|c|c|c|}
- \hline 
-$l_{x}$ &$2 \hbar $ & $ \hbar$ & $0$ & $-\hbar$ & $-2 \hbar$ \\
-\hline
-$ P $ &$\frac{3}{8}$ & $0$ &$\frac{1}{4}$  & $0$ & $ \frac{3}{8}$  \\ 
- \hline 
- \end{tabular}
-\end{center}
-解法有几种。共五个概率值，五个未知数，找五个独立方程即可，找方程的过程中，可充分利用$ l_{z}\ket{20}=0 $的性质，用$ l_{x} $本征态的升降算符来表示$ l_{z} $。
-$ l_{x} $本征值为$ m $的本征态是$ e^{-i\frac{\pi}{2}l_{y}}\ket{ lm} $，也可以推导相应矩阵元$\bra{lm ^{\prime} } e^{-i\frac{\pi}{2}l_{y}}\ket{ lm} $的关系式。
+\banswer{
+初态为 $|2,0\rangle_z$，故 $L_x$ 的可能测值为 $m_x\hbar$，$m_x=2,1,0,-1,-2$。
+下面用二阶、四阶矩求概率，而不直接引用旋转矩阵。
+绕 $z$ 轴转动 $\pi$ 将 $L_x$ 变为 $-L_x$，初态不变，故正负测值等概率。
+记 $P(\pm2\hbar)=a$、$P(\pm\hbar)=b$、$P(0)=c$，则
+\[
+ 2a+2b+c=1.
+\]
+由 $L_x=(L_++L_-)/2$ 以及 $l=2$ 的升降系数，
+\[
+ L_x|2,0\rangle=\frac{\sqrt6\hbar}{2}(|2,1\rangle+|2,-1\rangle),
+\]
+\[
+ L_x^2|2,0\rangle
+ =3\hbar^2|2,0\rangle
+ +\frac{\sqrt6\hbar^2}{2}(|2,2\rangle+|2,-2\rangle).
+\]
+利用正交归一性，
+\[
+ \langle L_x^2\rangle=\|L_x|2,0\rangle\|^2=3\hbar^2,\qquad
+ \langle L_x^4\rangle=\|L_x^2|2,0\rangle\|^2=12\hbar^4.
+\]
+因此 $8a+2b=3$、$32a+2b=12$，解得 $a=3/8$、$b=0$、$c=1/4$。
+\[
+ \boxed{\begin{array}{c|ccccc}
+ L_x&2\hbar&\hbar&0&-\hbar&-2\hbar\\ \hline
+ P&3/8&0&1/4&0&3/8
+ \end{array}}.
+\]
+各概率之和为 $1$，且给出的 $\langle L_x\rangle=0$ 与初态的轴对称性一致。
 }
 
 

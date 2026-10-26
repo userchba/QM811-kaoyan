@@ -105,7 +105,13 @@
 			\langle H\rangle=\frac45E_1+\frac15E_2
 			=\frac85E_1=\frac{4\pi^2\hbar^2}{5ma^2}.
 		\]
-		\item 由 $\langle1|p|2\rangle=i8\hbar/(3a)$，令 $\Omega=(E_2-E_1)/\hbar=3\pi^2\hbar/(2ma^2)$，可得
+		\item 需要保留两个能量分量之间的相干项。先计算
+		\[
+		 p_{12}=-\frac{4i\pi\hbar}{a^2}\int_0^a
+		 \sin\frac{\pi x}{a}\cos\frac{2\pi x}{a}dx
+		 =\frac{8i\hbar}{3a},\qquad p_{21}=p_{12}^*,\quad p_{11}=p_{22}=0.
+		\]
+		因此 $\langle p\rangle=(4/5)\operatorname{Re}(p_{12}e^{-i\Omega t})$。令 $\Omega=(E_2-E_1)/\hbar=3\pi^2\hbar/(2ma^2)$，可得
 		\[
 			\langle p\rangle_t=\frac{32\hbar}{15a}\sin(\Omega t).
 		\]
@@ -136,7 +142,15 @@ $$H^0=\frac{1}{2m}(p_1^2+p_2^2)+\frac{1}{2}m\omega^2((x_1-a)^2+(x_2+a)^2)$$
 	\[
 		\frac12m\omega^2q^2+\lambda m\omega^2(\sqrt2q+2a)^2.
 	\]
-	配方后其频率为 $\Omega=\omega\sqrt{1+4\lambda}$，平衡位置发生平移，常数能量为 $4\lambda m\omega^2a^2/(1+4\lambda)$。故能级的精确形式为
+	把反对称模势能完整配方为
+	\[
+	 \frac12m\omega^2(1+4\lambda)
+	 \left(q+\frac{4\sqrt2\lambda a}{1+4\lambda}\right)^2
+	 +\frac{4\lambda m\omega^2a^2}{1+4\lambda}.
+	\]
+	正交坐标变换同时保持动能为两个独立的 $P^2/(2m)$，所以两模频率分别为
+	$\omega$ 和 $\Omega=\omega\sqrt{1+4\lambda}$（要求 $1+4\lambda>0$）。
+	故能级的精确形式为
 	\[
 		E_{n_+,n_-}=\hbar\omega\left(n_++\frac12\right)
 		+\hbar\omega\sqrt{1+4\lambda}\left(n_-+\frac12\right)
@@ -162,7 +176,12 @@ $\Delta x=\sqrt{\langle x^2\rangle-\langle x^2\rangle},\Delta p=\sqrt{\langle p_
 		\langle x\rangle=\langle p_x\rangle=0,\qquad
 		\langle x^2\rangle=\frac13\langle r^2\rangle.
 	\]
-	由给定波函数直接积分可得 $\langle r^2\rangle=3a_0^2$，所以
+	将给定波函数和球坐标体积元代入，
+	\[
+	 \langle r^2\rangle=\frac4{a_0^3}\int_0^\infty r^4e^{-2r/a_0}dr
+	 =\frac4{a_0^3}\frac{4!}{(2/a_0)^5}=3a_0^2,
+	\]
+	所以
 	\[
 		\Delta x=a_0.
 	\]

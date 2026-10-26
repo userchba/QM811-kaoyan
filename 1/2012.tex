@@ -33,29 +33,47 @@
 	\end{enumerate}
 \banswer{
 \begin{enumerate}
-	%\renewcommand{\labelenumi}{\arabic{enumi}.}
-	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
-	%设定全局标号series=example	%引用全局变量resume=example
-	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
-	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-	\item
-	在$ 0\leq x \leq a $区域$ \psi_{n}(x)=\sqrt{\frac{2}{a}} \sin \frac{n\pi}{a}x $，其它区域为零。能量$ E_{n}=\frac{n^{2} \pi^{2} \hbar^{2}}{2 m a^{2}} $
-		\item
-		第二激发态（$n=3$）和第三激发态（$n=4$）的概率密度分别为
-		\[
-			\rho_{n=3}(x)=\frac2a\sin^2\frac{3\pi x}{a},\qquad
-			\rho_{n=4}(x)=\frac2a\sin^2\frac{4\pi x}{a}.
-		\]
-		$\rho_{n=3}$ 在 $x=0,a/3,2a/3,a$ 为零，形成三个等高波瓣；
-		$\rho_{n=4}$ 在 $x=0,a/4,a/2,3a/4,a$ 为零，形成四个等高波瓣。这些零点和波瓣位置即确定了所要求的示意图。
-	\item 
-	$ n\neq m $：
-	$ \braket{n|\hat{x}| m}=\frac{a}{\pi^{2}}\left[\frac{(-1)^{m-n}-1}{(m-n)^{2}}-\frac{(-1)^{m+n}-1}{(m+n)^{2}}\right] $；$ n=m $：$ \braket{n|\hat{x}| n}=\frac{a}{2} $
-	
-	
+\item 阱内方程为 $\psi''+k^2\psi=0$，其中 $k^2=2\mu E/\hbar^2$。
+通解 $A\sin kx+B\cos kx$ 由 $\psi(0)=0$ 得 $B=0$，由 $\psi(a)=0$ 得
+$k=n\pi/a$。再由 $|A|^2\int_0^a\sin^2(n\pi x/a)dx=1$ 得
+\[
+ \boxed{\psi_n(x)=\sqrt{\frac2a}\sin\frac{n\pi x}{a},\quad
+ E_n=\frac{n^2\pi^2\hbar^2}{2\mu a^2}},\quad n=1,2,\ldots,
+\]
+阱外波函数为零。
+\item 第二、第三激发态分别为 $n=3,4$，概率密度为
+\[
+ \rho_3(x)=\frac2a\sin^2\frac{3\pi x}{a},\qquad
+ \rho_4(x)=\frac2a\sin^2\frac{4\pi x}{a}.
+\]
+对 $\rho_n$，零点为 $x=ja/n$（$j=0,\ldots,n$），极大值位于
+$x=(2j+1)a/(2n)$（$j=0,\ldots,n-1$），高度均为 $2/a$。
+因此两图分别有三个和四个等高波瓣。
+\item 对角元由关于 $a/2$ 的反射对称性得 $x_{nn}=a/2$。
+当 $n\ne m$ 时，用 $2\sin A\sin B=\cos(A-B)-\cos(A+B)$，
+\begin{align*}
+ x_{nm}&=\frac2a\int_0^a x\sin\frac{n\pi x}{a}\sin\frac{m\pi x}{a}dx\\
+ &=\frac1a\int_0^a x\left[\cos\frac{(n-m)\pi x}{a}
+                         -\cos\frac{(n+m)\pi x}{a}\right]dx.
+\end{align*}
+对非零整数 $j$，
+\[
+ \int_0^a x\cos\frac{j\pi x}{a}dx
+ =\left[\frac{ax}{j\pi}\sin\frac{j\pi x}{a}
+       +\frac{a^2}{j^2\pi^2}\cos\frac{j\pi x}{a}\right]_0^a
+ =\frac{a^2[(-1)^j-1]}{j^2\pi^2}.
+\]
+故
+\[
+ \boxed{x_{nm}=\begin{cases}
+ a/2,&n=m,\\[2pt]
+ \dfrac{a}{\pi^2}\left[\dfrac{(-1)^{n-m}-1}{(n-m)^2}
+                       -\dfrac{(-1)^{n+m}-1}{(n+m)^2}\right],&n\ne m.
+ \end{cases}}
+\]
+特别地，$n\ne m$ 同奇偶时为零，异奇偶时为
+$-8anm/[\pi^2(n^2-m^2)^2]$。
 \end{enumerate}
-
-	
 }
 	
 \item 
@@ -64,20 +82,31 @@
 加上微扰 $H^{\prime}=-q E x \exp \left(-\frac{t^{2}}{\tau^{2}}\right)$, 其中 $E$ 为外电场强度， $\tau$ 为参数。求 $t=+\infty$ 时 谐振子仍停留在基态的概率。
 
 \banswer{
-$ \braket{m|H ^{\prime} |0} =-qEe^{-\frac{t^{2}}{\tau^{2}}} \cdot \frac{1}{\sqrt{2} } \sqrt{\frac{\hbar}{\mu\omega}} \delta_{m1}  $，跃迁到$ \ket{m} $态的系数为
-\[ 
-	\begin{aligned}
-	a_{m}(t)&=\frac{1}{i\hbar} \left( -\frac{qE}{\sqrt{2} } \sqrt{\frac{\hbar}{\mu\omega}}  \right)  \delta_{m1} \int_{-\infty}^{+\infty} e^{-\frac{t^{2}}{\tau^{2}} +i \omega_{m0} t } dt\\
-	&=\frac{1}{i\hbar} \left( -\frac{qE}{\sqrt{2} } \sqrt{\frac{\hbar}{\mu\omega}}  \right)  \delta_{m1}   \cdot \tau e^{-\frac{\omega_{m0}^{2} \tau^{2}}{4}} \cdot \sqrt{\pi} 
-\end{aligned}
- \]
-故只可能跃迁到$ \ket{1} $，在$t=+\infty$仍然停留在基态的概率为（注意到$ \omega_{10}=\omega  $）
-\[ 
-	\begin{aligned}
-P_{0}&=1-a^{*}a=1-\frac{q^{2}E^{2}\tau^{2}}{\mu\omega_{10} \hbar} \cdot \frac{\pi}{2} \cdot e^{-\frac{\omega_{10}^{2}\tau^{2}}{2}}\\
-&=1-\frac{q^{2}E^{2}\tau^{2}}{\mu\omega \hbar} \cdot \frac{\pi}{2} \cdot e^{-\frac{\omega^{2}\tau^{2}}{2}}
-\end{aligned}
- \]
+令 $x_0=\sqrt{\hbar/(2\mu\omega)}$，则 $x=x_0(a+a^\dagger)$，从基态出发
+\[
+ \langle n|H'(t)|0\rangle=-qEx_0e^{-t^2/\tau^2}\delta_{n1}.
+\]
+因此在一阶振幅近似下，只有 $n=1$ 被激发：
+\begin{align*}
+ c_1^{(1)}(\infty)
+ &=-\frac{i}{\hbar}\int_{-\infty}^\infty
+           (-qEx_0)e^{-t^2/\tau^2}e^{i\omega t}dt\\
+ &=\frac{iqEx_0}{\hbar}\sqrt\pi\tau e^{-\omega^2\tau^2/4}.
+\end{align*}
+这里使用 Gaussian Fourier 积分
+$\int e^{-t^2/\tau^2+i\omega t}dt=\sqrt\pi\tau e^{-\omega^2\tau^2/4}$。
+令
+\[
+ \eta=|c_1^{(1)}|^2
+     =\frac{\pi q^2E^2\tau^2}{2\mu\hbar\omega}e^{-\omega^2\tau^2/2}.
+\]
+由总概率守恒，在弱场 $\eta\ll1$ 时，
+\[
+ \boxed{P_0=1-\eta+O(E^4)}.
+\]
+不能把“只有第一激发态”理解成任意场强下的精确结论。线性驱动谐振子的精确末态是相干态，
+其参数为 $\alpha=iqEx_0\sqrt\pi\tau e^{-\omega^2\tau^2/4}/\hbar$，故精确地有
+$P_0=e^{-|\alpha|^2}=e^{-\eta}$；展开后与微扰结果一致。
 }
 
 \item 
@@ -98,22 +127,30 @@ P_{0}&=1-a^{*}a=1-\frac{q^{2}E^{2}\tau^{2}}{\mu\omega_{10} \hbar} \cdot \frac{\p
 \end{enumerate}
 \banswer{
 \begin{enumerate}
-	%\renewcommand{\labelenumi}{\arabic{enumi}.}
-	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
-	%设定全局标号series=example	%引用全局变量resume=example
-	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
-	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-	\item
-	$ \psi(\varphi)=\frac{1}{\sqrt{2 \pi}} e^{i m \varphi} \quad E_{m}=\frac{m^{2} \hbar^{2}}{2 I} $
-	
-	\item 
-	易知$ E_{0}^{(1)}=0 $。而
-	\[ \braket{m|H ^{\prime} |0}=\frac{1}{2\pi} \cdot (-D \mathscr{E}) \cdot \int_{0}^{2\pi} \cos m \varphi \cos \varphi d\varphi \]
-	只有当$ m=\pm1 $时才不为零，故$ E_{0}^{(2)}=-\frac{D^{2}\mathscr{E}^{2}I}{\hbar^{2}} $
-	
+\item 转子的自由 Hamilton 量为 $H_0=-\hbar^2\partial_\varphi^2/(2I)$。
+通解中的 $e^{im\varphi}$ 必须满足 $\psi(\varphi+2\pi)=\psi(\varphi)$，故
+$m\in\mathbb Z$。由 $\int_0^{2\pi}|\psi|^2d\varphi=1$，得
+\[
+ \boxed{\psi_m(\varphi)=\frac{e^{im\varphi}}{\sqrt{2\pi}},\quad
+ E_m^{(0)}=\frac{m^2\hbar^2}{2I}}.
+\]
+$m=0$ 为非简并基态，$m\ne0$ 与 $-m$ 简并。
+\item 基态为常函数，所以
+\[
+ E_0^{(1)}=-\frac{D\mathscr E}{2\pi}\int_0^{2\pi}\cos\varphi\,d\varphi=0.
+\]
+又由 $\cos\varphi=(e^{i\varphi}+e^{-i\varphi})/2$ 及指数函数正交性，
+\[
+ H'_{m0}=-\frac{D\mathscr E}{2}
+           (\delta_{m,1}+\delta_{m,-1}).
+\]
+两个非零矩阵元均为 $-D\mathscr E/2$，能量分母均为 $-\hbar^2/(2I)$，故
+\[
+ \boxed{E_0^{(2)}=2\frac{(D\mathscr E/2)^2}{-\hbar^2/(2I)}
+                  =-\frac{D^2\mathscr E^2I}{\hbar^2}}.
+\]
+因子 $2$ 来自 $m=+1,-1$ 两个中间态；适用条件为 $|D\mathscr E|I/\hbar^2\ll1$。
 \end{enumerate}
-
-
 }
 
 
@@ -174,7 +211,13 @@ P_{0}&=1-a^{*}a=1-\frac{q^{2}E^{2}\tau^{2}}{\mu\omega_{10} \hbar} \cdot \frac{\p
 		故 $\langle m|J_x|n\rangle$ 仅在
 		$\boxed{m=n\pm1}$ 时可能不为零。
 	\item 
-	$ P_{-1}=\frac{1}{4} $
+	由上一问的选择定则，$\langle m|J_x|m\rangle=0$。
+	$J_x$ 的三个测值为 $\hbar,0,-\hbar$，记其概率为 $P_+,P_0,P_-$。
+	于是 $\hbar(P_+-P_-)=0$，而题设 $P_0=1/2$、归一化要求
+	$P_++P_-=1/2$。两式联立得到
+	\[
+	 \boxed{P_-=P_+=\frac14}.
+	\]
 \end{enumerate}
 
 
@@ -213,7 +256,16 @@ $\varepsilon^{2}$量级）。
 	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
 	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
 	\item
-	$\left[H_{0}, H^{\prime}\right]=-i \hbar \frac{e \varepsilon }{\mu} p_{z}$，$\left[H^{\prime},\left[H_{0}, H^{\prime}\right]\right]=\frac{e^{2} \varepsilon ^{2} \hbar ^{2}}{\mu}$ 
+	势能与 $z$ 对易，且
+	\[
+	 [p_z^2,z]=p_z[p_z,z]+[p_z,z]p_z=-2i\hbar p_z.
+	\]
+	故
+	\[
+	 [H_0,H']=-\frac{i\hbar e\varepsilon}{\mu}p_z,\qquad
+	 [H',[H_0,H']]=-\frac{i\hbar(e\varepsilon)^2}{\mu}[z,p_z]
+	 =\boxed{\frac{e^2\varepsilon^2\hbar^2}{\mu}}.
+	\]
 	\begin{note}
 		这里直接采用直角坐标系运算，采用球坐标系反而麻烦了。球坐标系下的结果是
 		\[ 
@@ -221,7 +273,13 @@ $\varepsilon^{2}$量级）。
 		 \]
 	\end{note}
 	\item 
-		$ \braket{0|H ^{\prime} |0}=0 $，$  \braket{0|{H ^{\prime}}^{2} |0}=e^{2}\varepsilon^{2}a_{0}^{2} $
+		基态为偶宇称，$z$ 为奇算符，故 $\langle H'\rangle_0=0$。
+	球对称性给出 $\langle z^2\rangle=\langle r^2\rangle/3$，并且
+	\[
+	 \langle r^2\rangle=\frac4{a_0^3}\int_0^\infty r^4e^{-2r/a_0}dr
+	 =\frac4{a_0^3}\frac{4!}{(2/a_0)^5}=3a_0^2.
+	\]
+	因此 $\boxed{\langle H'^2\rangle_0=e^2\varepsilon^2a_0^2}$。
 			\item
 		记 $A=H'=e\varepsilon z$，并令
 		$s=\langle0|A^2|0\rangle=e^2\varepsilon^2a_0^2$。

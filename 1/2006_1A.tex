@@ -32,7 +32,12 @@
 			&=A^\dagger A-(A^\dagger)^2A^2=A^\dagger A=B.
 		\end{align*}
 
-		\item 因 $B$ 为厄米投影算符，其本征值为 $0,1$。在按 $B$ 本征值 $0,1$ 排列的归一化基中，可选择基矢相位使
+		\item 由 $B^2=B$，本征值满足 $b^2=b$，只能为 $0,1$。
+		对归一化的 $|0\rangle$ 有 $\|A|0\rangle\|^2=\langle0|B|0\rangle=0$，
+		所以 $A|0\rangle=0$。令 $|1\rangle=A^\dagger|0\rangle$，则由
+		$AA^\dagger=I-B$ 得 $\langle1|1\rangle=1$、$A|1\rangle=|0\rangle$，
+		并可验证 $B|1\rangle=|1\rangle$。
+		在这一不可约的二维子空间中，按 $|0\rangle,|1\rangle$ 排列基矢，得到
 		\[
 			\boxed{B=\begin{pmatrix}0&0\\0&1\end{pmatrix},
 			\qquad
@@ -40,7 +45,9 @@
 			\qquad
 			A^\dagger=\begin{pmatrix}0&0\\1&0\end{pmatrix}}.
 		\]
-		这些矩阵直接满足题给的全部代数关系；若交换基矢顺序，只需同时交换矩阵的行列。
+		若 $B=0$ 与 $B=1$ 的本征空间还具有额外简并，$A^\dagger$ 将两个空间的正交基一一配对，
+		一般表示是这些 $2\times2$ 块的直和（或将每个矩阵元乘以简并空间的单位阵）。
+		交换基矢顺序时，只需同时交换矩阵的行列。
 	\end{enumerate}
 }
 
@@ -138,7 +145,9 @@ $$\frac{\partial E_n}{\partial \lambda}=\int \psi^*_n(\vec{r})\frac{\partial \ha
 
 	第一激发态由 $|1,2\rangle$、$|2,1\rangle$ 构成二重简并子空间。利用
 	\[
-		\langle1|x|2\rangle=-\frac{16a}{9\pi^2},
+		\langle1|x|2\rangle=\frac1a\int_0^a x
+ \left(\cos\frac{\pi x}{a}-\cos\frac{3\pi x}{a}\right)dx
+ =-\frac{16a}{9\pi^2},
 	\]
 	微扰矩阵为
 	\[

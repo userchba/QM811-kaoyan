@@ -246,11 +246,15 @@ $|\psi\rangle=a|0\rangle_1|1\rangle_2+b|1\rangle_1|0\rangle_2$，
 
 \banswer{
 	把哈密顿量写成 $H=H_0+\xi(r)\vec L\cdot\vec S$，其中球对称的 $H_0$ 与 $\vec L$、$\vec S$ 均对易。自旋--轨道项给出
-	\[
-		[\vec L\cdot\vec S,L_i]\neq0,
-		\qquad
-		[\vec L\cdot\vec S,S_i]\neq0,
-	\]
+	\begin{align*}
+ [\vec L\cdot\vec S,L_i]
+ &=i\hbar\sum_{jk}\varepsilon_{jik}L_kS_j
+   =i\hbar(\vec L\times\vec S)_i,\\
+ [\vec L\cdot\vec S,S_i]
+ &=i\hbar\sum_{jk}\varepsilon_{jik}L_jS_k
+   =-i\hbar(\vec L\times\vec S)_i.
+ \end{align*}
+ 这里利用 $[L_j,S_k]=0$；两式一般不为零，但恰好互相抵消。
 	故 $\vec L$ 和 $\vec S$ 分别不守恒。另一方面
 	\begin{align*}
 		[\vec L\cdot\vec S,J_i]

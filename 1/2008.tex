@@ -44,7 +44,10 @@ $$V=\begin{cases}0,&0<\varphi<\varphi_0\\ \infty,&other\end{cases}$$
 		-\frac{\hbar^2}{2I}\frac{d^2\psi}{d\varphi^2}=E\psi,
 		\qquad \psi(0)=\psi(\varphi_0)=0.
 	\]
-	因此
+	写通解 $\psi=A\sin(k\varphi)+B\cos(k\varphi)$，其中
+	$k=\sqrt{2IE}/\hbar$。左端条件使 $B=0$，右端使 $k\varphi_0=n\pi$。
+	由 $|A|^2\int_0^{\varphi_0}\sin^2(n\pi\varphi/\varphi_0)d\varphi=1$ 得
+	$|A|=\sqrt{2/\varphi_0}$。因此
 	\[
 		\boxed{E_n=\frac{\hbar^2\pi^2n^2}{2I\varphi_0^2}},
 		\qquad n=1,2,3,\ldots,
@@ -117,7 +120,19 @@ $xH_n=\frac{1}{\sqrt a}\left[\sqrt{\frac{n}{2}}H_{n-1}+\sqrt{\frac{n+1}{2}}H_{n+
 	\[
 		U_{\mathrm{kick}}=\exp\!\left(-\frac{i\lambda x}{\hbar}\right)
 	\]
-	作用。写 $x=\sqrt{\hbar/(2m\omega)}(a+a^\dagger)$，可知作用后的态是相干态，参数为
+	作用；题面 $\delta(t_0)$ 按在 $t=t_0$ 的完整脉冲 $\delta(t-t_0)$ 理解。
+	写 $x=x_0(a+a^\dagger)$、$x_0=\sqrt{\hbar/(2m\omega)}$，
+	并令 $\alpha=-i\lambda x_0/\hbar$。因 $\alpha$ 纯虚，
+	\[
+	 U_{\rm kick}=e^{\alpha a^\dagger-\alpha^*a}
+	 =e^{-|\alpha|^2/2}e^{\alpha a^\dagger}e^{-\alpha^*a}.
+	\]
+	这里用了两指数的对易子为常数的 BCH 公式。又 $a|0\rangle=0$，故
+	\[
+	 U_{\rm kick}|0\rangle=e^{-|\alpha|^2/2}
+	 \sum_{n=0}^\infty\frac{\alpha^n}{\sqrt{n!}}|n\rangle.
+	\]
+	这是相干态，参数为
 	\[
 		\alpha=-\frac{i\lambda}{\sqrt{2m\hbar\omega}},
 		\qquad |\alpha|^2=\frac{\lambda^2}{2m\hbar\omega}.

@@ -150,6 +150,10 @@
 	\begin{enumerate}
 		\item 当 $E>0$ 时，$k_2=\sqrt{2mE}/\hbar$。由 $x=0$ 处 $\psi$ 与 $d\psi/dx$ 连续，
 		\[
+		 1+r=t,\qquad k_1(1-r)=k_2t.
+		\]
+		解这两个线性方程得
+		\[
 			r=\frac{k_1-k_2}{k_1+k_2},\qquad
 			t=\frac{2k_1}{k_1+k_2}.
 		\]
@@ -215,7 +219,15 @@
 		e^{i\varphi}\sin\theta&-\cos\theta
 		\end{pmatrix}.
 	\]
-	由 $\det(\sigma_n-\lambda I)=\lambda^2-1=0$，本征值为 $\lambda_\pm=\pm1$。一组归一化本征函数可取
+	特征方程为
+	\[
+	 \det(\sigma_n-\lambda I)=(\cos\theta-\lambda)(-\cos\theta-\lambda)
+	 -\sin^2\theta=\lambda^2-1=0,
+	\]
+	所以本征值为 $\lambda_\pm=\pm1$。设本征矢为 $(u,v)^T$，对于 $\lambda=+1$，
+	第一行给出 $v/u=e^{i\varphi}(1-\cos\theta)/\sin\theta
+	=e^{i\varphi}\tan(\theta/2)$；取 $|u|^2+|v|^2=1$。
+	负本征矢与它正交并归一化，得到
 	\[
 		\chi_+(\theta,\varphi)=
 		\begin{pmatrix}\cos(\theta/2)\\e^{i\varphi}\sin(\theta/2)\end{pmatrix},

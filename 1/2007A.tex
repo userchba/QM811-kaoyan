@@ -66,7 +66,13 @@ $$H'(x)=\begin{cases}0,&0<x<\frac{a}{3},\frac{2a}{3}<x<a\\
 		\begin{pmatrix}B&-iA\\iA&-B\end{pmatrix}.
 	\]
 	\begin{enumerate}
-		\item 本征值为
+		\item 特征方程为
+		\[
+		 \det\left[\frac\hbar2\begin{pmatrix}B&-iA\\iA&-B\end{pmatrix}
+		             -\lambda I\right]
+		 =\lambda^2-\frac{\hbar^2}{4}(A^2+B^2)=0,
+		\]
+		故本征值为
 		\[
 			\boxed{\lambda_\pm=\pm\frac\hbar2C}.
 		\]
@@ -78,10 +84,16 @@ $$H'(x)=\begin{cases}0,&0<x<\frac{a}{3},\frac{2a}{3}<x<a\\
 			|-\rangle=\frac1{\sqrt{2C(C+B)}}
 			\begin{pmatrix}iA\\C+B\end{pmatrix}.
 		\]
-		$C+B=0$ 的特殊情形即 $A=0,B<0$，本征态直接是 $S_z$ 的两个本征态。
+		求正本征矢时，第二行给出 $iAu=(C+B)v$；选择
+		$(u,v)=(C+B,iA)$，其模平方为 $(C+B)^2+A^2=2C(C+B)$，
+		即得到上式。负本征矢由正交性确定。
+		若 $C>0$ 而 $C+B=0$，则 $A=0,B<0$，直接选 $S_z$ 的两个本征态。
+		若 $C=0$，原算符为零，任意归一化自旋态都是零本征值的本征态。
 
 		\item 该算符等价于沿单位方向
-		$\vec n=(0,A/C,B/C)$ 的自旋投影乘以 $C$。在 $|\pm\rangle$ 中测得 $S_y=+\hbar/2$ 的概率分别为
+		$\vec n=(0,A/C,B/C)$ 的自旋投影乘以 $C$（$C>0$）。
+		$S_y=+\hbar/2$ 的投影算符为 $\Pi_{+y}=(I+\sigma_y)/2$，
+		而 $|\pm\rangle$ 中 $\langle\sigma_y\rangle=\pm A/C$，所以概率分别为
 		\[
 			\boxed{P_y^{(\pm)}=\frac12\left(1\pm\frac{A}{C}\right)}.
 		\]
@@ -149,23 +161,31 @@ $$H'(x)=\begin{cases}0,&0<x<\frac{a}{3},\frac{2a}{3}<x<a\\
 （$30'$）一个质量为$m$的粒子被限制在$r=a$和$r=b$的两个不可穿透的同心球面之间运动。不存在其它势，求粒子的基态能量和归一化波函数。（1996 年第四题） 
 
 \banswer{
-	基态的轨道角动量量子数为 $l=0$。令 $u(r)=rR(r)$，径向方程与边界条件为
-	\[
-		u''+k^2u=0,\qquad u(a)=u(b)=0.
-	\]
-	故基态 $k=\pi/(b-a)$，
-	\[
-		\boxed{E_0=\frac{\pi^2\hbar^2}{2m(b-a)^2}}.
-	\]
-	取 $Y_{00}=1/\sqrt{4\pi}$ 并归一化，得到
-	\[
-		\boxed{\psi_0(r,\theta,\varphi)=
-		\begin{cases}
-		\dfrac{1}{\sqrt{2\pi(b-a)}}
-		\dfrac{\sin[\pi(r-a)/(b-a)]}{r},&a<r<b,\\[7pt]
-		0,&\text{其他区域}.
-		\end{cases}}
-	\]
+假定 $0<a<b$。令 $\psi=R_l(r)Y_{lm}(\theta,\varphi)$、$u_l=rR_l$，则
+\[
+ \left[-\frac{\hbar^2}{2m}\frac{d^2}{dr^2}
+       +\frac{\hbar^2l(l+1)}{2mr^2}\right]u_l=Eu_l,
+ \qquad u_l(a)=u_l(b)=0.
+\]
+所有 $l$ 的径向定义区间及端点条件相同，而离心势非负，因此最低能量在 $l=0$ 通道取得。
+此时 $u''+k^2u=0$。由左端条件写成 $u=C\sin[k(r-a)]$，右端条件给出
+$k(b-a)=n\pi$（$n=1,2,\ldots$）。基态取 $n=1$，故
+\[
+ \boxed{E_0=\frac{\pi^2\hbar^2}{2m(b-a)^2}}.
+\]
+球谐函数取归一化的 $Y_{00}=1/\sqrt{4\pi}$，三维归一化就等价于
+\[
+ 1=\int_a^b|R_0|^2r^2dr=|C|^2\int_a^b
+       \sin^2\frac{\pi(r-a)}{b-a}dr=|C|^2\frac{b-a}{2}.
+\]
+所以全波函数为
+\[
+ \boxed{\psi_0(r,\theta,\varphi)=\begin{cases}
+ \dfrac{1}{\sqrt{2\pi(b-a)}}\dfrac{\sin[\pi(r-a)/(b-a)]}{r},&a<r<b,\\[6pt]
+ 0,&\text{其他区域}.
+ \end{cases}}
+\]
+其中 $1/r$ 来自 $R=u/r$，不能把径向函数直接当作一维正弦函数。
 }
 
 

@@ -27,37 +27,30 @@
 	
 \banswer{
 \begin{enumerate}
-	%\renewcommand{\labelenumi}{\arabic{enumi}.}
-	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
-	%设定全局标号series=example	%引用全局变量resume=example
-	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
-	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-	\item
-	可将方程的解表示为
-	\[ 
-	\psi(x)=A \sin kx + B \cos kx
-	 \]
-	这里最终只能得到$ kL=2n\pi $，系数$ A $和$ B $定不出来，说明这个体系的能量本征态存在简并情况。另外，关于$ n $的取值范围为$ n=0,\pm 1, \pm 2 ,\pm 3,,\cdots $。能量为
-	\[ 
-	E_{n}=\frac{\pi^{2} \hbar^{2}}{2 m L^{2}}(2 n)^{2}
-	 \]
-\item 
-	第一激发能级对应 $n=\pm1$。取归一化动量本征态
-	$\phi_\pm(x)=L^{-1/2}e^{\pm i2\pi x/L}$，一般归一化态为
-	\[
-	\psi(x)=c_+\phi_+(x)+c_-\phi_-(x),\qquad
-	|c_+|^2+|c_-|^2=1.
-	\]
-	由于
-	\[
-	\langle p\rangle=\frac{2\pi\hbar}{L}
-	\left(|c_+|^2-|c_-|^2\right),
-	\]
-	$\langle p\rangle=0$ 要求
-	$|c_+|=|c_-|=1/\sqrt2$；两系数的相对相位任意。
+\item 这是周期边界而非硬墙边界，故不能令端点波函数为零。
+对 $E>0$，写 $\psi=Ae^{ikx}+Be^{-ikx}$。两条周期条件相加、相减后分别要求
+\[
+ A(e^{ikL}-1)=0,\qquad B(e^{-ikL}-1)=0.
+\]
+非零解要求 $kL=2\pi n$。能量及归一化动量本征态为
+\[
+ \boxed{E_n=\frac{2\pi^2\hbar^2n^2}{\mu L^2},\qquad
+ \phi_n(x)=\frac1{\sqrt L}e^{i2\pi nx/L}},\quad n\in\mathbb Z.
+\]
+$E=0$ 时通解为 $Ax+B$，周期条件使 $A=0$，留下常数基态；
+负能量不可能，因为 $\langle H\rangle=(\hbar^2/2\mu)\int|\psi'|^2dx\ge0$。
+因此基态非简并，正能级由 $n$ 与 $-n$ 构成二重简并。
+\item 第一激发能级由 $n=\pm1$ 构成，一般归一化态为
+\[
+ \psi=c_+\phi_++c_-\phi_-,\qquad |c_+|^2+|c_-|^2=1.
+\]
+因 $p\phi_\pm=\pm(2\pi\hbar/L)\phi_\pm$ 且二态正交，交叉矩阵元为零，故
+\[
+ \langle p\rangle=\frac{2\pi\hbar}{L}(|c_+|^2-|c_-|^2).
+\]
+与归一化条件联立，得
+$\boxed{|c_+|=|c_-|=1/\sqrt2}$；相对相位任意。
 \end{enumerate}
-
-
 }
 
 \item 
@@ -69,27 +62,37 @@ H^{\prime}=\lambda\left(x y z+x^{2} y+x y^{2}\right)
 提示：粒子数表象下, $ \left\langle n_{x}^{\prime}|\hat{x}| n_{x}\right\rangle=\sqrt{\frac{\hbar}{2 \mu \omega}}\left(\sqrt{n_{x}+1} \delta_{n_{x}^{\prime}, n_{x}+1}+\sqrt{n_{x}} \delta_{n_{x}^{\prime}, n_{x}-1}\right) )$。
 	
 \banswer{
-\begin{enumerate}
-	%\renewcommand{\labelenumi}{\arabic{enumi}.}
-	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
-	%设定全局标号series=example	%引用全局变量resume=example
-	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
-	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-	\item
-	设$ \ket{\psi}=\ket{n_{x}n_{y}n_{z}} $，$ E_{n}=\left(n_{x}+n_{y}+n_{z}+\frac{3}{2}\right) \hbar \omega $。\\
-	 ①显然$ \braket{000|H ^{\prime} |000}=0 $\\
-	②矩阵元$ \braket{n_{x}n_{y}n_{z}|H ^{\prime} |000}$不为零的情况如下
-	\[ 
-		\begin{tblr}{ccccc}
-			\hline
-			\braket{111|xyz|000}& \braket{010|x^{2}y |000}&\braket{210|x^{2}y|000} & \braket{100|xy^{2} |000} & \braket{120|xy^{2}|000}\\
-		\hline
-	\end{tblr}
-	 \]
-基态能量的二级修正为$ E= \frac{3}{2}\hbar\omega -\frac{11(\lambda \hbar)^{2}}{24 \mu^{3} \omega^{4}} $	
-\end{enumerate}
-
-
+令 $x_0=\sqrt{\hbar/(2\mu\omega)}$，$x=x_0(a_x+a_x^\dagger)$，其他方向类似。
+无扰态 $|n_xn_yn_z\rangle$ 的能量为
+$E^{(0)}=(n_x+n_y+n_z+3/2)\hbar\omega$，基态为 $|000\rangle$。
+微扰各项都是总宇称为奇的三次项，故
+\[
+ E_0^{(1)}=\langle000|H'|000\rangle=0.
+\]
+为计算二阶，逐项作用于基态：
+\begin{align*}
+ xyz|000\rangle&=x_0^3|111\rangle,\\
+ x^2y|000\rangle&=x_0^3(|010\rangle+\sqrt2|210\rangle),\\
+ xy^2|000\rangle&=x_0^3(|100\rangle+\sqrt2|120\rangle).
+\end{align*}
+其中用了 $(a+a^\dagger)^2|0\rangle=|0\rangle+\sqrt2|2\rangle$。
+五个中间态互相正交；$|010\rangle,|100\rangle$ 的能量分母为 $-\hbar\omega$，
+其余三个为 $-3\hbar\omega$。所以
+\begin{align*}
+ E_0^{(2)}
+ &=\lambda^2x_0^6\left[-\frac1{3\hbar\omega}
+          -\frac1{\hbar\omega}-\frac2{3\hbar\omega}
+          -\frac1{\hbar\omega}-\frac2{3\hbar\omega}\right]\\
+ &=-\frac{11\lambda^2x_0^6}{3\hbar\omega}
+ =-\frac{11\lambda^2\hbar^2}{24\mu^3\omega^4}.
+\end{align*}
+因此至二级微扰精度，
+\[
+ \boxed{E_0\simeq\frac32\hbar\omega-
+                  \frac{11\lambda^2\hbar^2}{24\mu^3\omega^4}}.
+\]
+这给出从无扰基态延拓的微扰能量；三次势在无穷远处不受下界约束，
+不能将该形式微扰结果当作全空间势能具有严格基态的证明。
 }
 
 
@@ -213,29 +216,33 @@ H^{\prime}=\lambda\left(x y z+x^{2} y+x y^{2}\right)
 
 \banswer{
 \begin{enumerate}
-	%\renewcommand{\labelenumi}{\arabic{enumi}.}
-	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
-	%设定全局标号series=example	%引用全局变量resume=example
-	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
-	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-	\item
-		选 $x e^{-x/a}$。无限高势垒要求波函数在 $x=0$ 处为零，并且束缚态波函数在 $x\to+\infty$ 时必须衰减。三个候选函数中，只有 $x e^{-x/a}$ 同时满足这两个边界条件且可归一化。
-	\item 
-	先归一化：
-	\[ 
-	\psi=\left\{\begin{aligned}
-		&0 & x<0 \\
-		&\frac{2}{\sqrt{a^{3}}} x e^{-x / a} & x \geq 0
-	\end{aligned}\right.
-	 \]
-	得到
-	\[ 
-	E=\frac{\hbar^{2}}{2 \mu a^{2}}+B \frac{3 a}{2}
-	 \]
-	 当$ a=\left(\frac{2 \hbar^{2}}{3 B \mu}\right)^{1 / 3} $时$\frac{\partial E}{\partial a}=0$，此时$E=\frac{9 }{4}\cdot B \cdot \left(\frac{2 \hbar^{2}}{3 B \mu}\right)^{1 / 3}$
+\item 无限高墙要求 $\psi(0)=0$，束缚态还须在 $x\to\infty$ 衰减并平方可积。
+$e^{-x/a}$ 不满足第一条，$1-e^{-x/a}$ 不满足第二条，故选 $xe^{-x/a}$（$a>0$）。
+\item 设 $\psi=Nxe^{-x/a}$（$x\ge0$，负半轴为零）。使用
+\[
+ \int_0^\infty x^ne^{-2x/a}dx=n!\left(\frac a2\right)^{n+1},
+\]
+归一化给出 $1=N^2a^3/4$，故 $N=2/a^{3/2}$。
+边界项为零，动能可按导数模平方计算：
+\begin{align*}
+ \langle T\rangle&=\frac{\hbar^2N^2}{2\mu}
+        \int_0^\infty(1-x/a)^2e^{-2x/a}dx
+        =\frac{\hbar^2}{2\mu a^2},\\
+ \langle V\rangle&=BN^2\int_0^\infty x^3e^{-2x/a}dx=\frac{3Ba}{2}.
+\end{align*}
+故 $E(a)=\hbar^2/(2\mu a^2)+3Ba/2$。
+\[
+ E'(a)=-\frac{\hbar^2}{\mu a^3}+\frac{3B}{2}=0
+ \quad\Longrightarrow\quad
+ a_*=\left(\frac{2\hbar^2}{3B\mu}\right)^{1/3}.
+\]
+$E''(a_*)=3\hbar^2/(\mu a_*^4)>0$，且两端 $a\to0,\infty$ 均使 $E$ 发散，
+故该驻点是极小值。由驻点条件 $\langle T\rangle=3Ba_*/4$，
+\[
+ \boxed{E_{\rm var}=\frac94B\left(\frac{2\hbar^2}{3B\mu}\right)^{1/3}},
+ \qquad E_0\le E_{\rm var}.
+\]
 \end{enumerate}
-
-
 }
 
 
@@ -302,7 +309,11 @@ H^{\prime}=\lambda\left(x y z+x^{2} y+x y^{2}\right)
 	=\frac{4\gamma^2}{\Delta^2}
 	\sin^2\!\left(\frac{\Delta t}{2\hbar}\right)}.
 	\]
-	它正是精确结果在 $|\gamma|/\Delta\ll1$ 时保留到 $\gamma^2$ 的展开；同时应保证所求跃迁概率远小于 $1$，以使一阶近似自洽。
+	对固定的时间，上式正是精确结果在 $|\gamma|/\Delta\ll1$ 时保留到 $\gamma^2$ 的展开。
+	但此展开并非对任意长时间一致成立：精确振荡频率比 $\Delta/\hbar$ 多
+	$2\gamma^2/(\hbar\Delta)+O(\gamma^4)$。
+	若还要准确追踪振荡相位，一个充分条件是 $\gamma^2t/(\hbar\Delta)\ll1$。
+	仅有跃迁概率小，并不能消除很长时间后的相位误差。
 \end{enumerate}
 }
 

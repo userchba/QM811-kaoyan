@@ -88,21 +88,36 @@ $(\vec{\sigma}\cdot\vec{A})(\vec{\sigma}\cdot\vec{B})=\vec{A}\cdot\vec{B}+i\vec{
 求演化成$-\psi(x,0)$所需的最短时间$t_{min}$。
 \end{enumerate}
 \banswer{
+令 $c=\cos(\theta/2)$、$s=\sin(\theta/2)$，谐振子能量为
+$E_n=(n+1/2)\hbar\omega$。
 \begin{enumerate}
-	%\renewcommand{\labelenumi}{\arabic{enumi}.}
-	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
-	%设定全局标号series=example	%引用全局变量resume=example
-	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
-	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-	\item
-	$\psi(x, t)=\cos \frac{\theta}{2}|0\rangle e^{-\frac{i \omega t}{2}}+\sin \frac{\theta}{2}|1\rangle e^{-\frac{3 i \omega t}{2}}$
-	\item 
-	$P_{0}=\cos ^{2} \frac{\theta}{2}$
-	 \quad $P_{1}=\sin ^{2} \frac{\theta}{2}$
-	\item 
-	$\langle V\rangle=\frac{m \omega^{2}}{2}\left\langle x^{2}\right\rangle=\frac{\hbar \omega}{4} \cos ^{2} \frac{\theta}{2}+\frac{3 \hbar \omega}{4} \sin ^{2} \frac{\theta}{2}$
-	\item 
-	$ t_{\min}=\frac{2\pi}{\omega} $
+\item 各定态分别积累动力学相位，故位置表象的波函数为
+\[
+ \boxed{\psi(x,t)=c\varphi_0(x)e^{-i\omega t/2}
+                    +s\varphi_1(x)e^{-3i\omega t/2}}.
+\]
+\item 利用本征态的正交归一性，投影得
+$\boxed{P_0=|c|^2,\ P_1=|s|^2}$；相位不影响能量概率。
+\item 写 $x=x_0(a+a^\dagger)$，$x_0=\sqrt{\hbar/(2m\omega)}$。
+于是
+\[
+ x^2=x_0^2(a^2+a^{\dagger2}+aa^\dagger+a^\dagger a),\qquad
+ \langle n|x^2|n\rangle=x_0^2(2n+1).
+\]
+$x^2$ 只能使量子数改变 $0,\pm2$，故 $\langle0|x^2|1\rangle=0$，
+也可由宇称判断交叉项为零。因此
+\[
+ \boxed{\langle V\rangle_t=\frac{\hbar\omega}{4}c^2
+                             +\frac{3\hbar\omega}{4}s^2}.
+\]
+\item 若 $c,s$ 均非零，要求 $\psi(x,t)=-\psi(x,0)$，须同时满足
+\[
+ e^{-i\omega t/2}=-1,\qquad e^{-3i\omega t/2}=-1.
+\]
+第一式要求 $\omega t/2=(2k+1)\pi$，此时第二式自动满足，故
+$\boxed{t_{\min}=2\pi/\omega}$。
+若 $s=0$，结果仍为 $2\pi/\omega$；若 $c=0$，初态只有 $n=1$，则最短时间改为
+$\boxed{2\pi/(3\omega)}$。这里要求波函数严格变号；整体负号并不改变物理态。
 \end{enumerate}
 }
 
@@ -146,30 +161,38 @@ $$
 \end{enumerate}
 
 \banswer{
-采用球坐标: $\hat{H}^{\prime}=\lambda z e^{-\frac{t}{T}}=\lambda e^{-\frac{t}{T}} r \cos \theta$，注意到
-\[ \cos \theta Y_{l m}=\sqrt{\frac{(l+1)^{2}-m^{2}}{(2 l+1)(2 l+3)}} \mathrm{Y}_{l+1, m}+\sqrt{\frac{l^{2}-m^{2}}{(2 l-1)(2 l+1)}} \mathrm{Y}_{l-1, m} \]
-\[ 
-a_{m n}=\frac{1}{i \hbar} \int_{0}^{t} H_{m n}^{\prime} e^{i \omega_{m n} t^{\prime}} d t^{\prime}
-\]
+令 $\omega_{21}=(E_2-E_1)/\hbar$。微扰的空间部分为 $\lambda r\cos\theta$。
 \begin{enumerate}
-	%\renewcommand{\labelenumi}{\arabic{enumi}.}
-	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
-	%设定全局标号series=example	%引用全局变量resume=example
-	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
-	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-	\item
-	\[ 
-	H_{21}^{\prime}=\left\langle\psi_{210}\left|\hat{H}^{\prime}\right| \psi_{100}\right\rangle=4\sqrt{2} \cdot \left(\frac{2}{3}\right)^{5} \cdot a \cdot e^{-\frac{t}{T}}
-	 \]
-	 \[ 
-	 P=\ 2^{5} \left( \frac{ 2 }{ 3 } \right)^{10} \lambda^{2}  \cdot \frac{a^{2}}{\hbar^{2}} \cdot \frac{T^{2}}{1+\omega_{21}^{2}T^{2}}
-	  \]
-	\item 
-	根据$ \cos \theta Y_{l m} $的性质，此时的选择定则为$ \Delta m =0 , \Delta l=\pm 1 $，
-	所以基态电子跃迁到激发态 $ \psi_{200}, \psi_{211}, \psi_{21,-1}$ 的概率均等于零。
+\item 由 $\cos\theta\,Y_{00}=Y_{10}/\sqrt3$，角积分为
+$\int Y_{10}^*\cos\theta Y_{00}\,d\Omega=1/\sqrt3$。
+径向积分含体积元 $r^2dr$ 和算符中的一个 $r$，故
+\begin{align*}
+ z_{21}&=\langle210|z|100\rangle
+ =\frac1{\sqrt3}\int_0^\infty R_{21}(r)R_{10}(r)r^3dr\\
+ &=\frac1{3\sqrt2a^4}\int_0^\infty r^4e^{-3r/(2a)}dr
+ =\frac{4!}{3\sqrt2a^4}\left(\frac{2a}{3}\right)^5
+ =\frac{128\sqrt2}{243}a.
+\end{align*}
+因此 $H'_{21}(t)=\lambda z_{21}e^{-t/T}$，其中 $\lambda$ 不能遗漏。
+一级含时微扰论给出
+\begin{align*}
+ c_{210}^{(1)}(\infty)
+ &=-\frac{i\lambda z_{21}}{\hbar}\int_0^\infty e^{-(1/T-i\omega_{21})t}dt\\
+ &=-\frac{i\lambda z_{21}T}{\hbar(1-i\omega_{21}T)}.
+\end{align*}
+故 $t\gg T$ 时
+\[
+ \boxed{P_{100\to210}=\frac{\lambda^2|z_{21}|^2T^2}
+ {\hbar^2(1+\omega_{21}^2T^2)}
+ =\frac{2^{15}}{3^{10}}\frac{\lambda^2a^2T^2}
+ {\hbar^2(1+\omega_{21}^2T^2)}}.
+\]
+\item 角向积分要求 $\Delta l=\pm1$、$\Delta m=0$。
+从 $l=m=0$ 出发，$n=2$ 子空间只有 $|210\rangle$ 被耦合。
+$|200\rangle$ 的宇称不合，$|211\rangle$、$|21,-1\rangle$ 的磁量子数不合，
+所以这三个选项的一级跃迁振幅均为零。第一激发能级的总跃迁概率即上一问的概率。
+这些选择定则针对当前的一阶电偶极跃迁；高阶过程不能由此一概排除。
 \end{enumerate}
-
-	
 }
 
 
@@ -272,57 +295,54 @@ V(x)=
 \end{enumerate}
 
 \banswer{
-无微扰时波函数和能级为
+无扰本征态和能量为
 \[
-\phi_{n}^{(0)}=\sqrt{\frac{1}{a}} \sin \frac{n \pi x}{2 a} \quad E_{n}^{(0)}=\frac{n^{2} \pi^{2} \hbar^{2}}{8 m a^{2}}
+ \phi_n(x)=\frac1{\sqrt a}\sin\frac{n\pi x}{2a},\qquad
+ E_n^{(0)}=n^2\epsilon,\quad \epsilon=\frac{\pi^2\hbar^2}{8ma^2}.
 \]
+由 $\delta$ 函数的取样性质，先求所有微扰矩阵元：
+\[
+ H'_{kn}=\lambda\phi_k(a)\phi_n(a)
+        =\frac{\lambda}{a}\sin\frac{k\pi}{2}\sin\frac{n\pi}{2}.
+\]
+若 $k,n$ 中任一个为偶数，矩阵元为零；若二者均为奇数，矩阵元为
+$\pm\lambda/a$，符号由两个正弦的乘积决定，不能统一写为正号。
 \begin{enumerate}
-	%\renewcommand{\labelenumi}{\arabic{enumi}.}
-	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
-	%设定全局标号series=example	%引用全局变量resume=example
-	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
-	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-	\item
- 第$n$能级精确到二级的近似表达式为：
-\[ 
-	\begin{aligned}
-	E_{n}&=E_{n}^{(0)}+E_{n}^{(1)}+E_{n}^{(2)}\\
-	&=\frac{n^{2} \pi^{2} \hbar^{2}}{8 m a^{2}}+\left\langle\psi_{n}^{0}\left|H^{\prime}\right| \psi_{n}^{0}\right\rangle+\sum_{k} {}^{\prime} \frac{\left|H_{k n}^{\prime}\right|^{2}}{E_{n}^{0}-E_{k}^{0}}
-\end{aligned}
- \]
- 当$ n $为偶数的时候
- \[ 
- E_{n}=\frac{n^{2} \pi^{2} \hbar^{2}}{8 m a^{2}} + 0+0
-  \]
-  当 $n$ 为奇数时，只有奇数 $k$ 对二级修正有贡献，并且
-  \[
-  \sum_{\substack{k=1,3,5,\ldots\\k\ne n}}\frac{1}{n^2-k^2}
-  =-\frac{1}{4n^2}.
-  \]
-  因而
- \[ 
- E_{n}=\boxed{\frac{n^{2} \pi^{2} \hbar^{2}}{8 m a^{2}}
- + \frac{\lambda}{a}
- -\frac{2m\lambda^{2}}{\pi^{2}\hbar^{2}n^{2}}}
- +O(\lambda^3),\qquad n\ {\rm odd}.
-  \]
-  	其中：
-  \begin{equation*}
-  	\begin{aligned}
-  		H_{k n}^{\prime}&=\left\langle\phi_{k}^{0}\left|H^{\prime}\right| \phi_{n}^{0}\right\rangle=\frac{\lambda}{a} \int_{0}^{2 a} \delta(x-a) \sin \frac{k \pi x}{2 a} \sin \frac{n \pi x}{2 a} d x
-  		\\
-  		&=\frac{\lambda}{a} \sin \frac{k \pi}{2} \sin \frac{n \pi}{2}=\left\{\begin{array}{lc}
-  			n \text { 为偶数 }, k \neq n, & 0 \\
-  			n \text { 为奇数 }, k \text { 为奇数, } k \neq n, & \frac{\lambda}{a} \\
-  			n \text { 为奇数 }, k \text { 为偶数, } k \neq n, & 0
-  		\end{array}\right.
-  	\end{aligned}
-  \end{equation*}
-\item 
-适用条件：$\left|\frac{H_{k n}^{\prime}}{E_{n}^{0}-E_{k}^{0}}\right| \ll 1$ 即: $\left|\frac{\frac{\lambda}{a}}{E_{n}^{0}-E_{k}^{0}}\right| \ll 1$,  $\lambda$ 很小，能级无简并或无近似简并。	
+\item 非简并微扰公式给出
+\[
+ E_n^{(1)}=H'_{nn},\qquad
+ E_n^{(2)}=\sum_{k\ne n}\frac{|H'_{kn}|^2}{\epsilon(n^2-k^2)}.
+\]
+对偶数 $n$，$\phi_n(a)=0$，微扰作用于该态恒为零，因此能量严格不变：
+\[
+ \boxed{E_n=n^2\epsilon\quad(n\text{ 为偶数})}.
+\]
+对奇数 $n$，$E_n^{(1)}=\lambda/a$，二阶只需对奇数 $k$ 求和。
+利用正切函数的部分分式展开，
+\[
+ \sum_{k=1,3,5,\ldots}\frac1{z^2-k^2}
+ =-\frac{\pi}{4z}\tan\frac{\pi z}{2}.
+\]
+令 $z=n+\delta$，减掉 $k=n$ 项再取极限，
+\[
+ \sum_{\substack{k=1,3,5,\ldots\\k\ne n}}\frac1{n^2-k^2}
+ =\lim_{\delta\to0}\left[-\frac{\pi}{4(n+\delta)}
+ \tan\frac{\pi(n+\delta)}2-\frac1{(n+\delta)^2-n^2}\right]
+ =-\frac1{4n^2}.
+\]
+这里两项的 $1/\delta$ 奇性相消。代回即得
+\[
+ \boxed{E_n=\frac{n^2\pi^2\hbar^2}{8ma^2}+\frac{\lambda}{a}
+       -\frac{2m\lambda^2}{\pi^2\hbar^2n^2}+O(\lambda^3)
+       \quad(n\text{ 为奇数})}.
+\]
+\item 要求对所有重要的奇数 $k\ne n$，
+\[
+ \left|\frac{\lambda/a}{E_n^{(0)}-E_k^{(0)}}\right|\ll1.
+\]
+对低能级，一个充分的尺度条件为 $m|\lambda|a/\hbar^2\ll1$。
+偶数态因在微扰位置有节点，其精确不变性不依赖上述弱耦合近似。
 \end{enumerate}
-
-
 }
 
 

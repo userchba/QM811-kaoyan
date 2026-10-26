@@ -28,22 +28,32 @@
 
 \banswer{
 \begin{enumerate}
-	%\renewcommand{\labelenumi}{\arabic{enumi}.}
-	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
-	%设定全局标号series=example	%引用全局变量resume=example
-	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
-	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-	\item
-	波函数：$\psi_{n}(\varphi)=\frac{1}{\sqrt{2 \pi}} e^{i n \varphi}$；能量本征值：$E_{n}=\frac{\hbar^{2}}{2 m a^{2}} n^{2}$。其中$n=0, \pm 1, \pm 2 \ldots$
-	\item 
-	将波函数分解成能量本征态可得：
-	\[ 
-	\psi(\theta, t)=\sqrt{\frac{2}{3}} \cdot \frac{1}{\sqrt{2\pi}} -\frac{1}{\sqrt{6}} \cdot \frac{1}{\sqrt{2\pi}} e^{i2\theta} \cdot e^{-i \frac{E_{2}}{\hbar}t} -\frac{1}{\sqrt{6}} \cdot \frac{1}{\sqrt{2\pi}} e^{-i2\theta} \cdot e^{-i \frac{E_{2}}{\hbar}t}
-	\]
-	\item 
-	能量本征态也是 $\hat{L}_{z}$ 本征态: $\hat{L}_{z} \psi_{n}=n \hbar \psi_{n}$，得$ \bar{l}_{z}=0 $
-	
-\end{enumerate}	
+\item 用同一个角坐标 $\theta$，$H_0=-\hbar^2\partial_\theta^2/(2ma^2)$。
+令 $\psi=e^{i\nu\theta}$，周期条件要求 $\nu=n\in\mathbb Z$，归一化得
+\[
+ \boxed{\phi_n(\theta)=\frac{e^{in\theta}}{\sqrt{2\pi}},\qquad
+ E_n=\frac{n^2\hbar^2}{2ma^2}}.
+\]
+\item 由 $\int_0^{2\pi}\sin^4\theta\,d\theta=3\pi/4$，可取
+$A=2/\sqrt{3\pi}$。再用
+\[
+ \sin^2\theta=\frac12-\frac14e^{2i\theta}-\frac14e^{-2i\theta},
+\]
+得 $c_0=\sqrt{2/3}$、$c_2=c_{-2}=-1/\sqrt6$，且三系数的模方之和为 $1$。
+因此
+\[
+ \boxed{\Psi(\theta,t)=\sqrt{\frac23}\phi_0(\theta)
+       -\frac1{\sqrt6}\bigl[\phi_2(\theta)+\phi_{-2}(\theta)\bigr]
+         e^{-iE_2t/\hbar}}.
+\]
+\item 垂直圆面的角动量为 $L_z=-i\hbar\partial_\theta$，满足
+$L_z\phi_n=n\hbar\phi_n$。能量表象也对角化 $L_z$，故
+\[
+ \boxed{\langle L_z\rangle_t=0\cdot\frac23
+                   +2\hbar\cdot\frac16-2\hbar\cdot\frac16=0}.
+\]
+正反两向角动量等概率，随时间积累的相位不改变此结论。
+\end{enumerate}
 }
 
 \item 
@@ -65,33 +75,41 @@
 
 \banswer{
 \begin{enumerate}
-	%\renewcommand{\labelenumi}{\arabic{enumi}.}
-	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
-	%设定全局标号series=example	%引用全局变量resume=example
-	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
-	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-	\item
-	体系只存在一个束缚态，且是偶宇称态
-	\[ 
-	\psi(x)=\left\{\begin{tblr}{ll}
-		\frac{\sqrt{m V_{0}}}{\hbar} e^{+k x}, & x<0 \\
-		\frac{\sqrt{m V_{0}}}{\hbar} e^{-k x}, & x>0
-	\end{tblr}\right.
-	 \]
-束缚态能量为$E=-\frac{m V_{0}^{2}}{2 \hbar^{2}}$	
-	
-\item 
-动能平均值：$\bar{T}=\frac{m V_{0}^{2}}{2 \hbar^{2}}$；势能平均值：$\bar{V}=-\frac{m V_{0}^{2}}{\hbar^{2}}$。
-
-\begin{note}
-	这里利用$\bar{V}+\bar{T}=\bar{E}$，可以分别用两个定理各自独立求解出来。
-\end{note}	
-	
+\item 束缚态 $E<0$，记 $\kappa=\sqrt{-2mE}/\hbar>0$。在 $x\ne0$ 处，
+方程为 $\psi''=\kappa^2\psi$；平方可积性和原点连续性给出
+\[
+ \psi(x)=Ce^{-\kappa|x|}.
+\]
+将 Schr\"odinger 方程在原点两侧积分，得到导数跃变
+\[
+ \psi'(0^+)-\psi'(0^-)=-\frac{2mV_0}{\hbar^2}\psi(0).
+\]
+左边为 $-2\kappa C$，故 $\kappa=mV_0/\hbar^2$，从而
+\[
+ \boxed{E=-\frac{mV_0^2}{2\hbar^2}}.
+\]
+归一化 $1=2|C|^2\int_0^\infty e^{-2\kappa x}dx=|C|^2/\kappa$ 给出
+\[
+ \boxed{\psi(x)=\sqrt\kappa e^{-\kappa|x|}}.
+\]
+跃变条件唯一确定正数 $\kappa$，且奇态在原点为零无法产生束缚，故只有此一个束缚态。
+\item 用 $V_0$ 为参数，由 Hellmann--Feynman 定理，
+\[
+ \frac{\partial E}{\partial V_0}=-\frac{mV_0}{\hbar^2}
+ =\left\langle\frac{\partial H}{\partial V_0}\right\rangle
+ =-\langle\delta(x)\rangle.
+\]
+所以
+\[
+ \boxed{\langle V\rangle=-V_0\langle\delta(x)\rangle
+       =-\frac{mV_0^2}{\hbar^2}=2E},\qquad
+ \boxed{\langle T\rangle=E-\langle V\rangle=-E}.
+\]
+独立地，维里定理给出 $2\langle T\rangle=\langle xV'(x)\rangle$。
+分布恒等式 $x\delta'(x)=-\delta(x)$ 可由对任意试验函数分部积分证明，故
+$xV'(x)=V_0\delta(x)=-V(x)$，即 $2\langle T\rangle=-\langle V\rangle$。
+与 $E=\langle T\rangle+\langle V\rangle$ 联立，仍得同一结果。
 \end{enumerate}
-
-
-
-
 }
 
 \item 
@@ -118,40 +136,39 @@
 提示: 一维情况下有 $\left\langle\mathrm{n}_{\mathrm{x}}^{\prime}|\hat{x}| n_{x}\right\rangle=\sqrt{\frac{\hbar}{2 m \omega}}\left(\sqrt{n_{x}+1} \delta_{n_{x}^{\prime},n_{x}+1}+\sqrt{n_{x}} \delta_{n_{x}^{\prime},n_{x}-1}\right)$。
 
 \banswer{
+令 $x_0=\sqrt{\hbar/(2m\omega)}$。
 \begin{enumerate}
-	%\renewcommand{\labelenumi}{\arabic{enumi}.}
-	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
-	%设定全局标号series=example	%引用全局变量resume=example
-	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
-	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-	\item
-	$E_{n}^{(0)}=(n+1) \hbar \omega$，$n=n_{1}+n_{2}=0,1,2 \ldots$，简并度为$f_{n}=n+1$。
-	\item 
-	$E_{0}=E_{0}^{(0)}+E_{0}^{(1)}=\hbar\omega+\frac{\lambda \hbar}{2 m \omega}$
-	\item 
-	微扰矩阵为
-	\[ 
-	 H ^{\prime} = \frac{\lambda \hbar}{2m\omega}\commamatrix[p]{3,1; 1,1}
-	 \]
-	$ E_{1}^{(1)}=\frac{\lambda \hbar}{2m\omega} (2\pm\sqrt{2}) $，能级分裂为两条：
-	\begin{enumerate}
-		%\renewcommand{\labelenumi}{\arabic{enumi}.}
-		% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
-		%设定全局标号series=example	%引用全局变量resume=example
-		%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
-		%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-		\item
-		$ E_{11}=2\hbar \omega +\frac{\lambda \hbar}{2m\omega} (2-\sqrt{2}) $；
-		\item 
-		$ E_{12}=2\hbar \omega +\frac{\lambda \hbar}{2m\omega} (2+\sqrt{2}) $
-		
-		
-	\end{enumerate}
-	
-	
+\item 无扰态为 $|n_x,n_y\rangle$，其能量
+\[
+ \boxed{E_N^{(0)}=(N+1)\hbar\omega},\quad N=n_x+n_y.
+\]
+对固定 $N$，$n_x$ 可取 $0,\ldots,N$，而 $n_y=N-n_x$，所以简并度为 $N+1$。
+\item 基态 $|00\rangle$ 非简并。因为 $\langle n|x|n\rangle=0$、
+$\langle n|y^2|n\rangle=x_0^2(2n+1)$，
+\[
+ E_0^{(1)}=\lambda(\langle0|x|0\rangle\langle0|y|0\rangle
+                            +\langle0|y^2|0\rangle)=\lambda x_0^2.
+\]
+故 $\boxed{E_0\simeq\hbar\omega+\lambda\hbar/(2m\omega)}$。
+\item 固定简并基顺序为 $|0,1\rangle,|1,0\rangle$。
+$xy$ 的对角元为零，而非对角元为
+$\langle0|x|1\rangle\langle1|y|0\rangle=x_0^2$。
+$y^2$ 的对角元分别为 $3x_0^2,x_0^2$，非对角元因 $x$ 方向正交而为零，故
+\[
+ W=\lambda x_0^2\begin{pmatrix}3&1\\1&1\end{pmatrix}.
+\]
+令 $d=E^{(1)}/(\lambda x_0^2)$，久期方程为
+$(3-d)(1-d)-1=d^2-4d+2=0$，得 $d=2\pm\sqrt2$。因此
+\[
+ \boxed{E_{1,\pm}\simeq2\hbar\omega+
+                 \frac{\lambda\hbar}{2m\omega}(2\pm\sqrt2)}.
+\]
+相应归一化零级态可写为
+\[
+ |\pm\rangle=\frac{|0,1\rangle+(-1\pm\sqrt2)|1,0\rangle}
+                  {\sqrt{1+(-1\pm\sqrt2)^2}}.
+\]
 \end{enumerate}
-
-
 }
 
 \newpage
@@ -186,7 +203,19 @@ $t<0$ 时粒子处于基态。 设系统再受到 $x$ 方向的微小脉冲磁�
 	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
 	\item
 		$ \sigma_{z} $表象：基态$ \ket{\psi_1}=\commamatrix[b]{1; 0} $，$ E_{1}=-\mu B_{0} $；激发态$ \ket{\psi_2}=\commamatrix[b]{0; 1} $，$ E_{2}=+\mu B_{0} $。\\
-	$t>0$ 时刻处在激发态的概率为 $ P_{12}(t)=\left(\frac{\mu B_{1}}{\hbar}\right)^{2}$；仍处在基态的概率$ P_{11}(t)=1-\left(\frac{\mu B_{1}}{\hbar}\right)^{2}$
+	取 $\mu B_0>0$，令 $\beta=\mu B_1/\hbar$。脉冲项为
+	$H'(t)=-\mu B_1\sigma_x\delta(t)$。跨过完整脉冲的演化算符为
+	\[
+	 U_{\rm kick}=e^{i\beta\sigma_x}=I\cos\beta+i\sigma_x\sin\beta,
+	\]
+	故脉冲后 $|\psi(0^+)\rangle=\cos\beta|\psi_1\rangle+i\sin\beta|\psi_2\rangle$。
+	也可由一阶含时微扰积分直接得到 $c_2^{(1)}=i\beta$。
+	所以在弱脉冲 $|\beta|\ll1$ 下，
+	\[
+	 P_{12}=\sin^2\beta=\beta^2+O(\beta^4),\qquad
+	 P_{11}=\cos^2\beta=1-\beta^2+O(\beta^4).
+	\]
+	这里的 $\delta(t)$ 取从脉冲前到脉冲后的完整冲量，而非端点积分的一半。
 	\item 
 	波函数
 	\[ 

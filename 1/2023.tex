@@ -202,51 +202,52 @@ H=-\frac{\hbar^2}{2 m} \frac{d^2}{d r^2}+\frac{\hbar^2}{2 m} \frac{l(l+1)}{r^2}-
 
 \banswer{
 \begin{enumerate}
-	\item 
-我们知道哈密顿量$\hat{H}=\frac{\hat{p}^2}{2m}+V(\hat{x},t)=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+V(\hat{x},t)$,可以令$x=\lambda x$，所以得到$$\hat{H}=-\frac{1}{\lambda^2}\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+V(\lambda\hat{x},t)$$
-根据HF定理
-\begin{align*}
-\langle\frac{\partial H}{\partial\lambda}\rangle_n&=\frac{\partial E_n}{\partial\lambda}=0\\
-&=\langle-\frac{2}{\lambda^3}\frac{\hat{p}^2}{2m}+x\frac{dV(\lambda\hat{x},t)}{d(\lambda x)}\rangle_n
-\end{align*}
-所以我们可以得到
-\begin{align*}
-	\langle\frac{1}{\lambda^3}\frac{\hat{p}^2}{2m}\rangle_n=\frac{1}{2}\langle x\frac{dV(\lambda\hat{x},t)}{d(\lambda x)}\rangle_n
-\end{align*}
-将$\lambda=1$带入可得
-\begin{align*}
-	\langle\frac{p^2}{2 m}\rangle_n=\frac{1}{2}\langle x \frac{\partial V}{\partial x}\rangle_n
-\end{align*}
-	\item 
-对于谐振子，可以知道它的势能为$V(\hat{x})=\frac{1}{2}m\omega^2\hat{x}^2$，所以根据(1)中的结论可知
-\begin{align*}
-	\langle\frac{p^2}{2 m}\rangle_n&=\frac{1}{2}\langle x \frac{\partial V}{\partial x}\rangle_n\\
-					&=\frac{1}{2}\langle m\omega^2\hat{x}^2\rangle_n
-\end{align*}
-而
-\begin{align*}
-	E_n=\left\langle\frac{p^2}{2 m}\right\rangle_n+\frac{1}{2}\langle m\omega^2\hat{x}^2\rangle_n=\hbar\omega\left(n+\frac{1}{2}\right)
-\end{align*}
-所以我们可以得到
-\begin{align*}
-	\left\langle\frac{p^2}{2m}\right\rangle_n
-	=\frac{1}{2}\hbar\omega\left(n+\frac{1}{2}\right)
-\end{align*}
-	\item 
-根据HF定理，我们选择参数$\lambda=\epsilon_0$(这里选择$e$或者$\pi$都可以)，可以得到
-\begin{align*}
-	\frac{\partial E_n}{\partial \epsilon_0}=\frac{me^4}{16\pi^2\epsilon_0^3\hbar^2n^2}=\frac{e^2}{4\pi\epsilon_0^2}\langle nl|\frac{1}{r}|nl\rangle
-\end{align*}
-\begin{align*}
-	\langle nl|\frac{1}{r}|nl\rangle=\frac{me^2}{4\pi\epsilon_0\hbar^2n^2}
-\end{align*}
-对于$\langle\frac{1}{r^2} \rangle$,由于$n=j_0+l+1$,所以我们选取参数$\lambda=l$可以得到
-\begin{align*}
-	\frac{\partial E_n}{\partial l}=\frac{\partial E_n}{\partial n}=\frac{me^4}{16\pi^2\epsilon_0^2\hbar^2n^3}=\frac{\hbar^2(2l+1)}{2m}\langle\frac{1}{r^2} \rangle
-\end{align*}
-\begin{align*}
-	\langle\frac{1}{r^2}\rangle=\frac{m^2e^4}{8\pi^2\epsilon_0^2\hbar^4n^3(2l+1)}
-\end{align*}
+\item 对不显含时间、具有适当束缚态边界条件的 $H=T+V(x)$，
+引入保持归一化的尺度变换 $(U_\lambda\psi)(x)=\sqrt\lambda\psi(\lambda x)$，$\lambda>0$。
+变换后的 Hamilton 量为
+\[
+ H_\lambda=U_\lambda HU_\lambda^{-1}=\lambda^{-2}T+V(\lambda x).
+\]
+这是幺正变换，故能谱 $E_n$ 不依赖 $\lambda$。应用 HF 定理，并在 $\lambda=1$ 取值，
+\[
+ 0=\left.\frac{\partial E_n}{\partial\lambda}\right|_1
+ =\left\langle-2T+x\frac{dV}{dx}\right\rangle_n.
+\]
+所以 $\boxed{\langle T\rangle_n=\tfrac12\langle xV'(x)\rangle_n}$。
+能量导数为零的原因是幺正等价性，而不是任意改变势参数都不改变能量。
+\item 对谐振子，$xV'(x)=m\omega^2x^2=2V$，所以 $\langle T\rangle=\langle V\rangle$。
+再由 $E_n=\langle T\rangle+\langle V\rangle=(n+1/2)\hbar\omega$，
+\[
+ \boxed{\langle T\rangle_n=\frac12(n+1/2)\hbar\omega}.
+\]
+\item 记 $\kappa=e^2/(4\pi\epsilon_0)$、$a_0=\hbar^2/(m\kappa)$，则径向 Hamilton 量为
+\[
+ H_l=-\frac{\hbar^2}{2m}\frac{d^2}{dr^2}
+ +\frac{\hbar^2l(l+1)}{2mr^2}-\frac\kappa r,
+ \quad E_n=-\frac{m\kappa^2}{2\hbar^2n^2}.
+\]
+先以 $\kappa$ 为连续参数，固定 $n,l$，由 HF 定理
+\[
+ -\left\langle\frac1r\right\rangle_{nl}
+ =\frac{\partial E_n}{\partial\kappa}
+ =-\frac{m\kappa}{\hbar^2n^2},
+ \qquad
+ \boxed{\left\langle\frac1r\right\rangle_{nl}=\frac1{a_0n^2}}.
+\]
+求 $1/r^2$ 时，须把径向方程中的 $l$ 暂作连续参数，同时固定径向节点数 $n_r$。
+由于 $n=n_r+l+1$，此时 $dn/dl=1$，不能固定 $n$ 再把能量导数误置为零。
+\[
+ \frac{\partial E_{n_r,l}}{\partial l}
+ =\frac{m\kappa^2}{\hbar^2n^3}
+ =\frac{\hbar^2(2l+1)}{2m}\left\langle\frac1{r^2}\right\rangle_{nl}.
+\]
+因此
+\[
+ \boxed{\left\langle\frac1{r^2}\right\rangle_{nl}
+ =\frac{2}{a_0^2n^3(2l+1)}
+ =\frac{m^2e^4}{8\pi^2\epsilon_0^2\hbar^4n^3(2l+1)}}.
+\]
+最后恢复物理允许的整数 $l=0,\ldots,n-1$。
 \end{enumerate}
 }
 

@@ -28,26 +28,30 @@
 
 \banswer{
 \begin{enumerate}
-	%\renewcommand{\labelenumi}{\arabic{enumi}.}
-	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
-	%设定全局标号series=example	%引用全局变量resume=example
-	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
-	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-	\item
-	$ c_{0}=2 $
-	\item 
-	$ \ket{1}= \frac{1}{\sqrt{2}}\commamatrix[b]{1; i}$；$ \ket{-1} = \frac{1}{\sqrt{2}}\commamatrix[b]{1; -i}$
-	\item 
-	过渡矩阵为
-	\[ 
-	S=\frac{1}{\sqrt{2}}\commamatrix[b]{1,-i; 1,i}
-	 \]
-	\begin{note}
-		由于基矢量的选择问题，过渡矩阵不唯一。
-	\end{note}
+\item 先计算对易子：
+\[
+ [A,B]=i(c-2)\begin{pmatrix}0&1\\1&0\end{pmatrix}.
+\]
+若 $c\ne2$，$A$ 的两个本征值不同，其本征态只能为 $(1,0)^T$、$(0,1)^T$，
+而 $B$ 把这两个态互相变换，因此没有共同本征态。$c=2$ 时 $A=I$，任意态都是
+$A$ 的本征态，可以选 $B$ 的本征基。所以 $\boxed{c_0=2}$。
+\item 由 $\det(B-bI)=b^2-1=0$，得 $b=\pm1$。设本征矢为 $(u,v)^T$，
+第一行 $-iv=bu$ 给出 $v=ibu$，归一化后
+\[
+ \boxed{|b_+\rangle=\frac1{\sqrt2}\begin{pmatrix}1\\i\end{pmatrix},\qquad
+        |b_-\rangle=\frac1{\sqrt2}\begin{pmatrix}1\\-i\end{pmatrix}}.
+\]
+两态的 $A$ 本征值均为 $1$。
+\item 当 $c\ne2$，按 $A$ 本征值 $1,c-1$ 排列旧基，按 $B$ 本征值 $+1,-1$ 排列新基。
+若旧坐标为 $\psi_A$，新坐标由 $\psi_B=(\langle b_+|\psi\rangle,
+\langle b_-|\psi\rangle)^T$ 给出，故
+\[
+ \boxed{\psi_B=S\psi_A,\quad S=\frac1{\sqrt2}
+ \begin{pmatrix}1&-i\\1&i\end{pmatrix}},\qquad SS^\dagger=I.
+\]
+反向变换为 $\psi_A=S^\dagger\psi_B$；算符变换为 $O_B=SO_AS^\dagger$。
+基矢重新排序或乘相位会改变矩阵外观，使用时须固定同一约定。
 \end{enumerate}
-
-
 }
 
 	
@@ -88,7 +92,7 @@
 	\]
 	\item 
 	基态和第二激发态非简并，并利用
-	$\int_0^L|\phi_n|^4dx=3/(2L)$，得
+	$\int_0^L|\phi_n|^4dx=\frac4{L^2}\int_0^L\sin^4(n\pi x/L)dx=3/(2L)$，得
 	\[
 		\boxed{E_{\rm g}=2\epsilon+\frac{3\lambda}{2L},
 		\qquad \Psi_{\rm g}^{(0)}=|11\rangle},
@@ -97,7 +101,12 @@
 		\boxed{E_{\rm 2nd}=8\epsilon+\frac{3\lambda}{2L},
 		\qquad \Psi_{\rm 2nd}^{(0)}=|22\rangle}.
 	\]
-	在 $|12\rangle,|21\rangle$ 子空间，微扰矩阵为
+	在 $|12\rangle,|21\rangle$ 子空间，由 $\delta(x_1-x_2)$ 先积掉一个坐标，
+	\[
+	 \langle12|V|12\rangle=\langle12|V|21\rangle
+	 =\lambda\int_0^L\phi_1^2(x)\phi_2^2(x)dx=\frac\lambda L.
+	\]
+	其余两元相同，故微扰矩阵为
 	\[
 		W=\frac{\lambda}{L}\begin{pmatrix}1&1\\1&1\end{pmatrix}.
 	\]
@@ -118,7 +127,34 @@
 		\frac{\langle\beta|V|\alpha\rangle}
 		{E_\alpha^{(0)}-E_\beta^{(0)}}|\beta\rangle
 	\]
-	即可；该修正与零级态正交，故一级精度下仍已归一化。
+	即可。这里 $\beta=|m,n\rangle$ 遍历未扰直积态，排除同一无扰简并子空间。
+	为使该通式可直接计算，记
+	\[
+	 I^{(r)}_{mn}=\int_0^L\phi_m\phi_n\phi_r^2dx
+	 =\frac1L\left[\delta_{mn}-\frac12\delta_{|m-n|,2r}
+	                              +\frac12\delta_{m+n,2r}\right].
+	\]
+	此式由 $2\sin A\sin B=\cos(A-B)-\cos(A+B)$ 的正交积分得到。
+	对 $r=1,2$，完整的一级波函数可写为
+	\[
+	 |\Psi_r\rangle=|rr\rangle+
+	 \sum_{(m,n)\ne(r,r)}\frac{\lambda I^{(r)}_{mn}}
+	 {\epsilon(2r^2-m^2-n^2)}|mn\rangle+O(\lambda^2).
+	\]
+	对 $|+\rangle=(|12\rangle+|21\rangle)/\sqrt2$，相应的矩阵元为
+	\[
+	 J_{mn}=\langle mn|V|+\rangle
+	 =\frac{\lambda}{\sqrt2L}
+	 [\delta_{|m-n|,1}-\delta_{|m-n|,3}+\delta_{m+n,3}],
+	\]
+	因此
+	\[
+	 |\Psi_+\rangle=|+\rangle+
+	 \sum_{(m,n)\notin\{(1,2),(2,1)\}}
+	 \frac{J_{mn}}{\epsilon(5-m^2-n^2)}|mn\rangle+O(\lambda^2).
+	\]
+	反对称态 $|-\rangle$ 在 $x_1=x_2$ 上为零，故 $V|-\rangle=0$，是精确不变态。
+	这些修正均与原零级态正交，范数为 $1+O(\lambda^2)$，因此在一级精度下已归一化。
 \end{enumerate}
 
 	
@@ -175,6 +211,8 @@ E_{m}=\frac{1}{2 \mu}\left[\frac{(m \hbar)^{2}}{a^{2}}+\left(\frac{q}{c}\right)^
 		E_m=\frac{\hbar^2}{2\mu a^2}
 		\left(m-\frac{qBa^2}{2\hbar c}\right)^2.
 	\]
+	磁场下角向算符仍是 $L_z$ 的函数，因此本征函数仍为
+	$\psi_m=e^{im\varphi}/\sqrt{2\pi}$，$L_z$ 的本征值仍为 $m\hbar$。
 	一般磁场会解除原来 $m$ 与 $-m$ 的简并；但当
 	$qBa^2/(\hbar c)$ 为整数时，仍可能有关于移位中心成对的偶然简并。
 \end{enumerate}
@@ -213,7 +251,18 @@ E_{m}=\frac{1}{2 \mu}\left[\frac{(m \hbar)^{2}}{a^{2}}+\left(\frac{q}{c}\right)^
 	\ket{\tilde{n}}=e^{-i\frac{x_{0}}{\hbar} \hat{p} } \ket{n}
 	 \]
 	\item 
-	令 $x_0=q\varepsilon/(\mu\omega^2)$。初始旧势阱基态在新哈密顿量下演化为相干态；相对于旧势阱真空的相干参数模平方为
+	令 $x_0=q\varepsilon/(\mu\omega^2)$、
+	$\alpha_0=\sqrt{\mu\omega/(2\hbar)}x_0$，并以 $a$ 为旧谐振子的湮灭算符。
+	Hamilton 量写为
+	\[
+	 H=\hbar\omega[(a^\dagger-\alpha_0)(a-\alpha_0)+1/2]
+	   -\hbar\omega\alpha_0^2.
+	\]
+	Heisenberg 方程给出
+	$\dot a=-i\omega(a-\alpha_0)$，所以
+	$U^\dagger aU=e^{-i\omega t}a+\alpha_0(1-e^{-i\omega t})$。
+	作用于初始真空得 $aU|0\rangle=\alpha(t)U|0\rangle$，其中
+	$\alpha(t)=\alpha_0(1-e^{-i\omega t})$；故演化态确为相干态，参数模平方为
 	\[
 		|\alpha(t)|^2=\frac{2\mu\omega x_0^2}{\hbar}
 		\sin^2\frac{\omega t}{2}.
@@ -257,7 +306,11 @@ E_{m}=\frac{1}{2 \mu}\left[\frac{(m \hbar)^{2}}{a^{2}}+\left(\frac{q}{c}\right)^
 	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
 	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
 	\item
-	基态能量$E_{0}=2 \varepsilon_{0}+\varepsilon_{1}$，二重简并
+	同一空间轨道最多容纳自旋相反的两个电子，因此最低占据为
+	$0\uparrow,0\downarrow,1\sigma$（$\sigma=\uparrow$ 或 $\downarrow$）。
+	所以基态能量为 $E_0=2\varepsilon_0+\varepsilon_1$，二重简并。
+	每个态由三个正交自旋轨道的 Slater 行列式给出；行列式展开的六项互相正交，
+	因而归一化系数为 $1/\sqrt{3!}=1/\sqrt6$：
 	\[ 
 	\ket{\varphi_{1}}=  \frac{1}{\sqrt{6}}\left|\begin{array}{lll}
 			\psi_{0+}(1) & \psi_{0+}(2) & \psi_{0+}(3) \\
@@ -272,7 +325,15 @@ E_{m}=\frac{1}{2 \mu}\left[\frac{(m \hbar)^{2}}{a^{2}}+\left(\frac{q}{c}\right)^
 	 \]
 	
 \item 
-$\left\langle\varphi_{1}\left|S_{z}\right| \varphi_{1}\right\rangle=\frac{\hbar}{2}$，$\left\langle\varphi_{2}\left|S_{z}\right| \varphi_{2}\right\rangle=-\frac{\hbar}{2}$	
+轨道 $0$ 上两电子的 $S_z$ 相消，剩下轨道 $1$ 上的电子贡献
+	$\pm\hbar/2$，所以
+	\[
+	 \langle\varphi_1|S_z|\varphi_1\rangle=\frac\hbar2,\qquad
+	 \langle\varphi_2|S_z|\varphi_2\rangle=-\frac\hbar2.
+	\]
+	题目未指定简并基态中的哪一种叠加；一般归一化基态
+	$|\Psi\rangle=c_1|\varphi_1\rangle+c_2|\varphi_2\rangle$ 给出
+	$\boxed{\langle S_z\rangle=(\hbar/2)(|c_1|^2-|c_2|^2)}$。
 	
 \end{enumerate}
 

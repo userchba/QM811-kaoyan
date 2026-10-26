@@ -13,18 +13,37 @@
 
 
 \banswer{
-	令
-	\[
-		k=\frac{\sqrt{2mE}}{\hbar},\qquad
-		\kappa=\frac{\sqrt{2m(V_0-E)}}{\hbar}.
-	\]
-	在势垒内使用 $Ae^{\kappa x}+Be^{-\kappa x}$，并在 $x=0,a$ 匹配波函数及其导数，得到
-	\[
-		\boxed{T=
-		\left[1+\frac{V_0^2}{4E(V_0-E)}\sinh^2(\kappa a)\right]^{-1}}.
-	\]
-	当 $\kappa a\gg1$ 时，
-	$T\simeq16E(V_0-E)V_0^{-2}e^{-2\kappa a}$，显示隧穿概率随势垒宽度指数衰减。
+假定 $0<E<V_0$。令 $k=\sqrt{2mE}/\hbar$、$\kappa=\sqrt{2m(V_0-E)}/\hbar$，取
+\[
+ \psi_{\rm I}=e^{ikx}+r e^{-ikx},\quad
+ \psi_{\rm II}=Ae^{\kappa x}+Be^{-\kappa x},\quad
+ \psi_{\rm III}=t e^{ikx}.
+\]
+界面连续条件为
+\[
+ \begin{cases}
+ 1+r=A+B,\\ ik(1-r)=\kappa(A-B),\\
+ Ae^{\kappa a}+Be^{-\kappa a}=t e^{ika},\\
+ \kappa(Ae^{\kappa a}-Be^{-\kappa a})=ik t e^{ika}.
+ \end{cases}
+\]
+先由后两式解出 $Ae^{\kappa a}=t e^{ika}(1+ik/\kappa)/2$、
+$Be^{-\kappa a}=t e^{ika}(1-ik/\kappa)/2$，代回前两式消去 $r$，得
+\[
+ t=\frac{e^{-ika}}{\cosh(\kappa a)
+                  +i\dfrac{\kappa^2-k^2}{2k\kappa}\sinh(\kappa a)}.
+\]
+左右两侧相同，故 $T=|t|^2$。使用 $\cosh^2u=1+\sinh^2u$，
+\[
+ T^{-1}=1+\frac{(k^2+\kappa^2)^2}{4k^2\kappa^2}\sinh^2(\kappa a)
+       =1+\frac{V_0^2}{4E(V_0-E)}\sinh^2(\kappa a).
+\]
+所以
+\[
+ \boxed{T=\left[1+\frac{V_0^2}{4E(V_0-E)}\sinh^2(\kappa a)\right]^{-1}}.
+\]
+在厚势垒极限 $\kappa a\gg1$，$\sinh^2(\kappa a)\simeq e^{2\kappa a}/4$，
+得到 $T\simeq16E(V_0-E)V_0^{-2}e^{-2\kappa a}$。
 }
 
 
@@ -114,7 +133,14 @@
 对于一维谐振子的基态，求坐标和动量的不确定度的乘积$\Delta x\cdot\Delta p$。
 
 \banswer{
-	谐振子基态满足
+	谐振子基态由 $a|0\rangle=0$ 决定。写
+	\[
+	 x=\sqrt{\frac{\hbar}{2m\omega}}(a+a^\dagger),\qquad
+	 p=i\sqrt{\frac{m\hbar\omega}{2}}(a^\dagger-a).
+	\]
+	基态中 $\langle a\rangle=\langle a^\dagger\rangle=0$，
+	$\langle aa^\dagger\rangle=1$，而 $\langle a^\dagger a\rangle=
+	\langle a^2\rangle=\langle a^{\dagger2}\rangle=0$。展开平方得到
 	\[
 		\langle x\rangle=\langle p\rangle=0,\qquad
 		\langle x^2\rangle=\frac{\hbar}{2m\omega},\qquad

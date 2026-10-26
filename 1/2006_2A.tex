@@ -12,17 +12,37 @@
 （$30'$）粒子以能量$E$入射方势垒，$V(x)=\begin{cases}V_0>0,&0\le x\le a\\0,&x<0,x>0\end{cases}$。设能量$E>V_0$，求透射系数$T$。
 
 \banswer{
-	令
-	\[
-		k=\frac{\sqrt{2mE}}{\hbar},\qquad
-		q=\frac{\sqrt{2m(E-V_0)}}{\hbar}.
-	\]
-	三区波函数可分别写为 $e^{ikx}+r e^{-ikx}$、$Ae^{iqx}+Be^{-iqx}$、$t e^{ikx}$。在 $x=0,a$ 连续匹配波函数及其一阶导数，消去 $A,B,r$ 后得到
-	\[
-		\boxed{T=|t|^2=
-		\left[1+\frac{V_0^2}{4E(E-V_0)}\sin^2(qa)\right]^{-1}}.
-	\]
-	当 $qa=n\pi$ 时出现共振透射，$T=1$。
+令 $k=\sqrt{2mE}/\hbar$、$q=\sqrt{2m(E-V_0)}/\hbar$。三个区域的波函数取为
+\[
+ \psi_{\rm I}=e^{ikx}+r e^{-ikx},\quad
+ \psi_{\rm II}=Ae^{iqx}+Be^{-iqx},\quad
+ \psi_{\rm III}=t e^{ikx}.
+\]
+两界面处的波函数及一阶导数连续，给出四个方程：
+\[
+ \begin{cases}
+ 1+r=A+B,\\ k(1-r)=q(A-B),\\
+ Ae^{iqa}+Be^{-iqa}=t e^{ika},\\
+ q(Ae^{iqa}-Be^{-iqa})=kt e^{ika}.
+ \end{cases}
+\]
+后两式先解出 $Ae^{iqa}=t e^{ika}(1+k/q)/2$、
+$Be^{-iqa}=t e^{ika}(1-k/q)/2$，代回前两式并消去 $r$，得到
+\[
+ t=\frac{e^{-ika}}{\cos(qa)-i\dfrac{k^2+q^2}{2kq}\sin(qa)}.
+\]
+左右两侧波数相同，所以透射系数为 $T=|t|^2$，并非再乘一次波数比。
+利用 $k^2-q^2=2mV_0/\hbar^2$，
+\begin{align*}
+ T^{-1}&=\cos^2(qa)+\frac{(k^2+q^2)^2}{4k^2q^2}\sin^2(qa)\\
+ &=1+\frac{(k^2-q^2)^2}{4k^2q^2}\sin^2(qa)
+ =1+\frac{V_0^2}{4E(E-V_0)}\sin^2(qa).
+\end{align*}
+故
+\[
+ \boxed{T=\left[1+\frac{V_0^2}{4E(E-V_0)}\sin^2(qa)\right]^{-1}}.
+\]
+当 $qa=n\pi$ 时 $T=1$，出现共振透射；$V_0\to0$ 时也有 $T\to1$。
 }
 
 
@@ -80,7 +100,11 @@
 		W=\frac{\lambda\hbar}{2m\omega}
 		\begin{pmatrix}0&1&1\\1&0&1\\1&1&0\end{pmatrix}.
 	\]
-	该矩阵的本征值为 $2,-1,-1$。因此一级能量修正为
+	把无量纲矩阵记为 $M$，则 $M=uu^T-I$，其中 $u=(1,1,1)^T$。
+	沿 $u$ 的方向，$Mu=2u$；任意与 $u$ 正交的向量 $v$ 满足 $Mv=-v$。
+	所以无量纲本征值为 $2,-1,-1$（$W$ 的本征值还需乘前面的系数）。
+	一组正交归一的简并本征矢可取 $(1,-1,0)^T/\sqrt2$ 和 $(1,1,-2)^T/\sqrt6$。
+	因此一级能量修正为
 	\[
 		\boxed{E_s^{(1)}=\frac{\lambda\hbar}{m\omega}},
 		\qquad
@@ -99,9 +123,10 @@
 		H=-\mu(B_0\sigma_z+B_1\sigma_x),
 		\qquad B=\sqrt{B_0^2+B_1^2}.
 	\]
-	时间演化算符为
+	令 $M=(B_0\sigma_z+B_1\sigma_x)/B$，由 Pauli 代数 $M^2=I$。
+	将 $e^{i\mu BtM/\hbar}$ 的偶次、奇次幂分别求和，得到时间演化算符
 	\[
-		U(t)=\cos\frac{\mu Bt}{\hbar},I
+		U(t)=\cos\frac{\mu Bt}{\hbar}\,I
 		+i\frac{B_0\sigma_z+B_1\sigma_x}{B}
 		\sin\frac{\mu Bt}{\hbar}.
 	\]

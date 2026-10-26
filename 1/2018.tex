@@ -103,7 +103,10 @@ $$
 	$(L^2,L_z)$ 表象中的矩阵；原题矩阵前多写的等号是排版错误。基底均按磁量子数
 	$+1,0,-1$ 排列。
 	\begin{enumerate}
-		\item $L_x$ 的本征值为 $+\hbar,0,-\hbar$，相应归一化本征矢为
+		\item 写 $L_x=\hbar M/\sqrt2$，特征方程为
+		$\det(M-\eta I)=-\eta(\eta^2-2)=0$，所以本征值为 $+\hbar,0,-\hbar$。
+		对 $\eta=\pm\sqrt2$，方程给出 $v_1=v_3$、$v_2=\eta v_1$；
+		对 $\eta=0$，给出 $v_2=0$、$v_1=-v_3$。归一化得
 		\[
 			v_+=\begin{pmatrix}\frac12\\[2pt]\frac1{\sqrt2}\\[2pt]\frac12\end{pmatrix},
 			\quad
@@ -169,8 +172,16 @@ $$
 			=\pm\hbar\sqrt{\omega_0^2+\omega_1^2}}.
 		\]
 
-		\item 旋转场的角频率 $2\omega_0$ 恰等于静磁场造成的两能级劈裂频率。在随场旋转的表象中，静磁场项被抵消，演化只由
-		$-\hbar\omega_1\sigma_x$ 产生。由初态 $|\downarrow\rangle$ 出发，
+		\item 旋转场的角频率 $2\omega_0$ 恰等于静磁场造成的两能级劈裂频率。令 $R(t)=e^{i\omega_0t\sigma_z}$，写 $|\psi(t)\rangle=R(t)|\psi_{\rm rot}(t)\rangle$。
+		由 $R\sigma_xR^\dagger$ 的非对角元为 $e^{\pm2i\omega_0t}$，
+		\[
+		 H_{\rm rot}=R^\dagger HR-i\hbar R^\dagger\dot R
+		 =-\hbar\omega_0\sigma_z-\hbar\omega_1\sigma_x+\hbar\omega_0\sigma_z
+		 =-\hbar\omega_1\sigma_x.
+		\]
+		由 $\sigma_x^2=I$，演化算符为
+		$e^{i\omega_1t\sigma_x}=I\cos(\omega_1t)+i\sigma_x\sin(\omega_1t)$。
+		从 $|\downarrow\rangle$ 出发，
 		\[
 			|\psi_{\rm rot}(t)\rangle
 			=\cos(\omega_1t)|\downarrow\rangle
@@ -224,7 +235,16 @@ $$
 			\langle n'|H'|n\rangle=-\frac C2
 			(\delta_{n',n+1}+\delta_{n',n-1}).
 		\]
-		第一激发子空间 $n=\pm1$ 的二级有效矩阵为
+		在 $n=\pm1$ 和 $n=\pm2$ 各子空间中，一级矩阵均为零。
+		二级有效矩阵的定义为
+		\[
+		 W^{(2)}_{ab}=\sum_{k\notin\mathcal D}
+		 \frac{H'_{ak}H'_{kb}}{E^{(0)}-E_k^{(0)}}.
+		\]
+		对 $n=1$，对角元只有 $k=0,2$ 两项：
+		$C^2[1/\varepsilon-1/(3\varepsilon)]/4=C^2/(6\varepsilon)$。
+		$1$ 与 $-1$ 之间只有共同中间态 $k=0$，故非对角元为 $C^2/(4\varepsilon)$。
+		因此第一激发子空间的二级有效矩阵为
 		\[
 			\frac{C^2}{\varepsilon}
 			\begin{pmatrix}\frac16&\frac14\\[2pt]\frac14&\frac16\end{pmatrix}.
@@ -235,7 +255,9 @@ $$
 			\qquad
 			\boxed{E_{1,\sin}=\varepsilon-\frac{C^2}{12\varepsilon}}.
 		\]
-		第二激发态 $n=\pm2$ 到二级仍不分裂，二者均为
+		对 $n=2$，对角元来自 $k=1,3$：
+		$C^2[1/(3\varepsilon)-1/(5\varepsilon)]/4=C^2/(30\varepsilon)$。
+		$2$ 与 $-2$ 不能通过一次中间跃迁相连，非对角元为零，所以到二级不分裂，二者均为
 		\[
 			\boxed{E_{2,\pm}=4\varepsilon+\frac{C^2}{30\varepsilon}}.
 		\]
@@ -281,10 +303,15 @@ $$
 			\qquad |x|<\frac a2.
 		\]
 
-		\item 一级含时微扰论给出，在 $t>T$ 时
+		\item 撤去势垒后的精确演化形式为
 		\[
-			|\varphi(t)\rangle=e^{-iE_1t/\hbar}|1\rangle
-			+\sum_{n\ne1}c_n^{(1)}(T)e^{-iE_n(t-T)/\hbar}|n\rangle,
+		 |\varphi(t)\rangle=e^{-iH_0(t-T)/\hbar}e^{-i(H_0+H')T/\hbar}|1\rangle.
+		\]
+		在相互作用表象展开到一级，得到
+		\[
+		 |\varphi(t)\rangle=\left(1-\frac{iH'_{11}T}{\hbar}\right)
+		 e^{-iE_1t/\hbar}|1\rangle
+		 +\sum_{n\ne1}c_n^{(1)}(T)e^{-iE_nt/\hbar}|n\rangle+O(c^2),
 		\]
 		其中
 		\[
@@ -292,7 +319,9 @@ $$
 			\left(1-e^{i\omega_{n1}T}\right),\qquad
 			\omega_{n1}=\frac{E_n-E_1}{\hbar}.
 		\]
-		这与常见的整体相位选择等价。
+		此处 $c_n^{(1)}$ 是相互作用表象系数，因此必须乘 $e^{-iE_nt/\hbar}$。
+		若改用 $e^{-iE_n(t-T)/\hbar}$，系数就必须先乘 $e^{-iE_nT/\hbar}$。
+		其中 $H'_{11}=c[b/a+\sin(\pi b/a)/\pi]$ 给出基态的一级附加相位。
 
 		\item 中心微扰为偶函数，故从偶宇称基态只能跃迁到偶宇称态。因此第一、第三激发态（$n=2,4$）概率为
 		\[
@@ -312,8 +341,9 @@ $$
 			\omega_{31}=\frac{4\pi^2\hbar}{ma^2}.
 		\]
 		令 $u=\pi b/a$，空间因子为
-		$\sin u(1+\cos u)$；其在 $0<u<\pi$ 的最大值满足
-		$\cos u=1/2$，故
+		$\sin u(1+\cos u)$；其导数为
+		$\cos u+\cos2u=2\cos^2u+\cos u-1$。
+		内点极值满足 $\cos u=1/2$，而两端空间因子均为零，故
 		\[
 			\boxed{b=\frac a3}
 		\]

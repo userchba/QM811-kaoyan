@@ -48,7 +48,15 @@
 	\chi^{\prime \prime}{ }_{l}(r)+\left[\frac{2 \mu}{\hbar^{2}}(E-V(r))-\frac{l(l+1)}{r^{2}}\right] \chi_{l}(r)=0
 	 \]	
 \item 
-$ l=0 $时能量本征函数在$ r>a $区域为$ 0 $，在$ r\leq a $区域为
+$l=0$ 时，$\chi''+k^2\chi=0$，其中 $k=\sqrt{2\mu E}/\hbar$。
+原点不含 $\delta$ 势，物理波函数须在原点正则，因此 $\chi(0)=0$；
+无穷高外壁要求 $\chi(a)=0$。这给出 $\chi=C\sin(kr)$、$ka=n\pi$。
+由
+\[
+ 1=\int_0^a|\chi|^2dr=|C|^2\frac a2
+\]
+得 $C=\sqrt{2/a}$。再乘 $Y_{00}=1/\sqrt{4\pi}$、除以 $r$，故在 $r>a$ 区域为零，
+在 $0<r\le a$ 区域为
 \[ 
 \psi_{n}=\frac{1}{\sqrt{2a\pi} } \cdot \frac{\sin \frac{n\pi}{a}r}{r}
  \]	
@@ -83,48 +91,49 @@ E_{n}=\frac{n^{2}\pi^{2}\hbar^{2}}{2\mu a^{2}}
 	
 \end{enumerate}
 \banswer{
+以下用波数 $k=p/\hbar$ 为变量，约定 Fourier 核为 $e^{ikx}/\sqrt{2\pi}$。
+归一化要求 $\alpha>0$。
 \begin{enumerate}
-	%\renewcommand{\labelenumi}{\arabic{enumi}.}
-	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
-	%设定全局标号series=example	%引用全局变量resume=example
-	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
-	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
-	\item
-	对自由粒子而言动量是个守恒量，首先变换到动量表象计算较为简单：
-	\[ 
-\begin{aligned}
-	\tilde{\Psi}(k, t) &= \int_{-\infty}^{+\infty} \tilde{\Psi}(k ^{\prime} , 0) \delta(k-k ^{\prime} ) e^{-i \frac{\hbar {k ^{\prime} }^{2}}{2m} t} dk ^{\prime} \\
-	&=\frac{1}{\sqrt{ \alpha }} \cdot \left(\frac{ \alpha }{2}\right)^{ \frac{ 1 }{ 4 } } \cdot e^{- \frac{(k_{0} -k )^{2}}{2 \alpha } } \cdot e^{-i \frac{\hbar {k  }^{2} }{2m} t}
-\end{aligned}
+\item 先对初态作 Fourier 变换，配方积分得
+\begin{align*}
+ \widetilde\Psi(k,0)
+ &=\frac1{\sqrt{2\pi}}\left(\frac\alpha\pi\right)^{1/4}
+   \int_{-\infty}^\infty e^{-\alpha x^2/2-i(k-k_0)x}dx\\
+ &=(\pi\alpha)^{-1/4}e^{-(k-k_0)^2/(2\alpha)}.
+\end{align*}
+动量表象下 $H=\hbar^2k^2/(2m)$，所以
+\[
+ \boxed{\widetilde\Psi(k,t)=(\pi\alpha)^{-1/4}
+ e^{-(k-k_0)^2/(2\alpha)}e^{-i\hbar k^2t/(2m)}},\qquad
+ \boxed{\Pi(k,t)=\frac{e^{-(k-k_0)^2/\alpha}}{\sqrt{\pi\alpha}}}.
 \]
-动量几率分布 $\Pi(k, t) =\frac{1}{\sqrt{ \alpha \pi}} e^{- \frac{(k_{0} -k )^{2}}{ \alpha } } $ 	
-\begin{note}
-	这里求波函数，也可以直接在动量表象中用时间演化算符来做。
-\end{note}	
-	\item
-	%对应的傅里叶变换，计算复杂，略
-	令 $\tau=\alpha\hbar t/m$、$v_0=\hbar k_0/m$。完成 Gaussian 积分后，
-	\[
-		\boxed{\psi(x,t)=
-		\left(\frac{\alpha}{\pi}\right)^{1/4}
-		\frac{e^{ik_0x-i\hbar k_0^2t/(2m)}}{\sqrt{1+i\tau}}
-		\exp\left[-\frac{\alpha(x-v_0t)^2}{2(1+i\tau)}\right]}.
-	\]
-	相应的位置概率密度为
-	\[
-		\boxed{P(x,t)=\sqrt{\frac{\alpha}{\pi}}\,
-		\frac{1}{\sqrt{1+\tau^2}}
-		\exp\left[-\frac{\alpha(x-v_0t)^2}{1+\tau^2}\right]}.
-	\]
-\item 
-%动量是守恒量，概率分布不随时间变化。随着时间的增加，波包中心的强度逐渐减弱，逐渐扩散至整个位置空间
-动量分布几率不随时间变化，即波包所包含的各动量成分不发生变化，自由粒子动量守恒；
-但是坐标空间的几率分布随时间变化，波包峰值位置向前移动的同时，波峰随时间衰减，
-	波峰坐标 $x_{m}(t)=\frac{k_{0} \hbar}{m} t$， 波包速度 $v=\frac{k_{0} \hbar}{m}=\frac{p_{0}}{m}$；
-	波包宽度则按 $\sqrt{1+(\alpha\hbar t/m)^2}$ 增大。
+这里 $\int\Pi(k,t)dk=1$；若改用 $p$，则概率密度为 $\Pi(p/\hbar,t)/\hbar$。
+\item 作逆变换，令 $s=k-k_0$、$\tau=\alpha\hbar t/m$、$v_0=\hbar k_0/m$，
+\[
+ \Psi(x,t)=\frac{e^{ik_0x-i\hbar k_0^2t/(2m)}}{\sqrt{2\pi}(\pi\alpha)^{1/4}}
+ \int_{-\infty}^\infty
+ e^{-(1+i\tau)s^2/(2\alpha)+is(x-v_0t)}ds.
+\]
+使用 $\int e^{-As^2+Bs}ds=\sqrt{\pi/A}\,e^{B^2/(4A)}$（$\operatorname{Re}A>0$），
+得到
+\[
+ \boxed{\Psi(x,t)=\left(\frac\alpha\pi\right)^{1/4}
+ \frac{e^{ik_0x-i\hbar k_0^2t/(2m)}}{\sqrt{1+i\tau}}
+ \exp\!\left[-\frac{\alpha(x-v_0t)^2}{2(1+i\tau)}\right]}.
+\]
+平方根取从 $t=0$ 连续延伸的分支。由
+$|1+i\tau|=\sqrt{1+\tau^2}$、$\operatorname{Re}(1+i\tau)^{-1}=(1+\tau^2)^{-1}$，
+\[
+ \boxed{P(x,t)=\sqrt{\frac\alpha\pi}\frac1{\sqrt{1+\tau^2}}
+       \exp\!\left[-\frac{\alpha(x-v_0t)^2}{1+\tau^2}\right]}.
+\]
+\item 动量概率分布不变，$\langle p\rangle=\hbar k_0$、$\Delta p=\hbar\sqrt{\alpha/2}$。
+位置分布中心按 $\langle x\rangle=v_0t$ 移动，宽度
+\[
+ \Delta x(t)=\sqrt{\frac{1+\tau^2}{2\alpha}}
+\]
+随时间增大，峰高按 $(1+\tau^2)^{-1/2}$ 减小，而总概率保持为 $1$。
 \end{enumerate}
-
-
 }
 
 \item 
@@ -165,7 +174,14 @@ E_{n}=\frac{n^{2}\pi^{2}\hbar^{2}}{2\mu a^{2}}
 			x+i y
 		\end{tblr}\right)
 		 \]
-	解得$x=0, y=\pm 4 / 5$。得
+	由 $S_z$ 的测量概率及归一化，$x^2+y^2=16/25$。
+	再将其投影到 $|+x\rangle=(1,1)^T/\sqrt2$，
+	\[
+	 \frac12=|\langle+x|\lambda\rangle|^2
+	 =\frac12\left|\frac35+x+iy\right|^2
+	 =\frac12\left(1+\frac65x\right).
+	\]
+	所以 $x=0$，进而 $y=\pm4/5$。得
 	\[ 
 	\left|\lambda_{1}\right\rangle=\left(\begin{tblr}{c}
 		\dfrac{3}{5} \\
@@ -178,7 +194,14 @@ E_{n}=\frac{n^{2}\pi^{2}\hbar^{2}}{2\mu a^{2}}
 	 \]
 		
 	\item 
-于是得到$\left\langle\lambda_{1}\left|\hat{s}_{y}\right| \lambda_{1}\right\rangle=\frac{12 }{25}\hbar $和$\left\langle\lambda_{2}\left|\hat{s}_{y}\right| \lambda_{2}\right\rangle=-\frac{12 }{25}\hbar $
+对于归一化列矢 $(a,b)^T$，
+\[
+ \langle s_y\rangle=\frac\hbar2(a^*,b^*)\begin{pmatrix}0&-i\\i&0\end{pmatrix}
+ \begin{pmatrix}a\\b\end{pmatrix}=\hbar\operatorname{Im}(a^*b).
+\]
+所以两态分别给出 $\boxed{\langle s_y\rangle_{\lambda_1}=12\hbar/25}$ 与
+$\boxed{\langle s_y\rangle_{\lambda_2}=-12\hbar/25}$。
+两种相对相位均满足题设，不能只保留其中一种。
 		
 	\end{enumerate}
 	
@@ -238,13 +261,15 @@ $$
 	 \]
 直接计算这个积分相当复杂，但考虑到答案只要求我们保留至$ b/a $的一次项即可，便可通过让$ b \rightarrow 0 $的形式来化简。首先化简积分区域的表达式
 \[ 
-E^{(1)}=V\left(\frac{2}{a}\right)^{2} \int_{0}^{a} \sin ^{2} \frac{\pi x_{1}}{a} \int_{x_{1}-b}^{x_{1}+b} \sin ^{2} \frac{\pi x_{2}}{a} d x_{2} d x_{1}
+E^{(1)}=V\left(\frac{2}{a}\right)^{2} \int_{0}^{a} \sin ^{2} \frac{\pi x_{1}}{a} \int_{\max(0,x_{1}-b)}^{\min(a,x_{1}+b)} \sin ^{2} \frac{\pi x_{2}}{a} d x_{2} d x_{1}
  \]
- 其次，化简积分表达式
+ 其次，在 $b/a\ll1$ 时，只保留窄带的首项，内层积分可近似为
+$2b\sin^2(\pi x_1/a)$。靠近两端的截断区对首项没有贡献，因为基态密度在端点为零。
+再用 $\int_0^a\sin^4(\pi x/a)dx=3a/8$，化简为
  \[ 
 \begin{aligned}
-	E^{(1)}&=V\left(\frac{2}{a}\right)^{2} \int_{0}^{a} \sin ^{2} \frac{\pi x_{1}}{a} \int_{x_{1}-b}^{x_{1}+b} \sin ^{2} \frac{\pi x_{2}}{a} d x_{2} d x_{1} \\
-	&=V\left(\frac{2}{a}\right)^{2} \int_{0}^{a} \sin ^{2} \frac{\pi x_{1}}{a} \cdot 2b \cdot \sin ^{2} \frac{\pi x_{1}}{a} d x_{1}\\
+	E^{(1)}&=V\left(\frac{2}{a}\right)^{2} \int_{0}^{a} \sin ^{2} \frac{\pi x_{1}}{a} \int_{\max(0,x_{1}-b)}^{\min(a,x_{1}+b)} \sin ^{2} \frac{\pi x_{2}}{a} d x_{2} d x_{1} \\
+	&\simeq V\left(\frac{2}{a}\right)^{2} \int_{0}^{a} \sin ^{2} \frac{\pi x_{1}}{a} \cdot 2b \cdot \sin ^{2} \frac{\pi x_{1}}{a} d x_{1}\\
 	&=3V\frac{b}{a}
 \end{aligned}
   \]
@@ -305,7 +330,24 @@ E^{(1)}=V\left(\frac{2}{a}\right)^{2} \int_{0}^{a} \sin ^{2} \frac{\pi x_{1}}{a}
 	\ket{1, \frac{1}{2} , -\frac{1}{2} }&=\frac{1}{\sqrt{6}}\left( -\ket{ \downarrow\downarrow\uparrow} - \ket{\downarrow\uparrow\downarrow }+2\ket{\uparrow \downarrow\downarrow} \right)
 \end{tblr}	
 	 \]
-这八个态，前六个态都是很好写出来的，后面两个态的求法需要点技巧。例如$ \ket{1, \frac{1}{2} , \frac{1}{2}} $这个态，首先通过分析知道是$ \ket{ \downarrow\uparrow\uparrow} + \ket{\uparrow\downarrow \uparrow}+\ket{\uparrow \uparrow\downarrow}  $这三个态的组合，然后设出三个系数，利用归一性，外加与$ \ket{1, \frac{3}{2} , \frac{1}{2}} $和$ \ket{0, \frac{1}{2} , \frac{1}{2}} $这两个态正交，列出三个方程，解之可得。
+两自旋情形，先由最高权态 $|\uparrow\uparrow\rangle$ 出发，用
+$S_{12,-}=S_{1,-}+S_{2,-}$ 生成三重态，其正交补就是单态。
+三自旋情形，先耦合 $S_{12}=0,1$，再与 $s_3=1/2$ 耦合，因此
+$0\otimes\tfrac12=\tfrac12$、$1\otimes\tfrac12=\tfrac32\oplus\tfrac12$，共 $2+4+2=8$ 个态。
+$S=3/2$ 四重态由 $|\uparrow\uparrow\uparrow\rangle$ 连续降阶得到；
+$S_{12}=0$ 的两个态直接为前两粒子的单态乘第三粒子的上、下自旋。
+剩下 $M=1/2$ 的态可设为
+\[
+ a|\downarrow\uparrow\uparrow\rangle
+ +b|\uparrow\downarrow\uparrow\rangle
+ +c|\uparrow\uparrow\downarrow\rangle.
+\]
+与同 $M$ 的四重态和 $S_{12}=0$ 态正交，分别给出
+$a+b+c=0$、$b-a=0$；归一化又要求 $|a|^2+|b|^2+|c|^2=1$。
+取 $a=b=1/\sqrt6$、$c=-2/\sqrt6$，即得表中倒数第二态；
+再用总降算符得到最后一态。两粒子表中 $S_{12}^2$、$S_{12,z}$ 的本征值分别为
+$S_{12}(S_{12}+1)\hbar^2$、$M_{12}\hbar$；三粒子表中 $S^2,S_z$ 的本征值分别为
+$S(S+1)\hbar^2$、$M\hbar$。额外标签 $S_{12}$ 区分两个 $S=1/2$ 的副本。
 \end{enumerate}
 }
 

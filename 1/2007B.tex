@@ -108,9 +108,19 @@ $$\langle \psi_n|\frac{\hat{p}^2}{2m}|\psi_n\rangle=\frac{1}{2}\langle\psi_n |\v
 	\[
 		G=\frac12(\vec r\cdot\vec p+\vec p\cdot\vec r).
 	\]
-	利用正则对易关系可得
+	逐项使用正则对易关系。由 $[p_j,r_i]=-i\hbar\delta_{ij}$，
 	\[
-		[H,G]=i\hbar\left[-2\frac{p^2}{2m}+\vec r\cdot\nabla V(\vec r)\right].
+	 [p^2,r_i]=-2i\hbar p_i,\qquad
+	 [p^2,G]=-2i\hbar p^2.
+	\]
+	又因 $[V,r_i]=0$、$[V,p_i]=i\hbar\partial_iV$，
+	\[
+	 [V,G]=\frac12\sum_i\bigl(r_i[V,p_i]+[V,p_i]r_i\bigr)
+	       =i\hbar\vec r\cdot\nabla V.
+	\]
+	两式相加得到
+	\[
+	 [H,G]=i\hbar\left[-2\frac{p^2}{2m}+\vec r\cdot\nabla V\right].
 	\]
 	在归一化束缚定态中，$\langle G\rangle$ 不随时间改变；由 Heisenberg 方程，
 	\[
@@ -139,7 +149,18 @@ $$\langle \psi_n|\frac{\hat{p}^2}{2m}|\psi_n\rangle=\frac{1}{2}\langle\psi_n |\v
 	\[
 		p=i\sqrt{\frac{m\hbar\omega}{2}}(a^\dagger-a).
 	\]
-	用升降算符展开，或利用谐振子坐标与动量分布的对称性，可得
+	令 $p_0=\sqrt{m\hbar\omega/2}$，先求 $p^2$ 对本征态的作用：
+	\[
+	 p^2|n\rangle=p_0^2\left[(2n+1)|n\rangle
+	 -\sqrt{n(n-1)}|n-2\rangle
+	 -\sqrt{(n+1)(n+2)}|n+2\rangle\right].
+	\]
+	因为 $p^2$ 为厄米算符，$\langle n|p^4|n\rangle=\|p^2|n\rangle\|^2$。
+	利用三个态正交，得到
+	\[
+	 \langle p^4\rangle_n=p_0^4\bigl[(2n+1)^2+n(n-1)+(n+1)(n+2)\bigr].
+	\]
+	化简即得
 	\[
 		\langle n|p^4|n\rangle
 		=\left(\frac{m\hbar\omega}{2}\right)^2

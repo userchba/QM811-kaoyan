@@ -101,7 +101,7 @@
 	}
 	
 \item 
-自旋波函数可表示为 $\psi(x)=\left(\begin{array}{c}\xi(x) \\ \eta(x)\end{array}\right)$, 若 $H=p \cdot \sigma_y++m(x) \sigma_z$, 其中 $p$ 为动量, $\mathrm{m}$ 为一个函数 (已取 $\hbar$ 为$  1 $)。
+自旋波函数可表示为 $\psi(x)=\left(\begin{array}{c}\xi(x) \\ \eta(x)\end{array}\right)$, 若 $H=p \cdot \sigma_y+m(x) \sigma_z$, 其中 $p$ 为动量, $\mathrm{m}$ 为一个函数 (已取 $\hbar$ 为$  1 $)。
 \begin{enumerate}
 	%\renewcommand{\labelenumi}{\arabic{enumi}.}
 	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
@@ -279,19 +279,19 @@ $\mathrm{J}$ 为单电子总角动量, $l$ 为轨道角动量, $s$ 为自旋角�
 	\end{align*}
 	其中 $s^2=\frac{3}{4}\hbar^2$ 为常数，也可取 $\{H, J^2, J_z, l^2\}$。
 	
-	\item 总角动量 $J=l+s=l+\frac{1}{2}\sigma$，由角动量耦合规则
+	\item 总角动量 $\vec J=\vec l+\vec s=\vec l+\frac{\hbar}{2}\vec\sigma$，由角动量耦合规则
 	\begin{align*}
 		j=l+\frac{1}{2}\quad\text{或}\quad j=l-\frac{1}{2}\quad(l\neq 0)
 	\end{align*}
 	$J^2$ 的本征值为 $j(j+1)\hbar^2$。
 	
-	利用 $(\vec{\sigma}\cdot\vec{l})^2=\vec{l}^2-\vec{\sigma}\cdot\vec{l}$（因 $(\vec{A}\cdot\vec{\sigma})(\vec{B}\cdot\vec{\sigma})=\vec{A}\cdot\vec{B}+i(\vec{A}\times\vec{B})\cdot\vec{\sigma}$，令 $\vec{A}=\vec{B}=\vec{l}$），设 $\vec{\sigma}\cdot\vec{l}$ 的本征值为 $\lambda$，则
+	利用 $(\vec{\sigma}\cdot\vec{l})^2=\vec{l}^2-\hbar\vec{\sigma}\cdot\vec{l}$（因 $(\vec{A}\cdot\vec{\sigma})(\vec{B}\cdot\vec{\sigma})=\vec{A}\cdot\vec{B}+i(\vec{A}\times\vec{B})\cdot\vec{\sigma}$，令 $\vec{A}=\vec{B}=\vec{l}$），设 $\vec{\sigma}\cdot\vec{l}$ 的本征值为 $\lambda$，则
 	\begin{align*}
-		\lambda^2+\lambda-l(l+1)=0
+		\lambda^2+\hbar\lambda-\hbar^2l(l+1)=0
 	\end{align*}
-	解得 $\lambda=l$ 或 $\lambda=-(l+1)$。
+	解得 $\lambda=\hbar l$ 或 $\lambda=-\hbar(l+1)$。
 	
-	对应关系：当 $j=l+\frac{1}{2}$ 时，$\vec{\sigma}\cdot\vec{l}=l$；当 $j=l-\frac{1}{2}$ 时，$\vec{\sigma}\cdot\vec{l}=-(l+1)$。
+	对应关系：当 $j=l+\frac{1}{2}$ 时，$\vec{\sigma}\cdot\vec{l}$ 的本征值为 $\hbar l$；当 $j=l-\frac{1}{2}$ 时，$\vec{\sigma}\cdot\vec{l}$ 的本征值为 $-\hbar(l+1)$。
 	
 	\item 本征态即耦合表象基矢 $|j, m_j, l, s\rangle$。用 $s=\frac{1}{2}$ 的 CG 系数：
 	

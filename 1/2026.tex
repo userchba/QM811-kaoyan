@@ -77,7 +77,7 @@
 		\item 额外受到沿 $x$ 方向均匀交变电场 $E_x(t)=E_0\cos(\omega t)$，写出总含时 Hamilton 量；$E_0$ 很小，推导 $|\psi_i\rangle$ 到 $|\psi_f\rangle$ 的选择定则。
 	\end{enumerate}
 
-	提示：$x=\sqrt{\dfrac{\hbar}{2m\omega}}(a_x+a_x^{\dagger})$。
+	提示：$x=\sqrt{\dfrac{\hbar}{2m\omega_0}}(a_x+a_x^{\dagger})$。
 
 	\banswer{
 	\begin{enumerate}
@@ -110,7 +110,7 @@
 		\end{align*}
 		微扰 $H'(t)=-qE_0 x\cos(\omega t)$。
 
-		关于提示中的频率：坐标算符的展开 $x=\sqrt{\dfrac{\hbar}{2m\omega}}(a_x+a_x^{\dagger})$ 中的 $\omega$ 必须取系统自身的振子频率 $\omega_0$，即 $x=\sqrt{\dfrac{\hbar}{2m\omega_0}}(a_x+a_x^{\dagger})$；外场频率 $\omega$ 只出现在 $\cos(\omega t)$ 中，二者不可混淆。
+		坐标算符中使用振子固有频率 $\omega_0$；外场频率 $\omega$ 出现在 $\cos(\omega t)$ 中，二者应区分。
 
 		矩阵元为
 		\begin{align*}
@@ -254,7 +254,7 @@
 
 		由定态方程 $\psi_0''=\dfrac{2m}{\hbar^2}(V-E_0)\psi_0$，且基态 $\psi_0(x)>0$ 处处成立，凹凸性完全由 $V-E_0$ 的符号决定：
 		\begin{align*}
-			\psi_0''\begin{cases}<0,&|x|<x_t\ \text{（经典允许区，}V<E_0\text{，曲线下凸即开口向下）}\\>0,&|x|>x_t\ \text{（经典禁戒区，}V>E_0\text{，曲线上凸即开口向上）}\end{cases}
+			\psi_0''\begin{cases}<0,&|x|<x_t\ \text{（经典允许区，}V<E_0\text{，曲线开口向下）}\\>0,&|x|>x_t\ \text{（经典禁戒区，}V>E_0\text{，曲线开口向上）}\end{cases}
 		\end{align*}
 		即允许区内 $\psi_0''<0$，曲线呈峰形向下弯曲；禁戒区内 $\psi_0''>0$，曲线向上翘起并指数衰减趋于零。
 

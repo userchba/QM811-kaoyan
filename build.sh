@@ -10,7 +10,7 @@
 #   ./build.sh answers    只构建含答案版
 #   ./build.sh noanswer   只构建纯试题版
 #
-# 注意：必须使用 xelatex，且需要编译两遍以正确生成目录与交叉引用。
+# 注意：必须使用 xelatex，且需要至少编译三遍以正确生成目录、逐年页数与交叉引用。
 
 set -e
 cd "$(dirname "$0")"
@@ -51,8 +51,8 @@ build() {
     # 通常在第三遍后稳定（新增目录条目导致目录页数变化时尤其如此）。
     local pass=1 prev_toc=""
     while [ "$pass" -le 5 ]; do
-        xelatex -interaction=nonstopmode -jobname="${job}" "$src" > /dev/null
-        if [ -n "$prev_toc" ] && diff -q "$prev_toc" "${job}.toc" > /dev/null 2>&1; then
+        xelatex -no-shell-escape -halt-on-error -file-line-error -interaction=nonstopmode -jobname="${job}" "$src" > /dev/null
+        if [ "$pass" -ge 3 ] && [ -n "$prev_toc" ] && diff -q "$prev_toc" "${job}.toc" > /dev/null 2>&1; then
             echo "    （第 ${pass} 遍后目录收敛）"
             break
         fi

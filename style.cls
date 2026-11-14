@@ -15,7 +15,7 @@ openright,zihao=5]{ctexbook}
 \RequirePackage{xcolor}%定义了一些颜色
 
 %超链接
-\RequirePackage[draft=false,colorlinks=true,CJKbookmarks=true,linkcolor=black,citecolor=green,urlcolor=red,hyperindex]{hyperref}
+\RequirePackage[draft=false,colorlinks=true,CJKbookmarks=true,linkcolor=black,citecolor=green,urlcolor=red,hyperindex,hypertexnames=false]{hyperref}
 
 \RequirePackage{enumerate} %列项序号编号
 \RequirePackage{amssymb} %数学公式符号
@@ -41,7 +41,7 @@ openright,zihao=5]{ctexbook}
 
 
 % 显示带圈数字符号
-\xeCJKsetcharclass{`①}{`⑩}{1}
+\xeCJKDeclareCharClass{CJK}{"2460 -> "2469}
 
 
 \newif\ifanswer %答案显示
@@ -164,7 +164,7 @@ openright,zihao=5]{ctexbook}
 % 每卷的末页页码（卷内相对页码）
 % \bta 会在每卷开头把 page 计数器重置为 1，故卷内最大页码即该卷总页数。
 \newcommand{\volendmark}[1]{%
-    \protected@write\@auxout{}{\string\volend{#1}{\volcurpage}}%
+    \immediate\write\@mainaux{\string\volend{#1}{\volcurpage}}%
 }
 % 结算上一卷：在 \bta 开头调用，把上一卷的总页数写入 .aux
 \newcommand{\closeprevvol}{%

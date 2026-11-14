@@ -181,7 +181,7 @@ $\left|\phi_{1}\right\rangle=\frac{\left|u_{1}\right\rangle+\left|u_{2}\right\ra
 	\item
 	若两粒子为自旋 $\frac{1}{2}$ 的全同粒子，求基态与第一激发态的能级简并度以及相应的波函数;
 	\item
-	若两粒子为自旋 $\frac{1}{2}$ 的全同粒子，求基态与第一激发态的能级简并度以及相应的波函数。
+	若两粒子为自旋 $0$ 的全同玻色子，求基态与第一激发态的能级简并度以及相应的波函数。
 	
 	
 	
@@ -224,13 +224,24 @@ $\left|\phi_{1}\right\rangle=\frac{\left|u_{1}\right\rangle+\left|u_{2}\right\ra
 		\]
 		所以第一激发态简并度为 $4$。
 
-		\item 源文件的第 (3) 问与第 (2) 问逐字重复；按字面其答案完全相同。若原题本意是询问两个自旋为零的全同玻色子，则基态仍为
-		$\phi_1(x_1)\phi_1(x_2)$、简并度 $1$；第一激发态为
-		\[
-			\frac{\phi_1(x_1)\phi_2(x_2)+\phi_2(x_1)\phi_1(x_2)}{\sqrt2},
-		\]
-		能量 $5\varepsilon_1$、简并度 $1$。
-	\end{enumerate}
+		\item 对两个自旋为 $0$ 的全同玻色子，没有额外的自旋简并，空间波函数必须对称。
+基态为两个粒子均占据单粒子基态：
+\[
+\boxed{\Psi_{\rm g}^{\rm B}(x_1,x_2)=\phi_1(x_1)\phi_1(x_2)},
+\qquad E_{\rm g}=2\varepsilon_1,\qquad \boxed{g_{\rm g}=1}.
+\]
+第一激发态为一个粒子占据 $n=1$、另一个占据 $n=2$ 的对称组合：
+\[
+\boxed{\Psi_{\rm e}^{\rm B}(x_1,x_2)=
+\frac{\phi_1(x_1)\phi_2(x_2)+\phi_2(x_1)\phi_1(x_2)}{\sqrt2}}.
+\]
+由单粒子态的正交归一性，上式已归一化；交换粒子标签不产生新的独立态。
+因此
+\[
+E_{\rm e}=\varepsilon_1+\varepsilon_2=5\varepsilon_1,
+\qquad \boxed{g_{\rm e}=1}.
+\]
+\end{enumerate}
 }
 
 

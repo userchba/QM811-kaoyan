@@ -175,7 +175,7 @@
 	\item
 	求定态波函数和能级。
 	\item 
-	若引入微扰 $H^{\prime}=-V_{0} \exp \left(-\frac{x^{2}}{a^{2}}\right) $，其中$0<x<L$，$ a<<L$， 求能级的一级修正。
+	若引入微扰 $H^{\prime}(x)=-V_{0}\exp(-x^{2}/a^{2})$，在基本区间 $0<x<L$ 按此单边函数定义，$a\ll L$，求能级的一级修正。
 	
 	
 \end{enumerate}
@@ -195,50 +195,54 @@
 			\]
 			$n=0$ 非简并，$n\neq0$ 的 $|n\rangle$ 与 $|-n\rangle$ 二重简并。
 
-			\item 题面把圆环坐标写成 $0<x<L$，而高斯峰又放在边界点 $x=0$，因此是否把高斯势按圆环周期延拓会产生一个二倍因子的歧义。先严格按题面所写的单边函数计算。令
-			\[
-				\alpha=-\frac{V_0}{L}\int_0^L e^{-x^2/a^2}\,dx
-				\simeq-\frac{V_0a\sqrt\pi}{2L}.
-			\]
-			基态的一级修正就是 $E_0^{(1)}=\alpha$。对 $n\neq0$，须在
-			$\{|n\rangle,|-n\rangle\}$ 中使用简并微扰论：
-			\[
-				W_n=\begin{pmatrix}\alpha&\beta_n\\\beta_n^*&\alpha\end{pmatrix},
-				\qquad
-				\beta_n=-\frac{V_0}{L}\int_0^L
-				e^{-x^2/a^2}e^{-i4\pi nx/L}\,dx.
-			\]
-			在 $a\ll L$ 时可把上限延到 $+\infty$。记 $u=2\pi na/L$，则
-			\[
-				\beta_n\simeq-\frac{V_0a\sqrt\pi}{2L}
-				e^{-u^2}\bigl[1-i\operatorname{erfi}(u)\bigr],
-			\]
-			所以两条分裂能级的一级修正为
-			\[
-				\boxed{E_{n,\pm}^{(1)}=\alpha\pm|\beta_n|}.
-			\]
-			若还取固定 $n$ 下的最低阶 $a/L\to0$，则 $\beta_n\simeq\alpha$，两条修正趋于
-			$2\alpha=-V_0a\sqrt\pi/L$ 与 $0$；相应归一化组合趋于
-			\[
-				\sqrt{\frac{2}{L}}\cos\!\left(\frac{2\pi nx}{L}\right),
-				\qquad
-				\sqrt{\frac{2}{L}}\sin\!\left(\frac{2\pi nx}{L}\right).
-			\]
-
-			若命题本意是以圆环上的点 $x=0$ 为中心、按最短弧长定义的周期高斯势，则峰的两侧都应计入。此时应改用
-			\[
-				\alpha_{\rm per}=-\frac{V_0a\sqrt\pi}{L},
-				\qquad
-				\beta_{n,{\rm per}}=\alpha_{\rm per}e^{-(2\pi na/L)^2},
-			\]
-			并得到
-			\[
-				E_{n,\cos}^{(1)}=\alpha_{\rm per}
-				\bigl[1+e^{-(2\pi na/L)^2}\bigr],\qquad
-				E_{n,\sin}^{(1)}=\alpha_{\rm per}
-				\bigl[1-e^{-(2\pi na/L)^2}\bigr].
-			\]
-		\end{enumerate}
+			\item 按题设的单边定义，微扰矩阵元只在 $0<x<L$ 积分，不补入关于 $x=0$ 对称的另一半高斯峰。令
+\[
+\alpha=-\frac{V_0}{L}\int_0^L e^{-x^2/a^2}\,dx
+=-\frac{V_0a\sqrt\pi}{2L}\operatorname{erf}(L/a)
+\simeq-\frac{V_0a\sqrt\pi}{2L}.
+\]
+基态非简并，故
+\[
+\boxed{E_0^{(1)}=\alpha\simeq-\frac{V_0a\sqrt\pi}{2L}}.
+\]
+对 $n=1,2,\ldots$，在简并子空间 $\{|n\rangle,|-n\rangle\}$ 中，
+\[
+W_n=\begin{pmatrix}\alpha&\beta_n\\\beta_n^*&\alpha\end{pmatrix},
+\qquad
+\beta_n=-\frac{V_0}{L}\int_0^L e^{-x^2/a^2}e^{-i4\pi nx/L}\,dx.
+\]
+由 $\det(W_n-\lambda I)=(\alpha-\lambda)^2-|\beta_n|^2=0$，得到
+\[
+\boxed{E_{n,\pm}^{(1)}=\alpha\pm|\beta_n|},
+\qquad
+E_{n,\pm}\simeq E_n^{(0)}+E_{n,\pm}^{(1)}.
+\]
+这是一阶微扰论在有限 $L$ 下的积分表达式。利用 $a\ll L$ 将积分上限延到 $+\infty$，记
+$u=2\pi na/L$、$C=V_0a\sqrt\pi/(2L)$，则
+\[
+\beta_n\simeq-Ce^{-u^2}\bigl[1-i\operatorname{erfi}(u)\bigr],
+\qquad
+\operatorname{erfi}(u)=\frac{2}{\sqrt\pi}\int_0^u e^{s^2}\,ds.
+\]
+因而
+\[
+\boxed{E_{n,\pm}^{(1)}\simeq-C
+\pm |C|e^{-u^2}\sqrt{1+\operatorname{erfi}^2(u)}}.
+\]
+单边积分一般为复数，不能只取 $\beta_n$ 的实部。若进一步固定 $n$ 并取
+$a/L\to0$（即 $u\ll1$），才可用 $\beta_n\simeq\alpha$，得到最低阶结果
+\[
+\boxed{E_{n,\cos}^{(1)}\simeq-\frac{V_0a\sqrt\pi}{L}},
+\qquad \boxed{E_{n,\sin}^{(1)}\simeq0},
+\]
+相应零级态趋于
+\[
+\sqrt{\frac2L}\cos\!\left(\frac{2\pi nx}{L}\right),
+\qquad
+\sqrt{\frac2L}\sin\!\left(\frac{2\pi nx}{L}\right).
+\]
+其中 $0$ 仅表示对 $a/L$ 保留最低阶时为零，并非有限 $a$ 下严格为零；上述简化也不能直接用于 $na/L$ 不小的高能级。
+\end{enumerate}
 }
 
 

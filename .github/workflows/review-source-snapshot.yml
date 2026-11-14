@@ -1,0 +1,30 @@
+name: Review source snapshot
+
+on:
+  push:
+    branches: [master]
+    paths: ['.github/workflows/review-source-snapshot.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Export tracked sources for the requested proofreading
+        run: |
+          git archive --format=tar.gz --output=review-source.tar.gz HEAD
+          git rev-parse HEAD > SOURCE_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: review-source-snapshot
+          path: |
+            review-source.tar.gz
+            SOURCE_COMMIT.txt
+          retention-days: 3
+          if-no-files-found: error
